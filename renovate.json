@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    "config:js-app"
+  ],
+
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": "backstage\\.json$",
+      "matchStrings": [
+        "\"version\":\\s*\"(?<currentValue>[^\"]+)"
+      ],
+      "depNameTemplate": "backstage/backstage",
+      "datasourceTemplate": "github-release",
+      "versioningTemplate": "semver-coerced"
+    }
+  ]
+}
