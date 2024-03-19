@@ -109,3 +109,11 @@ catalog:
         schedule:
           frequency: { minutes: 30 }
           timeout: { minutes: 3 }
+
+renovate:
+  callBacks:
+    allowedHosts:
+      - localhost
+  config:
+    test: test
+    
