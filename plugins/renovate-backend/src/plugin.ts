@@ -17,11 +17,13 @@ export const renovatePlugin = createBackendPlugin({
         rootConfig: coreServices.rootConfig,
         logger: coreServices.logger,
         httpRouter: coreServices.httpRouter,
+        database: coreServices.database
       },
-      async init({httpRouter, logger, rootConfig}) {
+      async init({database,httpRouter, logger, rootConfig}) {
         httpRouter.use(await createRouter({
           logger,
           rootConfig,
+          database
         }))
       },
     });

@@ -67,6 +67,7 @@ export async function renovateRepository(
             for (const logLine of logLines) {
                 const log = JSON.parse(logLine)
                 if (log.report) {
+                    // TODO use schema and reject if report does not fit expectation
                     const report = log.report as Report
                     // do not forward the report to logging
                     resolve(report)
@@ -79,7 +80,23 @@ export async function renovateRepository(
             }
         })
     });
+
+    const databaseClient = await ctx.database.getClient()
+    promise.then(async (value) => {
+        databaseClient.insert({
+            time: Date.now(),
+            runID: ctx.runID,
+            // TODO replace with dynamic values
+            host: "github.com",
+            repository: "secustor/renovate-meetup",
+            report: value
+        }).into('reports')
+
+    })
+
+    return promise
 }
+
 /*
     Returns record of Renovate environment variables specific for the platform of targetUrl
  */
