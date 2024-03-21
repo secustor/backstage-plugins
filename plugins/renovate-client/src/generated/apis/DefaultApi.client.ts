@@ -9,8 +9,8 @@ import crossFetch from 'cross-fetch';
 import { pluginId } from '../pluginId';
 import * as parser from 'uri-template';
 
-import { RunPost202Response } from '../models/RunPost202Response.model';
-import { RunPostRequest } from '../models/RunPostRequest.model';
+import { RunsPost202Response } from '../models/RunsPost202Response.model';
+import { RunsPostRequest } from '../models/RunsPostRequest.model';
 
 /**
  * Wraps the Response type to convey a type on the json call.
@@ -93,18 +93,18 @@ export class DefaultApiClient {
 
   /**
    * Schedule a Renovate run for a specific repository or entity
-   * @param runPostRequest
+   * @param runsPostRequest
    */
-  public async runPost(
+  public async runsPost(
     // @ts-ignore
     request: {
-      body: RunPostRequest;
+      body: RunsPostRequest;
     },
     options?: RequestOptions,
-  ): Promise<TypedResponse<RunPost202Response>> {
+  ): Promise<TypedResponse<RunsPost202Response>> {
     const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
 
-    const uriTemplate = `/run`;
+    const uriTemplate = `/runs`;
 
     const uri = parser.parse(uriTemplate).expand({});
 

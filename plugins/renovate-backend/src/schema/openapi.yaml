@@ -28,7 +28,7 @@ paths:
                 items:
                   type: object
 
-  /run:
+  /runs:
     post:
       summary: Schedule a Renovate run for a specific repository or entity
       requestBody:

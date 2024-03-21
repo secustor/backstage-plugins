@@ -50,7 +50,7 @@ export const spec = {
         },
       },
     },
-    '/run': {
+    '/runs': {
       post: {
         summary: 'Schedule a Renovate run for a specific repository or entity',
         requestBody: {
