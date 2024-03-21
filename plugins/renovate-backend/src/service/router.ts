@@ -1,6 +1,6 @@
 import { errorHandler } from '@backstage/backend-common';
 import express from 'express';
-import Router from 'express-promise-router';
+import { createOpenApiRouter } from '../schema/openapi.generated';
 import { renovateRepository } from '../wrapper';
 import { runRequestBody } from './schema';
 import fetch from 'node-fetch';
@@ -13,12 +13,12 @@ export async function createRouter(
 ): Promise<express.Router> {
   const { logger } = options;
 
-  const router = Router();
+  const router = await createOpenApiRouter();
   router.use(express.json());
 
   router.get('/health', (_, response) => {
     logger.debug('healthcheck request');
-    response.json({ status: 'ok' });
+    response.json('ok');
   });
 
   router.post('/run', async (request, response) => {

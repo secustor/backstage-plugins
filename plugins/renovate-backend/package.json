@@ -16,6 +16,8 @@
   "scripts": {
     "start": "backstage-cli package start",
     "build": "backstage-cli package build",
+    "generate-openapi-server": "backstage-repo-tools package schema openapi generate --server",
+    "generate-openapi-client": "backstage-repo-tools package schema openapi generate --client-package plugins/renovate-client",
     "lint": "backstage-cli package lint",
     "test": "backstage-cli package test",
     "clean": "backstage-cli package clean",
@@ -24,6 +26,7 @@
   },
   "dependencies": {
     "@backstage/backend-common": "^0.20.1",
+    "@backstage/backend-openapi-utils": "^0.1.7",
     "@backstage/backend-plugin-api": "^0.6.13",
     "@backstage/catalog-model": "^1.4.4",
     "@backstage/config": "^1.1.1",
@@ -44,7 +47,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@backstage/backend-test-utils": "^0.3.4",
     "@backstage/cli": "^0.25.1",
+    "@backstage/repo-tools": "^0.7.0",
     "@types/find-up": "^4.0.0",
     "@types/git-url-parse": "^9.0.3",
     "@types/supertest": "^2.0.12",
