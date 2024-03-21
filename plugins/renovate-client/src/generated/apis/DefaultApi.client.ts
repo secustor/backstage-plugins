@@ -69,6 +69,29 @@ export class DefaultApiClient {
   }
 
   /**
+   * Get reports for repositories
+   */
+  public async reportsGet(
+    // @ts-ignore
+    request: {},
+    options?: RequestOptions,
+  ): Promise<TypedResponse<Array<any>>> {
+    const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
+
+    const uriTemplate = `/reports`;
+
+    const uri = parser.parse(uriTemplate).expand({});
+
+    return await this.fetchApi.fetch(`${baseUrl}${uri}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
+      },
+      method: 'GET',
+    });
+  }
+
+  /**
    * Schedule a Renovate run for a specific repository or entity
    * @param runPostRequest
    */

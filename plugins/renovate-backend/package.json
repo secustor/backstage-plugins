@@ -16,6 +16,7 @@
   "scripts": {
     "start": "backstage-cli package start",
     "build": "backstage-cli package build",
+    "generate": "yarn generate-openapi-server && yarn generate-openapi-client",
     "generate-openapi-server": "backstage-repo-tools package schema openapi generate --server",
     "generate-openapi-client": "backstage-repo-tools package schema openapi generate --client-package plugins/renovate-client",
     "lint": "backstage-cli package lint",
@@ -39,6 +40,7 @@
     "express-promise-router": "^4.1.0",
     "find-up": "v5",
     "git-url-parse": "^14.0.0",
+    "knex": "^3.1.0",
     "nanoid": "^5.0.6",
     "node-fetch": "^2.6.7",
     "renovate": "^37.251.0",

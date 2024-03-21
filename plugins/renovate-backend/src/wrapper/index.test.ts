@@ -2,11 +2,11 @@ import { renovateRepository } from './index';
 import { MockConfigApi } from '@backstage/test-utils';
 import { getVoidLogger } from '@backstage/backend-common';
 import { ANNOTATION_SOURCE_LOCATION } from '@backstage/catalog-model';
-import { Context } from '../types';
-import {mockServices} from "@backstage/backend-test-utils";
+import { mockServices } from '@backstage/backend-test-utils';
+import { Context } from '../service/types';
 
 describe('test run', () => {
-  const databaseMock = mockServices.database.mock()
+  const databaseMock = mockServices.database.mock();
 
   it('should run successfully', async () => {
     const ctx: Context = {

@@ -8,7 +8,8 @@ import { createValidatedOpenApiRouter } from '@backstage/backend-openapi-utils';
 export const spec = {
   openapi: '3.0.0',
   info: {
-    title: 'Backstage Renovate API',
+    title: 'renovate',
+    description: 'Backstage Renovate API',
     version: '0.1.0',
   },
   paths: {
@@ -22,6 +23,26 @@ export const spec = {
               'application/json': {
                 schema: {
                   type: 'string',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    '/reports': {
+      get: {
+        summary: 'Get reports for repositories',
+        responses: {
+          '200': {
+            description: 'Returns reports',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                  },
                 },
               },
             },
@@ -62,6 +83,7 @@ export const spec = {
                     runID: {
                       description: 'unique ID for the run',
                       type: 'string',
+                      example: '9-d_CO9JlaEmd-OM9QfkI',
                     },
                   },
                 },
@@ -93,9 +115,14 @@ export const spec = {
         anyOf: [
           {
             type: 'object',
+            example: {
+              message: "I'm an error",
+              code: 1111,
+            },
           },
           {
             type: 'string',
+            example: "I'm an error",
           },
         ],
       },

@@ -6,7 +6,7 @@ export const entityWithAnnotations = z.object({
   }),
 });
 
-export type EntityWithAnnotations = z.infer<typeof entityWithAnnotations>
+export type EntityWithAnnotations = z.infer<typeof entityWithAnnotations>;
 
 export const runRequestBody = z.object({
   target: z.union([z.string(), entityWithAnnotations]),

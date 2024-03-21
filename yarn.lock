@@ -11206,6 +11206,7 @@ __metadata:
     express-promise-router: "npm:^4.1.0"
     find-up: "npm:v5"
     git-url-parse: "npm:^14.0.0"
+    knex: "npm:^3.1.0"
     msw: "npm:^1.0.0"
     nanoid: "npm:^5.0.6"
     node-fetch: "npm:^2.6.7"
@@ -25635,7 +25636,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knex@npm:3, knex@npm:^3.0.0":
+"knex@npm:3, knex@npm:^3.0.0, knex@npm:^3.1.0":
   version: 3.1.0
   resolution: "knex@npm:3.1.0"
   dependencies:

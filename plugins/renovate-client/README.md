@@ -1,3 +1,3 @@
 # @secustor/plugin-renovate-client
 
-Client for the Renovate API 
+Client for the Renovate API
