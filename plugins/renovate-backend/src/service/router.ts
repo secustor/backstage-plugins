@@ -30,7 +30,7 @@ export async function createRouter(
     response.status(200).json(reports);
   });
 
-  router.post('/run', async (request, response) => {
+  router.post('/runs', async (request, response) => {
     const body = runRequestBody.safeParse(request.body);
     if (!body.success) {
       response.status(400).json({ error: body.error });
