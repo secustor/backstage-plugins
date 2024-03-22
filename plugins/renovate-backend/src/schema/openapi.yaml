@@ -3,6 +3,9 @@ info:
   title: renovate
   description: Backstage Renovate API
   version: 0.1.0
+servers:
+  - description: local test setup
+    url: http://localhost:7007
 
 paths:
   /health:
