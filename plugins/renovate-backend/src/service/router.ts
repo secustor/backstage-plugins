@@ -59,11 +59,16 @@ export async function createRouter(
     if (parsedUrl) {
       // if allowedHosts are defined, check if callBackUrl is in the list
       const allowedHosts = options.rootConfig.getOptionalStringArray(
-        'callBacks.allowedHosts',
+        'renovate.callBacks.allowedHosts',
       );
-      if (allowedHosts && !allowedHosts.includes(parsedUrl.host)) {
+      if (
+          // by default, allow only localhost
+        (!allowedHosts && parsedUrl.host !== 'localhost') ||
+          // else check if host is in the allowed list
+        (allowedHosts && !allowedHosts.includes(parsedUrl.host))
+      ) {
         response.status(400).json({
-          error: `callBackUrl '${parsedUrl.host}' is not in allowedHosts list`,
+          error: `callBackUrl '${parsedUrl.host}' is not allowed`,
         });
         return;
       }
