@@ -1,8 +1,12 @@
 import { resolvePackagePath } from '@backstage/backend-common';
 import { Knex } from 'knex';
-import { Context, RouterOptions } from './types';
-import { RenovateReport } from '../schema/renovate';
-import { ReportsRow } from './types';
+import {
+  Context,
+  ReportQueryParameters,
+  ReportsRow,
+  RouterOptions,
+} from './types';
+import { RenovateReport, RepositoryReport } from '../schema/renovate';
 import { TargetRepo } from '../wrapper/types';
 
 const migrationsDir = resolvePackagePath(
@@ -45,10 +49,15 @@ export class DatabaseHandler {
         report: value,
       });
     }
-    this.client.batchInsert('reports', inserts);
+    this.client.batchInsert<ReportsRow>('reports', inserts);
   }
 
-  async getReports(_ctx: RouterOptions): Promise<ReportsRow[]> {
-    return this.client.select().from('reports');
+  async getReports(query?: ReportQueryParameters): Promise<RepositoryReport[]> {
+    const builder = this.client.select<ReportsRow[]>();
+    if (query) {
+      builder.where(query);
+    }
+    const rows = await builder.from('reports');
+    return rows.map(row => row.report);
   }
 }

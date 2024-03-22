@@ -9,6 +9,8 @@ import crossFetch from 'cross-fetch';
 import { pluginId } from '../pluginId';
 import * as parser from 'uri-template';
 
+import { ReportsGetRequest } from '../models/ReportsGetRequest.model';
+import { RepositoryReport } from '../models/RepositoryReport.model';
 import { RunsPost202Response } from '../models/RunsPost202Response.model';
 import { RunsPostRequest } from '../models/RunsPostRequest.model';
 
@@ -70,12 +72,15 @@ export class DefaultApiClient {
 
   /**
    * Get reports for repositories
+   * @param reportsGetRequest
    */
   public async reportsGet(
     // @ts-ignore
-    request: {},
+    request: {
+      body: ReportsGetRequest;
+    },
     options?: RequestOptions,
-  ): Promise<TypedResponse<Array<any>>> {
+  ): Promise<TypedResponse<Array<RepositoryReport>>> {
     const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
 
     const uriTemplate = `/reports`;
@@ -88,11 +93,12 @@ export class DefaultApiClient {
         ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
       },
       method: 'GET',
+      body: JSON.stringify(request.body),
     });
   }
 
   /**
-   * Schedule a Renovate run for a specific repository or entity
+   * Start or get Renovate runs
    * @param runsPostRequest
    */
   public async runsPost(

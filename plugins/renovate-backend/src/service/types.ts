@@ -20,3 +20,8 @@ export interface Context extends RouterOptions {
   runtime?: 'direct';
   runID: string;
 }
+
+export interface ReportQueryParameters {
+  host: string;
+  repository: string;
+}

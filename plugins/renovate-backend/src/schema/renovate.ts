@@ -4,8 +4,8 @@ export const problem = z.object({});
 
 export const RepositoryReport = z.object({
   problems: z.array(problem),
-  branches: z.any(),
-  packageFiles: z.any(),
+  branches: z.array(z.any()),
+  packageFiles: z.record(z.string(), z.any()),
 });
 
 export type RepositoryReport = z.infer<typeof RepositoryReport>;

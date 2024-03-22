@@ -7,7 +7,7 @@ import fetch from 'node-fetch';
 import { nanoid } from 'nanoid';
 import type { RouterOptions } from './types';
 import { DatabaseHandler } from './databaseHandler';
-import { getTargetURL, parseUrl } from './utils';
+import { getTargetRepo, parseUrl } from './utils';
 import { TargetRepo } from '../wrapper/types';
 
 export async function createRouter(
@@ -25,8 +25,12 @@ export async function createRouter(
     response.json('ok');
   });
 
-  router.get('/reports', async (_request, response) => {
-    const reports = await dbHandler.getReports(options);
+  router.get('/reports', async (request, response) => {
+    let target: TargetRepo | undefined;
+    if (request.body?.target) {
+      target = getTargetRepo(request.body.target);
+    }
+    const reports = await dbHandler.getReports(target);
     response.status(200).json(reports);
   });
 
@@ -45,11 +49,7 @@ export async function createRouter(
     };
 
     // trigger Renovate run
-    const targetUrl = getTargetURL(data.target);
-    const targetRepo: TargetRepo = {
-      host: targetUrl.resource,
-      repository: targetUrl.full_name,
-    };
+    const targetRepo = getTargetRepo(data.target);
     const promise = renovateRepository(targetRepo, ctx);
 
     promise.then(async report => dbHandler.addReport(report, targetRepo, ctx));

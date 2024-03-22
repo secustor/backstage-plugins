@@ -2,6 +2,7 @@ import GitUrlParse, { GitUrl } from 'git-url-parse';
 import is from '@sindresorhus/is';
 import { ANNOTATION_SOURCE_LOCATION } from '@backstage/catalog-model';
 import { EntityWithAnnotations } from './schema';
+import { TargetRepo } from '../wrapper/types';
 
 export function parseUrl(url: string | undefined | null): URL | null {
   if (!url) {
@@ -42,4 +43,14 @@ export function getTargetURL(
     );
   }
   return targetUrl;
+}
+
+export function getTargetRepo(
+  target: string | EntityWithAnnotations | null | undefined,
+): TargetRepo {
+  const url = getTargetURL(target);
+  return {
+    host: url.resource,
+    repository: url.full_name,
+  };
 }

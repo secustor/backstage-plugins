@@ -8,7 +8,9 @@ export const entityWithAnnotations = z.object({
 
 export type EntityWithAnnotations = z.infer<typeof entityWithAnnotations>;
 
+export const target = z.union([z.string(), entityWithAnnotations]);
+
 export const runRequestBody = z.object({
-  target: z.union([z.string(), entityWithAnnotations]),
+  target,
   callBackURL: z.string().url().optional(),
 });

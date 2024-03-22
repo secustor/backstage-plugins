@@ -21,19 +21,26 @@ paths:
   /reports:
     get:
       summary: Get reports for repositories
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                target:
+                  $ref: '#/components/schemas/target'
       responses:
         200:
           description: Returns reports
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
+                $ref: '#/components/schemas/repositoryReportList'
 
   /runs:
     post:
-      summary: Schedule a Renovate run for a specific repository or entity
+      summary: Start or get Renovate runs
       requestBody:
         content:
           application/json:
@@ -87,15 +94,43 @@ components:
           example: https://github.com/secustor/renovate-test
         - type: object
           description: Entity with SourceLocation URL annotation
+          required:
+            - metadata
           properties:
             metadata:
               type: object
+              required:
+                - annotations
               properties:
                 annotations:
                   type: object
+                  additionalProperties: false
                   required:
                     - 'backstage.io/source-location'
                   properties:
                     backstage.io/source-location:
                       type: string
                       example: https://github.com/secustor/renovate-meetup/blob/master/renovate.json
+    repositoryReportList:
+      type: array
+      items:
+        $ref: '#/components/schemas/repositoryReport'
+    repositoryReport:
+      description: report for a specific repository
+      type: object
+      additionalProperties: false
+      required:
+        - branches
+        - packageFiles
+        - problems
+      properties:
+        branches:
+          type: array
+          items:
+            type: object
+        packageFiles:
+          type: object
+        problems:
+          type: array
+          items:
+            type: object

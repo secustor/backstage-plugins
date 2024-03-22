@@ -6,5 +6,5 @@
 import { TargetAnyOfMetadataAnnotations } from '../models/TargetAnyOfMetadataAnnotations.model';
 
 export interface TargetAnyOfMetadata {
-  annotations?: TargetAnyOfMetadataAnnotations;
+  annotations: TargetAnyOfMetadataAnnotations;
 }

@@ -12,6 +12,12 @@ export const spec = {
     description: 'Backstage Renovate API',
     version: '0.1.0',
   },
+  servers: [
+    {
+      description: 'local test setup',
+      url: 'http://localhost:7007',
+    },
+  ],
   paths: {
     '/health': {
       get: {
@@ -33,16 +39,28 @@ export const spec = {
     '/reports': {
       get: {
         summary: 'Get reports for repositories',
+        requestBody: {
+          required: false,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  target: {
+                    $ref: '#/components/schemas/target',
+                  },
+                },
+              },
+            },
+          },
+        },
         responses: {
           '200': {
             description: 'Returns reports',
             content: {
               'application/json': {
                 schema: {
-                  type: 'array',
-                  items: {
-                    type: 'object',
-                  },
+                  $ref: '#/components/schemas/repositoryReportList',
                 },
               },
             },
@@ -52,7 +70,7 @@ export const spec = {
     },
     '/runs': {
       post: {
-        summary: 'Schedule a Renovate run for a specific repository or entity',
+        summary: 'Start or get Renovate runs',
         requestBody: {
           content: {
             'application/json': {
@@ -136,12 +154,15 @@ export const spec = {
           {
             type: 'object',
             description: 'Entity with SourceLocation URL annotation',
+            required: ['metadata'],
             properties: {
               metadata: {
                 type: 'object',
+                required: ['annotations'],
                 properties: {
                   annotations: {
                     type: 'object',
+                    additionalProperties: false,
                     required: ['backstage.io/source-location'],
                     properties: {
                       'backstage.io/source-location': {
@@ -156,6 +177,35 @@ export const spec = {
             },
           },
         ],
+      },
+      repositoryReportList: {
+        type: 'array',
+        items: {
+          $ref: '#/components/schemas/repositoryReport',
+        },
+      },
+      repositoryReport: {
+        description: 'report for a specific repository',
+        type: 'object',
+        additionalProperties: false,
+        required: ['branches', 'packageFiles', 'problems'],
+        properties: {
+          branches: {
+            type: 'array',
+            items: {
+              type: 'object',
+            },
+          },
+          packageFiles: {
+            type: 'object',
+          },
+          problems: {
+            type: 'array',
+            items: {
+              type: 'object',
+            },
+          },
+        },
       },
     },
   },
