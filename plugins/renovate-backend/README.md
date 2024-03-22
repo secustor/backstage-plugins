@@ -1,14 +1,34 @@
 # renovate
 
-Welcome to the renovate backend plugin!
+This plugin allows running [Renovate](https://github.com/renovatebot/renovate/) against repositories
+and extract reports from it.
 
-_This plugin was created through the Backstage CLI_
+Supported platforms:
+
+- Github
+- Gitlab
 
 ## Getting started
 
-Your plugin has been added to the example app in this repository, meaning you'll be able to access it by running `yarn
-start` in the root directory, and then navigating to [/renovate](http://localhost:3000/renovate).
+The configurations are derived from integrations.
 
-You can also serve the plugin in isolation by running `yarn start` in the plugin directory.
-This method of serving the plugin provides quicker iteration speed and a faster startup and hot reloads.
-It is only meant for local development, and the setup for it can be found inside the [/dev](/dev) directory.
+```yaml
+integrations:
+  github:
+    - host: github.com
+      token: ${GITHUB_TOKEN}
+
+renovate:
+  # defines a list of allowed hosts to which the report is sent to if a callBackURL is provided with the run request.
+  # If the list is not set, localhost is allowed.
+  # In case you want to forbid all callbacks, set it to an empty array '[]'
+  callBacks:
+    allowedHosts:
+      - my.endpoint.local
+  config:
+    # all global (bot) configuration options are available here,
+    # but be careful if self-hosted options are used as they can interfere with the operations
+    # https://docs.renovatebot.com/self-hosted-configuration/#redisurl
+    redisUrl: redis://[[username]:[password]]@localhost:6379/0
+    redisPrefix: renovate
+```
