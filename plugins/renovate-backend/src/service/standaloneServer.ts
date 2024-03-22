@@ -3,12 +3,14 @@ import { Server } from 'http';
 import { Logger } from 'winston';
 import { createRouter } from './router';
 import { Config } from '@backstage/config';
+import { DatabaseService } from '@backstage/backend-plugin-api';
 
 export interface ServerOptions {
   port: number;
   enableCors: boolean;
   logger: Logger;
   config: Config;
+  database: DatabaseService;
 }
 
 export async function startStandaloneServer(
@@ -17,6 +19,7 @@ export async function startStandaloneServer(
   const logger = options.logger.child({ service: 'renovate-backend' });
   logger.debug('Starting application server...');
   const router = await createRouter({
+    database: options.database,
     logger,
     rootConfig: options.config,
   });

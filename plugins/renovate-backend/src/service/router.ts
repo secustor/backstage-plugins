@@ -62,9 +62,9 @@ export async function createRouter(
         'renovate.callBacks.allowedHosts',
       );
       if (
-          // by default, allow only localhost
+        // by default, allow only localhost
         (!allowedHosts && parsedUrl.host !== 'localhost') ||
-          // else check if host is in the allowed list
+        // else check if host is in the allowed list
         (allowedHosts && !allowedHosts.includes(parsedUrl.host))
       ) {
         response.status(400).json({

@@ -1,7 +1,6 @@
 import { renovateRepository } from './index';
 import { MockConfigApi } from '@backstage/test-utils';
 import { getVoidLogger } from '@backstage/backend-common';
-import { ANNOTATION_SOURCE_LOCATION } from '@backstage/catalog-model';
 import { mockServices } from '@backstage/backend-test-utils';
 import { Context } from '../service/types';
 
@@ -15,7 +14,13 @@ describe('test run', () => {
       logger: getVoidLogger(),
       runID: 'aaaaaaaaa',
     };
-    const test = await renovateRepository('', ctx);
+    const test = await renovateRepository(
+      {
+        host: 'github.com',
+        repository: 'org/repo',
+      },
+      ctx,
+    );
     expect(test).not.toBeNull();
   });
 
@@ -26,13 +31,14 @@ describe('test run', () => {
       logger: getVoidLogger(),
       runID: 'aaaaaaaaa',
     };
-    const entity = {
-      metadata: {
-        annotations: {
-          [ANNOTATION_SOURCE_LOCATION]: '',
+    expect(
+      renovateRepository(
+        {
+          host: 'github.com',
+          repository: 'org/repo',
         },
-      },
-    };
-    expect(renovateRepository(entity, ctx)).not.toBeNull();
+        ctx,
+      ),
+    ).not.toBeNull();
   });
 });

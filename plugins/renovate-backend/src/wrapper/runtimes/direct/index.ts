@@ -1,6 +1,6 @@
 import type { RenovateRunOptions, RenovateWrapper } from '../types';
 import fs from 'fs/promises';
-import { ChildProcess, execFile, exec, fork } from 'node:child_process';
+import { ChildProcess, fork } from 'node:child_process';
 import os from 'os';
 import findUp from 'find-up';
 
