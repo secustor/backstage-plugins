@@ -64,8 +64,5 @@
     "*.{json,md}": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "git-url-parse": "^14.0.0"
   }
 }

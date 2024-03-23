@@ -2,17 +2,17 @@ import { z } from 'zod';
 
 export const problem = z.object({});
 
-export const RepositoryReport = z.object({
+export const repositoryReport = z.object({
   problems: z.array(problem),
   branches: z.array(z.any()),
   packageFiles: z.record(z.string(), z.any()),
 });
 
-export type RepositoryReport = z.infer<typeof RepositoryReport>;
+export type RepositoryReport = z.infer<typeof repositoryReport>;
 
-export const RenovateReport = z.object({
+export const renovateReport = z.object({
   problems: z.array(problem),
-  repositories: z.record(z.string(), RepositoryReport),
+  repositories: z.record(z.string(), repositoryReport),
 });
 
-export type RenovateReport = z.infer<typeof RenovateReport>;
+export type RenovateReport = z.infer<typeof renovateReport>;

@@ -111,6 +111,7 @@ catalog:
           timeout: { minutes: 3 }
 
 renovate:
+  runtime: direct
   callBacks:
     allowedHosts:
       - localhost

@@ -1,14 +1,14 @@
 import { ScmIntegrations } from '@backstage/integration';
 import is from '@sindresorhus/is';
 import { TargetRepo } from '../types';
-import { Context } from '../../service/types';
+import { PlatformEnvsOptions } from './types';
 
 /*
     Returns record of Renovate environment variables specific for the platform of targetUrl
  */
 export function getPlatformEnvs(
   target: TargetRepo,
-  context: Context,
+  context: PlatformEnvsOptions,
 ): Record<string, string> {
   const { rootConfig, logger } = context;
 

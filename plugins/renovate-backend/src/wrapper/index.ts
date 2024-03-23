@@ -6,7 +6,6 @@
  */
 
 import is from '@sindresorhus/is';
-import { api } from './runtimes';
 import { type RenovateReport } from '../schema/renovate';
 import { getPlatformEnvs } from './platforms';
 import { TargetRepo } from './types';
@@ -21,9 +20,9 @@ export async function renovateRepository(
   target: TargetRepo,
   ctx: Context,
 ): Promise<RenovateReport> {
-  const { rootConfig, runtime = 'direct' } = ctx;
+  const { localConfig, runtime } = ctx;
 
-  const wrapperRuntime = api.get(runtime);
+  const wrapperRuntime = ctx.runtimes.get(runtime);
   if (is.nullOrUndefined(wrapperRuntime)) {
     throw new Error(`Unknown runtime type '${runtime}'`);
   }
@@ -39,7 +38,7 @@ export async function renovateRepository(
   };
 
   // read out renovate.config and write out to json file for consumption by Renovate
-  const renovateConfig = rootConfig.getOptional('config') ?? {};
+  const renovateConfig = localConfig.getOptional('config') ?? {};
   const runLogger = ctx.logger.child({ runID: ctx.runID });
   const child = await wrapperRuntime.run({
     logger: runLogger,

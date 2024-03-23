@@ -3,8 +3,8 @@ import express from 'express';
 import request from 'supertest';
 import { MockConfigApi } from '@backstage/test-utils';
 import { mockServices } from '@backstage/backend-test-utils';
-
 import { createRouter } from './router';
+import { RenovateWrapper } from '@secustor/plugin-renovate-common';
 
 describe('createRouter', () => {
   let app: express.Express;
@@ -14,6 +14,7 @@ describe('createRouter', () => {
       logger: getVoidLogger(),
       rootConfig: new MockConfigApi({}),
       database: databaseMock,
+      runtimes: new Map<string, RenovateWrapper>(),
     });
     app = express().use(router);
   });

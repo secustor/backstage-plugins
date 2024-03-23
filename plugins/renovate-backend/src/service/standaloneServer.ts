@@ -4,6 +4,7 @@ import { Logger } from 'winston';
 import { createRouter } from './router';
 import { Config } from '@backstage/config';
 import { DatabaseService } from '@backstage/backend-plugin-api';
+import { RenovateWrapper } from '@secustor/plugin-renovate-common';
 
 export interface ServerOptions {
   port: number;
@@ -22,6 +23,7 @@ export async function startStandaloneServer(
     database: options.database,
     logger,
     rootConfig: options.config,
+    runtimes: new Map<string, RenovateWrapper>(),
   });
 
   let service = createServiceBuilder(module)

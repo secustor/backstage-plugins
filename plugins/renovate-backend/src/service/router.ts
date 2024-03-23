@@ -13,7 +13,7 @@ import { TargetRepo } from '../wrapper/types';
 export async function createRouter(
   options: RouterOptions,
 ): Promise<express.Router> {
-  const { logger } = options;
+  const { logger, rootConfig } = options;
 
   const dbHandler = await DatabaseHandler.create(options);
 
@@ -43,9 +43,12 @@ export async function createRouter(
     const data = body.data;
 
     const runID = nanoid();
+    const localConfig = rootConfig.getConfig('renovate');
     const ctx = {
       ...options,
       runID,
+      runtime: localConfig.getString('runtime'),
+      localConfig,
     };
 
     // trigger Renovate run
@@ -58,8 +61,8 @@ export async function createRouter(
     const parsedUrl = parseUrl(data.callBackURL);
     if (parsedUrl) {
       // if allowedHosts are defined, check if callBackUrl is in the list
-      const allowedHosts = options.rootConfig.getOptionalStringArray(
-        'renovate.callBacks.allowedHosts',
+      const allowedHosts = localConfig.getOptionalStringArray(
+        'callBacks.allowedHosts',
       );
       if (
         // by default, allow only localhost

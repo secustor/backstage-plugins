@@ -1,4 +1,7 @@
-import type { RenovateRunOptions, RenovateWrapper } from '../types';
+import type {
+  RenovateRunOptions,
+  RenovateWrapper,
+} from '@secustor/plugin-renovate-common';
 import fs from 'fs/promises';
 import { ChildProcess, fork } from 'node:child_process';
 import os from 'os';
@@ -28,10 +31,10 @@ export class Direct implements RenovateWrapper {
     );
     env.RENOVATE_CONFIG_FILE = configLocation;
 
-    const test = fork(binaryPath, { env, silent: true });
-    test.on('error', err => logger.error('Renovate failed', err));
-    test.on('exit', code => logger.info(`Renovate exited with code ${code}`));
+    const child = fork(binaryPath, { env, silent: true });
+    child.on('error', err => logger.error('Renovate failed', err));
+    child.on('exit', code => logger.info(`Renovate exited with code ${code}`));
 
-    return test;
+    return child;
   }
 }
