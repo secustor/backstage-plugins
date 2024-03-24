@@ -2,12 +2,8 @@ import type {
   RenovateRunOptions,
   RenovateWrapper,
 } from '@secustor/plugin-renovate-common';
-import fs from 'fs/promises';
 import { ChildProcess, fork } from 'node:child_process';
-import os from 'os';
 import findUp from 'find-up';
-
-const configLocation = `${os.tmpdir()}/renovate-config.json`;
 
 export class Direct implements RenovateWrapper {
   async run({
@@ -25,11 +21,7 @@ export class Direct implements RenovateWrapper {
       throw new Error('Could not find Renovate bin in node_modules folder');
     }
 
-    await fs.writeFile(
-      configLocation,
-      JSON.stringify(renovateConfig, null, '  '),
-    );
-    env.RENOVATE_CONFIG_FILE = configLocation;
+    env.RENOVATE_CONFIG = JSON.stringify(renovateConfig);
 
     const child = fork(binaryPath, { env, silent: true });
     child.on('error', err => logger.error('Renovate failed', err));
