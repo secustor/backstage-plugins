@@ -1,5 +1,6 @@
 import {
-  RenovateRunOptions, RenovateRunResult,
+  RenovateRunOptions,
+  RenovateRunResult,
   RenovateWrapper,
 } from '@secustor/plugin-renovate-common';
 import { fork } from 'node:child_process';
@@ -23,6 +24,6 @@ export class Direct implements RenovateWrapper {
     env.RENOVATE_CONFIG = JSON.stringify(renovateConfig);
 
     const child = fork(binaryPath, { env, silent: true });
-    return {stdout: child.stdout!};
+    return { stdout: child.stdout! };
   }
 }

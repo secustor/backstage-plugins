@@ -11435,6 +11435,7 @@ __metadata:
     "@backstage/backend-test-utils": "npm:^0.2.10"
     "@backstage/cli": "npm:^0.25.1"
     "@secustor/plugin-renovate-backend": "workspace:^"
+    "@secustor/plugin-renovate-common": "workspace:^"
     "@types/dockerode": "npm:^3.3.26"
     dockerode: "npm:^4.0.2"
     scramjet: "npm:^4.37.0"

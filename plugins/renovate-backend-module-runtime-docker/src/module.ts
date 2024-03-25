@@ -1,6 +1,4 @@
-import {
-  createBackendModule,
-} from '@backstage/backend-plugin-api';
+import { createBackendModule } from '@backstage/backend-plugin-api';
 import { renovateRuntimeExtensionPoint } from '@secustor/plugin-renovate-backend';
 import { DockerRuntime } from './runtime';
 

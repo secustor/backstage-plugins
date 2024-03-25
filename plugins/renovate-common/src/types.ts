@@ -10,5 +10,5 @@ export interface RenovateRunOptions {
 }
 
 export interface RenovateRunResult {
-  stdout: NodeJS.ReadableStream
+  stdout: NodeJS.ReadableStream;
 }
