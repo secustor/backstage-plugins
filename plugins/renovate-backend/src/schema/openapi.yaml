@@ -18,6 +18,7 @@ paths:
             application/json:
               schema:
                 type: string
+                example: ok
   /reports:
     get:
       summary: Get reports for repositories

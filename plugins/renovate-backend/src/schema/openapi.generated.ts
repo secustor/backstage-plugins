@@ -29,6 +29,7 @@ export const spec = {
               'application/json': {
                 schema: {
                   type: 'string',
+                  example: 'ok',
                 },
               },
             },
