@@ -1,13 +1,18 @@
 import {
-    RenovateRunOptions, RenovateRunResult,
-    RenovateWrapper,
+  RenovateRunOptions,
+  RenovateRunResult,
+  RenovateWrapper,
 } from '@secustor/plugin-renovate-common';
-import {DockerContainerRunner} from '@backstage/backend-common'
+import { DockerContainerRunner } from '@backstage/backend-common';
 import Docker from 'dockerode';
-import {BufferStream} from "scramjet";
+import { PassThrough } from 'stream';
 
 export class DockerRuntime implements RenovateWrapper {
-  #docker: Docker = new Docker();
+  #runner: DockerContainerRunner;
+
+  constructor() {
+    this.#runner = new DockerContainerRunner({ dockerClient: new Docker() });
+  }
 
   async run({
     env,
@@ -15,34 +20,17 @@ export class DockerRuntime implements RenovateWrapper {
   }: RenovateRunOptions): Promise<RenovateRunResult> {
     env.RENOVATE_CONFIG = JSON.stringify(renovateConfig);
 
-    const dockerEnv = Object.entries(env).map(
-      ([key, value]) => `${key}=${value}`,
-    );
+    const image = 'ghcr.io/renovatebot/renovate'
+    const tag = 'latest';
 
-    const image = 'ghcr.io/renovatebot/renovate:latest'
-
-    await this.#docker.pull(image)
-    const container = await this.#docker.createContainer({
-      Env: dockerEnv,
-      Image: image,
-      HostConfig: { AutoRemove: true  },
-
+    const stdout = new PassThrough();
+    this.#runner.runContainer({
+      args: [],
+      envVars: env,
+      imageName: `${image}:${tag}`,
+      logStream: stdout,
     });
-    await container.start()
 
-    // const stdout = await container.attach({stream: true, logs: true, stdout: true})
-
-    const temp = await container.logs({follow: true, stdout: true, details: false})
-    const stdout = new BufferStream()
-    temp.on('data', (chunk) => {
-      const buffer = Buffer.from(chunk)
-      const lines = buffer.toString().split("\n")
-      for (const line of lines) {
-        const cleaned = `${line.substring(line.indexOf('{'))}\n`
-        stdout.push(Buffer.from(cleaned))
-      }
-    })
-
-    return {stdout}
+    return { stdout };
   }
 }
