@@ -20,7 +20,7 @@ export class DockerRuntime implements RenovateWrapper {
   }: RenovateRunOptions): Promise<RenovateRunResult> {
     env.RENOVATE_CONFIG = JSON.stringify(renovateConfig);
 
-    const image = 'ghcr.io/renovatebot/renovate'
+    const image = 'ghcr.io/renovatebot/renovate';
     const tag = 'latest';
 
     const stdout = new PassThrough();

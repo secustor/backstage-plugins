@@ -1,4 +1,5 @@
 import { JsonValue } from '@backstage/types';
+import { Readable } from 'stream';
 
 export interface RenovateWrapper {
   run(options: RenovateRunOptions): Promise<RenovateRunResult>;
@@ -10,5 +11,5 @@ export interface RenovateRunOptions {
 }
 
 export interface RenovateRunResult {
-  stdout: NodeJS.ReadableStream;
+  stdout: Readable;
 }

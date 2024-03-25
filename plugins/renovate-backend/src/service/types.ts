@@ -19,7 +19,7 @@ export interface ReportsRow {
 }
 
 export interface Context extends RouterOptions {
-  localConfig: Config;
+  pluginConfig: Config;
   runtime: string;
   runID: string;
 }
