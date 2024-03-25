@@ -11,6 +11,7 @@ import { getPlatformEnvs } from './platforms';
 import { TargetRepo } from './types';
 import { Context } from '../service/types';
 import { extractReport } from './utils';
+import { MockConfigApi } from '@backstage/test-utils';
 
 /**
  * Renovates a repository and returns the report for this run
@@ -40,9 +41,14 @@ export async function renovateRepository(
 
   // read out renovate.config and write out to json file for consumption by Renovate
   const renovateConfig = pluginConfig.getOptional('config') ?? {};
+  const runtimeConfig =
+    pluginConfig.getOptionalConfig(`runtime.${runtime}`) ??
+    new MockConfigApi({});
   const result = await wrapperRuntime.run({
     env,
     renovateConfig,
+    // do not fail, but rather return an empty config
+    runtimeConfig,
   });
 
   return await extractReport({

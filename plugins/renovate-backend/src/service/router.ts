@@ -43,12 +43,12 @@ export async function createRouter(
     const data = body.data;
 
     const runID = nanoid();
-    const localConfig = rootConfig.getConfig('renovate');
+    const pluginConfig = rootConfig.getConfig('renovate');
     const ctx = {
       ...options,
       runID,
-      runtime: localConfig.getString('runtime'),
-      localConfig,
+      runtime: pluginConfig.getString('runtime.type'),
+      pluginConfig,
     };
 
     // trigger Renovate run
@@ -61,7 +61,7 @@ export async function createRouter(
     const parsedUrl = parseUrl(data.callBackURL);
     if (parsedUrl) {
       // if allowedHosts are defined, check if callBackUrl is in the list
-      const allowedHosts = localConfig.getOptionalStringArray(
+      const allowedHosts = pluginConfig.getOptionalStringArray(
         'callBacks.allowedHosts',
       );
       if (

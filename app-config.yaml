@@ -111,7 +111,10 @@ catalog:
           timeout: { minutes: 3 }
 
 renovate:
-  runtime: docker
+  runtime:
+    type: docker
+    docker:
+
   callBacks:
     allowedHosts:
       - localhost
