@@ -41,14 +41,13 @@ export async function renovateRepository(
   const renovateConfig = localConfig.getOptional('config') ?? {};
   const runLogger = ctx.logger.child({ runID: ctx.runID });
   const child = await wrapperRuntime.run({
-    logger: runLogger,
     env,
     renovateConfig,
   });
 
   const promise: Promise<RenovateReport> = new Promise(resolve => {
     let uncompleteText = '';
-    child.stdout?.on('data', (chunk: Buffer) => {
+    child.stdout.on('data', (chunk: Buffer) => {
       const text = uncompleteText.concat(chunk.toString());
       const logLines = text.split('\n');
 

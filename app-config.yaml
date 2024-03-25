@@ -111,7 +111,7 @@ catalog:
           timeout: { minutes: 3 }
 
 renovate:
-  runtime: direct
+  runtime: docker
   callBacks:
     allowedHosts:
       - localhost

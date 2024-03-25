@@ -11426,6 +11426,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@secustor/plugin-renovate-backend-module-runtime-docker@workspace:^, @secustor/plugin-renovate-backend-module-runtime-docker@workspace:plugins/renovate-backend-module-runtime-docker":
+  version: 0.0.0-use.local
+  resolution: "@secustor/plugin-renovate-backend-module-runtime-docker@workspace:plugins/renovate-backend-module-runtime-docker"
+  dependencies:
+    "@backstage/backend-common": "npm:^0.20.1"
+    "@backstage/backend-plugin-api": "npm:^0.6.9"
+    "@backstage/backend-test-utils": "npm:^0.2.10"
+    "@backstage/cli": "npm:^0.25.1"
+    "@secustor/plugin-renovate-backend": "workspace:^"
+    "@types/dockerode": "npm:^3.3.26"
+    dockerode: "npm:^4.0.2"
+    scramjet: "npm:^4.37.0"
+  languageName: unknown
+  linkType: soft
+
 "@secustor/plugin-renovate-backend@workspace:^, @secustor/plugin-renovate-backend@workspace:plugins/renovate-backend":
   version: 0.0.0-use.local
   resolution: "@secustor/plugin-renovate-backend@workspace:plugins/renovate-backend"
@@ -14212,7 +14227,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dockerode@npm:^3.3.24, @types/dockerode@npm:^3.3.8":
+"@types/dockerode@npm:^3.3.24, @types/dockerode@npm:^3.3.26, @types/dockerode@npm:^3.3.8":
   version: 3.3.26
   resolution: "@types/dockerode@npm:3.3.26"
   dependencies:
@@ -16809,6 +16824,7 @@ __metadata:
     "@backstage/plugin-techdocs-backend": "npm:^1.9.2"
     "@secustor/plugin-renovate-backend": "workspace:^"
     "@secustor/plugin-renovate-backend-module-runtime-direct": "workspace:^"
+    "@secustor/plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@types/dockerode": "npm:^3.3.0"
     "@types/express": "npm:^4.17.6"
     "@types/express-serve-static-core": "npm:^4.17.5"
@@ -19842,7 +19858,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dockerode@npm:^4.0.0":
+"dockerode@npm:^4.0.0, dockerode@npm:^4.0.2":
   version: 4.0.2
   resolution: "dockerode@npm:4.0.2"
   dependencies:
@@ -29590,6 +29606,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"papaparse@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "papaparse@npm:5.4.1"
+  checksum: 10c0/201f37c4813453fed5bfb4c01816696b099d2db9ff1e8fb610acc4771fdde91d2a22b6094721edb0fedb21ca3c46f04263f68be4beb3e35b8c72278f0cedc7b7
+  languageName: node
+  linkType: hard
+
 "param-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "param-case@npm:3.0.4"
@@ -32509,6 +32532,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rereadable-stream@npm:^1.4.14":
+  version: 1.4.14
+  resolution: "rereadable-stream@npm:1.4.14"
+  checksum: 10c0/532c074bb4df8b3760c243ef0dc0eea8f9c575bd57d25fe3571f70aebb35f95e328aaca88e89d97b253ebd54fe17828ff209285421cced0854ef79000a414810
+  languageName: node
+  linkType: hard
+
 "reselect@npm:^5.1.0":
   version: 5.1.0
   resolution: "reselect@npm:5.1.0"
@@ -33076,6 +33106,24 @@ __metadata:
     ajv-formats: "npm:^2.1.1"
     ajv-keywords: "npm:^5.1.0"
   checksum: 10c0/8dab7e7800316387fd8569870b4b668cfcecf95ac551e369ea799bbcbfb63fb0365366d4b59f64822c9f7904d8c5afcfaf5a6124a4b08783e558cd25f299a6b4
+  languageName: node
+  linkType: hard
+
+"scramjet-core@npm:^4.32.12":
+  version: 4.32.12
+  resolution: "scramjet-core@npm:4.32.12"
+  checksum: 10c0/d149ff2e5839735d5a1d331233b25fa526ddf86bd63f00cee5809b4ff6855063592112fffe812693e4983ef339aac0e824f23d269a3b45a88224380545110dc9
+  languageName: node
+  linkType: hard
+
+"scramjet@npm:^4.37.0":
+  version: 4.37.0
+  resolution: "scramjet@npm:4.37.0"
+  dependencies:
+    papaparse: "npm:^5.4.1"
+    rereadable-stream: "npm:^1.4.14"
+    scramjet-core: "npm:^4.32.12"
+  checksum: 10c0/81689ce85dec3bafb41b70565c59d058ec3cf89b5bfdf5b39c3728a92ad1700496d4b8881162f3eaa6a8aed3c4da75a653adde9af350f71eb793100f7599eb4e
   languageName: node
   linkType: hard
 
