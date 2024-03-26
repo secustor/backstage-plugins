@@ -43,11 +43,11 @@ export async function renovateRepository(
   const renovateConfig = pluginConfig.getOptional('config') ?? {};
   const runtimeConfig =
     pluginConfig.getOptionalConfig(`runtime.${runtime}`) ??
+    // do not fail, but rather return an empty config
     new MockConfigApi({});
   const result = await wrapperRuntime.run({
     env,
     renovateConfig,
-    // do not fail, but rather return an empty config
     runtimeConfig,
   });
 

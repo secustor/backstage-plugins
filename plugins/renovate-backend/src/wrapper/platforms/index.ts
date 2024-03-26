@@ -32,12 +32,20 @@ export function getPlatformEnvs(
 
       break;
     case 'gitlab':
-      env.RENOVATE_PLATFORM = integration.type;
-      env.RENOVATE_TOKEN = requireConfigVariable(
-        integrations.gitlab.byHost(target.host)?.config.token,
-        errMsg,
-      );
-      env.RENOVATE_REPOSITORIES = target.repository;
+      {
+        const gitLabIntegrationConfig = requireConfigVariable(
+          integrations.gitlab.byHost(target.host)?.config,
+          errMsg,
+        );
+        env.RENOVATE_PLATFORM = integration.type;
+        env.RENOVATE_ENDPOINT =
+          gitLabIntegrationConfig.apiBaseUrl ?? `https://${target.host}/api/v4`;
+        env.RENOVATE_TOKEN = requireConfigVariable(
+          gitLabIntegrationConfig.token,
+          'Could not get Gitlab token',
+        );
+        env.RENOVATE_REPOSITORIES = target.repository;
+      }
       break;
     default:
       throw new Error(`Unsupported platform type ${integration.type}`);
@@ -56,10 +64,10 @@ export function getPlatformEnvs(
   return env;
 }
 
-function requireConfigVariable(
-  input: string | undefined | null,
+function requireConfigVariable<T>(
+  input: T | undefined | null,
   errMessage: string,
-): string {
+): T {
   if (is.nullOrUndefined(input)) {
     throw new Error(errMessage);
   }
