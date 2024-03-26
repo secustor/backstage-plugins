@@ -14071,7 +14071,7 @@ __metadata:
     app: "link:../app"
     better-sqlite3: "npm:^9.0.0"
     dockerode: "npm:^3.3.1"
-    express: "npm:^4.17.1"
+    express: "npm:^4.18.2"
     express-promise-router: "npm:^4.1.0"
     node-gyp: "npm:^9.0.0"
     pg: "npm:^8.11.3"
