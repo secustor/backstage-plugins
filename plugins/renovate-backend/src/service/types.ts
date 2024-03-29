@@ -1,30 +1,45 @@
 import { Config } from '@backstage/config';
-import { DatabaseService, LoggerService } from '@backstage/backend-plugin-api';
-import type { RepositoryReport } from '../schema/renovate';
-import { RenovateWrapper } from '@secustor/plugin-renovate-common';
+import {
+  DatabaseService,
+  LoggerService,
+  SchedulerService,
+} from '@backstage/backend-plugin-api';
+import type { RenovateReport, RepositoryReport } from '../schema/renovate';
+import { RenovateWrapper, TargetRepo } from '@secustor/plugin-renovate-common';
+import { DatabaseHandler } from './databaseHandler';
 
 export interface RouterOptions {
   rootConfig: Config;
+  pluginConfig: Config;
   logger: LoggerService;
-  database: DatabaseService;
+  databaseHandler: DatabaseHandler;
   runtimes: Map<string, RenovateWrapper>;
+  scheduler: SchedulerService;
 }
 
 export interface ReportsRow {
+  task_id: string;
   last_updated: number;
-  run_id: string;
   host: string;
   repository: string;
   report: RepositoryReport;
 }
 
-export interface Context extends RouterOptions {
-  pluginConfig: Config;
-  runtime: string;
-  runID: string;
+export interface Context extends RouterOptions {}
+
+export interface DatabaseCreationParameters {
+  database: DatabaseService;
+  logger: LoggerService;
 }
 
 export interface ReportQueryParameters {
   host: string;
   repository: string;
+}
+
+export interface AddReportParameters {
+  taskID: string;
+  report: RenovateReport;
+  target: TargetRepo;
+  logger?: LoggerService;
 }

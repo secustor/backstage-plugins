@@ -1,13 +1,13 @@
 import { resolvePackagePath } from '@backstage/backend-common';
 import { Knex } from 'knex';
 import {
-  Context,
+  AddReportParameters,
+  DatabaseCreationParameters,
   ReportQueryParameters,
   ReportsRow,
-  RouterOptions,
 } from './types';
-import { RenovateReport, RepositoryReport } from '../schema/renovate';
-import { TargetRepo } from '../wrapper/types';
+import { RepositoryReport } from '../schema/renovate';
+import { LoggerService } from '@backstage/backend-plugin-api';
 
 const migrationsDir = resolvePackagePath(
   '@secustor/plugin-renovate-backend',
@@ -15,8 +15,10 @@ const migrationsDir = resolvePackagePath(
 );
 
 export class DatabaseHandler {
-  static async create(options: RouterOptions): Promise<DatabaseHandler> {
-    const { database } = options;
+  static async create(
+    options: DatabaseCreationParameters,
+  ): Promise<DatabaseHandler> {
+    const { database, logger } = options;
     const client = await database.getClient();
 
     if (!database.migrations?.skip) {
@@ -25,31 +27,31 @@ export class DatabaseHandler {
       });
     }
 
-    return new DatabaseHandler(client);
+    return new DatabaseHandler(client, logger);
   }
 
-  private readonly client: Knex;
+  private constructor(private client: Knex, private logger: LoggerService) {}
 
-  private constructor(client: Knex) {
-    this.client = client;
-  }
+  async addReport(options: AddReportParameters): Promise<void> {
+    const { taskID, report, target } = options;
+    const logger = options.logger ?? this.logger;
 
-  async addReport(
-    report: RenovateReport,
-    { host }: TargetRepo,
-    ctx: Context,
-  ): Promise<void> {
     const inserts: ReportsRow[] = [];
     for (const [repository, value] of Object.entries(report.repositories)) {
       inserts.push({
+        task_id: taskID,
         last_updated: Date.now(),
-        run_id: ctx.runID,
-        host,
+        host: target.host,
         repository,
         report: value,
       });
     }
-    this.client.batchInsert<ReportsRow>('reports', inserts);
+    // this.client.batchInsert<ReportsRow>('reports', inserts);
+    await this.client('reports')
+      .insert(inserts)
+      .onConflict('task_id')
+      .merge()
+      .catch(reason => logger.error('Failed insert data', reason));
   }
 
   async getReports(query?: ReportQueryParameters): Promise<RepositoryReport[]> {

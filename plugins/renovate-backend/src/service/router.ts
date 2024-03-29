@@ -1,21 +1,22 @@
 import { errorHandler } from '@backstage/backend-common';
 import express from 'express';
 import { createOpenApiRouter } from '../schema/openapi.generated';
-import { renovateRepository } from '../wrapper';
 import { runRequestBody } from './schema';
 import fetch from 'node-fetch';
-import { nanoid } from 'nanoid';
 import type { RouterOptions } from './types';
-import { DatabaseHandler } from './databaseHandler';
-import { getTargetRepo, parseUrl } from './utils';
-import { TargetRepo } from '../wrapper/types';
+import {
+  getTargetRepo,
+  getTaskID,
+  parseUrl,
+  type TargetRepo,
+} from '@secustor/plugin-renovate-common';
+import { RenovateRunner } from '../wrapper';
 
 export async function createRouter(
+  runner: RenovateRunner,
   options: RouterOptions,
 ): Promise<express.Router> {
-  const { logger, rootConfig } = options;
-
-  const dbHandler = await DatabaseHandler.create(options);
+  const { logger, pluginConfig, databaseHandler } = options;
 
   const router = await createOpenApiRouter();
   router.use(express.json());
@@ -27,10 +28,11 @@ export async function createRouter(
 
   router.get('/reports', async (request, response) => {
     let target: TargetRepo | undefined;
+
     if (request.body?.target) {
-      target = getTargetRepo(request.body.target);
+      target = getTargetRepo(request.body?.target);
     }
-    const reports = await dbHandler.getReports(target);
+    const reports = await databaseHandler.getReports(target);
     response.status(200).json(reports);
   });
 
@@ -42,20 +44,9 @@ export async function createRouter(
     }
     const data = body.data;
 
-    const runID = nanoid();
-    const pluginConfig = rootConfig.getConfig('renovate');
-    const ctx = {
-      ...options,
-      runID,
-      runtime: pluginConfig.getString('runtime.type'),
-      pluginConfig,
-    };
-
     // trigger Renovate run
     const targetRepo = getTargetRepo(data.target);
-    const promise = renovateRepository(targetRepo, ctx);
-
-    promise.then(async report => dbHandler.addReport(report, targetRepo, ctx));
+    const promise = runner.schedule(targetRepo);
 
     // in case of a callBackURL, set up a completion message
     const parsedUrl = parseUrl(data.callBackURL);
@@ -91,7 +82,7 @@ export async function createRouter(
       });
     }
 
-    response.status(202).json({ runID });
+    response.status(202).json({ runID: getTaskID(targetRepo) });
   });
   router.use(errorHandler());
   return router;

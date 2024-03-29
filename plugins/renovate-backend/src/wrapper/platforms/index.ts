@@ -1,7 +1,7 @@
 import { ScmIntegrations } from '@backstage/integration';
 import is from '@sindresorhus/is';
-import { TargetRepo } from '../types';
 import { PlatformEnvsOptions } from './types';
+import { TargetRepo } from '@secustor/plugin-renovate-common';
 
 /*
     Returns record of Renovate environment variables specific for the platform of targetUrl
@@ -17,7 +17,9 @@ export function getPlatformEnvs(
   const integrations = ScmIntegrations.fromConfig(rootConfig);
   const integration = integrations.byHost(target.host);
   if (is.nullOrUndefined(integration)) {
-    throw new Error(`Could not identify platform of target`);
+    throw new Error(
+      `Could not identify platform for target ${JSON.stringify(target)}`,
+    );
   }
 
   const errMsg = `Could no integration found for url and '${integration.type}' type for host ${target.host}`;

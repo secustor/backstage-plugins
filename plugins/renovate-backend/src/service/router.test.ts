@@ -21,7 +21,7 @@ describe('createRouter', () => {
     const router = await createRouter({
       logger: getVoidLogger(),
       rootConfig: new MockConfigApi({}),
-      database: mockDeep(),
+      databaseHandler: mockDeep(),
       runtimes: new Map<string, RenovateWrapper>(),
     });
     app = express().use(router);

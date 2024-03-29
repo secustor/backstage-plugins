@@ -7,10 +7,10 @@ exports.up = async function up(knex) {
   await knex.schema.createTable('reports', table => {
     table.comment('Table containing Renovate reports');
     table
-      .string('run_id')
+      .string('task_id')
       .notNullable()
       .unique()
-      .comment('unique id of the Renovate run which created the report');
+      .comment('unique id of the Repository reoccurring task');
     table
       .time('last_updated')
       .notNullable()

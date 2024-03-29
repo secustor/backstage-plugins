@@ -25,14 +25,19 @@
     "postpack": "backstage-cli package postpack"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.25.1"
+    "@backstage/cli": "^0.25.1",
+    "@types/git-url-parse": "^9.0.3"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
     "@backstage/backend-plugin-api": "^0.6.15",
+    "@backstage/catalog-model": "^1.4.3",
     "@backstage/config": "^1.1.1",
-    "@backstage/types": "^1.1.1"
+    "@backstage/types": "^1.1.1",
+    "@sindresorhus/is": "^4.6.0",
+    "git-url-parse": "^14.0.0",
+    "zod": "^3.22.4"
   }
 }

@@ -20,7 +20,7 @@ export async function startStandaloneServer(
   const logger = options.logger.child({ service: 'renovate-backend' });
   logger.debug('Starting application server...');
   const router = await createRouter({
-    database: options.database,
+    databaseHandler: options.database,
     logger,
     rootConfig: options.config,
     runtimes: new Map<string, RenovateWrapper>(),

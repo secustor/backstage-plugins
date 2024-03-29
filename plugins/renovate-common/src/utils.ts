@@ -1,8 +1,28 @@
-import GitUrlParse, { GitUrl } from 'git-url-parse';
-import is from '@sindresorhus/is';
 import { ANNOTATION_SOURCE_LOCATION } from '@backstage/catalog-model';
-import { EntityWithAnnotations } from './schema';
-import { TargetRepo } from '../wrapper/types';
+import { TargetRepo } from './types';
+import gitUrlParse, { GitUrl } from 'git-url-parse';
+import is from '@sindresorhus/is';
+import { EntityWithAnnotations, targetRepo } from './schema';
+
+export function getTaskID(
+  target: string | EntityWithAnnotations | TargetRepo,
+): string {
+  const repo = getTargetRepo(target);
+  return `renovate/run/${repo.host}-${repo.repository}`;
+}
+
+export function getTargetRepo(
+  target: string | EntityWithAnnotations | TargetRepo | null | undefined,
+): TargetRepo {
+  if (isTargetRepo(target)) {
+    return target;
+  }
+  const url = getTargetURL(target);
+  return {
+    host: url.resource,
+    repository: url.full_name,
+  };
+}
 
 export function parseUrl(url: string | undefined | null): URL | null {
   if (!url) {
@@ -18,13 +38,13 @@ export function parseUrl(url: string | undefined | null): URL | null {
 
 export function parseGitUrl(
   url: string | undefined | null,
-): GitUrlParse.GitUrl | null {
+): gitUrlParse.GitUrl | null {
   if (!url) {
     return null;
   }
 
   try {
-    return GitUrlParse(url);
+    return gitUrlParse(url);
   } catch (err) {
     return null;
   }
@@ -45,12 +65,6 @@ export function getTargetURL(
   return targetUrl;
 }
 
-export function getTargetRepo(
-  target: string | EntityWithAnnotations | null | undefined,
-): TargetRepo {
-  const url = getTargetURL(target);
-  return {
-    host: url.resource,
-    repository: url.full_name,
-  };
+function isTargetRepo(value: unknown): value is TargetRepo {
+  return targetRepo.safeParse(value).success;
 }
