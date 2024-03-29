@@ -18,7 +18,7 @@ export function getPlatformEnvs(
   const integration = integrations.byHost(target.host);
   if (is.nullOrUndefined(integration)) {
     throw new Error(
-      `Could not identify platform for target ${JSON.stringify(target)}`,
+      `Could not identify platform for target ${target.host}/${target.repository}`,
     );
   }
 

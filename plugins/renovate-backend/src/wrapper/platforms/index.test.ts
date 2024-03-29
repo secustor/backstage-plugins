@@ -8,14 +8,16 @@ describe('wrapper/platforms', () => {
       getPlatformEnvs(
         {
           host: 'example.com',
-          repository: '',
+          repository: 'myOrg/myRepo',
         },
         {
           rootConfig: new MockConfigApi({}),
           logger: getVoidLogger(),
         },
       ),
-    ).toThrow(`Could not identify platform of target`);
+    ).toThrow(
+      `Could not identify platform for target example.com/myOrg/myRepo`,
+    );
   });
 
   it('return env for github.com', () => {

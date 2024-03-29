@@ -7,6 +7,8 @@ import { RenovateWrapper } from '@secustor/plugin-renovate-common';
 import { mockDeep } from 'jest-mock-extended';
 import * as _databasehandler from './databaseHandler';
 import { DatabaseHandler } from './databaseHandler';
+import { RenovateRunner } from '../wrapper';
+import { mockServices } from '@backstage/backend-test-utils';
 
 // mock database handler
 jest.mock('./databaseHandler');
@@ -18,11 +20,14 @@ describe('createRouter', () => {
   let app: express.Express;
 
   beforeAll(async () => {
-    const router = await createRouter({
+    const runnerMock = mockDeep<RenovateRunner>();
+    const router = await createRouter(runnerMock, {
       logger: getVoidLogger(),
       rootConfig: new MockConfigApi({}),
-      databaseHandler: mockDeep(),
+      pluginConfig: new MockConfigApi({}),
+      databaseHandler: databaseHandlerMock,
       runtimes: new Map<string, RenovateWrapper>(),
+      scheduler: mockServices.scheduler.mock(),
     });
     app = express().use(router);
   });

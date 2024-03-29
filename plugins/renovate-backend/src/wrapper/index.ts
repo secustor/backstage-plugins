@@ -49,7 +49,7 @@ export class RenovateRunner {
     this.logger = logger;
     this.runtimes = runtimes;
     this.runner = runner;
-    this.scheduler = scheduler
+    this.scheduler = scheduler;
   }
 
   static async from(options: RouterOptions): Promise<RenovateRunner> {
@@ -66,13 +66,13 @@ export class RenovateRunner {
     const runner = scheduler.createScheduledTaskRunner(scheduleConfig);
 
     return new RenovateRunner(
-        databaseHandler,
-        rootConfig,
-        pluginConfig,
-        logger,
-        runtimes,
-        runner,
-        scheduler,
+      databaseHandler,
+      rootConfig,
+      pluginConfig,
+      logger,
+      runtimes,
+      runner,
+      scheduler,
     );
   }
 
