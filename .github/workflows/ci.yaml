@@ -2,10 +2,6 @@ name: CI
 
 on:
   pull_request:
-    paths:
-      - '.github/workflows/**'
-      - 'packages/**'
-      - 'plugins/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [20.x]
 
     env:
       CI: true
