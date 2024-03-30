@@ -12,6 +12,11 @@
     enabled: true,
   },
 
+  postUpdateOptions: [
+    // run `yarn dedupe --strategy highest` after every npm package upgrade
+    'yarnDedupeHighest',
+  ],
+
   packageRules: [
     {
       // general configs for all plugins
@@ -19,6 +24,20 @@
       // only update if the new version falls outside the range.
       // Normally we would use update-lockfile, tough we use lockfile maintenance to save CI minutes
       rangeStrategy: 'replace',
+    },
+
+    // auto merges
+    {
+      // auto merge @types npm packages, if CI is successful
+      matchPackagePrefixes: ['@types/'],
+      matchManagers: ['npm'],
+      automerge: true,
+    },
+    {
+      // auto merge devDependencies in package.json files, as we expect unit tests to fail for them if they break
+      matchDepTypes: ['devDependencies'],
+      matchManagers: ['npm'],
+      automerge: true,
     },
 
     // disable upgrade to pure ESM versions
