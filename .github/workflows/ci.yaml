@@ -33,6 +33,9 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
       
+      - name: Enable Corepack
+        run: corepack enable
+        
       - name: Set up Node ${{ matrix.node-version }}
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
@@ -82,13 +85,15 @@ jobs:
           fi
   
   verify:
-    name: Workspace ${{ matrix.workspace }}, Verify step
+    name: Verify step
     runs-on: ubuntu-latest
     steps:
       - name: Checkout head branch
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
+      - name: Enable Corepack
+        run: corepack enable
       - name: Setup node
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
