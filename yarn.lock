@@ -13606,14 +13606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:2.4.0":
-  version: 2.4.0
-  resolution: "@types/luxon@npm:2.4.0"
-  checksum: 10c0/2686d03827a3799f0374923323148f4d0d07f9e4321551389b2ae285e5085e178cfe908806041ab32bf66534497702b4ae8459d1b4190258af133818d4b846c9
-  languageName: node
-  linkType: hard
-
-"@types/luxon@npm:^3.0.0":
+"@types/luxon@npm:3.4.2, @types/luxon@npm:^3.0.0":
   version: 3.4.2
   resolution: "@types/luxon@npm:3.4.2"
   checksum: 10c0/d835467de3daf7e17ba78b50bb5a14efd94272439ca067990d71332a54b311544459c69623eddd243b511b28d70194c9591a9ee8cf9c038962c965f991affd7e
@@ -15948,7 +15941,7 @@ __metadata:
     "@types/dockerode": "npm:3.3.26"
     "@types/express": "npm:4.17.21"
     "@types/express-serve-static-core": "npm:4.17.43"
-    "@types/luxon": "npm:2.4.0"
+    "@types/luxon": "npm:3.4.2"
     app: "link:../app"
     better-sqlite3: "npm:^9.0.0"
     dockerode: "npm:^3.3.1"
