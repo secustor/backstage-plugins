@@ -3,8 +3,13 @@ import { Server } from 'http';
 import { Logger } from 'winston';
 import { createRouter } from './router';
 import { Config } from '@backstage/config';
-import { DatabaseService } from '@backstage/backend-plugin-api';
+import {
+  DatabaseService,
+  SchedulerService,
+} from '@backstage/backend-plugin-api';
 import { RenovateWrapper } from '@secustor/plugin-renovate-common';
+import { RenovateRunner } from '../wrapper';
+import { DatabaseHandler } from './databaseHandler';
 
 export interface ServerOptions {
   port: number;
@@ -12,19 +17,24 @@ export interface ServerOptions {
   logger: Logger;
   config: Config;
   database: DatabaseService;
+  scheduler: SchedulerService;
 }
 
 export async function startStandaloneServer(
   options: ServerOptions,
 ): Promise<Server> {
   const logger = options.logger.child({ service: 'renovate-backend' });
-  logger.debug('Starting application server...');
-  const router = await createRouter({
-    databaseHandler: options.database,
+  const ctx = {
+    databaseHandler: await DatabaseHandler.create(options),
     logger,
     rootConfig: options.config,
+    pluginConfig: options.config.getConfig('renovate'),
+    scheduler: options.scheduler,
     runtimes: new Map<string, RenovateWrapper>(),
-  });
+  };
+  const runner = await RenovateRunner.from(ctx);
+  logger.debug('Starting application server...');
+  const router = await createRouter(runner, ctx);
 
   let service = createServiceBuilder(module)
     .setPort(options.port)
