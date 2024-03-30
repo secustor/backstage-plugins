@@ -1,6 +1,6 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:best-practices'],
+  extends: ['config:best-practices', 'npm:unpublishSafe'],
 
   ignorePresets: [
     // we cannot update right now to @mui
@@ -53,12 +53,27 @@
 
   customManagers: [
     {
+      // update backstage.json file
       customType: 'regex',
       fileMatch: 'backstage\\.json$',
       matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
       depNameTemplate: 'backstage/backstage',
       datasourceTemplate: 'github-release',
       versioningTemplate: 'semver-coerced',
+    },
+    {
+      // updating renovate defaults
+      customType: 'regex',
+      fileMatch: '^plugins/renovate-backend-module-runtime-docker/.*',
+      matchStrings: [
+        // README defaults
+        'tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)',
+        // runtime.ts
+        "imageTag\\s*=\\s*'(?<currentValue>\\S*?)'",
+      ],
+      depNameTemplate: 'renovate',
+      packageNameTemplate: 'ghcr.io/renovatebot/renovate',
+      datasourceTemplate: 'docker',
     },
   ],
 }
