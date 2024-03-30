@@ -26,6 +26,13 @@
       rangeStrategy: 'replace',
     },
 
+    // deactivate unpublish safeguard for Renovate so that docker and npm references are in sync
+    {
+      matchDatasources: ['npm'],
+      matchPackageNames: ['renovate'],
+      minimumReleaseAge: null,
+    },
+
     // auto merges
     {
       // auto merge @types npm packages, if CI is successful
