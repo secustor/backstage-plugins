@@ -30,7 +30,7 @@
     {
       matchDatasources: ['npm'],
       matchPackageNames: ['renovate'],
-      minimumReleaseAge: null,
+      minimumReleaseAge: '0 days',
     },
 
     // auto merges
