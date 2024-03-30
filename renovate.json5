@@ -1,0 +1,64 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['config:best-practices'],
+
+  ignorePresets: [
+    // we cannot update right now to @mui
+    'replacements:material-ui-to-mui',
+  ],
+
+  // create a single PR to update all in range upgrades, to save CI minutes
+  lockFileMaintenance: {
+    enabled: true,
+  },
+
+  postUpdateOptions: [
+    // run `yarn dedupe --strategy highest` after every npm package upgrade
+    'yarnDedupeHighest',
+  ],
+
+  packageRules: [
+    {
+      // general configs for all plugins
+      matchFileNames: ['plugins/**'],
+      // only update if the new version falls outside the range.
+      // Normally we would use update-lockfile, tough we use lockfile maintenance to save CI minutes
+      rangeStrategy: 'replace',
+    },
+
+    // auto merges
+    {
+      // auto merge @types npm packages, if CI is successful
+      matchPackagePrefixes: ['@types/'],
+      matchManagers: ['npm'],
+      automerge: true,
+    },
+    {
+      // auto merge devDependencies in package.json files, as we expect unit tests to fail for them if they break
+      matchDepTypes: ['devDependencies'],
+      matchManagers: ['npm'],
+      automerge: true,
+    },
+
+    // disable upgrade to pure ESM versions
+    {
+      matchPackageNames: ['@sindresorhus/is'],
+      allowedVersions: '<5.0.0',
+    },
+    {
+      matchPackageNames: ['find-up'],
+      allowedVersions: '<6.0.0',
+    },
+  ],
+
+  customManagers: [
+    {
+      customType: 'regex',
+      fileMatch: 'backstage\\.json$',
+      matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
+      depNameTemplate: 'backstage/backstage',
+      datasourceTemplate: 'github-release',
+      versioningTemplate: 'semver-coerced',
+    },
+  ],
+}
