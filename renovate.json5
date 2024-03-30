@@ -53,6 +53,10 @@
       allowedVersions: '<5.0.0',
     },
     {
+      matchPackageNames: ['yn'],
+      allowedVersions: '<5.0.0',
+    },
+    {
       matchPackageNames: ['find-up'],
       allowedVersions: '<6.0.0',
     },
