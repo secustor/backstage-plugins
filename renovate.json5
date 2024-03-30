@@ -1,6 +1,6 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:best-practices', 'npm:unpublishSafe'],
+  extends: ['config:best-practices'],
 
   ignorePresets: [
     // we cannot update right now to @mui
@@ -26,6 +26,13 @@
       rangeStrategy: 'replace',
     },
 
+    // activate unpublish safeguard for npm packages except Renovate, so that docker and npm references are in sync
+    {
+      matchDatasources: ['npm'],
+      excludeDepNames: ['renovate'],
+      minimumReleaseAge: '3 days',
+    },
+
     // auto merges
     {
       // auto merge @types npm packages, if CI is successful
@@ -48,6 +55,10 @@
     {
       matchPackageNames: ['find-up'],
       allowedVersions: '<6.0.0',
+    },
+    {
+      matchPackageNames: ['node-fetch'],
+      allowedVersions: '<3.0.0',
     },
   ],
 
