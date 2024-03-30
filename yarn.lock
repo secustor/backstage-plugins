@@ -31811,6 +31811,7 @@ __metadata:
   dependencies:
     "@backstage/cli": "npm:^0.26.2"
     "@backstage/e2e-test-utils": "npm:^0.1.1"
+    "@backstage/repo-tools": "npm:^0.7.2"
     "@playwright/test": "npm:^1.32.3"
     "@spotify/prettier-config": "npm:^12.0.0"
     "@types/jest": "npm:^29.5.12"
