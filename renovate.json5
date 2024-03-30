@@ -1,6 +1,6 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:best-practices', 'npm:unpublishSafe'],
+  extends: ['config:best-practices'],
 
   ignorePresets: [
     // we cannot update right now to @mui
@@ -24,6 +24,13 @@
       // only update if the new version falls outside the range.
       // Normally we would use update-lockfile, tough we use lockfile maintenance to save CI minutes
       rangeStrategy: 'replace',
+    },
+
+    // activate unpublish safeguard for npm packages except Renovate, so that docker and npm references are in sync
+    {
+      matchDatasources: ['npm'],
+      excludeDepNames: ['renovate'],
+      minimumReleaseAge: '3 days',
     },
 
     // auto merges
