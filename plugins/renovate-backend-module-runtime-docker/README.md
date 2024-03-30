@@ -11,5 +11,5 @@ renovate:
     docker:
       # all values are option and can be used to overwrite the default values
       image: registry.example.com/renovate/renovate # default: 'ghcr.io/renovatebot/renovate'
-      tag: latest # default: 37.269.5
+      tag: latest # default: 37.278.0
 ```

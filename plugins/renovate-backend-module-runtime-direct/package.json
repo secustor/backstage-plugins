@@ -29,7 +29,7 @@
     "@secustor/plugin-renovate-backend": "workspace:^",
     "@secustor/plugin-renovate-common": "workspace:^",
     "find-up": "^5.0.0",
-    "renovate": "37.269.5"
+    "renovate": "37.278.0"
   },
   "devDependencies": {
     "@backstage/backend-test-utils": "^0.3.6",
