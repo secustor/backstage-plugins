@@ -1,26 +1,24 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['config:best-practices'],
 
-  "ignorePresets": [
+  ignorePresets: [
     // we cannot update right now to @mui
-    "replacements:material-ui-to-mui"
+    'replacements:material-ui-to-mui',
   ],
 
   // create a single PR to update all in range upgrades, to save CI minutes
   lockFileMaintenance: {
-    enabled: true
+    enabled: true,
   },
 
-  "packageRules": [
+  packageRules: [
     {
       // general configs for all plugins
-      matchFileNames: [
-        "plugins/**"
-      ],
+      matchFileNames: ['plugins/**'],
       // only update if the new version falls outside the range.
       // Normally we would use update-lockfile, tough we use lockfile maintenance to save CI minutes
-      rangeStrategy: "replace"
+      rangeStrategy: 'replace',
     },
 
     // disable upgrade to pure ESM versions
@@ -31,17 +29,17 @@
     {
       matchPackageNames: ['find-up'],
       allowedVersions: '<6.0.0',
-    }
+    },
   ],
 
-  "customManagers": [
+  customManagers: [
     {
-      "customType": "regex",
-      "fileMatch": "backstage\\.json$",
-      "matchStrings": ["\"version\":\\s*\"(?<currentValue>[^\"]+)"],
-      "depNameTemplate": "backstage/backstage",
-      "datasourceTemplate": "github-release",
-      "versioningTemplate": "semver-coerced"
-    }
-  ]
+      customType: 'regex',
+      fileMatch: 'backstage\\.json$',
+      matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
+      depNameTemplate: 'backstage/backstage',
+      datasourceTemplate: 'github-release',
+      versioningTemplate: 'semver-coerced',
+    },
+  ],
 }
