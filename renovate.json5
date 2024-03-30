@@ -26,6 +26,13 @@
       rangeStrategy: 'replace',
     },
 
+    // activate unpublish safeguard for npm packages except Renovate, so that docker and npm references are in sync
+    {
+      matchDatasources: ['npm'],
+      excludeDepNames: ['renovate'],
+      minimumReleaseAge: '3 days',
+    },
+
     // auto merges
     {
       // auto merge @types npm packages, if CI is successful
@@ -49,16 +56,35 @@
       matchPackageNames: ['find-up'],
       allowedVersions: '<6.0.0',
     },
+    {
+      matchPackageNames: ['node-fetch'],
+      allowedVersions: '<3.0.0',
+    },
   ],
 
   customManagers: [
     {
+      // update backstage.json file
       customType: 'regex',
       fileMatch: 'backstage\\.json$',
       matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
       depNameTemplate: 'backstage/backstage',
       datasourceTemplate: 'github-release',
       versioningTemplate: 'semver-coerced',
+    },
+    {
+      // updating renovate defaults
+      customType: 'regex',
+      fileMatch: '^plugins/renovate-backend-module-runtime-docker/.*',
+      matchStrings: [
+        // README defaults
+        'tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)',
+        // runtime.ts
+        "imageTag\\s*=\\s*'(?<currentValue>\\S*?)'",
+      ],
+      depNameTemplate: 'renovate',
+      packageNameTemplate: 'ghcr.io/renovatebot/renovate',
+      datasourceTemplate: 'docker',
     },
   ],
 }

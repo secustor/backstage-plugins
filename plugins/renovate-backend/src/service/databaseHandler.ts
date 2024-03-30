@@ -30,7 +30,10 @@ export class DatabaseHandler {
     return new DatabaseHandler(client, logger);
   }
 
-  private constructor(private client: Knex, private logger: LoggerService) {}
+  private constructor(
+    private client: Knex,
+    private logger: LoggerService,
+  ) {}
 
   async addReport(options: AddReportParameters): Promise<void> {
     const { taskID, report, target } = options;

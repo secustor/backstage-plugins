@@ -7,6 +7,9 @@ import { DockerContainerRunner } from '@backstage/backend-common';
 import Docker from 'dockerode';
 import { PassThrough } from 'stream';
 
+const imageRepository = 'ghcr.io/renovatebot/renovate';
+const imageTag = '37.269.5';
+
 export class DockerRuntime implements RenovateWrapper {
   #runner: DockerContainerRunner;
 
@@ -21,10 +24,8 @@ export class DockerRuntime implements RenovateWrapper {
   }: RenovateRunOptions): Promise<RenovateRunResult> {
     env.RENOVATE_CONFIG = JSON.stringify(renovateConfig);
 
-    const image =
-      runtimeConfig.getOptionalString('image') ??
-      'ghcr.io/renovatebot/renovate';
-    const tag = runtimeConfig.getOptionalString('tag') ?? '37.269.5'; // TODO add autoupdates
+    const image = runtimeConfig.getOptionalString('image') ?? imageRepository;
+    const tag = runtimeConfig.getOptionalString('tag') ?? imageTag;
 
     const stdout = new PassThrough();
     this.#runner.runContainer({
