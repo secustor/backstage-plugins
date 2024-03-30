@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: renovate
+  description: Backstage Renovate API
+  version: 0.1.0
+servers:
+  - description: local test setup
+    url: http://localhost:7007
+
+paths:
+  /health:
+    get:
+      summary: Get health status of the plugin
+      responses:
+        200:
+          description: health status is green
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ok
+  /reports:
+    get:
+      summary: Get reports for repositories
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                target:
+                  $ref: '#/components/schemas/target'
+      responses:
+        200:
+          description: Returns reports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repositoryReportList'
+
+  /runs:
+    post:
+      summary: Start or get Renovate runs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - target
+              properties:
+                target:
+                  $ref: '#/components/schemas/target'
+                callBackURL:
+                  type: string
+                  example: https://localhost:8080/my-webhook-endpoint
+
+      responses:
+        202:
+          description: Run has been scheduled
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  runID:
+                    description: unique ID for the run
+                    type: string
+                    example: '9-d_CO9JlaEmd-OM9QfkI'
+        400:
+          description: Unexpected incoming data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    $ref: '#/components/schemas/error'
+
+components:
+  schemas:
+    error:
+      anyOf:
+        - type: object
+          example:
+            message: "I'm an error"
+            code: 1111
+        - type: string
+          example: "I'm an error"
+    target:
+      anyOf:
+        - type: string
+          description: URL to an repository
+          example: https://github.com/secustor/renovate-test
+        - type: object
+          description: Entity with SourceLocation URL annotation
+          required:
+            - metadata
+          properties:
+            metadata:
+              type: object
+              required:
+                - annotations
+              properties:
+                annotations:
+                  type: object
+                  additionalProperties: false
+                  required:
+                    - 'backstage.io/source-location'
+                  properties:
+                    backstage.io/source-location:
+                      type: string
+                      example: https://github.com/secustor/renovate-meetup/blob/master/renovate.json
+    repositoryReportList:
+      type: array
+      items:
+        $ref: '#/components/schemas/repositoryReport'
+    repositoryReport:
+      description: report for a specific repository
+      type: object
+      additionalProperties: false
+      required:
+        - branches
+        - packageFiles
+        - problems
+      properties:
+        branches:
+          type: array
+          items:
+            type: object
+        packageFiles:
+          type: object
+        problems:
+          type: array
+          items:
+            type: object

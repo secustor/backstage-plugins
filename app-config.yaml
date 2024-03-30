@@ -109,3 +109,17 @@ catalog:
         schedule:
           frequency: { minutes: 30 }
           timeout: { minutes: 3 }
+
+renovate:
+  schedule:
+    frequency: { minutes: 60 }
+    timeout: { minutes: 60 }
+  runtime:
+    type: docker
+    docker:
+
+  callBacks:
+    allowedHosts:
+      - localhost
+  config:
+    test: test
