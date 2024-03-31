@@ -68,7 +68,7 @@
     {
       // do not try to pin regex references
       matchManagers: ['regex'],
-      pinDigests: true,
+      pinDigests: false,
     },
   ],
 
