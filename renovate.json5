@@ -64,6 +64,12 @@
       matchPackageNames: ['node-fetch'],
       allowedVersions: '<3.0.0',
     },
+
+    {
+      // do not try to pin regex references
+      matchManagers: ['regex'],
+      pinDigests: true,
+    },
   ],
 
   customManagers: [
