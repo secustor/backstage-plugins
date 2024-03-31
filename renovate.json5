@@ -1,100 +1,71 @@
 {
-  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:best-practices'],
-
-  ignorePresets: [
-    // we cannot update right now to @mui
-    'replacements:material-ui-to-mui',
-  ],
-
-  // create a single PR to update all in range upgrades, to save CI minutes
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["config:best-practices"],
+  ignorePresets: ["replacements:material-ui-to-mui"],
   lockFileMaintenance: {
     enabled: true,
   },
-
-  postUpdateOptions: [
-    // run `yarn dedupe --strategy highest` after every npm package upgrade
-    'yarnDedupeHighest',
-  ],
-
+  postUpdateOptions: ["yarnDedupeHighest"],
   packageRules: [
     {
-      // general configs for all plugins
-      matchFileNames: ['plugins/**'],
-      // only update if the new version falls outside the range.
-      // Normally we would use update-lockfile, tough we use lockfile maintenance to save CI minutes
-      rangeStrategy: 'replace',
+      matchFileNames: ["plugins/**"],
+      rangeStrategy: "replace",
     },
-
-    // activate unpublish safeguard for npm packages except Renovate, so that docker and npm references are in sync
     {
-      matchDatasources: ['npm'],
-      excludeDepNames: ['renovate'],
-      minimumReleaseAge: '3 days',
+      matchDatasources: ["npm"],
+      excludeDepNames: ["renovate"],
+      minimumReleaseAge: "3 days",
     },
-
-    // auto merges
     {
-      // auto merge @types npm packages, if CI is successful
-      matchPackagePrefixes: ['@types/'],
-      matchManagers: ['npm'],
+      matchPackagePrefixes: ["@types/"],
+      matchManagers: ["npm"],
       automerge: true,
     },
     {
-      // auto merge devDependencies in package.json files, as we expect unit tests to fail for them if they break
-      matchDepTypes: ['devDependencies'],
-      matchManagers: ['npm'],
+      matchDepTypes: ["devDependencies"],
+      matchManagers: ["npm"],
       automerge: true,
     },
-
-    // disable upgrade to pure ESM versions
     {
-      matchPackageNames: ['@sindresorhus/is'],
-      allowedVersions: '<5.0.0',
+      matchPackageNames: ["@sindresorhus/is"],
+      allowedVersions: "<5.0.0",
     },
     {
-      matchPackageNames: ['yn'],
-      allowedVersions: '<5.0.0',
+      matchPackageNames: ["yn"],
+      allowedVersions: "<5.0.0",
     },
     {
-      matchPackageNames: ['find-up'],
-      allowedVersions: '<6.0.0',
+      matchPackageNames: ["find-up"],
+      allowedVersions: "<6.0.0",
     },
     {
-      matchPackageNames: ['node-fetch'],
-      allowedVersions: '<3.0.0',
+      matchPackageNames: ["node-fetch"],
+      allowedVersions: "<3.0.0",
     },
-
     {
-      // do not try to pin regex references
-      matchManagers: ['regex'],
+      matchManagers: ["custom.regex"],
       pinDigests: true,
     },
   ],
-
   customManagers: [
     {
-      // update backstage.json file
-      customType: 'regex',
-      fileMatch: 'backstage\\.json$',
+      customType: "regex",
+      fileMatch: "backstage\\.json$",
       matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
-      depNameTemplate: 'backstage/backstage',
-      datasourceTemplate: 'github-release',
-      versioningTemplate: 'semver-coerced',
+      depNameTemplate: "backstage/backstage",
+      datasourceTemplate: "github-release",
+      versioningTemplate: "semver-coerced",
     },
     {
-      // updating renovate defaults
-      customType: 'regex',
-      fileMatch: '^plugins/renovate-backend-module-runtime-docker/.*',
+      customType: "regex",
+      fileMatch: "^plugins/renovate-backend-module-runtime-docker/.*",
       matchStrings: [
-        // README defaults
-        'tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)',
-        // runtime.ts
+        "tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)",
         "imageTag\\s*=\\s*'(?<currentValue>\\S*?)'",
       ],
-      depNameTemplate: 'renovate',
-      packageNameTemplate: 'ghcr.io/renovatebot/renovate',
-      datasourceTemplate: 'docker',
+      depNameTemplate: "renovate",
+      packageNameTemplate: "ghcr.io/renovatebot/renovate",
+      datasourceTemplate: "docker",
     },
   ],
 }
