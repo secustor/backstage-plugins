@@ -49,9 +49,11 @@ export const renovatePlugin = createBackendPlugin({
         database: coreServices.database,
         scheduler: coreServices.scheduler,
         discovery: coreServices.discovery,
+        auth: coreServices.auth,
       },
       async init(options) {
         const {
+          auth,
           database,
           discovery,
           httpRouter,
@@ -75,21 +77,28 @@ export const renovatePlugin = createBackendPlugin({
           id: `renovate/job-sync`,
           ...schedule,
           fn: async () => {
-            const { items: entities } = await client.getEntities({
-              filter: {
-                [`metadata.annotations.${RENOVATE_ANNOTATION_KEEP_UPDATED}`]:
-                  CATALOG_FILTER_EXISTS,
-                [`metadata.annotations.${ANNOTATION_SOURCE_LOCATION}`]:
-                  CATALOG_FILTER_EXISTS,
-              },
-              fields: [
-                'kind',
-                'metadata.annotations',
-                'metadata.name',
-                'metadata.namespace',
-                'metadata.title',
-              ],
+            const { token } = await auth.getPluginRequestToken({
+              onBehalfOf: await auth.getOwnServiceCredentials(),
+              targetPluginId: 'catalog',
             });
+            const { items: entities } = await client.getEntities(
+              {
+                filter: {
+                  [`metadata.annotations.${RENOVATE_ANNOTATION_KEEP_UPDATED}`]:
+                    CATALOG_FILTER_EXISTS,
+                  [`metadata.annotations.${ANNOTATION_SOURCE_LOCATION}`]:
+                    CATALOG_FILTER_EXISTS,
+                },
+                fields: [
+                  'kind',
+                  'metadata.annotations',
+                  'metadata.name',
+                  'metadata.namespace',
+                  'metadata.title',
+                ],
+              },
+              { token },
+            );
 
             for (const entity of entities) {
               renovateRunner.schedule(entity as EntityWithAnnotations);
@@ -98,6 +107,10 @@ export const renovatePlugin = createBackendPlugin({
         });
 
         httpRouter.use(await createRouter(renovateRunner, routerOptions));
+        httpRouter.addAuthPolicy({
+          path: '/health',
+          allow: 'unauthenticated',
+        });
       },
     });
   },
