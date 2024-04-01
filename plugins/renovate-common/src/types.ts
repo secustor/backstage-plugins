@@ -11,7 +11,12 @@ export interface RenovateWrapper {
 export interface RenovateRunOptions {
   renovateConfig: JsonValue;
   env: Record<string, string>;
-  runtimeConfig: Config;
+  /*
+    Configuration which has been defined to the registered runtime.
+    E.g., in case for 'docker' the config of with the key `renovate.runtime.docker`.
+    Null if the runtime key is not defined
+   */
+  runtimeConfig: Config | null;
 }
 
 export interface RenovateRunResult {

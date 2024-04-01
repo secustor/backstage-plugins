@@ -24,8 +24,8 @@ export class DockerRuntime implements RenovateWrapper {
   }: RenovateRunOptions): Promise<RenovateRunResult> {
     env.RENOVATE_CONFIG = JSON.stringify(renovateConfig);
 
-    const image = runtimeConfig.getOptionalString('image') ?? imageRepository;
-    const tag = runtimeConfig.getOptionalString('tag') ?? imageTag;
+    const image = runtimeConfig?.getOptionalString('image') ?? imageRepository;
+    const tag = runtimeConfig?.getOptionalString('tag') ?? imageTag;
 
     const stdout = new PassThrough();
     this.#runner.runContainer({
