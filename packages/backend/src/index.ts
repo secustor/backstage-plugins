@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import { createBackend } from '@backstage/backend-defaults';
 
 const backend = createBackend();
