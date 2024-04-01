@@ -10,7 +10,6 @@ import { type RenovateReport } from '../schema/renovate';
 import { getPlatformEnvs } from './platforms';
 import { RouterOptions } from '../service/types';
 import { extractReport } from './utils';
-import { MockConfigApi } from '@backstage/test-utils';
 import {
   EntityWithAnnotations,
   getTargetRepo,
@@ -104,9 +103,7 @@ export class RenovateRunner {
     // we are reading it at this place to allow dynamic configuration changes
     const renovateConfig = this.pluginConfig.getOptional('config') ?? {};
     const runtimeConfig =
-      this.pluginConfig.getOptionalConfig(`runtime.${runtime}`) ??
-      // do not fail, but rather return an empty config
-      new MockConfigApi({});
+      this.pluginConfig.getOptionalConfig(`runtime.${runtime}`) ?? null;
 
     const promise = wrapperRuntime.run({
       env,

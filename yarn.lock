@@ -5721,7 +5721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/test-utils@npm:1.5.3, @backstage/test-utils@npm:^1.5.3":
+"@backstage/test-utils@npm:1.5.3":
   version: 1.5.3
   resolution: "@backstage/test-utils@npm:1.5.3"
   dependencies:
@@ -10651,7 +10651,7 @@ __metadata:
     "@backstage/config": "npm:^1.2.0"
     "@backstage/integration": "npm:^1.9.1"
     "@backstage/repo-tools": "npm:^0.7.2"
-    "@backstage/test-utils": "npm:^1.5.3"
+    "@backstage/test-utils": "npm:1.5.3"
     "@backstage/types": "npm:^1.1.1"
     "@secustor/plugin-renovate-common": "workspace:^"
     "@sindresorhus/is": "npm:^4.6.0"
