@@ -7,7 +7,7 @@ import {
   DatabaseService,
   SchedulerService,
 } from '@backstage/backend-plugin-api';
-import { RenovateWrapper } from '@secustor/plugin-renovate-common';
+import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 import { RenovateRunner } from '../wrapper';
 import { DatabaseHandler } from './databaseHandler';
 

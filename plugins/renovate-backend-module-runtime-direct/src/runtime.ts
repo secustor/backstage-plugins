@@ -2,7 +2,7 @@ import {
   RenovateRunOptions,
   RenovateRunResult,
   RenovateWrapper,
-} from '@secustor/plugin-renovate-common';
+} from '@secustor/backstage-plugin-renovate-common';
 import { fork } from 'node:child_process';
 import findUp from 'find-up';
 

@@ -1,7 +1,7 @@
 import { ScmIntegrations } from '@backstage/integration';
 import is from '@sindresorhus/is';
 import { PlatformEnvsOptions } from './types';
-import { TargetRepo } from '@secustor/plugin-renovate-common';
+import { TargetRepo } from '@secustor/backstage-plugin-renovate-common';
 
 /*
     Returns record of Renovate environment variables specific for the platform of targetUrl

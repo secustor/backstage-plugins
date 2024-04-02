@@ -2,7 +2,7 @@ import { MockConfigApi } from '@backstage/test-utils';
 import { getVoidLogger } from '@backstage/backend-common';
 import { mockServices } from '@backstage/backend-test-utils';
 import { RouterOptions } from '../service/types';
-import { RenovateWrapper } from '@secustor/plugin-renovate-common';
+import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 import { mockDeep } from 'jest-mock-extended';
 import { RenovateRunner } from './index';
 import { DatabaseHandler } from '../service/databaseHandler';

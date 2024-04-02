@@ -16,7 +16,7 @@ import {
   RenovateReport,
   RenovateWrapper,
   TargetRepo,
-} from '@secustor/plugin-renovate-common';
+} from '@secustor/backstage-plugin-renovate-common';
 import { Config } from '@backstage/config';
 import { LoggerService, SchedulerService } from '@backstage/backend-plugin-api';
 import { getRuntime, getScheduleDefinition } from '../config';

@@ -1,5 +1,5 @@
 import { createBackendModule } from '@backstage/backend-plugin-api';
-import { renovateRuntimeExtensionPoint } from '@secustor/plugin-renovate-backend';
+import { renovateRuntimeExtensionPoint } from '@secustor/backstage-plugin-renovate-backend';
 import { Direct } from './runtime';
 
 export const renovateModuleRuntimeDirect = createBackendModule({

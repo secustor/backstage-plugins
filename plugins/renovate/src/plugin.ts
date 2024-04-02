@@ -7,7 +7,7 @@ import {
 } from '@backstage/core-plugin-api';
 import { rootRouteRef } from './routes';
 import { renovateApiRef } from './api';
-import { DefaultApiClient } from '@secustor/plugin-renovate-client';
+import { DefaultApiClient } from '@secustor/backstage-plugin-renovate-client';
 
 export const renovatePlugin = createPlugin({
   id: 'renovate',

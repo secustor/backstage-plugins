@@ -1,4 +1,4 @@
-import { RenovateReport } from '@secustor/plugin-renovate-common';
+import { RenovateReport } from '@secustor/backstage-plugin-renovate-common';
 import { ExtractReportOptions } from './types';
 
 export async function extractReport(

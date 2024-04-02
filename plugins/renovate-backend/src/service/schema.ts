@@ -1,4 +1,4 @@
-import { entityWithAnnotations } from '@secustor/plugin-renovate-common';
+import { entityWithAnnotations } from '@secustor/backstage-plugin-renovate-common';
 import { z } from 'zod';
 
 export const target = z.union([z.string(), entityWithAnnotations]);

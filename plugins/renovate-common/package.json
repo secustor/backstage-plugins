@@ -1,11 +1,10 @@
 {
-  "name": "@secustor/plugin-renovate-common",
+  "name": "@secustor/backstage-plugin-renovate-common",
   "description": "Common functionalities for the renovate plugin",
   "version": "0.1.0",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "license": "LGPL-3.0-or-later",
-  "private": true,
   "publishConfig": {
     "access": "public",
     "main": "dist/index.cjs.js",

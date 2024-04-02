@@ -2,7 +2,7 @@ import {
   RenovateRunOptions,
   RenovateRunResult,
   RenovateWrapper,
-} from '@secustor/plugin-renovate-common';
+} from '@secustor/backstage-plugin-renovate-common';
 import { DockerContainerRunner } from '@backstage/backend-common';
 import Docker from 'dockerode';
 import { PassThrough } from 'stream';

@@ -8,10 +8,10 @@ import {
 } from './types';
 import { LoggerService } from '@backstage/backend-plugin-api';
 import is from '@sindresorhus/is';
-import { RepositoryReportResponse } from '@secustor/plugin-renovate-common';
+import { RepositoryReportResponse } from '@secustor/backstage-plugin-renovate-common';
 
 const migrationsDir = resolvePackagePath(
-  '@secustor/plugin-renovate-backend',
+  '@secustor/backstage-plugin-renovate-backend',
   'migrations',
 );
 

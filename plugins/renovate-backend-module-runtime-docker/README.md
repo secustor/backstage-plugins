@@ -1,4 +1,4 @@
-# @secustor/plugin-renovate-backend-module-runtime-docker
+# @secustor/backstage-plugin-renovate-backend-module-runtime-docker
 
 The runtime-docker backend module for the renovate plugin.
 

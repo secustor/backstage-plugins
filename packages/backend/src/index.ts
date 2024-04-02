@@ -22,8 +22,12 @@ backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
 
 backend.add(import('@backstage/plugin-techdocs-backend/alpha'));
 
-backend.add(import('@secustor/plugin-renovate-backend'));
-backend.add(import('@secustor/plugin-renovate-backend-module-runtime-direct'));
-backend.add(import('@secustor/plugin-renovate-backend-module-runtime-docker'));
+backend.add(import('@secustor/backstage-plugin-renovate-backend'));
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-runtime-direct'),
+);
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-runtime-docker'),
+);
 
 backend.start();

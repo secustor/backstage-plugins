@@ -11,7 +11,7 @@ import { renovateApiRef } from '../../api';
 import {
   repositoryReportResponse,
   RepositoryReportResponse,
-} from '@secustor/plugin-renovate-common';
+} from '@secustor/backstage-plugin-renovate-common';
 import is from '@sindresorhus/is';
 
 type DenseTableProps = {
