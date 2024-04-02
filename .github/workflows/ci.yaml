@@ -51,7 +51,7 @@ jobs:
 
       # running into problems with tsc:full after installing repo-tools
       - name: type checking and declarations
-        run: yarn tsc
+        run: yarn tsc:full
 
       - name: prettier
         run: yarn prettier:check
