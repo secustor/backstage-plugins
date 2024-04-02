@@ -8,7 +8,6 @@ import {
   getTargetRepo,
   getTaskID,
   parseUrl,
-  type TargetRepo,
 } from '@secustor/plugin-renovate-common';
 import { RenovateRunner } from '../wrapper';
 
@@ -26,13 +25,22 @@ export async function createRouter(
     response.json('ok');
   });
 
-  router.get('/reports', async (request, response) => {
-    let target: TargetRepo | undefined;
+  router.get('/reports', async (_request, response) => {
+    const reports = await databaseHandler.getReports();
+    response.status(200).json(reports);
+  });
 
-    if (request.body?.target) {
-      target = getTargetRepo(request.body?.target);
-    }
-    const reports = await databaseHandler.getReports(target);
+  router.get('/reports/:host', async (request, response) => {
+    const reports = await databaseHandler.getReports({
+      ...request.params,
+    });
+    response.status(200).json(reports);
+  });
+
+  router.get('/reports/:host/:repository', async (request, response) => {
+    const reports = await databaseHandler.getReports({
+      ...request.params,
+    });
     response.status(200).json(reports);
   });
 
