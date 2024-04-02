@@ -7,7 +7,7 @@ import { renovateRuntimeExtensionPoint } from './extensionPoints';
 import {
   EntityWithAnnotations,
   RenovateWrapper,
-} from '@secustor/plugin-renovate-common';
+} from '@secustor/backstage-plugin-renovate-common';
 import {
   CatalogClient,
   CATALOG_FILTER_EXISTS,

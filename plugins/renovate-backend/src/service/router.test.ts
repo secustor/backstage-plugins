@@ -3,7 +3,7 @@ import express from 'express';
 import request from 'supertest';
 import { MockConfigApi } from '@backstage/test-utils';
 import { createRouter } from './router';
-import { RenovateWrapper } from '@secustor/plugin-renovate-common';
+import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 import { mockDeep } from 'jest-mock-extended';
 import * as _databasehandler from './databaseHandler';
 import { DatabaseHandler } from './databaseHandler';

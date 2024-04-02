@@ -9,7 +9,7 @@ import {
   RenovateWrapper,
   RepositoryReport,
   TargetRepo,
-} from '@secustor/plugin-renovate-common';
+} from '@secustor/backstage-plugin-renovate-common';
 import { DatabaseHandler } from './databaseHandler';
 
 export interface RouterOptions {

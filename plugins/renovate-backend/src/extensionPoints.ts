@@ -1,5 +1,5 @@
 import { createExtensionPoint } from '@backstage/backend-plugin-api';
-import { RenovateWrapper } from '@secustor/plugin-renovate-common';
+import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 
 export interface RenovateRuntimeExtensionPoint {
   addRuntime(id: string, runtime: RenovateWrapper): void;

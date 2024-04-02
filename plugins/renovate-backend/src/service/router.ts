@@ -8,7 +8,7 @@ import {
   getTargetRepo,
   getTaskID,
   parseUrl,
-} from '@secustor/plugin-renovate-common';
+} from '@secustor/backstage-plugin-renovate-common';
 import { RenovateRunner } from '../wrapper';
 
 export async function createRouter(

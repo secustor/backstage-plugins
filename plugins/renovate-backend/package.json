@@ -1,5 +1,5 @@
 {
-  "name": "@secustor/plugin-renovate-backend",
+  "name": "@secustor/backstage-plugin-renovate-backend",
   "version": "0.1.0",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -35,7 +35,7 @@
     "@backstage/config": "^1.2.0",
     "@backstage/integration": "^1.9.1",
     "@backstage/types": "^1.1.1",
-    "@secustor/plugin-renovate-common": "workspace:^",
+    "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@sindresorhus/is": "^4.6.0",
     "@types/express": "*",
     "express": "^4.17.1",
