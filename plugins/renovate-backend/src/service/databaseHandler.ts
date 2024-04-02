@@ -6,8 +6,9 @@ import {
   ReportQueryParameters,
   ReportsRow,
 } from './types';
-import { RepositoryReport } from '../schema/renovate';
 import { LoggerService } from '@backstage/backend-plugin-api';
+import is from '@sindresorhus/is';
+import { RepositoryReportResponse } from '@secustor/plugin-renovate-common';
 
 const migrationsDir = resolvePackagePath(
   '@secustor/plugin-renovate-backend',
@@ -57,12 +58,23 @@ export class DatabaseHandler {
       .catch(reason => logger.error('Failed insert data', reason));
   }
 
-  async getReports(query?: ReportQueryParameters): Promise<RepositoryReport[]> {
+  async getReports(
+    query?: ReportQueryParameters,
+  ): Promise<RepositoryReportResponse> {
     const builder = this.client.select<ReportsRow[]>();
     if (query) {
       builder.where(query);
     }
-    const rows = await builder.from('reports');
-    return rows.map(row => row.report);
+    const rows = await builder.from<ReportsRow[]>('reports');
+    return rows.map(row => {
+      return {
+        taskID: row.task_id,
+        lastUpdated: new Date(row.last_updated).toISOString(),
+        host: row.host,
+        repository: row.repository,
+        // if the JSON field has not been auto-parsed do it manually
+        report: is.string(row.report) ? JSON.parse(row.report) : row.report,
+      };
+    });
   }
 }

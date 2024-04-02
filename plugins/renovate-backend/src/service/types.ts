@@ -4,8 +4,12 @@ import {
   LoggerService,
   SchedulerService,
 } from '@backstage/backend-plugin-api';
-import type { RenovateReport, RepositoryReport } from '../schema/renovate';
-import { RenovateWrapper, TargetRepo } from '@secustor/plugin-renovate-common';
+import {
+  RenovateReport,
+  RenovateWrapper,
+  RepositoryReport,
+  TargetRepo,
+} from '@secustor/plugin-renovate-common';
 import { DatabaseHandler } from './databaseHandler';
 
 export interface RouterOptions {
@@ -33,8 +37,8 @@ export interface DatabaseCreationParameters {
 }
 
 export interface ReportQueryParameters {
-  host: string;
-  repository: string;
+  host?: string;
+  repository?: string;
 }
 
 export interface AddReportParameters {

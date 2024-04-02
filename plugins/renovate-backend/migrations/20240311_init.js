@@ -26,7 +26,7 @@ exports.up = async function up(knex) {
         'organization or full group with repository e.g. "myOrg/myRepository" for github',
       );
     table
-      .text('report')
+      .json('report')
       .notNullable()
       .comment('Report of this repository as JSON blob');
   });

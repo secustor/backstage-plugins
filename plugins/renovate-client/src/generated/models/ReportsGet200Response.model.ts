@@ -5,10 +5,10 @@
 // ******************************************************************
 import { RepositoryReport } from '../models/RepositoryReport.model';
 
-export interface ReportsGet200ResponseInner {
-  taskID: string;
-  lastUpdated: Date;
-  host: string;
-  repository: string;
-  report: RepositoryReport;
+export interface ReportsGet200Response {
+  taskID?: string;
+  lastUpdated?: Date;
+  host?: string;
+  repository?: string;
+  report?: Array<RepositoryReport>;
 }

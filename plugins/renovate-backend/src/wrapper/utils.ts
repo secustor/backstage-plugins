@@ -1,4 +1,3 @@
-import { RenovateReport } from '../schema/renovate';
 import { ExtractReportOptions } from './types';
 
 export async function extractReport(

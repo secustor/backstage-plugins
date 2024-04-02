@@ -57,15 +57,21 @@ describe('createRouter', () => {
     it('returns all reports without target', async () => {
       const reportList = [
         {
-          branches: [],
-          packageFiles: {},
-          problems: [],
+          taskID: 'test',
+          lastUpdated: '',
+          host: 'github.com',
+          repository: 'myOrg/myRepo',
+          report: {
+            branches: [],
+            packageFiles: {},
+            problems: [],
+          },
         },
       ];
       databaseHandlerMock.getReports.mockResolvedValue(reportList);
       const response = await request(app).get('/reports');
 
-      expect(databaseHandlerMock.getReports).toHaveBeenCalledWith(undefined);
+      expect(databaseHandlerMock.getReports).toHaveBeenCalledWith();
       expect(response.status).toEqual(200);
       expect(response.body).toEqual(reportList);
     });
@@ -73,18 +79,21 @@ describe('createRouter', () => {
     it('returns all reports with target url', async () => {
       const reportList = [
         {
-          branches: [],
-          packageFiles: {},
-          problems: [],
+          taskID: 'test',
+          lastUpdated: '',
+          host: 'github.com',
+          repository: 'myOrg/myRepo',
+          report: {
+            branches: [],
+            packageFiles: {},
+            problems: [],
+          },
         },
       ];
       databaseHandlerMock.getReports.mockResolvedValue(reportList);
-      const response = await request(app)
-        .get('/reports')
-        .send({ target: 'https://github.com/myOrg/myRepo' });
+      const response = await request(app).get('/reports/github.com');
 
       expect(databaseHandlerMock.getReports).toHaveBeenCalledWith({
-        repository: 'myOrg/myRepo',
         host: 'github.com',
       });
       expect(response.status).toEqual(200);
@@ -94,25 +103,22 @@ describe('createRouter', () => {
     it('returns all reports with entity', async () => {
       const reportList = [
         {
-          branches: [],
-          packageFiles: {},
-          problems: [],
+          taskID: 'test',
+          lastUpdated: '',
+          host: 'my.gitlab.com',
+          repository: 'myOrg/myGroup/myRepo',
+          report: {
+            branches: [],
+            packageFiles: {},
+            problems: [],
+          },
         },
       ];
       databaseHandlerMock.getReports.mockResolvedValue(reportList);
 
-      const response = await request(app)
-        .get('/reports')
-        .send({
-          target: {
-            metadata: {
-              annotations: {
-                'backstage.io/source-location':
-                  'https://my.gitlab.com/myOrg/myGroup/myRepo',
-              },
-            },
-          },
-        });
+      const response = await request(app).get(
+        '/reports/my.gitlab.com/myOrg%2FmyGroup%2FmyRepo',
+      );
 
       expect(databaseHandlerMock.getReports).toHaveBeenCalledWith({
         repository: 'myOrg/myGroup/myRepo',

@@ -9,8 +9,7 @@ import crossFetch from 'cross-fetch';
 import { pluginId } from '../pluginId';
 import * as parser from 'uri-template';
 
-import { ReportsGetRequest } from '../models/ReportsGetRequest.model';
-import { RepositoryReport } from '../models/RepositoryReport.model';
+import { ReportsGet200ResponseInner } from '../models/ReportsGet200ResponseInner.model';
 import { RunsPost202Response } from '../models/RunsPost202Response.model';
 import { RunsPostRequest } from '../models/RunsPostRequest.model';
 
@@ -71,16 +70,13 @@ export class DefaultApiClient {
   }
 
   /**
-   * Get reports for repositories
-   * @param reportsGetRequest
+   * Get all reports
    */
   public async reportsGet(
     // @ts-ignore
-    request: {
-      body: ReportsGetRequest;
-    },
+    request: {},
     options?: RequestOptions,
-  ): Promise<TypedResponse<Array<RepositoryReport>>> {
+  ): Promise<TypedResponse<Array<ReportsGet200ResponseInner>>> {
     const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
 
     const uriTemplate = `/reports`;
@@ -93,7 +89,69 @@ export class DefaultApiClient {
         ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
       },
       method: 'GET',
-      body: JSON.stringify(request.body),
+    });
+  }
+
+  /**
+   * Get reports for host
+   * @param host
+   */
+  public async reportsHostGet(
+    // @ts-ignore
+    request: {
+      path: {
+        host: string;
+      };
+    },
+    options?: RequestOptions,
+  ): Promise<TypedResponse<Array<ReportsGet200ResponseInner>>> {
+    const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
+
+    const uriTemplate = `/reports/{host}`;
+
+    const uri = parser.parse(uriTemplate).expand({
+      host: request.path.host,
+    });
+
+    return await this.fetchApi.fetch(`${baseUrl}${uri}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
+      },
+      method: 'GET',
+    });
+  }
+
+  /**
+   * Get reports for repository
+   * @param host
+   * @param repository
+   */
+  public async reportsHostRepositoryGet(
+    // @ts-ignore
+    request: {
+      path: {
+        host: string;
+        repository: string;
+      };
+    },
+    options?: RequestOptions,
+  ): Promise<TypedResponse<Array<ReportsGet200ResponseInner>>> {
+    const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
+
+    const uriTemplate = `/reports/{host}/{repository}`;
+
+    const uri = parser.parse(uriTemplate).expand({
+      host: request.path.host,
+      repository: request.path.repository,
+    });
+
+    return await this.fetchApi.fetch(`${baseUrl}${uri}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
+      },
+      method: 'GET',
     });
   }
 

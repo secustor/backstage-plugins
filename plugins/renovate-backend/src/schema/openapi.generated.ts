@@ -39,32 +39,67 @@ export const spec = {
     },
     '/reports': {
       get: {
-        summary: 'Get reports for repositories',
-        requestBody: {
-          required: false,
-          content: {
-            'application/json': {
-              schema: {
-                type: 'object',
-                properties: {
-                  target: {
-                    $ref: '#/components/schemas/target',
-                  },
-                },
-              },
-            },
-          },
-        },
+        summary: 'Get all reports',
         responses: {
           '200': {
-            description: 'Returns reports',
-            content: {
-              'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/repositoryReportList',
-                },
-              },
+            $ref: '#/components/responses/reports',
+          },
+        },
+      },
+    },
+    '/reports/{host}': {
+      get: {
+        summary: 'Get reports for host',
+        parameters: [
+          {
+            name: 'host',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string',
+              example: 'github.com',
             },
+          },
+        ],
+        responses: {
+          '200': {
+            $ref: '#/components/responses/reports',
+          },
+          '404': {
+            description: 'unknown host',
+          },
+        },
+      },
+    },
+    '/reports/{host}/{repository}': {
+      get: {
+        summary: 'Get reports for repository',
+        parameters: [
+          {
+            name: 'host',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string',
+              example: 'github.com',
+            },
+          },
+          {
+            name: 'repository',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string',
+              example: 'myOrg/myRepository',
+            },
+          },
+        ],
+        responses: {
+          '200': {
+            $ref: '#/components/responses/reports',
+          },
+          '404': {
+            description: 'unknown repository',
           },
         },
       },
@@ -129,6 +164,47 @@ export const spec = {
     },
   },
   components: {
+    responses: {
+      reports: {
+        description: 'Returns reports',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'array',
+              items: {
+                type: 'object',
+                additionalProperties: false,
+                required: [
+                  'taskID',
+                  'repository',
+                  'host',
+                  'lastUpdated',
+                  'report',
+                ],
+                properties: {
+                  taskID: {
+                    type: 'string',
+                  },
+                  lastUpdated: {
+                    type: 'string',
+                    format: 'date-time',
+                  },
+                  host: {
+                    type: 'string',
+                  },
+                  repository: {
+                    type: 'string',
+                  },
+                  report: {
+                    $ref: '#/components/schemas/repositoryReport',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
     schemas: {
       error: {
         anyOf: [
@@ -146,7 +222,7 @@ export const spec = {
         ],
       },
       target: {
-        anyOf: [
+        oneOf: [
           {
             type: 'string',
             description: 'URL to an repository',

@@ -6,7 +6,6 @@
  */
 
 import is from '@sindresorhus/is';
-import { type RenovateReport } from '../schema/renovate';
 import { getPlatformEnvs } from './platforms';
 import { RouterOptions } from '../service/types';
 import { extractReport } from './utils';
@@ -14,6 +13,7 @@ import {
   EntityWithAnnotations,
   getTargetRepo,
   getTaskID,
+  RenovateReport,
   RenovateWrapper,
   TargetRepo,
 } from '@secustor/plugin-renovate-common';
