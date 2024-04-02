@@ -1,0 +1,1 @@
+export { ReportFetchComponent } from './ReportFetchComponent';
