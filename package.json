@@ -18,7 +18,7 @@
     "build:all": "backstage-cli repo build --all",
     "build-image": "yarn workspace backend build-image",
     "tsc": "tsc",
-    "tsc:full": "tsc --skipLibCheck false --incremental false",
+    "tsc:full": "tsc --incremental false",
     "clean": "backstage-cli repo clean",
     "jest": "jest",
     "test": "backstage-cli repo test",
