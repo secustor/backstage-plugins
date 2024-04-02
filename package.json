@@ -26,7 +26,7 @@
     "test:e2e": "playwright test",
     "fix": "backstage-cli repo fix",
     "lint": "backstage-cli repo lint --since origin/main",
-    "lint:fix": "yarn prettier:fix && backstage-cli repo lint --fix",
+    "lint:fix": "yarn prettier:fix && backstage-cli repo lint --fix && yarn dedupe --strategy highest",
     "lint:all": "backstage-cli repo lint",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
