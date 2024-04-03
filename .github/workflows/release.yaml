@@ -1,7 +1,9 @@
 name: Release workspace
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: release
