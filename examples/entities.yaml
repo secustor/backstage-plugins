@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-plugins-example
+  description: An example deployment of a Backstage application.
+  annotations:
+    renovate.secustor.dev/keep-updated: enabled
+spec:
+  type: repo
+  owner: backstage-plugins/maintainers
+  lifecycle: experimental
