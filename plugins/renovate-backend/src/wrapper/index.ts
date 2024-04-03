@@ -8,7 +8,7 @@
 import is from '@sindresorhus/is';
 import { getPlatformEnvs } from './platforms';
 import { RouterOptions } from '../service/types';
-import { extractReport } from './utils';
+import { extractReport, getCacheEnvs } from './utils';
 import {
   EntityWithAnnotations,
   getTargetRepo,
@@ -90,6 +90,7 @@ export class RenovateRunner {
         logger,
         rootConfig: this.rootConfig,
       }),
+      ...getCacheEnvs(this.rootConfig, logger),
     };
 
     // read out renovate.config and write out to json file for consumption by Renovate
@@ -114,15 +115,19 @@ export class RenovateRunner {
 
   async run(id: string, target: TargetRepo): Promise<void> {
     const logger = this.logger.child({ taskID: id, ...target });
-    logger.info('Renovate run starting');
-    const report = await this.renovate(id, target, { logger });
-    await this.databaseHandler.addReport({
-      taskID: id,
-      report,
-      target,
-      logger,
-    });
-    logger.info('Renovate run finished');
+    try {
+      logger.info('Renovate run starting');
+      const report = await this.renovate(id, target, { logger });
+      await this.databaseHandler.addReport({
+        taskID: id,
+        report,
+        target,
+        logger,
+      });
+      logger.info('Renovate run successfully finished');
+    } catch (e) {
+      logger.error('Renovate failed', isError(e) ? e : {});
+    }
   }
 
   async schedule(
