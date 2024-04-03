@@ -40,7 +40,7 @@ jobs:
         run: yarn build:all
 
       - name: Debug
-        run: 'yarn workspaces foreach --all --dry-run'
+        run: "yarn workspaces foreach --all --dry-run --include 'plugins/*' npm publish --access public"
 
       - name: Publish packages
         id: changesets-publish
