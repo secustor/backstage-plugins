@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-direct
 
+## 0.1.3
+
+### Patch Changes
+
+- 1610dec: Move extension points to separate node library package
+
 ## 0.1.2
 
 ### Patch Changes

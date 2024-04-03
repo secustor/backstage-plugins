@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.2.0
+
+### Minor Changes
+
+- 63418f2: Improve RenovateStarter and add loading feedback
+
 ## 0.1.1
 
 ### Patch Changes
