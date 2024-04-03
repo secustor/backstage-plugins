@@ -39,11 +39,14 @@ jobs:
       - name: Build all packages
         run: yarn build:all
 
+      - name: Debug
+        run: 'yarn workspaces foreach --all --dry-run'
+
       - name: Publish packages
         id: changesets-publish
         uses: changesets/action@v1
         with:
-          publish: yarn workspaces foreach --all --include 'plugins/*' npm publish --access public
+          publish: "yarn workspaces foreach --all --include 'plugins/*' npm publish --access public"
           title: Version Packages
           version: yarn changeset version
         env:
