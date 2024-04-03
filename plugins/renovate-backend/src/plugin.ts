@@ -3,7 +3,6 @@ import {
   createBackendPlugin,
 } from '@backstage/backend-plugin-api';
 import { createRouter } from './service/router';
-import { renovateRuntimeExtensionPoint } from './extensionPoints';
 import {
   EntityWithAnnotations,
   RenovateWrapper,
@@ -17,6 +16,7 @@ import { RenovateRunner } from './wrapper';
 import { RouterOptions } from './service/types';
 import { DatabaseHandler } from './service/databaseHandler';
 import { getScheduleDefinition } from './config';
+import { renovateRuntimeExtensionPoint } from '@secustor/backstage-plugin-renovate-node';
 
 const RENOVATE_ANNOTATION_KEEP_UPDATED = 'renovate.secustor.dev/keep-updated';
 

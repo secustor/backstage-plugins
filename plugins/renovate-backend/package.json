@@ -37,6 +37,7 @@
     "@backstage/integration": "^1.9.1",
     "@backstage/types": "^1.1.1",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
+    "@secustor/backstage-plugin-renovate-node": "workspace:^",
     "@sindresorhus/is": "^4.6.0",
     "@types/express": "*",
     "express": "^4.17.1",
