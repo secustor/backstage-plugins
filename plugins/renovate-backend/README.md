@@ -18,6 +18,12 @@ integrations:
     - host: github.com
       token: ${GITHUB_TOKEN}
 
+backend:
+  cache:
+    # the plugin will reuse this configuration for Renovates Redis integration
+    store: redis
+    connection: redis://user:pass@cache.example.com:6379
+
 renovate:
   schedules:
   jobSync:
@@ -38,9 +44,6 @@ renovate:
     allowedHosts:
       - my.endpoint.local
   config:
-    # all global (bot) configuration options are available here,
-    # but be careful if self-hosted options are used as they can interfere with the operations
-    # https://docs.renovatebot.com/self-hosted-configuration/#redisurl
-    redisUrl: redis://[[username]:[password]]@localhost:6379/0
-    redisPrefix: renovate
+    # unset this value if you want to opt out of the cache injection
+    redisUrl:
 ```

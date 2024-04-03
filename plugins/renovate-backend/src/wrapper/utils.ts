@@ -1,5 +1,8 @@
 import { RenovateReport } from '@secustor/backstage-plugin-renovate-common';
 import { ExtractReportOptions } from './types';
+import { Config } from '@backstage/config';
+import is from '@sindresorhus/is';
+import { LoggerService } from '@backstage/backend-plugin-api';
 
 export async function extractReport(
   opts: ExtractReportOptions,
@@ -31,4 +34,33 @@ export async function extractReport(
       }
     });
   });
+}
+
+export function getCacheEnvs(
+  config: Config,
+  logger: LoggerService,
+): Record<string, string> {
+  const cacheConfig = config.getOptionalConfig('backend.redis');
+  if (is.nullOrUndefined(cacheConfig)) {
+    logger.debug('No cache configured');
+    return {};
+  }
+
+  const store = cacheConfig.getString('store');
+  if (store !== 'redis') {
+    logger.debug(`Unsupported cache store '${store}' detected`);
+    return {};
+  }
+
+  const connection = cacheConfig.getOptionalString('connection');
+  if (is.nullOrUndefined(connection)) {
+    logger.debug('No connection string for redis cache configured in backend');
+    return {};
+  }
+
+  logger.debug('Injecting Redis cache into Renovate');
+  return {
+    RENOVATE_REDIS_PREFIX: 'renovate',
+    RENOVATE_REDIS_URL: connection,
+  };
 }
