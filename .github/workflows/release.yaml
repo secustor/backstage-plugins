@@ -43,7 +43,7 @@ jobs:
         id: changesets-publish
         uses: changesets/action@v1
         with:
-          publish: yarn workspaces foreach --all --include 'plugins/*' npm publish
+          publish: yarn workspaces foreach --all --include 'plugins/*' npm publish --access public
           title: Version Packages
           version: yarn changeset version
         env:
