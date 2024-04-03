@@ -25,8 +25,8 @@
   "dependencies": {
     "@backstage/backend-common": "^0.21.6",
     "@backstage/backend-plugin-api": "^0.6.16",
-    "@secustor/backstage-plugin-renovate-backend": "workspace:^",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
+    "@secustor/backstage-plugin-renovate-node": "workspace:^",
     "find-up": "^5.0.0",
     "renovate": "37.278.0"
   },

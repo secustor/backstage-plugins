@@ -1,5 +1,5 @@
 import { createBackendModule } from '@backstage/backend-plugin-api';
-import { renovateRuntimeExtensionPoint } from '@secustor/backstage-plugin-renovate-backend';
+import { renovateRuntimeExtensionPoint } from '@secustor/backstage-plugin-renovate-node';
 import { DockerRuntime } from './runtime';
 
 export const renovateModuleRuntimeDocker = createBackendModule({

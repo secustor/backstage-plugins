@@ -112,9 +112,13 @@ catalog:
           timeout: { minutes: 3 }
 
 renovate:
-  schedule:
-    frequency: { minutes: 60 }
-    timeout: { minutes: 60 }
+  schedules:
+    jobSync:
+      frequency: { minutes: 60 }
+      timeout: { minutes: 60 }
+    renovation:
+      frequency: { minutes: 60 }
+      timeout: { minutes: 60 }
   runtime:
     type: docker
     docker:
