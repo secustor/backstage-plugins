@@ -58,6 +58,8 @@
     "supertest": "^6.2.4"
   },
   "files": [
-    "dist"
+    "dist",
+    "migrations/**/*.{js,d.ts}",
+    "config.d.ts"
   ]
 }
