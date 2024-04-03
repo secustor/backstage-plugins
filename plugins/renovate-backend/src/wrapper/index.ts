@@ -21,8 +21,8 @@ import { Config } from '@backstage/config';
 import { LoggerService, SchedulerService } from '@backstage/backend-plugin-api';
 import { getRuntime, getScheduleDefinition } from '../config';
 import { DatabaseHandler } from '../service/databaseHandler';
-import { TaskRunner } from '@backstage/backend-tasks';
 import { RunOptions } from './types';
+import { isError, NotFoundError } from '@backstage/errors';
 
 export class RenovateRunner {
   private scheduler: SchedulerService;
@@ -31,7 +31,6 @@ export class RenovateRunner {
   private pluginConfig: Config;
   private logger: LoggerService;
   private runtimes: Map<string, RenovateWrapper>;
-  private runner: TaskRunner;
 
   constructor(
     databaseHandler: DatabaseHandler,
@@ -39,7 +38,6 @@ export class RenovateRunner {
     pluginConfig: Config,
     logger: LoggerService,
     runtimes: Map<string, RenovateWrapper>,
-    runner: TaskRunner,
     scheduler: SchedulerService,
   ) {
     this.databaseHandler = databaseHandler;
@@ -47,7 +45,6 @@ export class RenovateRunner {
     this.pluginConfig = pluginConfig;
     this.logger = logger;
     this.runtimes = runtimes;
-    this.runner = runner;
     this.scheduler = scheduler;
   }
 
@@ -61,16 +58,12 @@ export class RenovateRunner {
       scheduler,
     } = options;
 
-    const scheduleConfig = getScheduleDefinition(pluginConfig);
-    const runner = scheduler.createScheduledTaskRunner(scheduleConfig);
-
     return new RenovateRunner(
       databaseHandler,
       rootConfig,
       pluginConfig,
       logger,
       runtimes,
-      runner,
       scheduler,
     );
   }
@@ -120,7 +113,7 @@ export class RenovateRunner {
   }
 
   async run(id: string, target: TargetRepo): Promise<void> {
-    const logger = this.logger.child({ runID: id, ...target });
+    const logger = this.logger.child({ taskID: id, ...target });
     logger.info('Renovate run starting');
     const report = await this.renovate(id, target, { logger });
     await this.databaseHandler.addReport({
@@ -136,17 +129,26 @@ export class RenovateRunner {
     target: string | EntityWithAnnotations | TargetRepo,
   ): Promise<void> {
     const id = getTaskID(target);
+    const childLogger = this.logger.child({ taskID: id });
     const targetRepo = getTargetRepo(target);
 
     // try to trigger existing schedule and if this fails, start a run.
     try {
+      childLogger.debug('Triggering task');
       await this.scheduler.triggerTask(id);
       return;
     } catch (e) {
-      await this.runner.run({
-        id,
-        fn: () => this.run(id, targetRepo),
-      });
+      childLogger.debug('Scheduling new task');
+      // expected error handle else rethrow
+      if (isError(e) && e.name === NotFoundError.name) {
+        this.scheduler.scheduleTask({
+          id,
+          fn: () => this.run(id, targetRepo),
+          ...getScheduleDefinition(this.pluginConfig, 'renovation'),
+        });
+        return;
+      }
+      throw e;
     }
   }
 }

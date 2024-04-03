@@ -10915,6 +10915,7 @@ __metadata:
     "@backstage/catalog-model": "npm:^1.4.5"
     "@backstage/cli": "npm:^0.26.2"
     "@backstage/config": "npm:^1.2.0"
+    "@backstage/errors": "npm:^1.2.4"
     "@backstage/integration": "npm:^1.9.1"
     "@backstage/repo-tools": "npm:^0.7.2"
     "@backstage/test-utils": "npm:1.5.3"

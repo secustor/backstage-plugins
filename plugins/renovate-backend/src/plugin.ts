@@ -71,7 +71,10 @@ export const renovatePlugin = createBackendPlugin({
         const renovateRunner = await RenovateRunner.from(routerOptions);
         const client = new CatalogClient({ discoveryApi: discovery });
 
-        const schedule = getScheduleDefinition(routerOptions.pluginConfig);
+        const schedule = getScheduleDefinition(
+          routerOptions.pluginConfig,
+          'jobSync',
+        );
 
         await scheduler.scheduleTask({
           id: `renovate/job-sync`,
