@@ -10,7 +10,16 @@ export function getRuntime(pluginConfig: Config): string {
 
 export function getScheduleDefinition(
   pluginConfig: Config,
+  variant: 'jobSync' | 'renovation',
 ): TaskScheduleDefinition {
-  const scheduleConfig = pluginConfig.getConfig('schedule');
-  return readTaskScheduleDefinitionFromConfig(scheduleConfig);
+  try {
+    const scheduleConfig = pluginConfig.getConfig(`schedules.${variant}`);
+    return readTaskScheduleDefinitionFromConfig(scheduleConfig);
+  } catch (e) {
+    return {
+      scope: 'global',
+      timeout: { minutes: 60 },
+      frequency: { minutes: 60 },
+    };
+  }
 }

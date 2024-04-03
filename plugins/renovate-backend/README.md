@@ -19,6 +19,14 @@ integrations:
       token: ${GITHUB_TOKEN}
 
 renovate:
+  schedules:
+  jobSync:
+    frequency: { minutes: 60 }
+    timeout: { minutes: 60 }
+  renovation:
+    frequency: { minutes: 60 }
+    timeout: { minutes: 60 }
+
   runtime:
     # ID of the runtime provided via extension point. This option is required as the backend comes with no runtime by default.
     type: docker
