@@ -50,19 +50,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Trigger Workflow
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
-        if: steps.changesets.outputs.hasChangesets == 'true'
-        continue-on-error: true
-        with:
-          script: |
-            github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'ci.yaml',
-              ref: 'changeset-release/main',
-            })
-
       - name: Publish
         if: steps.changesets.outputs.hasChangesets == 'false'
         # --tolerate-republish do not attempt a republishing as it suggests but rather skips if the version already exists
