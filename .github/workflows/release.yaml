@@ -48,7 +48,20 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.PA_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger Workflow
+        uses: actions/github-script@v6
+        if: steps.changesets.outputs.hasChangesets == 'true'
+        continue-on-error: true
+        with:
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'ci.yaml',
+              ref: 'changeset-release/main',
+            })
 
       - name: Publish
         if: steps.changesets.outputs.hasChangesets == 'false'
