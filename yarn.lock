@@ -5920,7 +5920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:^2.27.1":
+"@changesets/cli@npm:2.27.1":
   version: 2.27.1
   resolution: "@changesets/cli@npm:2.27.1"
   dependencies:
@@ -32693,7 +32693,7 @@ __metadata:
     "@backstage/cli": "npm:0.26.2"
     "@backstage/e2e-test-utils": "npm:0.1.1"
     "@backstage/repo-tools": "npm:0.7.2"
-    "@changesets/cli": "npm:^2.27.1"
+    "@changesets/cli": "npm:2.27.1"
     "@playwright/test": "npm:1.42.1"
     "@spotify/prettier-config": "npm:15.0.0"
     "@types/jest": "npm:29.5.12"
