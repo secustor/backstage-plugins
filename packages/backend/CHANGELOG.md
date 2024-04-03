@@ -1,5 +1,17 @@
 # backend
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [80d6c33]
+- Updated dependencies [3442c0d]
+- Updated dependencies [1610dec]
+  - @secustor/backstage-plugin-renovate-backend@0.2.0
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.1.3
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@0.1.3
+  - app@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes
