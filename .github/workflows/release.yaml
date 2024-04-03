@@ -39,17 +39,21 @@ jobs:
       - name: Build all packages
         run: yarn build:all
 
-      - name: Debug
-        run: "yarn workspaces foreach --all --dry-run --include 'plugins/*' npm publish --access public"
-
       - name: Publish packages
-        id: changesets-publish
+        id: changesets
         uses: changesets/action@v1
         with:
-          publish: "yarn workspaces foreach --all --include 'plugins/*' npm publish --access public"
           title: Version Packages
           version: yarn changeset version
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.PA_GITHUB_TOKEN }}
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: "yarn workspaces foreach --all --include 'plugins/*' npm publish --access public"
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
