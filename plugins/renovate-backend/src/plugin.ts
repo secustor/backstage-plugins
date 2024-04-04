@@ -77,8 +77,9 @@ export const renovatePlugin = createBackendPlugin({
         );
 
         await scheduler.scheduleTask({
-          id: `renovate/job-sync`,
+          id: `renovate_job_sync`,
           ...schedule,
+
           fn: async () => {
             const { token } = await auth.getPluginRequestToken({
               onBehalfOf: await auth.getOwnServiceCredentials(),
