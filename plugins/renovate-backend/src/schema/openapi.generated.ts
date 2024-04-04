@@ -117,10 +117,6 @@ export const spec = {
                   target: {
                     $ref: '#/components/schemas/target',
                   },
-                  callBackURL: {
-                    type: 'string',
-                    example: 'https://localhost:8080/my-webhook-endpoint',
-                  },
                 },
               },
             },

@@ -7,5 +7,4 @@ import { Target } from '../models/Target.model';
 
 export interface RunsPostRequest {
   target: Target;
-  callBackURL?: string;
 }
