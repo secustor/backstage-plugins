@@ -22,7 +22,7 @@ import { LoggerService, SchedulerService } from '@backstage/backend-plugin-api';
 import { getRuntime, getScheduleDefinition } from '../config';
 import { DatabaseHandler } from '../service/databaseHandler';
 import { RunOptions } from './types';
-import { isError, NotFoundError } from '@backstage/errors';
+import { isError } from '@backstage/errors';
 
 export class RenovateRunner {
   private scheduler: SchedulerService;
@@ -130,6 +130,24 @@ export class RenovateRunner {
     }
   }
 
+  async trigger(
+    target: string | EntityWithAnnotations | TargetRepo,
+  ): Promise<void> {
+    const id = getTaskID(target);
+    const childLogger = this.logger.child({ taskID: id });
+
+    // ensure there is runner scheduled
+    await this.schedule(target);
+
+    childLogger.debug('Triggering task');
+    try {
+      await this.scheduler.triggerTask(id);
+    } catch (e) {
+      childLogger.debug('Triggering task has failed', isError(e) ? e : {});
+      throw e;
+    }
+  }
+
   async schedule(
     target: string | EntityWithAnnotations | TargetRepo,
   ): Promise<void> {
@@ -137,23 +155,15 @@ export class RenovateRunner {
     const childLogger = this.logger.child({ taskID: id });
     const targetRepo = getTargetRepo(target);
 
-    // try to trigger existing schedule and if this fails, start a run.
-    try {
-      childLogger.debug('Triggering task');
-      await this.scheduler.triggerTask(id);
-      return;
-    } catch (e) {
-      childLogger.debug('Scheduling new task');
-      // expected error handle else rethrow
-      if (isError(e) && e.name === NotFoundError.name) {
-        this.scheduler.scheduleTask({
-          id,
-          fn: () => this.run(id, targetRepo),
-          ...getScheduleDefinition(this.pluginConfig, 'renovation'),
-        });
-        return;
-      }
-      throw e;
+    // if the task is not locally scheduled do so, else only trigger it
+    const schedules = await this.scheduler.getScheduledTasks();
+    if (!schedules.some(task => task.id === id)) {
+      childLogger.debug('Scheduling task');
+      await this.scheduler.scheduleTask({
+        id,
+        fn: () => this.run(id, targetRepo),
+        ...getScheduleDefinition(this.pluginConfig, 'renovation'),
+      });
     }
   }
 }
