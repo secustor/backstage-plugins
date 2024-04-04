@@ -8,7 +8,7 @@ export function getTaskID(
   target: string | EntityWithAnnotations | TargetRepo,
 ): string {
   const repo = getTargetRepo(target);
-  return `renovate/run/${repo.host}-${repo.repository}`;
+  return `renovate_run_${repo.host}_${repo.repository}`;
 }
 
 export function getTargetRepo(
