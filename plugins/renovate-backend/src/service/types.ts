@@ -23,7 +23,7 @@ export interface RouterOptions {
 
 export interface ReportsRow {
   task_id: string;
-  last_updated: number;
+  last_updated: Date;
   host: string;
   repository: string;
   report: RepositoryReport;
