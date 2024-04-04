@@ -44,7 +44,7 @@ export class DatabaseHandler {
     for (const [repository, value] of Object.entries(report.repositories)) {
       inserts.push({
         task_id: taskID,
-        last_updated: Date.now(),
+        last_updated: new Date(),
         host: target.host,
         repository,
         report: value,
@@ -69,7 +69,7 @@ export class DatabaseHandler {
     return rows.map(row => {
       return {
         taskID: row.task_id,
-        lastUpdated: new Date(row.last_updated).toISOString(),
+        lastUpdated: row.last_updated.toISOString(),
         host: row.host,
         repository: row.repository,
         // if the JSON field has not been auto-parsed do it manually

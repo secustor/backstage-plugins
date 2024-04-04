@@ -12,7 +12,7 @@ exports.up = async function up(knex) {
       .unique()
       .comment('unique id of the Repository reoccurring task');
     table
-      .time('last_updated')
+      .timestamp('last_updated')
       .notNullable()
       .comment('Time when the last report has been pushed');
     table
