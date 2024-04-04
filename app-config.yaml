@@ -93,8 +93,5 @@ renovate:
     type: docker
     docker:
 
-  callBacks:
-    allowedHosts:
-      - localhost
   config:
     test: test

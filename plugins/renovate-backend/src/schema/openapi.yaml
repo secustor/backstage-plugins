@@ -77,9 +77,6 @@ paths:
               properties:
                 target:
                   $ref: '#/components/schemas/target'
-                callBackURL:
-                  type: string
-                  example: https://localhost:8080/my-webhook-endpoint
 
       responses:
         202:

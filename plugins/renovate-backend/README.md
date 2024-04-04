@@ -37,12 +37,6 @@ renovate:
     # ID of the runtime provided via extension point. This option is required as the backend comes with no runtime by default.
     type: docker
 
-  # defines a list of allowed hosts to which the report is sent to if a callBackURL is provided with the run request.
-  # If the list is not set, localhost is allowed.
-  # In case you want to forbid all callbacks, set it to an empty array '[]'
-  callBacks:
-    allowedHosts:
-      - my.endpoint.local
   config:
     # unset this value if you want to opt out of the cache injection
     redisUrl:

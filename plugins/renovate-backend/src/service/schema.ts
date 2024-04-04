@@ -5,5 +5,4 @@ export const target = z.union([z.string(), entityWithAnnotations]);
 
 export const runRequestBody = z.object({
   target,
-  callBackURL: z.string().url().optional(),
 });
