@@ -40,7 +40,7 @@ export function getCacheEnvs(
   config: Config,
   logger: LoggerService,
 ): Record<string, string> {
-  const cacheConfig = config.getOptionalConfig('backend.redis');
+  const cacheConfig = config.getOptionalConfig('backend.cache');
   if (is.nullOrUndefined(cacheConfig)) {
     logger.debug('No cache configured');
     return {};
@@ -58,9 +58,15 @@ export function getCacheEnvs(
     return {};
   }
 
+  const redisUrl = getRenovateConfig(config);
+  if (is.emptyObject(redisUrl)) {
+    logger.debug('Renovate redis config set to null, skipping integration');
+    return {};
+  }
+
   logger.debug('Injecting Redis cache into Renovate');
   return {
-    RENOVATE_REDIS_PREFIX: 'renovate',
+    RENOVATE_REDIS_PREFIX: 'renovate_',
     RENOVATE_REDIS_URL: connection,
   };
 }
