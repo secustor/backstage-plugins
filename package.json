@@ -44,7 +44,7 @@
     "@backstage/e2e-test-utils": "0.1.1",
     "@backstage/repo-tools": "0.7.2",
     "@changesets/cli": "2.27.1",
-    "@playwright/test": "1.42.1",
+    "@playwright/test": "1.43.0",
     "@spotify/prettier-config": "15.0.0",
     "@types/jest": "29.5.12",
     "concurrently": "8.2.2",
