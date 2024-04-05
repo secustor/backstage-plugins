@@ -24,11 +24,14 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
     { title: 'Repository', field: 'repository' },
     { title: 'Last run', field: 'lastUpdated' },
     { title: 'Number of PRs', field: 'noPRs' },
-    { title: 'Number of Branches', field: 'noBranches' },
-    { title: 'Number of Updates', field: 'noUpdates' },
+    { title: 'Number of branches', field: 'noBranches' },
+    { title: 'Number of updates', field: 'noUpdates' },
+    { title: 'Number of dependencies', field: 'noDeps' },
   ];
 
   const data = reports.flatMap(report => {
+    const packageFiles = Object.values(report.report.packageFiles).flat();
+    const deps = packageFiles.flatMap(packageFile => packageFile.deps);
     return {
       host: report.host,
       repository: report.repository,
@@ -39,6 +42,7 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
       noBranches: report.report.branches.length,
       noUpdates: report.report.branches.flatMap(branch => branch.upgrades)
         .length,
+      noDeps: deps.length,
     };
   });
 
