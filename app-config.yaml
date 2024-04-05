@@ -81,11 +81,18 @@ catalog:
     - type: file
       target: ../../examples/entities.yaml
 
+  providers:
+    backstageOpenapi:
+      plugins:
+        - catalog
+        - search
+        - renovate
+
 renovate:
   schedules:
     jobSync:
-      frequency: { minutes: 60 }
-      timeout: { minutes: 60 }
+      frequency: { minutes: 5 }
+      timeout: { minutes: 1 }
     renovation:
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }
