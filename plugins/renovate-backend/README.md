@@ -38,6 +38,6 @@ renovate:
     type: docker
 
   config:
-    # unset this value if you want to opt out of the cache injection
+    # set this value to null if you want to opt out of the cache injection
     redisUrl:
 ```
