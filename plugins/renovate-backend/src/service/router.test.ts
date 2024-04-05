@@ -24,7 +24,6 @@ describe('createRouter', () => {
     const router = await createRouter(runnerMock, {
       logger: getVoidLogger(),
       rootConfig: new MockConfigApi({}),
-      pluginConfig: new MockConfigApi({}),
       databaseHandler: databaseHandlerMock,
       runtimes: new Map<string, RenovateWrapper>(),
       scheduler: mockServices.scheduler.mock(),

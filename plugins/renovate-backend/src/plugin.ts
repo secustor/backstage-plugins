@@ -15,7 +15,7 @@ import { ANNOTATION_SOURCE_LOCATION } from '@backstage/catalog-model';
 import { RenovateRunner } from './wrapper';
 import { RouterOptions } from './service/types';
 import { DatabaseHandler } from './service/databaseHandler';
-import { getScheduleDefinition } from './config';
+import { getPluginConfig, getScheduleDefinition } from './config';
 import { renovateRuntimeExtensionPoint } from '@secustor/backstage-plugin-renovate-node';
 
 const RENOVATE_ANNOTATION_KEEP_UPDATED = 'renovate.secustor.dev/keep-updated';
@@ -65,16 +65,13 @@ export const renovatePlugin = createBackendPlugin({
         const routerOptions: RouterOptions = {
           ...options,
           databaseHandler: await DatabaseHandler.create({ database, logger }),
-          pluginConfig: rootConfig.getConfig('renovate'),
           runtimes,
         };
         const renovateRunner = await RenovateRunner.from(routerOptions);
         const client = new CatalogClient({ discoveryApi: discovery });
 
-        const schedule = getScheduleDefinition(
-          routerOptions.pluginConfig,
-          'jobSync',
-        );
+        const pluginConfig = getPluginConfig(rootConfig);
+        const schedule = getScheduleDefinition(pluginConfig, 'jobSync');
 
         await scheduler.scheduleTask({
           id: `renovate_job_sync`,

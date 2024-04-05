@@ -19,49 +19,44 @@ import {
 } from '@secustor/backstage-plugin-renovate-common';
 import { Config } from '@backstage/config';
 import { LoggerService, SchedulerService } from '@backstage/backend-plugin-api';
-import { getRuntime, getScheduleDefinition } from '../config';
+import {
+  getPluginConfig,
+  getRenovateConfig,
+  getRuntimeConfigs,
+  getScheduleDefinition,
+} from '../config';
 import { DatabaseHandler } from '../service/databaseHandler';
 import { RunOptions } from './types';
 import { isError } from '@backstage/errors';
 
 export class RenovateRunner {
   private scheduler: SchedulerService;
-  private rootConfig: Config;
+  private readonly rootConfig: Config;
   private databaseHandler: DatabaseHandler;
-  private pluginConfig: Config;
   private logger: LoggerService;
   private runtimes: Map<string, RenovateWrapper>;
 
   constructor(
     databaseHandler: DatabaseHandler,
     rootConfig: Config,
-    pluginConfig: Config,
     logger: LoggerService,
     runtimes: Map<string, RenovateWrapper>,
     scheduler: SchedulerService,
   ) {
     this.databaseHandler = databaseHandler;
     this.rootConfig = rootConfig;
-    this.pluginConfig = pluginConfig;
     this.logger = logger;
     this.runtimes = runtimes;
     this.scheduler = scheduler;
   }
 
   static async from(options: RouterOptions): Promise<RenovateRunner> {
-    const {
-      databaseHandler,
-      rootConfig,
-      pluginConfig,
-      runtimes,
-      logger,
-      scheduler,
-    } = options;
+    const { databaseHandler, rootConfig, runtimes, logger, scheduler } =
+      options;
 
     return new RenovateRunner(
       databaseHandler,
       rootConfig,
-      pluginConfig,
       logger,
       runtimes,
       scheduler,
@@ -73,7 +68,9 @@ export class RenovateRunner {
     target: TargetRepo,
     { logger }: RunOptions,
   ): Promise<RenovateReport> {
-    const runtime = getRuntime(this.pluginConfig);
+    const { runtime, config: runtimeConfig } = getRuntimeConfigs(
+      this.rootConfig,
+    );
     const wrapperRuntime = this.runtimes.get(runtime);
     if (is.nullOrUndefined(wrapperRuntime)) {
       throw new Error(`Unknown runtime type '${runtime}'`);
@@ -95,9 +92,7 @@ export class RenovateRunner {
 
     // read out renovate.config and write out to json file for consumption by Renovate
     // we are reading it at this place to allow dynamic configuration changes
-    const renovateConfig = this.pluginConfig.getOptional('config') ?? {};
-    const runtimeConfig =
-      this.pluginConfig.getOptionalConfig(`runtime.${runtime}`) ?? null;
+    const renovateConfig = getRenovateConfig(this.rootConfig);
 
     const promise = wrapperRuntime.run({
       env,
@@ -162,7 +157,10 @@ export class RenovateRunner {
       await this.scheduler.scheduleTask({
         id,
         fn: () => this.run(id, targetRepo),
-        ...getScheduleDefinition(this.pluginConfig, 'renovation'),
+        ...getScheduleDefinition(
+          getPluginConfig(this.rootConfig),
+          'renovation',
+        ),
       });
     }
   }
