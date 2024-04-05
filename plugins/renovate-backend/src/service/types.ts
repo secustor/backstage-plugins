@@ -14,7 +14,6 @@ import { DatabaseHandler } from './databaseHandler';
 
 export interface RouterOptions {
   rootConfig: Config;
-  pluginConfig: Config;
   logger: LoggerService;
   databaseHandler: DatabaseHandler;
   runtimes: Map<string, RenovateWrapper>;
@@ -28,8 +27,6 @@ export interface ReportsRow {
   repository: string;
   report: RepositoryReport;
 }
-
-export interface Context extends RouterOptions {}
 
 export interface DatabaseCreationParameters {
   database: DatabaseService;
