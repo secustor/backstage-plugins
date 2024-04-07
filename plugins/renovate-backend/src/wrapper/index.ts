@@ -10,7 +10,6 @@ import { getPlatformEnvs } from './platforms';
 import { RouterOptions } from '../service/types';
 import { extractReport, getCacheEnvs } from './utils';
 import {
-  EntityWithAnnotations,
   getTargetRepo,
   getTaskID,
   RenovateReport,
@@ -28,6 +27,7 @@ import {
 import { DatabaseHandler } from '../service/databaseHandler';
 import { RunOptions } from './types';
 import { isError } from '@backstage/errors';
+import { Entity } from '@backstage/catalog-model';
 
 export class RenovateRunner {
   private scheduler: SchedulerService;
@@ -125,9 +125,7 @@ export class RenovateRunner {
     }
   }
 
-  async trigger(
-    target: string | EntityWithAnnotations | TargetRepo,
-  ): Promise<void> {
+  async trigger(target: string | Entity | TargetRepo): Promise<void> {
     const id = getTaskID(target);
     const childLogger = this.logger.child({ taskID: id });
 
@@ -143,9 +141,7 @@ export class RenovateRunner {
     }
   }
 
-  async schedule(
-    target: string | EntityWithAnnotations | TargetRepo,
-  ): Promise<void> {
+  async schedule(target: string | Entity | TargetRepo): Promise<void> {
     const id = getTaskID(target);
     const childLogger = this.logger.child({ taskID: id });
     const targetRepo = getTargetRepo(target);

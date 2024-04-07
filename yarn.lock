@@ -10961,7 +10961,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-client@workspace:plugins/renovate-client"
   dependencies:
+    "@backstage/catalog-model": "npm:^1.4.5"
     "@backstage/cli": "npm:^0.26.2"
+    "@secustor/backstage-plugin-renovate-common": "workspace:^"
     cross-fetch: "npm:^4.0.0"
     uri-template: "npm:^2.0.0"
   languageName: unknown
@@ -10997,11 +10999,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate@workspace:plugins/renovate"
   dependencies:
+    "@backstage/catalog-model": "npm:^1.4.5"
     "@backstage/cli": "npm:^0.26.2"
     "@backstage/core-app-api": "npm:^1.12.3"
     "@backstage/core-components": "npm:^0.14.3"
     "@backstage/core-plugin-api": "npm:^1.9.1"
     "@backstage/dev-utils": "npm:^1.0.30"
+    "@backstage/plugin-catalog-react": "npm:^1.11.2"
     "@backstage/test-utils": "npm:^1.5.3"
     "@backstage/theme": "npm:^0.5.2"
     "@material-ui/core": "npm:^4.9.13"

@@ -1,6 +1,8 @@
 import { Config } from '@backstage/config';
 import {
+  AuthService,
   DatabaseService,
+  DiscoveryService,
   LoggerService,
   SchedulerService,
 } from '@backstage/backend-plugin-api';
@@ -13,11 +15,13 @@ import {
 import { DatabaseHandler } from './databaseHandler';
 
 export interface RouterOptions {
+  auth: AuthService;
   rootConfig: Config;
   logger: LoggerService;
   databaseHandler: DatabaseHandler;
   runtimes: Map<string, RenovateWrapper>;
   scheduler: SchedulerService;
+  discovery: DiscoveryService;
 }
 
 export interface ReportsRow {

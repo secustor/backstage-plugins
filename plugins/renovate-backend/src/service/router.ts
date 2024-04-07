@@ -6,15 +6,20 @@ import type { RouterOptions } from './types';
 import {
   getTargetRepo,
   getTaskID,
+  isEntityRef,
 } from '@secustor/backstage-plugin-renovate-common';
 import { RenovateRunner } from '../wrapper';
 import { ConflictError, isError } from '@backstage/errors';
+import { CatalogClient } from '@backstage/catalog-client';
+import type { Entity } from '@backstage/catalog-model';
 
 export async function createRouter(
   runner: RenovateRunner,
   options: RouterOptions,
 ): Promise<express.Router> {
-  const { logger, databaseHandler } = options;
+  const { auth, logger, databaseHandler, discovery } = options;
+
+  const client = new CatalogClient({ discoveryApi: discovery });
 
   const router = await createOpenApiRouter();
   router.use(express.json());
@@ -49,10 +54,22 @@ export async function createRouter(
       response.status(400).json({ error: body.error });
       return;
     }
-    const data = body.data;
+    let target: string | Entity = body.data.target;
+
+    // check if we got an entity ref and if yes get the entity
+    if (isEntityRef(target)) {
+      const { token } = await auth.getPluginRequestToken({
+        onBehalfOf: await auth.getOwnServiceCredentials(),
+        targetPluginId: 'catalog',
+      });
+      const result = await client.getEntityByRef(target, { token });
+      if (result) {
+        target = result;
+      }
+    }
 
     // trigger Renovate run
-    const targetRepo = getTargetRepo(data.target);
+    const targetRepo = getTargetRepo(target);
     const id = getTaskID(targetRepo);
     try {
       await runner.trigger(targetRepo);
