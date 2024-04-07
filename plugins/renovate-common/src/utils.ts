@@ -53,9 +53,13 @@ export function parseGitUrl(
 export function getTargetURL(
   target: string | EntityWithAnnotations | null | undefined,
 ): GitUrl {
-  const rawTargetUrl = is.string(target)
+  let rawTargetUrl = is.string(target)
     ? target
     : target?.metadata.annotations?.[ANNOTATION_SOURCE_LOCATION];
+
+  if (rawTargetUrl?.startsWith('url:')) {
+    rawTargetUrl = rawTargetUrl.replace('url:', '');
+  }
   const targetUrl = parseGitUrl(rawTargetUrl);
   if (is.nullOrUndefined(targetUrl)) {
     throw new Error(
