@@ -28,6 +28,8 @@
     "dist"
   ],
   "dependencies": {
+    "@backstage/catalog-model": "^1.4.5",
+    "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "cross-fetch": "^4.0.0",
     "uri-template": "^2.0.0"
   }

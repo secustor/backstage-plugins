@@ -225,29 +225,10 @@ export const spec = {
             example: 'https://github.com/secustor/renovate-test',
           },
           {
-            type: 'object',
-            description: 'Entity with SourceLocation URL annotation',
-            required: ['metadata'],
-            properties: {
-              metadata: {
-                type: 'object',
-                required: ['annotations'],
-                properties: {
-                  annotations: {
-                    type: 'object',
-                    additionalProperties: false,
-                    required: ['backstage.io/source-location'],
-                    properties: {
-                      'backstage.io/source-location': {
-                        type: 'string',
-                        example:
-                          'https://github.com/secustor/renovate-meetup/blob/master/renovate.json',
-                      },
-                    },
-                  },
-                },
-              },
-            },
+            type: 'string',
+            description:
+              'stringified Entity with SourceLocation URL annotation',
+            example: 'component:default/backstage-plugins-example',
           },
         ],
       },

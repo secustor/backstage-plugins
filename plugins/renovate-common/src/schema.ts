@@ -5,14 +5,6 @@ export const targetRepo = z.object({
   repository: z.string(),
 });
 
-export const entityWithAnnotations = z.object({
-  metadata: z.object({
-    annotations: z.record(z.string(), z.string()),
-  }),
-});
-
-export type EntityWithAnnotations = z.infer<typeof entityWithAnnotations>;
-
 export const problem = z.object({});
 
 export const repositoryReport = z.object({

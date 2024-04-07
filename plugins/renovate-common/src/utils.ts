@@ -1,18 +1,20 @@
-import { ANNOTATION_SOURCE_LOCATION } from '@backstage/catalog-model';
+import {
+  ANNOTATION_SOURCE_LOCATION,
+  Entity,
+  parseEntityRef,
+} from '@backstage/catalog-model';
 import { TargetRepo } from './types';
 import gitUrlParse, { GitUrl } from 'git-url-parse';
 import is from '@sindresorhus/is';
-import { EntityWithAnnotations, targetRepo } from './schema';
+import { targetRepo } from './schema';
 
-export function getTaskID(
-  target: string | EntityWithAnnotations | TargetRepo,
-): string {
+export function getTaskID(target: string | Entity | TargetRepo): string {
   const repo = getTargetRepo(target);
   return `renovate_run_${repo.host}_${repo.repository}`;
 }
 
 export function getTargetRepo(
-  target: string | EntityWithAnnotations | TargetRepo | null | undefined,
+  target: string | Entity | TargetRepo | null | undefined,
 ): TargetRepo {
   if (isTargetRepo(target)) {
     return target;
@@ -22,6 +24,16 @@ export function getTargetRepo(
     host: url.resource,
     repository: url.full_name,
   };
+}
+
+export function getTargetRepoSafe(
+  target: string | Entity | TargetRepo | null | undefined,
+): TargetRepo | null {
+  try {
+    return getTargetRepo(target);
+  } catch (e) {
+    return null;
+  }
 }
 
 export function parseUrl(url: string | undefined | null): URL | null {
@@ -51,7 +63,7 @@ export function parseGitUrl(
 }
 
 export function getTargetURL(
-  target: string | EntityWithAnnotations | null | undefined,
+  target: string | Entity | null | undefined,
 ): GitUrl {
   let rawTargetUrl = is.string(target)
     ? target
@@ -71,4 +83,14 @@ export function getTargetURL(
 
 function isTargetRepo(value: unknown): value is TargetRepo {
   return targetRepo.safeParse(value).success;
+}
+
+// TODO replace with https://github.com/backstage/backstage/pull/24066 when it lands
+export function isEntityRef(ref: string): boolean {
+  try {
+    parseEntityRef(ref);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }

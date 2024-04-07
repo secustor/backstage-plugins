@@ -7,6 +7,3 @@ export * from '../models/RunsPost202Response.model';
 export * from '../models/RunsPost400Response.model';
 export * from '../models/RunsPostRequest.model';
 export * from '../models/Target.model';
-export * from '../models/TargetOneOf.model';
-export * from '../models/TargetOneOfMetadata.model';
-export * from '../models/TargetOneOfMetadataAnnotations.model';

@@ -3,10 +3,7 @@ import {
   createBackendPlugin,
 } from '@backstage/backend-plugin-api';
 import { createRouter } from './service/router';
-import {
-  EntityWithAnnotations,
-  RenovateWrapper,
-} from '@secustor/backstage-plugin-renovate-common';
+import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 import {
   CatalogClient,
   CATALOG_FILTER_EXISTS,
@@ -102,7 +99,7 @@ export const renovatePlugin = createBackendPlugin({
             );
 
             for (const entity of entities) {
-              renovateRunner.schedule(entity as EntityWithAnnotations);
+              renovateRunner.schedule(entity);
             }
           },
         });

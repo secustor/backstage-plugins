@@ -22,6 +22,8 @@ describe('createRouter', () => {
   beforeAll(async () => {
     const runnerMock = mockDeep<RenovateRunner>();
     const router = await createRouter(runnerMock, {
+      auth: mockServices.auth(),
+      discovery: mockServices.discovery(),
       logger: getVoidLogger(),
       rootConfig: new MockConfigApi({}),
       databaseHandler: databaseHandlerMock,

@@ -1,7 +1,6 @@
-import { entityWithAnnotations } from '@secustor/backstage-plugin-renovate-common';
 import { z } from 'zod';
 
-export const target = z.union([z.string(), entityWithAnnotations]);
+export const target = z.string();
 
 export const runRequestBody = z.object({
   target,
