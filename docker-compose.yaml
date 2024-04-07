@@ -1,0 +1,30 @@
+volumes:
+  postgres:
+  redis:
+
+services:
+  db:
+    image: postgres:16
+    env_file:
+      - packages/backend/.env
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '127.0.0.1:5432:5432'
+
+  redis:
+    image: redis:7
+    volumes:
+      - redis:/data
+    ports:
+      - '127.0.0.1:6379:6379'
+    command:
+      - redis-server
+      - --bind 0.0.0.0
+      - --save 60 1
+      - --loglevel warning
+      - --maxmemory-policy allkeys-lru
+      - --maxmemory 200mb
+    extra_hosts:
+      # allow to use `host.docker.internal` for cases when DockerForMac or DockerForWindows are NOT used.
+      - 'host.docker.internal:host-gateway'
