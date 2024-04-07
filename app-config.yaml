@@ -82,6 +82,16 @@ catalog:
       target: ../../examples/entities.yaml
 
   providers:
+    github:
+      myOrg:
+        organization: secustor
+        catalogPath: '/**/catalog-info.yaml'
+        filters:
+          repository: renovate-meetup
+        schedule:
+          frequency: { minutes: 10 }
+          timeout: { minutes: 5 }
+
     backstageOpenapi:
       plugins:
         - catalog
