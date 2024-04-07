@@ -57,6 +57,7 @@ import {
 
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
+import { EntityRenovateContent } from '@secustor/backstage-plugin-renovate';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -220,6 +221,10 @@ const defaultEntityPage = (
 
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/renovate" title="Renovate">
+      <EntityRenovateContent />
     </EntityLayout.Route>
   </EntityLayout>
 );

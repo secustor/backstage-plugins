@@ -1,1 +1,1 @@
-export { renovatePlugin, RenovatePage } from './plugin';
+export * from './plugin';
