@@ -1,5 +1,18 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.4.0
+
+### Minor Changes
+
+- 54e3842: Add Entity Content page to show extracted dependencies
+
+### Patch Changes
+
+- Updated dependencies [04a943e]
+- Updated dependencies [a22994b]
+  - @secustor/backstage-plugin-renovate-common@0.2.0
+  - @secustor/backstage-plugin-renovate-client@0.3.0
+
 ## 0.3.0
 
 ### Minor Changes
