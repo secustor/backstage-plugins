@@ -28,6 +28,7 @@ import { DatabaseHandler } from '../service/databaseHandler';
 import { RunOptions } from './types';
 import { isError } from '@backstage/errors';
 import { Entity } from '@backstage/catalog-model';
+import { nanoid } from 'nanoid';
 
 export class RenovateRunner {
   private scheduler: SchedulerService;
@@ -64,7 +65,7 @@ export class RenovateRunner {
   }
 
   private async renovate(
-    id: string,
+    runID: string,
     target: TargetRepo,
     { logger }: RunOptions,
   ): Promise<RenovateReport> {
@@ -80,7 +81,7 @@ export class RenovateRunner {
       // setup logging
       LOG_FORMAT: 'json',
       LOG_LEVEL: 'debug',
-      LOG_CONTEXT: id,
+      LOG_CONTEXT: runID,
       RENOVATE_REPORT_TYPE: 'logging',
       // setup platform specifics
       ...getPlatformEnvs(target, {
@@ -95,6 +96,7 @@ export class RenovateRunner {
     const renovateConfig = getRenovateConfig(this.rootConfig);
 
     const promise = wrapperRuntime.run({
+      runID,
       env,
       renovateConfig,
       runtimeConfig,
@@ -109,11 +111,13 @@ export class RenovateRunner {
   }
 
   async run(id: string, target: TargetRepo): Promise<void> {
-    const logger = this.logger.child({ taskID: id, ...target });
+    const runID = nanoid();
+    const logger = this.logger.child({ runID, taskID: id, ...target });
     try {
       logger.info('Renovate run starting');
       const report = await this.renovate(id, target, { logger });
       await this.databaseHandler.addReport({
+        runID,
         taskID: id,
         report,
         target,

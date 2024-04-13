@@ -130,8 +130,8 @@ export const spec = {
                 schema: {
                   type: 'object',
                   properties: {
-                    runID: {
-                      description: 'unique ID for the run',
+                    taskID: {
+                      description: 'id of the scheduler task',
                       type: 'string',
                       example: '9-d_CO9JlaEmd-OM9QfkI',
                     },
@@ -174,14 +174,14 @@ export const spec = {
                   'taskID',
                   'repository',
                   'host',
-                  'lastUpdated',
+                  'timestamp',
                   'report',
                 ],
                 properties: {
                   taskID: {
                     type: 'string',
                   },
-                  lastUpdated: {
+                  timestamp: {
                     type: 'string',
                     format: 'date-time',
                   },
@@ -218,7 +218,7 @@ export const spec = {
         ],
       },
       target: {
-        oneOf: [
+        anyOf: [
           {
             type: 'string',
             description: 'URL to an repository',

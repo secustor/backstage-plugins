@@ -7,7 +7,7 @@ import { RepositoryReport } from '../models/RepositoryReport.model';
 
 export interface ReportsGet200ResponseInner {
   taskID: string;
-  lastUpdated: Date;
+  timestamp: Date;
   host: string;
   repository: string;
   report: RepositoryReport;

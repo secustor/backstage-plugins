@@ -9,6 +9,7 @@ export interface RenovateWrapper {
 }
 
 export interface RenovateRunOptions {
+  runID: string;
   renovateConfig: JsonValue;
   env: Record<string, string>;
   /*

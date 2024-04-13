@@ -25,8 +25,9 @@ export interface RouterOptions {
 }
 
 export interface ReportsRow {
+  run_id: string;
   task_id: string;
-  last_updated: Date;
+  timestamp: Date;
   host: string;
   repository: string;
   report: RepositoryReport;
@@ -43,6 +44,7 @@ export interface ReportQueryParameters {
 }
 
 export interface AddReportParameters {
+  runID: string;
   taskID: string;
   report: RenovateReport;
   target: TargetRepo;
