@@ -64,6 +64,10 @@
       matchPackageNames: ['node-fetch'],
       allowedVersions: '<3.0.0',
     },
+    {
+      matchPackageNames: ['nanoid'],
+      allowedVersions: '<4.0.0',
+    },
 
     {
       // do not try to pin Docker and regex references as they are not published or tested
