@@ -66,8 +66,8 @@
     },
 
     {
-      // do not try to pin regex references
-      matchManagers: ['regex'],
+      // do not try to pin Docker and regex references as they are not published or tested
+      matchManagers: ['regex', 'docker-compose', 'docker'],
       pinDigests: false,
     },
   ],
