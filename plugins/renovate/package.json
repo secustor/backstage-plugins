@@ -12,6 +12,18 @@
   "backstage": {
     "role": "frontend-plugin"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/secustor/backstage-plugins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/secustor/backstage-plugins/issues"
+  },
+  "homepage": "https://github.com/secustor/backstage-plugins",
+  "keywords": [
+    "renovate",
+    "backstage"
+  ],
   "sideEffects": false,
   "scripts": {
     "start": "backstage-cli package start",
