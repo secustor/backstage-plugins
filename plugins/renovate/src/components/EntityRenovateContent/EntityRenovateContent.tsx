@@ -10,22 +10,30 @@ import {
   RepositoryReportResponseElement,
 } from '@secustor/backstage-plugin-renovate-common';
 import {
+  Link,
   Progress,
   ResponseErrorPanel,
   Table,
   TableColumn,
 } from '@backstage/core-components';
 import is from '@sindresorhus/is';
+import { scmIntegrationsApiRef } from '@backstage/integration-react';
 
 type DenseTableProps = {
   filter?: {
     path?: string;
   };
   report: RepositoryReportResponseElement;
+  baseURL?: string;
 };
 
-export const DenseTable = ({ report, filter }: DenseTableProps) => {
+export const DependencyTable = ({
+  report,
+  filter,
+  baseURL,
+}: DenseTableProps) => {
   const columns: TableColumn[] = [
+    { title: 'ID', field: 'id', hidden: true },
     { title: 'Package file', field: 'packageFile' },
     { title: 'Name', field: 'depName' },
     { title: 'Manager', field: 'manager' },
@@ -36,6 +44,7 @@ export const DenseTable = ({ report, filter }: DenseTableProps) => {
   ];
 
   const data = [];
+  let id = 0;
   for (const [manager, packageFilesList] of Object.entries(
     report.report.packageFiles,
   )) {
@@ -47,42 +56,52 @@ export const DenseTable = ({ report, filter }: DenseTableProps) => {
         }
       }
       for (const dependency of packageFileObject.deps) {
+        const file = packageFileObject.packageFile;
+        const biggestUpdate = dependency.updates.reduce(
+          (current: any, update: any) => {
+            if (current === null) {
+              return update;
+            }
+            if (
+              current.updateType === 'minor' &&
+              update.updateType === 'major'
+            ) {
+              return update;
+            }
+            if (
+              current.updateType === 'major' &&
+              update.updateType === 'major' &&
+              update.newMajor > current.newMajor
+            ) {
+              return update;
+            }
+            if (
+              current.updateType === 'minor' &&
+              update.updateType === 'minor' &&
+              update.newMinor > current.newMinor
+            ) {
+              return update;
+            }
+
+            return null;
+          },
+          null,
+        );
         data.push({
+          id,
           depName: dependency.depName,
           manager,
-          packageFile: packageFileObject.packageFile,
+          packageFile: baseURL ? (
+            <Link to={`${baseURL}${file}`}>{file}</Link>
+          ) : (
+            file
+          ),
           depType: dependency.depType,
           currentValue: dependency.currentValue,
           currentVersion: dependency.currentVersion,
-          newVersion:
-            dependency.updates.reduce((current: any, update: any) => {
-              if (current === null) {
-                return update;
-              }
-              if (
-                current.updateType === 'minor' &&
-                update.updateType === 'major'
-              ) {
-                return update;
-              }
-              if (
-                current.updateType === 'major' &&
-                update.updateType === 'major' &&
-                update.newMajor > current.newMajor
-              ) {
-                return update;
-              }
-              if (
-                current.updateType === 'minor' &&
-                update.updateType === 'minor' &&
-                update.newMinor > current.newMinor
-              ) {
-                return update;
-              }
-
-              return null;
-            }, null)?.newVersion ?? '',
+          newVersion: biggestUpdate?.newVersion,
         });
+        id++;
       }
     }
   }
@@ -99,6 +118,8 @@ export const DenseTable = ({ report, filter }: DenseTableProps) => {
 export const EntityRenovateContent = () => {
   const { entity } = useEntity();
   const renovateAPI = useApi(renovateApiRef);
+  const scmIntegrationsApi = useApi(scmIntegrationsApiRef);
+
   const { value, loading, error } =
     useAsync(async (): Promise<RepositoryReportResponseElement | null> => {
       const response = await renovateAPI.getReport(entity);
@@ -113,6 +134,16 @@ export const EntityRenovateContent = () => {
   }
 
   const { target } = getEntitySourceLocation(entity);
-  const filepath = getTargetURL(target).filepath;
-  return <DenseTable report={value} filter={{ path: filepath }} />;
+  const parsed = getTargetURL(target);
+  const baseURL = scmIntegrationsApi.resolveUrl({
+    url: parsed.filepath,
+    base: target,
+  });
+  return (
+    <DependencyTable
+      report={value}
+      filter={{ path: parsed.filepath }}
+      baseURL={baseURL}
+    />
+  );
 };

@@ -11041,6 +11041,7 @@ __metadata:
     "@backstage/core-components": "npm:^0.14.3"
     "@backstage/core-plugin-api": "npm:^1.9.1"
     "@backstage/dev-utils": "npm:^1.0.30"
+    "@backstage/integration-react": "npm:^1.1.25"
     "@backstage/plugin-catalog-react": "npm:^1.11.2"
     "@backstage/test-utils": "npm:^1.5.3"
     "@backstage/theme": "npm:^0.5.2"
@@ -13388,7 +13389,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:9.3.4, @testing-library/dom@npm:^9.0.0":
+"@testing-library/dom@npm:10.0.0":
+  version: 10.0.0
+  resolution: "@testing-library/dom@npm:10.0.0"
+  dependencies:
+    "@babel/code-frame": "npm:^7.10.4"
+    "@babel/runtime": "npm:^7.12.5"
+    "@types/aria-query": "npm:^5.0.1"
+    aria-query: "npm:5.3.0"
+    chalk: "npm:^4.1.0"
+    dom-accessibility-api: "npm:^0.5.9"
+    lz-string: "npm:^1.5.0"
+    pretty-format: "npm:^27.0.2"
+  checksum: 10c0/2d12d2a6018a6f1d15e91834180bc068932c699ff1fcbfb80aa21aba519a4f5329c861dfa852e06ee5615bcb92ef2a0f0e755e32684ea3dada63bc34248382ab
+  languageName: node
+  linkType: hard
+
+"@testing-library/dom@npm:^9.0.0":
   version: 9.3.4
   resolution: "@testing-library/dom@npm:9.3.4"
   dependencies:
@@ -13437,9 +13454,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:14.2.2, @testing-library/react@npm:^14.0.0":
-  version: 14.2.2
-  resolution: "@testing-library/react@npm:14.2.2"
+"@testing-library/react@npm:14.3.0, @testing-library/react@npm:^14.0.0":
+  version: 14.3.0
+  resolution: "@testing-library/react@npm:14.3.0"
   dependencies:
     "@babel/runtime": "npm:^7.12.5"
     "@testing-library/dom": "npm:^9.0.0"
@@ -13447,7 +13464,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: 10c0/ab36707f6701a4a56dd217e16e00d6326e0f760bb2e716245422c7500a0b94efcd351d0aa89c4fab2916e6ebc68c983cec6b3ae0804de813cafc913a612668f6
+  checksum: 10c0/2a2529d2bd428074654f75a313c55a33b59e7ab497ff5adcf208b59afd96b19e1e565da48289fdcf898348a0227caef4b43ac888003b6a992331d4c12a488bfc
   languageName: node
   linkType: hard
 
@@ -14404,12 +14421,12 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:^18":
-  version: 18.2.74
-  resolution: "@types/react@npm:18.2.74"
+  version: 18.2.77
+  resolution: "@types/react@npm:18.2.77"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/347e38b4c5dc20d50ff71bf04b7caaef490e5ff695e74a0088a13fbb2a0c5d125a5ecfd142adfa30f0176da0e2734942c91ba61d95ce269c43b3265bd7379361
+  checksum: 10c0/9114149933dbee3fdf5900786e660afe3146e8e277424aaf94dca50e29f1de56802b38a83bb65166ff53da086062bb8d001af563a6c906fe3540bdc46554d05a
   languageName: node
   linkType: hard
 
@@ -15706,9 +15723,9 @@ __metadata:
     "@material-ui/icons": "npm:^4.9.1"
     "@playwright/test": "npm:1.43.0"
     "@secustor/backstage-plugin-renovate": "workspace:^"
-    "@testing-library/dom": "npm:9.3.4"
+    "@testing-library/dom": "npm:10.0.0"
     "@testing-library/jest-dom": "npm:6.4.2"
-    "@testing-library/react": "npm:14.2.2"
+    "@testing-library/react": "npm:14.3.0"
     "@testing-library/user-event": "npm:14.5.2"
     "@types/react-dom": "npm:18.2.24"
     cross-env: "npm:7.0.3"
@@ -15878,7 +15895,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aria-query@npm:^5.0.0, aria-query@npm:^5.3.0":
+"aria-query@npm:5.3.0, aria-query@npm:^5.0.0, aria-query@npm:^5.3.0":
   version: 5.3.0
   resolution: "aria-query@npm:5.3.0"
   dependencies:
@@ -16626,13 +16643,13 @@ __metadata:
   linkType: hard
 
 "better-sqlite3@npm:^9.0.0":
-  version: 9.4.5
-  resolution: "better-sqlite3@npm:9.4.5"
+  version: 9.5.0
+  resolution: "better-sqlite3@npm:9.5.0"
   dependencies:
     bindings: "npm:^1.5.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
-  checksum: 10c0/4aabb51d6bcdca71f9b489bb589071b62ab50a5cd5c4c8cbdc68d0771f7e1a0c269d178846a1a680b3b272a9693ca979f96ee1b32f5ab2cbb18fbeb05510a06e
+  checksum: 10c0/285f9a7e4b54b3bc9a8a034e4b19a73dab364637581429fd55765612429bf37790606cf53e01b0dd1feac0c5b02a30098916a595e11083a42dd503f739412c25
   languageName: node
   linkType: hard
 
