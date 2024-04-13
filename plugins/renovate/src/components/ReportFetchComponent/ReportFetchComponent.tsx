@@ -20,9 +20,9 @@ type DenseTableProps = {
 
 export const DenseTable = ({ reports }: DenseTableProps) => {
   const columns: TableColumn[] = [
+    { title: 'timestamp', field: 'timestamp' },
     { title: 'Host', field: 'host' },
     { title: 'Repository', field: 'repository' },
-    { title: 'Last run', field: 'lastUpdated' },
     { title: 'Number of PRs', field: 'noPRs' },
     { title: 'Number of branches', field: 'noBranches' },
     { title: 'Number of updates', field: 'noUpdates' },
@@ -35,7 +35,7 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
     return {
       host: report.host,
       repository: report.repository,
-      lastUpdated: report.lastUpdated,
+      timestamp: report.timestamp,
       noPRs: report.report.branches.filter(
         branch => !is.nullOrUndefined(branch.prNo),
       ).length,

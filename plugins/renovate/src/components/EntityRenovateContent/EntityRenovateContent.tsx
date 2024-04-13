@@ -122,7 +122,7 @@ export const EntityRenovateContent = () => {
 
   const { value, loading, error } =
     useAsync(async (): Promise<RepositoryReportResponseElement | null> => {
-      const response = await renovateAPI.getReport(entity);
+      const response = await renovateAPI.getCurrentReport(entity);
       return repositoryReportResponseElement.parse(response);
     }, []);
 

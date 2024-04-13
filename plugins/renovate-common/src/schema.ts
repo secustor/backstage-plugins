@@ -21,8 +21,9 @@ export const renovateReport = z.object({
 export type RenovateReport = z.infer<typeof renovateReport>;
 
 export const repositoryReportResponseElement = z.object({
+  runID: z.string(),
   taskID: z.string(),
-  lastUpdated: z.string().datetime(),
+  timestamp: z.string().datetime(),
   host: z.string(),
   repository: z.string(),
   report: repositoryReport,

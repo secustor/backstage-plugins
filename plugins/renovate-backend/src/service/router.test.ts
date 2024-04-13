@@ -58,8 +58,9 @@ describe('createRouter', () => {
     it('returns all reports without target', async () => {
       const reportList = [
         {
+          runID: 'aID',
           taskID: 'test',
-          lastUpdated: '',
+          timestamp: '',
           host: 'github.com',
           repository: 'myOrg/myRepo',
           report: {
@@ -80,8 +81,9 @@ describe('createRouter', () => {
     it('returns all reports with target url', async () => {
       const reportList = [
         {
+          runID: 'aID',
           taskID: 'test',
-          lastUpdated: '',
+          timestamp: '',
           host: 'github.com',
           repository: 'myOrg/myRepo',
           report: {
@@ -104,8 +106,9 @@ describe('createRouter', () => {
     it('returns all reports with entity', async () => {
       const reportList = [
         {
+          runID: 'aID',
           taskID: 'test',
-          lastUpdated: '',
+          timestamp: '',
           host: 'my.gitlab.com',
           repository: 'myOrg/myGroup/myRepo',
           report: {

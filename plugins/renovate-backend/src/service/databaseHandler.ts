@@ -1,6 +1,6 @@
 import { resolvePackagePath } from '@backstage/backend-common';
 import { Knex } from 'knex';
-import {
+import type {
   AddReportParameters,
   DatabaseCreationParameters,
   ReportQueryParameters,
@@ -37,14 +37,15 @@ export class DatabaseHandler {
   ) {}
 
   async addReport(options: AddReportParameters): Promise<void> {
-    const { taskID, report, target } = options;
+    const { runID, taskID, report, target } = options;
     const logger = options.logger ?? this.logger;
 
     const inserts: ReportsRow[] = [];
     for (const [repository, value] of Object.entries(report.repositories)) {
       inserts.push({
+        run_id: runID,
         task_id: taskID,
-        last_updated: new Date(),
+        timestamp: new Date(),
         host: target.host,
         repository,
         report: value,
@@ -53,8 +54,6 @@ export class DatabaseHandler {
     // this.client.batchInsert<ReportsRow>('reports', inserts);
     await this.client('reports')
       .insert(inserts)
-      .onConflict('task_id')
-      .merge()
       .catch(reason => logger.error('Failed insert data', reason));
   }
 
@@ -68,8 +67,9 @@ export class DatabaseHandler {
     const rows = await builder.from<ReportsRow[]>('reports');
     return rows.map(row => {
       return {
+        runID: row.run_id,
         taskID: row.task_id,
-        lastUpdated: row.last_updated.toISOString(),
+        timestamp: row.timestamp.toISOString(),
         host: row.host,
         repository: row.repository,
         // if the JSON field has not been auto-parsed do it manually

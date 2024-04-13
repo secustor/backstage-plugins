@@ -6,7 +6,7 @@
 
 export interface RunsPost202Response {
   /**
-   * unique ID for the run
+   * id of the scheduler task
    */
-  runID?: string;
+  taskID?: string;
 }

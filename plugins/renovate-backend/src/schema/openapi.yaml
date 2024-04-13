@@ -86,8 +86,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  runID:
-                    description: unique ID for the run
+                  taskID:
+                    description: id of the scheduler task
                     type: string
                     example: '9-d_CO9JlaEmd-OM9QfkI'
         400:
@@ -115,12 +115,12 @@ components:
                 - taskID
                 - repository
                 - host
-                - lastUpdated
+                - timestamp
                 - report
               properties:
                 taskID:
                   type: string
-                lastUpdated:
+                timestamp:
                   type: string
                   format: date-time
                 host:
@@ -140,7 +140,7 @@ components:
         - type: string
           example: "I'm an error"
     target:
-      oneOf:
+      anyOf:
         - type: string
           description: URL to an repository
           example: https://github.com/secustor/renovate-test
