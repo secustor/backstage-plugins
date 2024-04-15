@@ -1,5 +1,13 @@
 # app
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [1f997fb]
+- Updated dependencies [9cca08e]
+  - @secustor/backstage-plugin-renovate@0.5.0
+
 ## 0.0.4
 
 ### Patch Changes
