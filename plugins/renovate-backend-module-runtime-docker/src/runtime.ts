@@ -26,6 +26,7 @@ export class DockerRuntime implements RenovateWrapper {
 
     const image = runtimeConfig?.getOptionalString('image') ?? imageRepository;
     const tag = runtimeConfig?.getOptionalString('tag') ?? imageTag;
+    const pullImage = runtimeConfig?.getOptionalBoolean('pullImage') ?? true;
 
     const stdout = new PassThrough();
     this.#runner.runContainer({
@@ -33,6 +34,7 @@ export class DockerRuntime implements RenovateWrapper {
       envVars: env,
       imageName: `${image}:${tag}`,
       logStream: stdout,
+      pullImage,
     });
 
     return { stdout };
