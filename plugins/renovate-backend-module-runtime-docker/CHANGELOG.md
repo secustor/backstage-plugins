@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-docker
 
+## 0.2.0
+
+### Minor Changes
+
+- 79a7e52: Add option to not pull images and rely on that it exists
+
 ## 0.1.6
 
 ### Patch Changes
