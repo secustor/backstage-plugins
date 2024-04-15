@@ -1,5 +1,18 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.5.0
+
+### Minor Changes
+
+- 1f997fb: Allow to save multiple reports for the same repository
+- 9cca08e: Add links to packageFiles in EntityRenovateContent
+
+### Patch Changes
+
+- Updated dependencies [1f997fb]
+  - @secustor/backstage-plugin-renovate-client@0.4.0
+  - @secustor/backstage-plugin-renovate-common@0.3.0
+
 ## 0.4.0
 
 ### Minor Changes

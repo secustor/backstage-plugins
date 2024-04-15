@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.3.0
+
+### Minor Changes
+
+- 1f997fb: Allow to save multiple reports for the same repository
+
 ## 0.2.0
 
 ### Minor Changes
