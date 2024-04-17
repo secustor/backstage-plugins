@@ -25,19 +25,23 @@ backend:
     connection: redis://user:pass@cache.example.com:6379
 
 renovate:
+  cache:
+    # Allows turning off cache injection. You can still manually supply caches using the Renovate config
+    enabled: false
+
   schedules:
-  jobSync:
-    frequency: { minutes: 60 }
-    timeout: { minutes: 60 }
-  renovation:
-    frequency: { minutes: 60 }
-    timeout: { minutes: 60 }
+    jobSync:
+      frequency: { minutes: 60 }
+      timeout: { minutes: 60 }
+    renovation:
+      frequency: { minutes: 60 }
+      timeout: { minutes: 60 }
 
   runtime:
     # ID of the runtime provided via extension point. This option is required as the backend comes with no runtime by default.
     type: docker
 
   config:
-    # set this value to null if you want to opt out of the cache injection
-    redisUrl:
+    # only do a lookup and create reports with updates and do not open PRs
+    dryRun: lookup
 ```
