@@ -3,7 +3,7 @@ import { ExtractReportOptions } from './types';
 import { Config } from '@backstage/config';
 import is from '@sindresorhus/is';
 import { LoggerService } from '@backstage/backend-plugin-api';
-import { getRenovateConfig } from '../config';
+import { getPluginConfig } from '../config';
 
 export async function extractReport(
   opts: ExtractReportOptions,
@@ -41,6 +41,13 @@ export function getCacheEnvs(
   config: Config,
   logger: LoggerService,
 ): Record<string, string> {
+  const cacheEnabled =
+    getPluginConfig(config).getOptionalBoolean('cache.enabled') ?? true;
+  if (!cacheEnabled) {
+    logger.debug('Cache has been disabled in plugin configuration');
+    return {};
+  }
+
   const cacheConfig = config.getOptionalConfig('backend.cache');
   if (is.nullOrUndefined(cacheConfig)) {
     logger.debug('No cache configured');
@@ -56,12 +63,6 @@ export function getCacheEnvs(
   const connection = cacheConfig.getOptionalString('connection');
   if (is.nullOrUndefined(connection)) {
     logger.debug('No connection string for redis cache configured in backend');
-    return {};
-  }
-
-  const redisUrl = getRenovateConfig(config);
-  if (is.emptyObject(redisUrl)) {
-    logger.debug('Renovate redis config set to null, skipping integration');
     return {};
   }
 
