@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.6.0
+
+### Minor Changes
+
+- fd4d780: Replace null setting of redisURL with an explicit setting for disabling cache injection
+
 ## 0.5.0
 
 ### Minor Changes

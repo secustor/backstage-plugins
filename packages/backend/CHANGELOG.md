@@ -1,5 +1,12 @@
 # backend
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [fd4d780]
+  - @secustor/backstage-plugin-renovate-backend@0.6.0
+
 ## 0.0.7
 
 ### Patch Changes
