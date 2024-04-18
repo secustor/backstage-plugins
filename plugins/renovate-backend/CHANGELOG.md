@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.7.0
+
+### Minor Changes
+
+- [#136](https://github.com/secustor/backstage-plugins/pull/136) [`0d00e10`](https://github.com/secustor/backstage-plugins/commit/0d00e10ab7cb666859d361bc6f37216b35fb89e9) Thanks [@secustor](https://github.com/secustor)! - Support usage of Github Apps for authentification
+
 ## 0.6.0
 
 ### Minor Changes
