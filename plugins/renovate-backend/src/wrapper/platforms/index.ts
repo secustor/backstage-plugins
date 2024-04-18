@@ -1,4 +1,8 @@
-import { ScmIntegrations } from '@backstage/integration';
+import {
+  DefaultGithubCredentialsProvider,
+  DefaultGitlabCredentialsProvider,
+  ScmIntegrations,
+} from '@backstage/integration';
 import is from '@sindresorhus/is';
 import { PlatformEnvsOptions } from './types';
 import { TargetRepo } from '@secustor/backstage-plugin-renovate-common';
@@ -6,10 +10,10 @@ import { TargetRepo } from '@secustor/backstage-plugin-renovate-common';
 /*
     Returns record of Renovate environment variables specific for the platform of targetUrl
  */
-export function getPlatformEnvs(
+export async function getPlatformEnvs(
   target: TargetRepo,
   context: PlatformEnvsOptions,
-): Record<string, string> {
+): Promise<Record<string, string>> {
   const { rootConfig, logger } = context;
 
   const env: Record<string, string> = {};
@@ -22,19 +26,23 @@ export function getPlatformEnvs(
     );
   }
 
-  const errMsg = `Could no integration found for url and '${integration.type}' type for host ${target.host}`;
+  const errMsg = `No credentials could be found for url and '${integration.type}' type for host ${target.host}`;
+  const url = `https://${target.host}/${target.repository}`;
   switch (integration.type) {
-    case 'github':
+    case 'github': {
       env.RENOVATE_PLATFORM = integration.type;
-      env.RENOVATE_TOKEN = requireConfigVariable(
-        integrations.github.byHost(target.host)?.config.token,
-        errMsg,
-      );
+      const cred = await DefaultGithubCredentialsProvider.fromIntegrations(
+        integrations,
+      ).getCredentials({ url });
+      env.RENOVATE_TOKEN = requireConfigVariable(cred.token, errMsg);
       env.RENOVATE_REPOSITORIES = target.repository;
-
       break;
+    }
     case 'gitlab':
       {
+        const cred = await DefaultGitlabCredentialsProvider.fromIntegrations(
+          integrations,
+        ).getCredentials({ url });
         const gitLabIntegrationConfig = requireConfigVariable(
           integrations.gitlab.byHost(target.host)?.config,
           errMsg,
@@ -42,10 +50,7 @@ export function getPlatformEnvs(
         env.RENOVATE_PLATFORM = integration.type;
         env.RENOVATE_ENDPOINT =
           gitLabIntegrationConfig.apiBaseUrl ?? `https://${target.host}/api/v4`;
-        env.RENOVATE_TOKEN = requireConfigVariable(
-          gitLabIntegrationConfig.token,
-          'Could not get Gitlab token',
-        );
+        env.RENOVATE_TOKEN = requireConfigVariable(cred.token, errMsg);
         env.RENOVATE_REPOSITORIES = target.repository;
       }
       break;

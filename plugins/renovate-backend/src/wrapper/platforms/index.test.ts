@@ -3,8 +3,8 @@ import { MockConfigApi } from '@backstage/test-utils';
 import { getVoidLogger } from '@backstage/backend-common';
 
 describe('wrapper/platforms', () => {
-  it('throw if platform could not be identified', () => {
-    expect(() =>
+  it('throw if platform could not be identified', async () => {
+    await expect(
       getPlatformEnvs(
         {
           host: 'example.com',
@@ -15,13 +15,13 @@ describe('wrapper/platforms', () => {
           logger: getVoidLogger(),
         },
       ),
-    ).toThrow(
+    ).rejects.toThrow(
       `Could not identify platform for target example.com/myOrg/myRepo`,
     );
   });
 
-  it('return env for github.com', () => {
-    expect(
+  it('return env for github.com', async () => {
+    await expect(
       getPlatformEnvs(
         {
           host: 'github.com',
@@ -41,7 +41,7 @@ describe('wrapper/platforms', () => {
           logger: getVoidLogger(),
         },
       ),
-    ).toEqual({
+    ).resolves.toEqual({
       RENOVATE_GITHUB_COM: 'aaaaaa',
       RENOVATE_PLATFORM: 'github',
       RENOVATE_REPOSITORIES: 'myOrg/myRepo',
@@ -49,8 +49,8 @@ describe('wrapper/platforms', () => {
     });
   });
 
-  it('return env for gitlab.com with github.com token', () => {
-    expect(
+  it('return env for gitlab.com with github.com token', async () => {
+    await expect(
       getPlatformEnvs(
         {
           host: 'gitlab.com',
@@ -76,7 +76,7 @@ describe('wrapper/platforms', () => {
           logger: getVoidLogger(),
         },
       ),
-    ).toEqual({
+    ).resolves.toEqual({
       RENOVATE_ENDPOINT: 'https://gitlab.com/api/v4',
       RENOVATE_GITHUB_COM: 'aaaaaa',
       RENOVATE_PLATFORM: 'gitlab',
