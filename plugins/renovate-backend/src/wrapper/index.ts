@@ -84,10 +84,10 @@ export class RenovateRunner {
       LOG_CONTEXT: runID,
       RENOVATE_REPORT_TYPE: 'logging',
       // setup platform specifics
-      ...getPlatformEnvs(target, {
+      ...(await getPlatformEnvs(target, {
         logger,
         rootConfig: this.rootConfig,
-      }),
+      })),
       ...getCacheEnvs(this.rootConfig, logger),
     };
 
