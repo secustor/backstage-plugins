@@ -36,14 +36,14 @@
     "postpack": "backstage-cli package postpack"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.26.2",
+    "@backstage/cli": "^0.26.4",
     "@types/git-url-parse": "^9.0.3"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@backstage/backend-plugin-api": "^0.6.16",
+    "@backstage/backend-plugin-api": "^0.6.17",
     "@backstage/catalog-model": "^1.4.5",
     "@backstage/config": "^1.2.0",
     "@backstage/types": "^1.1.1",
