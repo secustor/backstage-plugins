@@ -50,7 +50,7 @@
     "react-use": "^17.2.4"
   },
   "devDependencies": {
-    "@backstage/test-utils": "^1.5.4",
+    "@backstage/test-utils": "1.5.4",
     "@playwright/test": "1.43.1",
     "@testing-library/dom": "10.0.0",
     "@testing-library/jest-dom": "6.4.2",
