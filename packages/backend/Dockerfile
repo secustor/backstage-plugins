@@ -9,7 +9,7 @@
 #
 # Once the commands have been run, you can build the image using `yarn build-image`
 
-FROM node:20.12.2-bookworm-slim@sha256:24fb4cb71431e3e1688da69e6d89a7074d4087ef1a3874ecd4022791b05e540f
+FROM node:20.12.2-bookworm-slim@sha256:72f2f046a5f8468db28730b990b37de63ce93fd1a72a40f531d6aa82afdf0d46
 
 # Set Python interpreter for `node-gyp` to use
 ENV PYTHON /usr/bin/python3
