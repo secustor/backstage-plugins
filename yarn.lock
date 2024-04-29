@@ -15871,7 +15871,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:6.4.2"
     "@testing-library/react": "npm:15.0.4"
     "@testing-library/user-event": "npm:14.5.2"
-    "@types/react-dom": "npm:18.2.25"
+    "@types/react-dom": "npm:18.3.0"
     cross-env: "npm:7.0.3"
     history: "npm:^5.0.0"
     react: "npm:^18.0.2"
