@@ -13577,40 +13577,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:6.4.4":
-  version: 6.4.4
-  resolution: "@testing-library/jest-dom@npm:6.4.4"
-  dependencies:
-    "@adobe/css-tools": "npm:^4.3.2"
-    "@babel/runtime": "npm:^7.9.2"
-    aria-query: "npm:^5.0.0"
-    chalk: "npm:^3.0.0"
-    css.escape: "npm:^1.5.1"
-    dom-accessibility-api: "npm:^0.6.3"
-    lodash: "npm:^4.17.21"
-    redent: "npm:^3.0.0"
-  peerDependencies:
-    "@jest/globals": ">= 28"
-    "@types/bun": "*"
-    "@types/jest": ">= 28"
-    jest: ">= 28"
-    vitest: ">= 0.32"
-  peerDependenciesMeta:
-    "@jest/globals":
-      optional: true
-    "@types/bun":
-      optional: true
-    "@types/jest":
-      optional: true
-    jest:
-      optional: true
-    vitest:
-      optional: true
-  checksum: 10c0/13c7d9d18ffe913677157e4cd9934de48f105221eb5f6030a749979426fae81587b20fe4efb9ad28a633184684e2de292a43fd7587bd3c32c4c285f7c5e3a504
-  languageName: node
-  linkType: hard
-
-"@testing-library/jest-dom@npm:^6.0.0":
+"@testing-library/jest-dom@npm:6.4.5, @testing-library/jest-dom@npm:^6.0.0":
   version: 6.4.5
   resolution: "@testing-library/jest-dom@npm:6.4.5"
   dependencies:
@@ -15920,7 +15887,7 @@ __metadata:
     "@playwright/test": "npm:1.43.1"
     "@secustor/backstage-plugin-renovate": "workspace:^"
     "@testing-library/dom": "npm:10.1.0"
-    "@testing-library/jest-dom": "npm:6.4.4"
+    "@testing-library/jest-dom": "npm:6.4.5"
     "@testing-library/react": "npm:15.0.6"
     "@testing-library/user-event": "npm:14.5.2"
     "@types/react-dom": "npm:18.3.0"
