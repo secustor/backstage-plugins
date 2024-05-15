@@ -35,16 +35,16 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/backend-common": "^0.21.7",
-    "@backstage/backend-plugin-api": "^0.6.17",
+    "@backstage/backend-common": "^0.22.0",
+    "@backstage/backend-plugin-api": "^0.6.18",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@secustor/backstage-plugin-renovate-node": "workspace:^",
     "find-up": "^5.0.0",
     "renovate": "37.302.0"
   },
   "devDependencies": {
-    "@backstage/backend-test-utils": "^0.3.7",
-    "@backstage/cli": "^0.26.4",
+    "@backstage/backend-test-utils": "^0.3.8",
+    "@backstage/cli": "^0.26.5",
     "@types/find-up": "^4.0.0",
     "@types/jest": "^29.5.12"
   },
