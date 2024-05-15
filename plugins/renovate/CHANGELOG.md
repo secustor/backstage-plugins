@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.5.1
+
+### Patch Changes
+
+- [#140](https://github.com/secustor/backstage-plugins/pull/140) [`b3f6c2b`](https://github.com/secustor/backstage-plugins/commit/b3f6c2bff76b15371b100a5d3d71b46dd59275b1) Thanks [@secustor](https://github.com/secustor)! - Upgrade Backstage 1.26.3
+
+- Updated dependencies [[`b3f6c2b`](https://github.com/secustor/backstage-plugins/commit/b3f6c2bff76b15371b100a5d3d71b46dd59275b1)]:
+  - @secustor/backstage-plugin-renovate-client@0.4.1
+  - @secustor/backstage-plugin-renovate-common@0.3.1
+
 ## 0.5.0
 
 ### Minor Changes
