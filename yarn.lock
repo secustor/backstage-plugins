@@ -5967,7 +5967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/apply-release-plan@npm:^7.0.2":
+"@changesets/apply-release-plan@npm:^7.0.3":
   version: 7.0.3
   resolution: "@changesets/apply-release-plan@npm:7.0.3"
   dependencies:
@@ -5989,7 +5989,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/assemble-release-plan@npm:^6.0.1, @changesets/assemble-release-plan@npm:^6.0.2":
+"@changesets/assemble-release-plan@npm:^6.0.2":
   version: 6.0.2
   resolution: "@changesets/assemble-release-plan@npm:6.0.2"
   dependencies:
@@ -6024,18 +6024,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:2.27.4":
-  version: 2.27.4
-  resolution: "@changesets/cli@npm:2.27.4"
+"@changesets/cli@npm:2.27.5":
+  version: 2.27.5
+  resolution: "@changesets/cli@npm:2.27.5"
   dependencies:
     "@babel/runtime": "npm:^7.20.1"
-    "@changesets/apply-release-plan": "npm:^7.0.2"
-    "@changesets/assemble-release-plan": "npm:^6.0.1"
+    "@changesets/apply-release-plan": "npm:^7.0.3"
+    "@changesets/assemble-release-plan": "npm:^6.0.2"
     "@changesets/changelog-git": "npm:^0.2.0"
-    "@changesets/config": "npm:^3.0.0"
+    "@changesets/config": "npm:^3.0.1"
     "@changesets/errors": "npm:^0.2.0"
-    "@changesets/get-dependents-graph": "npm:^2.0.0"
-    "@changesets/get-release-plan": "npm:^4.0.1"
+    "@changesets/get-dependents-graph": "npm:^2.1.0"
+    "@changesets/get-release-plan": "npm:^4.0.2"
     "@changesets/git": "npm:^3.0.0"
     "@changesets/logger": "npm:^0.1.0"
     "@changesets/pre": "npm:^2.0.0"
@@ -6063,11 +6063,11 @@ __metadata:
     tty-table: "npm:^4.1.5"
   bin:
     changeset: bin.js
-  checksum: 10c0/c5cbf7eed9cb809831088e7fb1b4b2b1d6cc64b011cc20028f5823c389d49beea8fa4de8749d570808af31ff71bba9a0eefdb558653dd94ed281d586cc977b56
+  checksum: 10c0/0fca2a81b41dd07a955a60dfa6c9ec9e8b336dc564f39f3e570185ad946dff317de79249808a0f60fa5226990a498fcebc0b09cfe14d17ccfb17259c8e684caf
   languageName: node
   linkType: hard
 
-"@changesets/config@npm:^3.0.0, @changesets/config@npm:^3.0.1":
+"@changesets/config@npm:^3.0.1":
   version: 3.0.1
   resolution: "@changesets/config@npm:3.0.1"
   dependencies:
@@ -6091,7 +6091,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/get-dependents-graph@npm:^2.0.0, @changesets/get-dependents-graph@npm:^2.1.0":
+"@changesets/get-dependents-graph@npm:^2.1.0":
   version: 2.1.0
   resolution: "@changesets/get-dependents-graph@npm:2.1.0"
   dependencies:
@@ -6114,7 +6114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/get-release-plan@npm:^4.0.1":
+"@changesets/get-release-plan@npm:^4.0.2":
   version: 4.0.2
   resolution: "@changesets/get-release-plan@npm:4.0.2"
   dependencies:
@@ -32813,7 +32813,7 @@ __metadata:
     "@backstage/e2e-test-utils": "npm:0.1.1"
     "@backstage/repo-tools": "npm:0.9.0"
     "@changesets/changelog-github": "npm:0.5.0"
-    "@changesets/cli": "npm:2.27.4"
+    "@changesets/cli": "npm:2.27.5"
     "@playwright/test": "npm:1.44.1"
     "@spotify/prettier-config": "npm:15.0.0"
     "@types/jest": "npm:29.5.12"
