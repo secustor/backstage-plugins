@@ -13625,15 +13625,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-serve-static-core@npm:*, @types/express-serve-static-core@npm:4.19.1, @types/express-serve-static-core@npm:^4.17.33, @types/express-serve-static-core@npm:^4.17.5":
-  version: 4.19.1
-  resolution: "@types/express-serve-static-core@npm:4.19.1"
+"@types/express-serve-static-core@npm:*, @types/express-serve-static-core@npm:4.19.3, @types/express-serve-static-core@npm:^4.17.33, @types/express-serve-static-core@npm:^4.17.5":
+  version: 4.19.3
+  resolution: "@types/express-serve-static-core@npm:4.19.3"
   dependencies:
     "@types/node": "npm:*"
     "@types/qs": "npm:*"
     "@types/range-parser": "npm:*"
     "@types/send": "npm:*"
-  checksum: 10c0/8e202374a7013fbbc5a3abd5111dd7ab73c4a6e9da4ffc1808d6e68be7a1dbd37e013b74e47aa6febc8efa459120058a1cbde6f2d509b2ad28fac301e1ee353a
+  checksum: 10c0/5d2a1fb96a17a8e0e8c59325dfeb6d454bbc5c9b9b6796eec0397ddf9dbd262892040d5da3d72b5d7148f34bb3fcd438faf1b37fcba8c5a03e75fae491ad1edf
   languageName: node
   linkType: hard
 
@@ -16201,7 +16201,7 @@ __metadata:
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@types/dockerode": "npm:3.3.29"
     "@types/express": "npm:4.17.21"
-    "@types/express-serve-static-core": "npm:4.19.1"
+    "@types/express-serve-static-core": "npm:4.19.3"
     "@types/luxon": "npm:3.4.2"
     app: "link:../app"
     better-sqlite3: "npm:^10.0.0"
