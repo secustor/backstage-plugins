@@ -11,7 +11,14 @@
     "types": "dist/index.d.ts"
   },
   "backstage": {
-    "role": "backend-plugin"
+    "role": "backend-plugin",
+    "pluginId": "renovate",
+    "pluginPackages": [
+      "@secustor/backstage-plugin-renovate",
+      "@secustor/backstage-plugin-renovate-backend",
+      "@secustor/backstage-plugin-renovate-common",
+      "@secustor/backstage-plugin-renovate-node"
+    ]
   },
   "repository": {
     "type": "git",
@@ -38,15 +45,15 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/backend-common": "^0.22.0",
-    "@backstage/backend-openapi-utils": "^0.1.11",
-    "@backstage/backend-plugin-api": "^0.6.18",
-    "@backstage/backend-tasks": "^0.5.23",
+    "@backstage/backend-common": "^0.23.0",
+    "@backstage/backend-openapi-utils": "^0.1.12",
+    "@backstage/backend-plugin-api": "^0.6.19",
+    "@backstage/backend-tasks": "^0.5.24",
     "@backstage/catalog-client": "^1.6.5",
     "@backstage/catalog-model": "^1.5.0",
     "@backstage/config": "^1.2.0",
     "@backstage/errors": "^1.2.4",
-    "@backstage/integration": "^1.11.0",
+    "@backstage/integration": "^1.12.0",
     "@backstage/types": "^1.1.1",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@secustor/backstage-plugin-renovate-node": "workspace:^",
@@ -63,10 +70,10 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@backstage/backend-test-utils": "^0.3.8",
-    "@backstage/cli": "^0.26.5",
-    "@backstage/repo-tools": "^0.9.0",
-    "@backstage/test-utils": "^1.5.5",
+    "@backstage/backend-test-utils": "^0.4.0",
+    "@backstage/cli": "^0.26.7",
+    "@backstage/repo-tools": "^0.9.1",
+    "@backstage/test-utils": "^1.5.6",
     "@types/supertest": "^6.0.0",
     "msw": "^2.0.0",
     "supertest": "^7.0.0"
