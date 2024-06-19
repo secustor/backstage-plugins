@@ -46,7 +46,7 @@
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^",
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^",
     "app": "link:../app",
-    "better-sqlite3": "^10.0.0",
+    "better-sqlite3": "^11.0.0",
     "dockerode": "^4.0.0",
     "dotenv": "^16.4.5",
     "express": "^4.17.1",
