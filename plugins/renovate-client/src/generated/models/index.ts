@@ -1,6 +1,7 @@
 //
 
 export * from '../models/ModelError.model';
+export * from '../models/ReportsDelete200Response.model';
 export * from '../models/ReportsGet200ResponseInner.model';
 export * from '../models/RepositoryReport.model';
 export * from '../models/RunsPost202Response.model';

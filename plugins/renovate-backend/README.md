@@ -29,8 +29,15 @@ renovate:
     # Allows turning off cache injection. You can still manually supply caches using the Renovate config
     enabled: false
 
+  cleanup:
+    # -1 translates to never delete reports during maintenance tasks
+    # x > 0 number of reports to maintain
+    minimumReports: -1
   schedules:
     jobSync:
+      frequency: { minutes: 60 }
+      timeout: { minutes: 60 }
+    cleanup:
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }
     renovation:

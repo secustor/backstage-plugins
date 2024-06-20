@@ -33,6 +33,20 @@ export interface ReportsRow {
   report: RepositoryReport;
 }
 
+export interface ReportTargetQuery {
+  host?: string;
+  repository?: string;
+}
+
+export interface DeleteOptions {
+  /**
+   * If falsely (0, false or undefined) delete all reports
+   * If keepLatest is a number keep this number of records.
+   * In case it is boolean true, the behaviour is identical to 1
+   */
+  keepLatest?: boolean | number;
+}
+
 export interface DatabaseCreationParameters {
   database: DatabaseService;
   logger: LoggerService;

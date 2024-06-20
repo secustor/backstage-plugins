@@ -46,6 +46,19 @@ export const spec = {
           },
         },
       },
+      delete: {
+        summary: 'Delete reports based on parameters',
+        parameters: [
+          {
+            $ref: '#/components/parameters/keepLatest',
+          },
+        ],
+        responses: {
+          '200': {
+            $ref: '#/components/responses/deleted-successful',
+          },
+        },
+      },
     },
     '/reports/{host}': {
       get: {
@@ -67,6 +80,19 @@ export const spec = {
           },
           '404': {
             description: 'unknown host',
+          },
+        },
+      },
+      delete: {
+        summary: 'Delete reports based on parameters',
+        parameters: [
+          {
+            $ref: '#/components/parameters/keepLatest',
+          },
+        ],
+        responses: {
+          '200': {
+            $ref: '#/components/responses/deleted-successful',
           },
         },
       },
@@ -100,6 +126,19 @@ export const spec = {
           },
           '404': {
             description: 'unknown repository',
+          },
+        },
+      },
+      delete: {
+        summary: 'Delete reports based on parameters',
+        parameters: [
+          {
+            $ref: '#/components/parameters/keepLatest',
+          },
+        ],
+        responses: {
+          '200': {
+            $ref: '#/components/responses/deleted-successful',
           },
         },
       },
@@ -160,7 +199,36 @@ export const spec = {
     },
   },
   components: {
+    parameters: {
+      keepLatest: {
+        name: 'keepLatest',
+        description: 'how many reports of all targets should be kept',
+        in: 'query',
+        required: false,
+        example: 3,
+        schema: {
+          type: 'number',
+        },
+      },
+    },
     responses: {
+      'deleted-successful': {
+        description: 'Successful deleted',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                deleted: {
+                  type: 'number',
+                  example: 15,
+                  description: 'Numbers of reports deleted',
+                },
+              },
+            },
+          },
+        },
+      },
       reports: {
         description: 'Returns reports',
         content: {
