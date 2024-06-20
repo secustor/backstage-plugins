@@ -5,6 +5,9 @@ import {
 } from '@backstage/backend-tasks';
 import { JsonValue } from '@backstage/types';
 
+export const RENOVATE_ANNOTATION_KEEP_UPDATED =
+  'renovate.secustor.dev/keep-updated';
+
 export function getPluginConfig(rootConfig: Config): Config {
   return rootConfig.getConfig('renovate');
 }
@@ -28,7 +31,7 @@ export function getRuntimeConfigs(rootConfig: Config): {
 
 export function getScheduleDefinition(
   pluginConfig: Config,
-  variant: 'jobSync' | 'renovation',
+  variant: 'jobSync' | 'renovation' | 'cleanup',
 ): TaskScheduleDefinition {
   try {
     const scheduleConfig = pluginConfig.getConfig(`schedules.${variant}`);

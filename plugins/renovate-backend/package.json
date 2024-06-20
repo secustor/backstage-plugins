@@ -41,6 +41,7 @@
     "lint": "backstage-cli package lint",
     "test": "backstage-cli package test",
     "clean": "backstage-cli package clean",
+    "fuzz": "backstage-repo-tools package schema openapi fuzz",
     "prepack": "backstage-cli package prepack",
     "postpack": "backstage-cli package postpack"
   },

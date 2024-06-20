@@ -62,8 +62,9 @@ export const DependencyTable = ({
             if (current === null) {
               return update;
             }
+            // prefer major updates over all other updates
             if (
-              current.updateType === 'minor' &&
+              current.updateType !== 'major' &&
               update.updateType === 'major'
             ) {
               return update;
@@ -83,7 +84,7 @@ export const DependencyTable = ({
               return update;
             }
 
-            return null;
+            return current;
           },
           null,
         );

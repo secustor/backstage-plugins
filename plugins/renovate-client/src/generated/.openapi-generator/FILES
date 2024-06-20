@@ -1,0 +1,15 @@
+apis/DefaultApi.client.ts
+apis/index.ts
+index.ts
+models/ModelError.model.ts
+models/ReportsDelete200Response.model.ts
+models/ReportsGet200ResponseInner.model.ts
+models/RepositoryReport.model.ts
+models/RunsPost202Response.model.ts
+models/RunsPost400Response.model.ts
+models/RunsPostRequest.model.ts
+models/Target.model.ts
+models/index.ts
+pluginId.ts
+types/discovery.ts
+types/fetch.ts

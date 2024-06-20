@@ -99,8 +99,13 @@ catalog:
         - renovate
 
 renovate:
+  cleanup:
+    minimumReports: 2
   schedules:
     jobSync:
+      frequency: { minutes: 5 }
+      timeout: { minutes: 1 }
+    cleanup:
       frequency: { minutes: 5 }
       timeout: { minutes: 1 }
     renovation:

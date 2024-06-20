@@ -34,6 +34,13 @@ export async function createRouter(
     response.status(200).json(reports);
   });
 
+  router.delete('/reports', async (request, response) => {
+    const modified = await databaseHandler.deleteReports({
+      keepLatest: request.query.keepLatest,
+    });
+    response.status(200).json({ modified });
+  });
+
   router.get('/reports/:host', async (request, response) => {
     const reports = await databaseHandler.getReports({
       ...request.params,
@@ -41,11 +48,27 @@ export async function createRouter(
     response.status(200).json(reports);
   });
 
+  router.delete('/reports/:host', async (request, response) => {
+    const modified = await databaseHandler.deleteReportsByTarget(
+      request.params,
+      { keepLatest: request.query.keepLatest },
+    );
+    response.status(200).json({ modified });
+  });
+
   router.get('/reports/:host/:repository', async (request, response) => {
     const reports = await databaseHandler.getReports({
       ...request.params,
     });
     response.status(200).json(reports);
+  });
+
+  router.delete('/reports/:host/:repository', async (request, response) => {
+    const modified = await databaseHandler.deleteReportsByTarget(
+      request.params,
+      { keepLatest: request.query.keepLatest },
+    );
+    response.status(200).json({ modified });
   });
 
   router.post('/runs', async (request, response) => {
