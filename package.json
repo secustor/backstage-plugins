@@ -6,7 +6,7 @@
     "node": "18 || 20"
   },
   "volta": {
-    "node": "20.14.0",
+    "node": "20.15.0",
     "yarn": "4.3.0"
   },
   "packageManager": "yarn@4.3.0",
@@ -40,9 +40,9 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "^0.26.7",
-    "@backstage/e2e-test-utils": "^0.1.1",
-    "@backstage/repo-tools": "^0.9.1",
+    "@backstage/cli": "0.26.7",
+    "@backstage/e2e-test-utils": "0.1.1",
+    "@backstage/repo-tools": "0.9.1",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.5",
     "@playwright/test": "1.44.1",
@@ -56,7 +56,7 @@
     "node-gyp": "10.1.0",
     "pinst": "3.0.0",
     "prettier": "3.3.2",
-    "ts-jest": "29.1.4",
+    "ts-jest": "29.1.5",
     "typescript": "5.4.5"
   },
   "resolutions": {
