@@ -1,5 +1,21 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.6.0
+
+### Minor Changes
+
+- [#206](https://github.com/secustor/backstage-plugins/pull/206) [`7437c6d`](https://github.com/secustor/backstage-plugins/commit/7437c6d19f5ff073bdc970f2542902ee4a1bab73) Thanks [@secustor](https://github.com/secustor)! - Add cleanup job to delete outdated reports
+
+- [`ee838a1`](https://github.com/secustor/backstage-plugins/commit/ee838a1c665a5fff27b1fe68758fb805125d9b95) Thanks [@secustor](https://github.com/secustor)! - Upgrade Backstage to 1.28.0
+
+### Patch Changes
+
+- [#206](https://github.com/secustor/backstage-plugins/pull/206) [`7437c6d`](https://github.com/secustor/backstage-plugins/commit/7437c6d19f5ff073bdc970f2542902ee4a1bab73) Thanks [@secustor](https://github.com/secustor)! - Correctly handle non minor or major upgrades
+
+- Updated dependencies [[`7437c6d`](https://github.com/secustor/backstage-plugins/commit/7437c6d19f5ff073bdc970f2542902ee4a1bab73), [`ee838a1`](https://github.com/secustor/backstage-plugins/commit/ee838a1c665a5fff27b1fe68758fb805125d9b95)]:
+  - @secustor/backstage-plugin-renovate-client@0.5.0
+  - @secustor/backstage-plugin-renovate-common@0.4.0
+
 ## 0.5.1
 
 ### Patch Changes
