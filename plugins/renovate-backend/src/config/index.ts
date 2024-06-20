@@ -31,7 +31,7 @@ export function getRuntimeConfigs(rootConfig: Config): {
 
 export function getScheduleDefinition(
   pluginConfig: Config,
-  variant: 'jobSync' | 'renovation',
+  variant: 'jobSync' | 'renovation' | 'cleanup',
 ): TaskScheduleDefinition {
   try {
     const scheduleConfig = pluginConfig.getConfig(`schedules.${variant}`);

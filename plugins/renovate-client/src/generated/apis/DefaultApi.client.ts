@@ -9,6 +9,7 @@ import crossFetch from 'cross-fetch';
 import { pluginId } from '../pluginId';
 import * as parser from 'uri-template';
 
+import { ReportsDelete200Response } from '../models/ReportsDelete200Response.model';
 import { ReportsGet200ResponseInner } from '../models/ReportsGet200ResponseInner.model';
 import { RunsPost202Response } from '../models/RunsPost202Response.model';
 import { RunsPostRequest } from '../models/RunsPostRequest.model';
@@ -70,6 +71,36 @@ export class DefaultApiClient {
   }
 
   /**
+   * Delete reports based on parameters
+   * @param keepLatest how many reports of all targets should be kept
+   */
+  public async reportsDelete(
+    // @ts-ignore
+    request: {
+      query: {
+        keepLatest?: number;
+      };
+    },
+    options?: RequestOptions,
+  ): Promise<TypedResponse<ReportsDelete200Response>> {
+    const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
+
+    const uriTemplate = `/reports{?keepLatest}`;
+
+    const uri = parser.parse(uriTemplate).expand({
+      ...request.query,
+    });
+
+    return await this.fetchApi.fetch(`${baseUrl}${uri}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
+      },
+      method: 'DELETE',
+    });
+  }
+
+  /**
    * Get all reports
    */
   public async reportsGet(
@@ -89,6 +120,36 @@ export class DefaultApiClient {
         ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
       },
       method: 'GET',
+    });
+  }
+
+  /**
+   * Delete reports based on parameters
+   * @param keepLatest how many reports of all targets should be kept
+   */
+  public async reportsHostDelete(
+    // @ts-ignore
+    request: {
+      query: {
+        keepLatest?: number;
+      };
+    },
+    options?: RequestOptions,
+  ): Promise<TypedResponse<ReportsDelete200Response>> {
+    const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
+
+    const uriTemplate = `/reports/{host}{?keepLatest}`;
+
+    const uri = parser.parse(uriTemplate).expand({
+      ...request.query,
+    });
+
+    return await this.fetchApi.fetch(`${baseUrl}${uri}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
+      },
+      method: 'DELETE',
     });
   }
 
@@ -119,6 +180,36 @@ export class DefaultApiClient {
         ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
       },
       method: 'GET',
+    });
+  }
+
+  /**
+   * Delete reports based on parameters
+   * @param keepLatest how many reports of all targets should be kept
+   */
+  public async reportsHostRepositoryDelete(
+    // @ts-ignore
+    request: {
+      query: {
+        keepLatest?: number;
+      };
+    },
+    options?: RequestOptions,
+  ): Promise<TypedResponse<ReportsDelete200Response>> {
+    const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
+
+    const uriTemplate = `/reports/{host}/{repository}{?keepLatest}`;
+
+    const uri = parser.parse(uriTemplate).expand({
+      ...request.query,
+    });
+
+    return await this.fetchApi.fetch(`${baseUrl}${uri}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
+      },
+      method: 'DELETE',
     });
   }
 

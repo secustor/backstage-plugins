@@ -25,6 +25,13 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/reports'
+    delete:
+      summary: Delete reports based on parameters
+      parameters:
+        - $ref: '#/components/parameters/keepLatest'
+      responses:
+        200:
+          $ref: '#/components/responses/deleted-successful'
 
   /reports/{host}:
     get:
@@ -41,6 +48,13 @@ paths:
           $ref: '#/components/responses/reports'
         404:
           description: unknown host
+    delete:
+      summary: Delete reports based on parameters
+      parameters:
+        - $ref: '#/components/parameters/keepLatest'
+      responses:
+        200:
+          $ref: '#/components/responses/deleted-successful'
 
   /reports/{host}/{repository}:
     get:
@@ -63,6 +77,13 @@ paths:
           $ref: '#/components/responses/reports'
         404:
           description: unknown repository
+    delete:
+      summary: Delete reports based on parameters
+      parameters:
+        - $ref: '#/components/parameters/keepLatest'
+      responses:
+        200:
+          $ref: '#/components/responses/deleted-successful'
 
   /runs:
     post:
@@ -101,7 +122,28 @@ paths:
                     $ref: '#/components/schemas/error'
 
 components:
+  parameters:
+    keepLatest:
+      name: keepLatest
+      description: how many reports of all targets should be kept
+      in: query
+      required: false
+      example: 3
+      schema:
+        type: number
+
   responses:
+    deleted-successful:
+      description: Successful deleted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              deleted:
+                type: number
+                example: 15
+                description: Numbers of reports deleted
     reports:
       description: Returns reports
       content:

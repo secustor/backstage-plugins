@@ -9,6 +9,7 @@ import { RouterOptions } from './service/types';
 import { DatabaseHandler } from './service/databaseHandler';
 import { renovateRuntimeExtensionPoint } from '@secustor/backstage-plugin-renovate-node';
 import { scheduleJobSync } from './service/jobSync';
+import { scheduleCleanupTask } from './service/cleanupTask';
 
 /**
  * Renovate backend plugin
@@ -52,6 +53,7 @@ export const renovatePlugin = createBackendPlugin({
         const renovateRunner = await RenovateRunner.from(routerOptions);
 
         await scheduleJobSync(renovateRunner, routerOptions);
+        await scheduleCleanupTask(routerOptions);
 
         httpRouter.use(await createRouter(renovateRunner, routerOptions));
         httpRouter.addAuthPolicy({
