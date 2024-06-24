@@ -8236,9 +8236,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lerna/create@npm:8.1.3":
-  version: 8.1.3
-  resolution: "@lerna/create@npm:8.1.3"
+"@lerna/create@npm:8.1.4":
+  version: 8.1.4
+  resolution: "@lerna/create@npm:8.1.4"
   dependencies:
     "@npmcli/run-script": "npm:7.0.2"
     "@nx/devkit": "npm:>=17.1.2 < 20"
@@ -8304,7 +8304,7 @@ __metadata:
     write-pkg: "npm:4.0.0"
     yargs: "npm:17.7.2"
     yargs-parser: "npm:21.1.1"
-  checksum: 10c0/6a8f470a8151630cbe9217e24ea2197f0c17b147e32ab985c8228312e11145658bcc7b519bac1ca04b834723f2a0e96503f9f80c03b9439c0da534a2128b8e04
+  checksum: 10c0/15a731eaf703e342f86c9aa635f3e094ef1bef13ee42d03238f3b38adb189aeaee23570c956cc1d3fc2f84333dae604cd921721466ffbc18e4f7c6fad03100f4
   languageName: node
   linkType: hard
 
@@ -26259,11 +26259,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lerna@npm:8.1.3":
-  version: 8.1.3
-  resolution: "lerna@npm:8.1.3"
+"lerna@npm:8.1.4":
+  version: 8.1.4
+  resolution: "lerna@npm:8.1.4"
   dependencies:
-    "@lerna/create": "npm:8.1.3"
+    "@lerna/create": "npm:8.1.4"
     "@npmcli/run-script": "npm:7.0.2"
     "@nx/devkit": "npm:>=17.1.2 < 20"
     "@octokit/plugin-enterprise-rest": "npm:6.0.1"
@@ -26339,7 +26339,7 @@ __metadata:
     yargs-parser: "npm:21.1.1"
   bin:
     lerna: dist/cli.js
-  checksum: 10c0/690e4bc332e0f62ad6f09d69c799a2143ffe771f20784aa8a923e18e084d4214249a8a32cafa3e8b23479e058f8d78fe43b9e8c3b69c86c0b26f9ca93b879cb5
+  checksum: 10c0/53e0b5da367e3880dbd6faeb9fbdff09b85cc474d0a79fa60c88d7a4849eb87c6345362e14b9da7d2db8da7ccbd871498d598daaefa0ecf7cb5f8f42172b6b2d
   languageName: node
   linkType: hard
 
@@ -33463,7 +33463,7 @@ __metadata:
     concurrently: "npm:8.2.2"
     husky: "npm:9.0.11"
     jest: "npm:29.7.0"
-    lerna: "npm:8.1.3"
+    lerna: "npm:8.1.4"
     lint-staged: "npm:15.2.7"
     node-gyp: "npm:10.1.0"
     pinst: "npm:3.0.0"
