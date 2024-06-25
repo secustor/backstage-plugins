@@ -1,11 +1,11 @@
 import {
-  DefaultGithubCredentialsProvider,
   DefaultGitlabCredentialsProvider,
   ScmIntegrations,
 } from '@backstage/integration';
 import is from '@sindresorhus/is';
 import { PlatformEnvsOptions } from './types';
 import { TargetRepo } from '@secustor/backstage-plugin-renovate-common';
+import { getGithubToken } from './github';
 
 /*
     Returns record of Renovate environment variables specific for the platform of targetUrl
@@ -31,10 +31,8 @@ export async function getPlatformEnvs(
   switch (integration.type) {
     case 'github': {
       env.RENOVATE_PLATFORM = integration.type;
-      const cred = await DefaultGithubCredentialsProvider.fromIntegrations(
-        integrations,
-      ).getCredentials({ url });
-      env.RENOVATE_TOKEN = requireConfigVariable(cred.token, errMsg);
+      const token = await getGithubToken(integrations, url);
+      env.RENOVATE_TOKEN = requireConfigVariable(token, errMsg);
       env.RENOVATE_REPOSITORIES = target.repository;
       break;
     }
@@ -58,14 +56,19 @@ export async function getPlatformEnvs(
       throw new Error(`Unsupported platform type ${integration.type}`);
   }
 
-  const githubComIntegration = integrations.github.byHost('github.com');
+  const githubComURL = 'https://github.com';
+  const githubComIntegration = integrations.github.byUrl(githubComURL);
   if (is.nullOrUndefined(githubComIntegration)) {
     logger.warn(`No Github.com integration has been found`);
   } else {
-    env.RENOVATE_GITHUB_COM = requireConfigVariable(
-      integrations.github.byHost('github.com')?.config.token,
-      'Could not get token for Github.com token in the defined integration',
-    );
+    const githubComToken = await getGithubToken(integrations, githubComURL);
+    if (githubComToken) {
+      env.RENOVATE_GITHUB_COM = githubComToken;
+    } else {
+      logger.warn(
+        `Could not get token for Github.com token in the defined integrations`,
+      );
+    }
   }
 
   return env;
