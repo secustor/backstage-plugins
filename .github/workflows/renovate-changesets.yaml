@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Update PR
-        uses: mscharley/dependency-changesets-action@v1.0.5
+        uses: mscharley/dependency-changesets-action@14ae68fa5355587436e499e2f64a089940a3a3bc # v1.0.10
         with:
           token: ${{ secrets.PA_GITHUB_TOKEN }}
           use-conventional-commits: true
