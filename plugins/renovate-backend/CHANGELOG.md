@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.8.1
+
+### Patch Changes
+
+- [#215](https://github.com/secustor/backstage-plugins/pull/215) [`730a4bd`](https://github.com/secustor/backstage-plugins/commit/730a4bd433dcd8ce40db5b718c4627be24b93c4b) Thanks [@secustor](https://github.com/secustor)! - Fix token retrieval when using a GithubApp
+
 ## 0.8.0
 
 ### Minor Changes
