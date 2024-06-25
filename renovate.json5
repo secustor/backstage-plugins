@@ -17,6 +17,11 @@
     'yarnDedupeHighest',
   ],
 
+  // add a Renovate label for renovate-changesets workflow
+  addLabels: ['renovate'],
+  // ignore author of changesets
+  gitIgnoredAuthors: ['renovate@poxhofer.at'],
+
   packageRules: [
     {
       // general configs for all plugins
