@@ -83,7 +83,7 @@
       fileMatch: 'backstage\\.json$',
       matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
       depNameTemplate: 'backstage/backstage',
-      datasourceTemplate: 'github-release',
+      datasourceTemplate: 'github-releases',
       versioningTemplate: 'semver-coerced',
     },
     {
