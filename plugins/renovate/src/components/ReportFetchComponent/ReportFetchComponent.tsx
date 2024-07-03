@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Table,
   TableColumn,
   Progress,
   ResponseErrorPanel,
 } from '@backstage/core-components';
+import NotesIcon from '@material-ui/icons/Notes';
 import useAsync from 'react-use/lib/useAsync';
 import { useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';
 import {
   repositoryReportResponse,
   RepositoryReportResponse,
+  RepositoryReportResponseElement,
 } from '@secustor/backstage-plugin-renovate-common';
 import is from '@sindresorhus/is';
+import { InspectReportDialog } from './InspectReportDialog';
 
 type DenseTableProps = {
   reports: RepositoryReportResponse;
 };
 
+interface RowDataEntry {
+  id: string;
+  host: string;
+  repository: string;
+  timestamp: string;
+  noPRs: number;
+  noBranches: number;
+  noUpdates: number;
+  noDeps: number;
+  report: RepositoryReportResponseElement;
+}
+
 export const DenseTable = ({ reports }: DenseTableProps) => {
-  const columns: TableColumn[] = [
+  const columns: TableColumn<RowDataEntry>[] = [
     { title: 'timestamp', field: 'timestamp' },
     { title: 'Host', field: 'host' },
     { title: 'Repository', field: 'repository' },
@@ -31,8 +46,11 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
 
   const data = reports.flatMap(report => {
     const packageFiles = Object.values(report.report.packageFiles).flat();
-    const deps = packageFiles.flatMap(packageFile => packageFile.deps);
+    const deps: RowDataEntry[] = packageFiles.flatMap(
+      packageFile => packageFile.deps,
+    );
     return {
+      id: report.runID,
       host: report.host,
       repository: report.repository,
       timestamp: report.timestamp,
@@ -43,16 +61,51 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
       noUpdates: report.report.branches.flatMap(branch => branch.upgrades)
         .length,
       noDeps: deps.length,
+      report,
     };
   });
 
+  const [inspectionDialogData, setInspectionDialogData] =
+    useState<RepositoryReportResponseElement | null>(null);
+
   return (
-    <Table
-      title="Report List"
-      options={{ search: true, paging: false }}
-      columns={columns}
-      data={data}
-    />
+    <>
+      <Table
+        title="Report List"
+        options={{ search: true, paging: false }}
+        columns={columns}
+        data={data}
+        onRowClick={(
+          _event,
+          rowData: RowDataEntry | undefined,
+          toggleDetailPanel,
+        ) => {
+          if (toggleDetailPanel) {
+            toggleDetailPanel();
+          }
+          if (rowData) {
+            setInspectionDialogData(rowData.report);
+          }
+        }}
+        actions={[
+          {
+            icon: NotesIcon,
+            tooltip: 'Open raw report',
+            onClick: (_event, rowData) => {
+              const report = is.array(rowData)
+                ? rowData[0].report
+                : rowData.report;
+              setInspectionDialogData(report);
+            },
+          },
+        ]}
+      />
+      <InspectReportDialog
+        open={!!inspectionDialogData}
+        report={inspectionDialogData}
+        onClose={() => setInspectionDialogData(null)}
+      />
+    </>
   );
 };
 

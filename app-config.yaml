@@ -112,8 +112,8 @@ renovate:
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }
   runtime:
-    type: docker
+    type: direct
     docker:
 
   config:
-    test: test
+    dryRun: extract
