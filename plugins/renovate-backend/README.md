@@ -34,9 +34,6 @@ renovate:
     # x > 0 number of reports to maintain
     minimumReports: -1
   schedules:
-    jobSync:
-      frequency: { minutes: 60 }
-      timeout: { minutes: 60 }
     cleanup:
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }

@@ -9,7 +9,6 @@ import {
   isEntityRef,
 } from '@secustor/backstage-plugin-renovate-common';
 import { RenovateRunner } from '../wrapper';
-import { ConflictError, isError } from '@backstage/errors';
 import { CatalogClient } from '@backstage/catalog-client';
 import type { Entity } from '@backstage/catalog-model';
 
@@ -94,17 +93,13 @@ export async function createRouter(
     // trigger Renovate run
     const targetRepo = getTargetRepo(target);
     const id = getTaskID(targetRepo);
-    try {
-      await runner.trigger(targetRepo);
-      response.status(202).json({ runID: id });
-    } catch (e) {
-      if (isError(e) && ConflictError.name === e.name) {
-        logger.debug('Task already running', { taskID: id });
-        response.status(423).json({ error: e });
-      } else {
-        response.status(400).json({ error: e });
-      }
+    const result = await runner.runNext(targetRepo);
+    if (result === 'active') {
+      logger.debug('Task already running', { taskID: id });
+      response.status(423).json({ error: 'Task is already running' });
+      return;
     }
+    response.status(202).json({ runID: id });
   });
   router.use(errorHandler());
   return router;

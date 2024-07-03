@@ -4,6 +4,7 @@ import {
   TaskScheduleDefinition,
 } from '@backstage/backend-tasks';
 import { JsonValue } from '@backstage/types';
+import is from '@sindresorhus/is';
 
 export const RENOVATE_ANNOTATION_KEEP_UPDATED =
   'renovate.secustor.dev/keep-updated';
@@ -31,7 +32,7 @@ export function getRuntimeConfigs(rootConfig: Config): {
 
 export function getScheduleDefinition(
   pluginConfig: Config,
-  variant: 'jobSync' | 'renovation' | 'cleanup',
+  variant: 'renovation' | 'cleanup',
 ): TaskScheduleDefinition {
   try {
     const scheduleConfig = pluginConfig.getConfig(`schedules.${variant}`);
@@ -43,4 +44,18 @@ export function getScheduleDefinition(
       frequency: { minutes: 60 },
     };
   }
+}
+
+export function getCacheConfig(config: Config): string | null {
+  const cacheConfig = config.getOptionalConfig('backend.cache');
+  if (is.nullOrUndefined(cacheConfig)) {
+    return null;
+  }
+
+  const store = cacheConfig.getString('store');
+  if (store !== 'redis') {
+    return null;
+  }
+
+  return cacheConfig.getOptionalString('connection') ?? null;
 }

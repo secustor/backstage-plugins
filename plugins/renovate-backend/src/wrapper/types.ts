@@ -1,5 +1,6 @@
 import { Readable } from 'stream';
 import { LoggerService } from '@backstage/backend-plugin-api';
+import { TargetRepo } from '@secustor/backstage-plugin-renovate-common';
 
 export interface ExtractReportOptions {
   logStream: Readable;
@@ -7,5 +8,6 @@ export interface ExtractReportOptions {
 }
 
 export interface RunOptions {
-  logger: LoggerService;
+  id: string;
+  target: TargetRepo;
 }
