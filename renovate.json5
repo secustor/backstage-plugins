@@ -1,6 +1,6 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:best-practices'],
+  extends: ['config:best-practices', ':semanticCommitTypeAll(fix)'],
 
   ignorePresets: [
     // we cannot update right now to @mui
