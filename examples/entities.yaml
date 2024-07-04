@@ -5,7 +5,7 @@ metadata:
   description: An example deployment of a Backstage application.
   annotations:
     renovate.secustor.dev/keep-updated: enabled
-    backstage.io/source-location: 'https://github.com/secustor/ocb-renovate/blob/main/catalog.yaml'
+    backstage.io/source-location: 'url:https://github.com/secustor/ocb-renovate/blob/main/catalog.yaml'
 spec:
   type: repo
   owner: backstage-plugins/maintainers
