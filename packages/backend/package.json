@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "dist/index.cjs.js",
   "types": "src/index.ts",
   "private": true,
@@ -42,8 +42,8 @@
     "@backstage/plugin-search-backend-node": "^1.2.24",
     "@backstage/plugin-techdocs-backend": "^1.10.6",
     "@secustor/backstage-plugin-renovate-backend": "workspace:^",
-    "@secustor/backstage-plugin-renovate-backend-module-queue-local": "^0.1.0",
-    "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "^0.1.0",
+    "@secustor/backstage-plugin-renovate-backend-module-queue-local": "^0.2.0",
+    "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "^0.2.0",
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^",
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^",
     "app": "link:../app",
