@@ -72,7 +72,7 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
     <>
       <Table
         title="Report List"
-        options={{ search: true, paging: false }}
+        options={{ search: true, paging: false, actionsColumnIndex: -1 }}
         columns={columns}
         data={data}
         actions={[
