@@ -1,4 +1,4 @@
-import { errorHandler } from '@backstage/backend-common';
+import { MiddlewareFactory } from '@backstage/backend-defaults/rootHttpRouter';
 import express from 'express';
 import { createOpenApiRouter } from '../schema/openapi.generated';
 import { runRequestBody } from './schema';
@@ -16,7 +16,15 @@ export async function createRouter(
   runner: RenovateRunner,
   options: RouterOptions,
 ): Promise<express.Router> {
-  const { auth, logger, databaseHandler, discovery } = options;
+  const {
+    auth,
+    rootConfig: config,
+    logger,
+    databaseHandler,
+    discovery,
+  } = options;
+
+  const middlewareFactory = MiddlewareFactory.create({ logger, config });
 
   const client = new CatalogClient({ discoveryApi: discovery });
 
@@ -101,6 +109,6 @@ export async function createRouter(
     }
     response.status(202).json({ runID: id });
   });
-  router.use(errorHandler());
+  router.use(middlewareFactory.error());
   return router;
 }

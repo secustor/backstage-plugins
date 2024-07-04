@@ -1,8 +1,8 @@
 import { Config } from '@backstage/config';
 import {
-  readTaskScheduleDefinitionFromConfig,
-  TaskScheduleDefinition,
-} from '@backstage/backend-tasks';
+  readSchedulerServiceTaskScheduleDefinitionFromConfig,
+  SchedulerServiceTaskScheduleDefinition,
+} from '@backstage/backend-plugin-api';
 import { JsonValue } from '@backstage/types';
 
 export const RENOVATE_ANNOTATION_KEEP_UPDATED =
@@ -32,10 +32,10 @@ export function getRuntimeConfigs(rootConfig: Config): {
 export function getScheduleDefinition(
   pluginConfig: Config,
   variant: 'renovation' | 'cleanup',
-): TaskScheduleDefinition {
+): SchedulerServiceTaskScheduleDefinition {
   try {
     const scheduleConfig = pluginConfig.getConfig(`schedules.${variant}`);
-    return readTaskScheduleDefinitionFromConfig(scheduleConfig);
+    return readSchedulerServiceTaskScheduleDefinitionFromConfig(scheduleConfig);
   } catch (e) {
     return {
       scope: 'global',

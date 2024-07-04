@@ -1,6 +1,6 @@
 import { getPlatformEnvs } from './index';
 import { MockConfigApi } from '@backstage/test-utils';
-import { getVoidLogger } from '@backstage/backend-common';
+import { mockServices } from '@backstage/backend-test-utils';
 import { mockDeep } from 'jest-mock-extended';
 import { DefaultGithubCredentialsProvider } from '@backstage/integration';
 
@@ -23,7 +23,7 @@ describe('wrapper/platforms', () => {
         },
         {
           rootConfig: new MockConfigApi({}),
-          logger: getVoidLogger(),
+          logger: mockServices.logger.mock(),
         },
       ),
     ).rejects.toThrow(
@@ -53,7 +53,7 @@ describe('wrapper/platforms', () => {
               ],
             },
           }),
-          logger: getVoidLogger(),
+          logger: mockServices.logger.mock(),
         },
       ),
     ).resolves.toEqual({
@@ -94,7 +94,7 @@ describe('wrapper/platforms', () => {
               ],
             },
           }),
-          logger: getVoidLogger(),
+          logger: mockServices.logger.mock(),
         },
       ),
     ).resolves.toEqual({
@@ -133,7 +133,7 @@ describe('wrapper/platforms', () => {
               ],
             },
           }),
-          logger: getVoidLogger(),
+          logger: mockServices.logger.mock(),
         },
       ),
     ).resolves.toEqual({

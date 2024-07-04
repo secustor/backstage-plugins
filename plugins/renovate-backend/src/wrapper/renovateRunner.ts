@@ -138,6 +138,7 @@ export class RenovateRunner implements Runnable<RunOptions> {
       env,
       renovateConfig,
       runtimeConfig,
+      logger,
     });
 
     return promise.then(result => {

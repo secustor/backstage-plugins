@@ -25,7 +25,6 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/backend-common": "^0.23.1",
     "@backstage/backend-plugin-api": "^0.6.20",
     "@backstage/config": "^1.2.0",
     "@secustor/backstage-plugin-renovate-node": "workspace:^",

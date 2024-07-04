@@ -1,4 +1,3 @@
-import { getVoidLogger } from '@backstage/backend-common';
 import express from 'express';
 import request from 'supertest';
 import { MockConfigApi } from '@backstage/test-utils';
@@ -28,7 +27,7 @@ describe('createRouter', () => {
     const router = await createRouter(runnerMock, {
       auth: mockServices.auth(),
       discovery: mockServices.discovery(),
-      logger: getVoidLogger(),
+      logger: mockServices.logger.mock(),
       rootConfig: new MockConfigApi({}),
       databaseHandler: databaseHandlerMock,
       runtimes: new Map<string, RenovateWrapper>(),
