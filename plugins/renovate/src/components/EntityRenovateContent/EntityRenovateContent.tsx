@@ -18,6 +18,8 @@ import {
 } from '@backstage/core-components';
 import is from '@sindresorhus/is';
 import { scmIntegrationsApiRef } from '@backstage/integration-react';
+import { isError } from '@backstage/errors';
+import { GitUrl } from 'git-url-parse';
 
 type DenseTableProps = {
   filter?: {
@@ -134,12 +136,23 @@ export const EntityRenovateContent = () => {
     return <ResponseErrorPanel error={error} />;
   }
 
-  const { target } = getEntitySourceLocation(entity);
-  const parsed = getTargetURL(target);
-  const baseURL = scmIntegrationsApi.resolveUrl({
-    url: parsed.filepath,
-    base: target,
-  });
+  let baseURL: string;
+  let parsed: GitUrl;
+  try {
+    const { target } = getEntitySourceLocation(entity);
+    parsed = getTargetURL(target);
+    baseURL = scmIntegrationsApi.resolveUrl({
+      url: parsed.filepath,
+      base: target,
+    });
+  } catch (e) {
+    return (
+      <ResponseErrorPanel
+        error={isError(e) ? e : new Error(JSON.stringify(e))}
+      />
+    );
+  }
+
   return (
     <DependencyTable
       report={value}
