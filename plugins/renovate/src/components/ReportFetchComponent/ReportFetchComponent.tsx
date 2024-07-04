@@ -6,10 +6,12 @@ import {
   ResponseErrorPanel,
 } from '@backstage/core-components';
 import NotesIcon from '@material-ui/icons/Notes';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import useAsync from 'react-use/lib/useAsync';
-import { useApi } from '@backstage/core-plugin-api';
+import { alertApiRef, useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';
 import {
+  getTargetRepoSafe,
   repositoryReportResponse,
   RepositoryReportResponse,
   RepositoryReportResponseElement,
@@ -44,29 +46,34 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
     { title: 'Number of dependencies', field: 'noDeps' },
   ];
 
-  const data = reports.flatMap(report => {
-    const packageFiles = Object.values(report.report.packageFiles).flat();
-    const deps: RowDataEntry[] = packageFiles.flatMap(
-      packageFile => packageFile.deps,
-    );
-    return {
-      id: report.runID,
-      host: report.host,
-      repository: report.repository,
-      timestamp: report.timestamp,
-      noPRs: report.report.branches.filter(
-        branch => !is.nullOrUndefined(branch.prNo),
-      ).length,
-      noBranches: report.report.branches.length,
-      noUpdates: report.report.branches.flatMap(branch => branch.upgrades)
-        .length,
-      noDeps: deps.length,
-      report,
-    };
-  });
+  const data = reports.flatMap(
+    report => {
+      const packageFiles = Object.values(report.report.packageFiles).flat();
+      const deps: RowDataEntry[] = packageFiles.flatMap(
+        packageFile => packageFile.deps,
+      );
+      return {
+        id: report.runID,
+        host: report.host,
+        repository: report.repository,
+        timestamp: report.timestamp,
+        noPRs: report.report.branches.filter(
+          branch => !is.nullOrUndefined(branch.prNo),
+        ).length,
+        noBranches: report.report.branches.length,
+        noUpdates: report.report.branches.flatMap(branch => branch.upgrades)
+          .length,
+        noDeps: deps.length,
+        report,
+      };
+    },
+    [reports],
+  );
 
   const [inspectionDialogData, setInspectionDialogData] =
     useState<RepositoryReportResponseElement | null>(null);
+  const renovateAPI = useApi(renovateApiRef);
+  const alertAPI = useApi(alertApiRef);
 
   return (
     <>
@@ -85,6 +92,37 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
                 : rowData.report;
               setInspectionDialogData(report);
             },
+          },
+          rowData => {
+            return {
+              icon: RefreshIcon,
+              tooltip: 'Rescan',
+              onClick: async _event => {
+                const target = getTargetRepoSafe(rowData);
+                if (!target) {
+                  return;
+                }
+                const result = await renovateAPI.runsPost({
+                  body: {
+                    target: `${target.host}/${target.repository}`,
+                  },
+                });
+                const test = await result.json();
+                if (result.ok) {
+                  alertAPI.post({
+                    severity: 'success',
+                    display: 'transient',
+                    message: `Started job ${test.taskID}`,
+                  });
+                  return;
+                }
+
+                alertAPI.post({
+                  severity: 'error',
+                  message: result.statusText,
+                });
+              },
+            };
           },
         ]}
       />
