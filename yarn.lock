@@ -11642,7 +11642,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@secustor/backstage-plugin-renovate-backend-module-queue-local@npm:^0.1.0, @secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local":
+"@secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:^, @secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local":
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local"
   dependencies:
@@ -11654,7 +11654,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@secustor/backstage-plugin-renovate-backend-module-queue-redis@npm:^0.1.0, @secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis":
+"@secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:^, @secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis":
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis"
   dependencies:
@@ -16870,8 +16870,8 @@ __metadata:
     "@backstage/plugin-search-backend-node": "npm:^1.2.24"
     "@backstage/plugin-techdocs-backend": "npm:^1.10.6"
     "@secustor/backstage-plugin-renovate-backend": "workspace:^"
-    "@secustor/backstage-plugin-renovate-backend-module-queue-local": "npm:^0.1.0"
-    "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "npm:^0.1.0"
+    "@secustor/backstage-plugin-renovate-backend-module-queue-local": "workspace:^"
+    "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "workspace:^"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@types/dockerode": "npm:3.3.29"
