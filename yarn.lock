@@ -8724,6 +8724,48 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:3.0.3"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-darwin-x64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-x64@npm:3.0.3"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-arm64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm64@npm:3.0.3"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-arm@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm@npm:3.0.3"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-x64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-x64@npm:3.0.3"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-win32-x64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-win32-x64@npm:3.0.3"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@mswjs/cookies@npm:^0.2.2":
   version: 0.2.2
   resolution: "@mswjs/cookies@npm:0.2.2"
@@ -11630,6 +11672,34 @@ __metadata:
   checksum: 10c0/1136c924401390f3f108c6a337b685f341e094549bdcfb9be1e40a10e7886996663418fdd847a3e0925417d4ff85c42cfc7e30dac8fafbc6b1686d9a7fd34272
   languageName: node
   linkType: hard
+
+"@secustor/backstage-plugin-renovate-backend-module-queue-local@npm:^0.1.0, @secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local":
+  version: 0.0.0-use.local
+  resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local"
+  dependencies:
+    "@backstage/backend-common": "npm:^0.23.1"
+    "@backstage/backend-plugin-api": "npm:^0.6.20"
+    "@backstage/backend-test-utils": "npm:^0.4.0"
+    "@backstage/cli": "npm:^0.26.7"
+    "@secustor/backstage-plugin-renovate-node": "workspace:^"
+    fastq: "npm:^1.17.1"
+  languageName: unknown
+  linkType: soft
+
+"@secustor/backstage-plugin-renovate-backend-module-queue-redis@npm:^0.1.0, @secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis":
+  version: 0.0.0-use.local
+  resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis"
+  dependencies:
+    "@backstage/backend-common": "npm:^0.23.1"
+    "@backstage/backend-plugin-api": "npm:^0.6.20"
+    "@backstage/backend-test-utils": "npm:^0.4.0"
+    "@backstage/cli": "npm:^0.26.7"
+    "@backstage/config": "npm:^1.2.0"
+    "@secustor/backstage-plugin-renovate-node": "workspace:^"
+    bullmq: "npm:^5.8.3"
+    ioredis: "npm:^5.4.1"
+  languageName: unknown
+  linkType: soft
 
 "@secustor/backstage-plugin-renovate-backend-module-runtime-direct@workspace:^, @secustor/backstage-plugin-renovate-backend-module-runtime-direct@workspace:plugins/renovate-backend-module-runtime-direct":
   version: 0.0.0-use.local
@@ -16827,6 +16897,8 @@ __metadata:
     "@backstage/plugin-search-backend-node": "npm:^1.2.24"
     "@backstage/plugin-techdocs-backend": "npm:^1.10.6"
     "@secustor/backstage-plugin-renovate-backend": "workspace:^"
+    "@secustor/backstage-plugin-renovate-backend-module-queue-local": "npm:^0.1.0"
+    "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "npm:^0.1.0"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@types/dockerode": "npm:3.3.29"
@@ -17401,6 +17473,21 @@ __metadata:
   version: 3.0.0
   resolution: "builtin-status-codes@npm:3.0.0"
   checksum: 10c0/c37bbba11a34c4431e56bd681b175512e99147defbe2358318d8152b3a01df7bf25e0305873947e5b350073d5ef41a364a22b37e48f1fb6d2fe6d5286a0f348c
+  languageName: node
+  linkType: hard
+
+"bullmq@npm:^5.8.3":
+  version: 5.8.3
+  resolution: "bullmq@npm:5.8.3"
+  dependencies:
+    cron-parser: "npm:^4.6.0"
+    ioredis: "npm:^5.4.1"
+    msgpackr: "npm:^1.10.1"
+    node-abort-controller: "npm:^3.1.1"
+    semver: "npm:^7.5.4"
+    tslib: "npm:^2.0.0"
+    uuid: "npm:^9.0.0"
+  checksum: 10c0/eda00735591f095e964462dac395f3b2592a7bd9846781c489806226c3ec77573e7a2fb06d95073306f5807819d2dfadb603d204db065bf8b19c683e45c6cc78
   languageName: node
   linkType: hard
 
@@ -18898,7 +18985,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron-parser@npm:4.9.0":
+"cron-parser@npm:4.9.0, cron-parser@npm:^4.6.0":
   version: 4.9.0
   resolution: "cron-parser@npm:4.9.0"
   dependencies:
@@ -19785,7 +19872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^2.0.0":
+"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.1":
   version: 2.0.3
   resolution: "detect-libc@npm:2.0.3"
   checksum: 10c0/88095bda8f90220c95f162bf92cad70bd0e424913e655c20578600e35b91edc261af27531cf160a331e185c0ced93944bc7e09939143225f56312d7fd800fdb7
@@ -21736,7 +21823,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastq@npm:^1.6.0":
+"fastq@npm:^1.17.1, fastq@npm:^1.6.0":
   version: 1.17.1
   resolution: "fastq@npm:1.17.1"
   dependencies:
@@ -28339,6 +28426,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"msgpackr-extract@npm:^3.0.2":
+  version: 3.0.3
+  resolution: "msgpackr-extract@npm:3.0.3"
+  dependencies:
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-darwin-x64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-linux-arm": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-linux-arm64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-linux-x64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-win32-x64": "npm:3.0.3"
+    node-gyp: "npm:latest"
+    node-gyp-build-optional-packages: "npm:5.2.2"
+  dependenciesMeta:
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-darwin-x64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-linux-arm":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-linux-arm64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-linux-x64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-win32-x64":
+      optional: true
+  bin:
+    download-msgpackr-prebuilds: bin/download-prebuilds.js
+  checksum: 10c0/e504fd8bf86a29d7527c83776530ee6dc92dcb0273bb3679fd4a85173efead7f0ee32fb82c8410a13c33ef32828c45f81118ffc0fbed5d6842e72299894623b4
+  languageName: node
+  linkType: hard
+
+"msgpackr@npm:^1.10.1":
+  version: 1.10.2
+  resolution: "msgpackr@npm:1.10.2"
+  dependencies:
+    msgpackr-extract: "npm:^3.0.2"
+  dependenciesMeta:
+    msgpackr-extract:
+      optional: true
+  checksum: 10c0/eb0a47b3d32a3be92f7a5b1182a67e5d9bfd5668d1aed63d3df03480a06798311eea339319b442ffafe83de19d9f3c9c6ac4d9081af0c9f896599d766a53db20
+  languageName: node
+  linkType: hard
+
 "msw@npm:^1.0.0":
   version: 1.3.3
   resolution: "msw@npm:1.3.3"
@@ -28715,6 +28845,19 @@ __metadata:
   version: 1.3.1
   resolution: "node-forge@npm:1.3.1"
   checksum: 10c0/e882819b251a4321f9fc1d67c85d1501d3004b4ee889af822fd07f64de3d1a8e272ff00b689570af0465d65d6bf5074df9c76e900e0aff23e60b847f2a46fbe8
+  languageName: node
+  linkType: hard
+
+"node-gyp-build-optional-packages@npm:5.2.2":
+  version: 5.2.2
+  resolution: "node-gyp-build-optional-packages@npm:5.2.2"
+  dependencies:
+    detect-libc: "npm:^2.0.1"
+  bin:
+    node-gyp-build-optional-packages: bin.js
+    node-gyp-build-optional-packages-optional: optional.js
+    node-gyp-build-optional-packages-test: build-test.js
+  checksum: 10c0/c81128c6f91873381be178c5eddcbdf66a148a6a89a427ce2bcd457593ce69baf2a8662b6d22cac092d24aa9c43c230dec4e69b3a0da604503f4777cd77e282b
   languageName: node
   linkType: hard
 

@@ -34,9 +34,6 @@ renovate:
     # x > 0 number of reports to maintain
     minimumReports: -1
   schedules:
-    jobSync:
-      frequency: { minutes: 60 }
-      timeout: { minutes: 60 }
     cleanup:
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }
@@ -47,6 +44,9 @@ renovate:
   runtime:
     # ID of the runtime provided via extension point. This option is required as the backend comes with no runtime by default.
     type: docker
+
+  queue:
+    type: local-fastq
 
   config:
     # only do a lookup and create reports with updates and do not open PRs

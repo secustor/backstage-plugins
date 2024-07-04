@@ -20,10 +20,10 @@ export async function scheduleJobSync(
   const client = new CatalogClient({ discoveryApi: discovery });
 
   const pluginConfig = getPluginConfig(rootConfig);
-  const schedule = getScheduleDefinition(pluginConfig, 'jobSync');
+  const schedule = getScheduleDefinition(pluginConfig, 'renovation');
 
   return scheduler.scheduleTask({
-    id: `renovate_job_sync`,
+    id: `renovate_scheduled_runs`,
     ...schedule,
 
     fn: async () => {
@@ -50,9 +50,7 @@ export async function scheduleJobSync(
         { token },
       );
 
-      for (const entity of entities) {
-        renovateRunner.schedule(entity);
-      }
+      await renovateRunner.addToQueue(...entities);
     },
   });
 }

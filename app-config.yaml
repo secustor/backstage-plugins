@@ -114,6 +114,8 @@ renovate:
   runtime:
     type: direct
     docker:
+  queue:
+    type: local-fastq
 
   config:
     dryRun: extract

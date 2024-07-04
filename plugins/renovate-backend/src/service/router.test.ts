@@ -9,6 +9,10 @@ import * as _databasehandler from './databaseHandler';
 import { DatabaseHandler } from './databaseHandler';
 import { RenovateRunner } from '../wrapper';
 import { mockServices } from '@backstage/backend-test-utils';
+import {
+  QueueFactory,
+  RunOptions,
+} from '@secustor/backstage-plugin-renovate-node';
 
 // mock database handler
 jest.mock('./databaseHandler');
@@ -28,6 +32,7 @@ describe('createRouter', () => {
       rootConfig: new MockConfigApi({}),
       databaseHandler: databaseHandlerMock,
       runtimes: new Map<string, RenovateWrapper>(),
+      queueFactories: new Map<string, QueueFactory<RunOptions>>(),
       scheduler: mockServices.scheduler.mock(),
     });
     app = express().use(router);

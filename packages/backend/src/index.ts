@@ -32,5 +32,11 @@ backend.add(
 backend.add(
   import('@secustor/backstage-plugin-renovate-backend-module-runtime-docker'),
 );
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-queue-local'),
+);
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-queue-redis'),
+);
 
 backend.start();
