@@ -1,14 +1,19 @@
-import { AddResult, QueueAddOptions, RenovateQueue, Runnable } from './types';
-import fastq from 'fastq';
-import type { queueAsPromised } from 'fastq';
+import fastq, { queueAsPromised } from 'fastq';
 import { LoggerService } from '@backstage/backend-plugin-api';
+import {
+  AddResult,
+  QueueAddOptions,
+  RenovateQueue,
+  Runnable,
+} from '@secustor/backstage-plugin-renovate-node';
 
 /**
  * Queue for single instance use or dev setups
  */
 export class LocalQueue<T extends object> implements RenovateQueue<T> {
-  readonly id = 'local-fastq';
   private queue: queueAsPromised<T, void>;
+
+  static id = 'local-fastq';
 
   constructor(
     private readonly logger: LoggerService,
@@ -17,13 +22,17 @@ export class LocalQueue<T extends object> implements RenovateQueue<T> {
     this.queue = fastq.promise(runnable, runnable.run, 1);
   }
 
+  getQueueId(): string {
+    return LocalQueue.id;
+  }
+
   async add(
     jobId: string,
     data: T,
     opts?: QueueAddOptions,
   ): Promise<AddResult> {
     if (opts) {
-      this.logger.warn(`AddOptions are not implement for ${this.id}`);
+      this.logger.warn(`AddOptions are not implement for ${this.getQueueId()}`);
     }
     // we are not awaiting here as the promise resolved when the actual task is done
     if (opts?.insertInFront) {
@@ -57,7 +66,7 @@ export class LocalQueue<T extends object> implements RenovateQueue<T> {
   }
 
   async remove(_jobId: string): Promise<boolean> {
-    this.logger.warn(`Remove is not implemented for ${this.id}`);
+    this.logger.warn(`Remove is not implemented for ${this.getQueueId()}`);
     return false;
   }
 }

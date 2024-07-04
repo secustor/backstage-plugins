@@ -11673,6 +11673,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@secustor/backstage-plugin-renovate-backend-module-queue-local@npm:^0.1.0, @secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local":
+  version: 0.0.0-use.local
+  resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local"
+  dependencies:
+    "@backstage/backend-common": "npm:^0.23.1"
+    "@backstage/backend-plugin-api": "npm:^0.6.20"
+    "@backstage/backend-test-utils": "npm:^0.4.0"
+    "@backstage/cli": "npm:^0.26.7"
+    "@secustor/backstage-plugin-renovate-node": "workspace:^"
+    fastq: "npm:^1.17.1"
+  languageName: unknown
+  linkType: soft
+
+"@secustor/backstage-plugin-renovate-backend-module-queue-redis@npm:^0.1.0, @secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis":
+  version: 0.0.0-use.local
+  resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis"
+  dependencies:
+    "@backstage/backend-common": "npm:^0.23.1"
+    "@backstage/backend-plugin-api": "npm:^0.6.20"
+    "@backstage/backend-test-utils": "npm:^0.4.0"
+    "@backstage/cli": "npm:^0.26.7"
+    "@backstage/config": "npm:^1.2.0"
+    "@secustor/backstage-plugin-renovate-node": "workspace:^"
+    bullmq: "npm:^5.8.3"
+    ioredis: "npm:^5.4.1"
+  languageName: unknown
+  linkType: soft
+
 "@secustor/backstage-plugin-renovate-backend-module-runtime-direct@workspace:^, @secustor/backstage-plugin-renovate-backend-module-runtime-direct@workspace:plugins/renovate-backend-module-runtime-direct":
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend-module-runtime-direct@workspace:plugins/renovate-backend-module-runtime-direct"
@@ -11729,11 +11757,8 @@ __metadata:
     "@sindresorhus/is": "npm:^4.6.0"
     "@types/express": "npm:*"
     "@types/supertest": "npm:^6.0.0"
-    bullmq: "npm:^5.8.3"
     express: "npm:^4.17.1"
     express-promise-router: "npm:^4.1.0"
-    fastq: "npm:^1.17.1"
-    ioredis: "npm:^5.4.1"
     jest-mock-extended: "npm:^3.0.5"
     knex: "npm:^3.1.0"
     msw: "npm:^2.0.0"
@@ -16869,6 +16894,8 @@ __metadata:
     "@backstage/plugin-search-backend-node": "npm:^1.2.24"
     "@backstage/plugin-techdocs-backend": "npm:^1.10.6"
     "@secustor/backstage-plugin-renovate-backend": "workspace:^"
+    "@secustor/backstage-plugin-renovate-backend-module-queue-local": "npm:^0.1.0"
+    "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "npm:^0.1.0"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@types/dockerode": "npm:3.3.29"

@@ -7,7 +7,12 @@ import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 import { RenovateRunner } from './wrapper';
 import { RouterOptions } from './service/types';
 import { DatabaseHandler } from './service/databaseHandler';
-import { renovateRuntimeExtensionPoint } from '@secustor/backstage-plugin-renovate-node';
+import {
+  QueueFactory,
+  renovateQueueExtensionPoint,
+  renovateRuntimeExtensionPoint,
+  RunOptions,
+} from '@secustor/backstage-plugin-renovate-node';
 import { scheduleJobSync } from './service/jobSync';
 import { scheduleCleanupTask } from './service/cleanupTask';
 
@@ -32,6 +37,18 @@ export const renovatePlugin = createBackendPlugin({
       },
     });
 
+    const queueFactories = new Map<string, QueueFactory<RunOptions>>();
+    env.registerExtensionPoint(renovateQueueExtensionPoint, {
+      addQueueFactory(id: string, factory: QueueFactory<RunOptions>) {
+        if (queueFactories.has(id)) {
+          throw new Error(
+            ` ${id} has been already registered. Only one queue with the same ID is allowed to be registered`,
+          );
+        }
+        queueFactories.set(id, factory);
+      },
+    });
+
     env.registerInit({
       deps: {
         rootConfig: coreServices.rootConfig,
@@ -49,6 +66,7 @@ export const renovatePlugin = createBackendPlugin({
           ...options,
           databaseHandler: await DatabaseHandler.create({ database, logger }),
           runtimes,
+          queueFactories,
         };
         const renovateRunner = await RenovateRunner.from(routerOptions);
 

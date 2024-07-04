@@ -1,4 +1,4 @@
-# @internal/backstage-plugin-renovate-node
+# @secustor/backstage-plugin-renovate-node
 
 Welcome to the Node.js library package for the renovate plugin!
 

@@ -45,6 +45,9 @@ renovate:
     # ID of the runtime provided via extension point. This option is required as the backend comes with no runtime by default.
     type: docker
 
+  queue:
+    type: local-fastq
+
   config:
     # only do a lookup and create reports with updates and do not open PRs
     dryRun: lookup

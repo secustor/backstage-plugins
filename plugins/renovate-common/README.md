@@ -1,4 +1,4 @@
-# @internal/plugin-renovate-common
+# @secustor/plugin-renovate-common
 
 Welcome to the common package for the renovate plugin!
 

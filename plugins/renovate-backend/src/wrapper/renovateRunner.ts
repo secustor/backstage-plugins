@@ -13,29 +13,42 @@ import { Config } from '@backstage/config';
 import { LoggerService } from '@backstage/backend-plugin-api';
 import { getRenovateConfig, getRuntimeConfigs } from '../config';
 import { DatabaseHandler } from '../service/databaseHandler';
-import { RunOptions } from './types';
 import { isError } from '@backstage/errors';
 import { Entity } from '@backstage/catalog-model';
 import { nanoid } from 'nanoid';
-import { createQueue } from '../queue/factory';
-import { AddResult, RenovateQueue, Runnable } from '../queue';
+import { createQueue } from '../queue';
+import {
+  AddResult,
+  QueueFactory,
+  RenovateQueue,
+  Runnable,
+  RunOptions,
+} from '@secustor/backstage-plugin-renovate-node';
 
 export class RenovateRunner implements Runnable<RunOptions> {
   private readonly queue: RenovateQueue<RunOptions>;
 
   constructor(
+    queueFactories: Map<string, QueueFactory<RunOptions>>,
     private readonly databaseHandler: DatabaseHandler,
     private readonly rootConfig: Config,
     readonly logger: LoggerService,
     private readonly runtimes: Map<string, RenovateWrapper>,
   ) {
-    this.queue = createQueue(rootConfig, logger, this);
+    this.queue = createQueue(queueFactories, rootConfig, this);
   }
 
   static async from(options: RouterOptions): Promise<RenovateRunner> {
-    const { databaseHandler, rootConfig, runtimes, logger } = options;
+    const { databaseHandler, rootConfig, runtimes, logger, queueFactories } =
+      options;
 
-    return new RenovateRunner(databaseHandler, rootConfig, logger, runtimes);
+    return new RenovateRunner(
+      queueFactories,
+      databaseHandler,
+      rootConfig,
+      logger,
+      runtimes,
+    );
   }
 
   async addToQueue(

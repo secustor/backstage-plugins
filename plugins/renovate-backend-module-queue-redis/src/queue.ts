@@ -1,10 +1,17 @@
-import { AddResult, QueueAddOptions, RenovateQueue, Runnable } from './types';
-import Redis from 'ioredis';
 import { Job, Queue, Worker } from 'bullmq';
 import { LoggerService } from '@backstage/backend-plugin-api';
+import Redis from 'ioredis';
+import {
+  AddResult,
+  QueueAddOptions,
+  RenovateQueue,
+  Runnable,
+} from '@secustor/backstage-plugin-renovate-node';
 
 export class RedisQueue<T extends object> implements RenovateQueue<T> {
   private bullQueue: Queue<T, any, string>;
+
+  static id = 'redis';
 
   constructor(cacheURL: string, logger: LoggerService, runnable: Runnable<T>) {
     const connection = new Redis(cacheURL, { maxRetriesPerRequest: null });
@@ -24,6 +31,10 @@ export class RedisQueue<T extends object> implements RenovateQueue<T> {
         removeOnComplete: true,
       },
     });
+  }
+
+  getQueueId(): string {
+    return RedisQueue.id;
   }
 
   async add(id: string, data: T, opts?: QueueAddOptions): Promise<AddResult> {

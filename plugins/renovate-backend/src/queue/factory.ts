@@ -1,20 +1,22 @@
 import { Config } from '@backstage/config';
-import { RenovateQueue, Runnable } from './types';
-import { getCacheConfig } from '../config';
-import { RedisQueue } from './redis';
-import { LoggerService } from '@backstage/backend-plugin-api';
-import { LocalQueue } from './local';
+import { getPluginConfig } from '../config';
+import {
+  QueueFactory,
+  RenovateQueue,
+  Runnable,
+} from '@secustor/backstage-plugin-renovate-node';
 
 export function createQueue<T extends object>(
+  queues: Map<string, QueueFactory<T>>,
   rootConfig: Config,
-  logger: LoggerService,
   runnable: Runnable<T>,
 ): RenovateQueue<T> {
-  const cacheURL = getCacheConfig(rootConfig);
+  const type = getPluginConfig(rootConfig).getString('queue.type');
 
-  if (!cacheURL) {
-    return new LocalQueue(logger, runnable);
+  const factory = queues.get(type);
+  if (!factory) {
+    throw new Error(`Could not find Queue implementation ${type}`);
   }
 
-  return new RedisQueue(cacheURL, logger, runnable);
+  return factory(runnable);
 }

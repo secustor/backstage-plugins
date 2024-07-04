@@ -9,7 +9,12 @@ export interface Runnable<T> {
   run(props: T): Promise<void>;
 }
 
-export interface RenovateQueue<T extends object> {
+export interface RenovateQueue<T> {
+  /**
+   * Returns unique id for queue implementation
+   */
+  getQueueId(): string;
+
   /**
    * Adds a new job with jobId to the queue
    * @param jobId should be unique on the queue, if ids are colliding the job should be discarded
@@ -29,6 +34,8 @@ export interface RenovateQueue<T extends object> {
    */
   remove(jobId: string): Promise<boolean>;
 }
+
+export type QueueFactory<T> = (runnable: Runnable<T>) => RenovateQueue<T>;
 
 /**
  * Options for adding jobs into queues
