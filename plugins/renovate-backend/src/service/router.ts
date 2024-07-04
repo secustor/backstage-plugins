@@ -7,10 +7,12 @@ import {
   getTargetRepo,
   getTaskID,
   isEntityRef,
+  TargetRepo,
 } from '@secustor/backstage-plugin-renovate-common';
 import { RenovateRunner } from '../wrapper';
 import { CatalogClient } from '@backstage/catalog-client';
 import type { Entity } from '@backstage/catalog-model';
+import is from '@sindresorhus/is';
 
 export async function createRouter(
   runner: RenovateRunner,
@@ -81,13 +83,13 @@ export async function createRouter(
   router.post('/runs', async (request, response) => {
     const body = runRequestBody.safeParse(request.body);
     if (!body.success) {
-      response.status(400).json({ error: body.error });
+      response.status(400).json({ error: body.error.toString() });
       return;
     }
-    let target: string | Entity = body.data.target;
+    let target: string | TargetRepo | Entity = body.data.target;
 
     // check if we got an entity ref and if yes get the entity
-    if (isEntityRef(target)) {
+    if (is.string(target) && isEntityRef(target)) {
       const { token } = await auth.getPluginRequestToken({
         onBehalfOf: await auth.getOwnServiceCredentials(),
         targetPluginId: 'catalog',
