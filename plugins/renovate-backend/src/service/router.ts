@@ -107,7 +107,7 @@ export async function createRouter(
       response.status(423).json({ error: 'Task is already running' });
       return;
     }
-    response.status(202).json({ runID: id });
+    response.status(202).json({ taskID: id });
   });
   router.use(middlewareFactory.error());
   return router;
