@@ -3,6 +3,7 @@ import { RenovateQueue, Runnable } from './types';
 import { getCacheConfig } from '../config';
 import { RedisQueue } from './redis';
 import { LoggerService } from '@backstage/backend-plugin-api';
+import { LocalQueue } from './local';
 
 export function createQueue<T extends object>(
   rootConfig: Config,
@@ -12,8 +13,7 @@ export function createQueue<T extends object>(
   const cacheURL = getCacheConfig(rootConfig);
 
   if (!cacheURL) {
-    // TODO implement local queue
-    throw new Error('No cache URL found for renovate runner');
+    return new LocalQueue(logger, runnable);
   }
 
   return new RedisQueue(cacheURL, logger, runnable);

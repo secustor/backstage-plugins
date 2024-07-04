@@ -11732,6 +11732,7 @@ __metadata:
     bullmq: "npm:^5.8.3"
     express: "npm:^4.17.1"
     express-promise-router: "npm:^4.1.0"
+    fastq: "npm:^1.17.1"
     ioredis: "npm:^5.4.1"
     jest-mock-extended: "npm:^3.0.5"
     knex: "npm:^3.1.0"
@@ -21792,7 +21793,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastq@npm:^1.6.0":
+"fastq@npm:^1.17.1, fastq@npm:^1.6.0":
   version: 1.17.1
   resolution: "fastq@npm:1.17.1"
   dependencies:
