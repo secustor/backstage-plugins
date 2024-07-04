@@ -3872,7 +3872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/backend-common@npm:^0.23.0, @backstage/backend-common@npm:^0.23.1":
+"@backstage/backend-common@npm:^0.23.1":
   version: 0.23.1
   resolution: "@backstage/backend-common@npm:0.23.1"
   dependencies:
@@ -11677,7 +11677,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-local@workspace:plugins/renovate-backend-module-queue-local"
   dependencies:
-    "@backstage/backend-common": "npm:^0.23.1"
     "@backstage/backend-plugin-api": "npm:^0.6.20"
     "@backstage/backend-test-utils": "npm:^0.4.0"
     "@backstage/cli": "npm:^0.26.7"
@@ -11690,7 +11689,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend-module-queue-redis@workspace:plugins/renovate-backend-module-queue-redis"
   dependencies:
-    "@backstage/backend-common": "npm:^0.23.1"
     "@backstage/backend-plugin-api": "npm:^0.6.20"
     "@backstage/backend-test-utils": "npm:^0.4.0"
     "@backstage/cli": "npm:^0.26.7"
@@ -11705,7 +11703,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend-module-runtime-direct@workspace:plugins/renovate-backend-module-runtime-direct"
   dependencies:
-    "@backstage/backend-common": "npm:^0.23.0"
     "@backstage/backend-plugin-api": "npm:^0.6.19"
     "@backstage/backend-test-utils": "npm:^0.4.0"
     "@backstage/cli": "npm:^0.26.7"
@@ -11722,7 +11719,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend-module-runtime-docker@workspace:plugins/renovate-backend-module-runtime-docker"
   dependencies:
-    "@backstage/backend-common": "npm:^0.23.0"
     "@backstage/backend-plugin-api": "npm:^0.6.19"
     "@backstage/backend-test-utils": "npm:^0.4.0"
     "@backstage/cli": "npm:^0.26.7"
@@ -11738,7 +11734,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-backend@workspace:plugins/renovate-backend"
   dependencies:
-    "@backstage/backend-common": "npm:^0.23.0"
+    "@backstage/backend-defaults": "npm:^0.3.0"
     "@backstage/backend-openapi-utils": "npm:^0.1.12"
     "@backstage/backend-plugin-api": "npm:^0.6.19"
     "@backstage/backend-tasks": "npm:^0.5.24"
@@ -16869,7 +16865,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "backend@workspace:packages/backend"
   dependencies:
-    "@backstage/backend-common": "npm:^0.23.0"
     "@backstage/backend-defaults": "npm:^0.3.0"
     "@backstage/backend-plugin-api": "npm:^0.6.19"
     "@backstage/backend-tasks": "npm:^0.5.24"

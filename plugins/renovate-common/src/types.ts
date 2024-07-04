@@ -3,6 +3,7 @@ import { Readable } from 'stream';
 import { Config } from '@backstage/config';
 import { targetRepo } from './schema';
 import { z } from 'zod';
+import { LoggerService } from '@backstage/backend-plugin-api';
 
 export interface RenovateWrapper {
   run(options: RenovateRunOptions): Promise<RenovateRunResult>;
@@ -18,6 +19,7 @@ export interface RenovateRunOptions {
     Null if the runtime key is not defined
    */
   runtimeConfig: Config | null;
+  logger: LoggerService;
 }
 
 export interface RenovateRunResult {
