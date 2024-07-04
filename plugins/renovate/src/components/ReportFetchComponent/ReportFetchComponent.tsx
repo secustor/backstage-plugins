@@ -75,18 +75,6 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
         options={{ search: true, paging: false }}
         columns={columns}
         data={data}
-        onRowClick={(
-          _event,
-          rowData: RowDataEntry | undefined,
-          toggleDetailPanel,
-        ) => {
-          if (toggleDetailPanel) {
-            toggleDetailPanel();
-          }
-          if (rowData) {
-            setInspectionDialogData(rowData.report);
-          }
-        }}
         actions={[
           {
             icon: NotesIcon,

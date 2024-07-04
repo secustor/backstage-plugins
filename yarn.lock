@@ -11749,6 +11749,7 @@ __metadata:
     "@backstage/core-components": "npm:^0.14.8"
     "@backstage/core-plugin-api": "npm:^1.9.3"
     "@backstage/dev-utils": "npm:^1.0.33"
+    "@backstage/errors": "npm:^1.2.4"
     "@backstage/integration-react": "npm:^1.1.28"
     "@backstage/plugin-catalog-react": "npm:^1.12.1"
     "@backstage/test-utils": "npm:^1.5.6"
@@ -11763,6 +11764,8 @@ __metadata:
     "@testing-library/react": "npm:^16.0.0"
     "@testing-library/user-event": "npm:^14.0.0"
     "@textea/json-viewer": "npm:^3.4.1"
+    "@types/git-url-parse": "npm:^9.0.3"
+    git-url-parse: "npm:^14.0.0"
     msw: "npm:^2.0.0"
     react-use: "npm:^17.2.4"
   peerDependencies:
