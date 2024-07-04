@@ -94,7 +94,7 @@ export async function createRouter(
     const targetRepo = getTargetRepo(target);
     const id = getTaskID(targetRepo);
     const result = await runner.runNext(targetRepo);
-    if (result === 'active') {
+    if (result.status === 'already-running') {
       logger.debug('Task already running', { taskID: id });
       response.status(423).json({ error: 'Task is already running' });
       return;

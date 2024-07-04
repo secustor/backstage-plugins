@@ -11,47 +11,25 @@ import {
 } from '@secustor/backstage-plugin-renovate-common';
 import { Config } from '@backstage/config';
 import { LoggerService } from '@backstage/backend-plugin-api';
-import {
-  getCacheConfig,
-  getRenovateConfig,
-  getRuntimeConfigs,
-} from '../config';
+import { getRenovateConfig, getRuntimeConfigs } from '../config';
 import { DatabaseHandler } from '../service/databaseHandler';
 import { RunOptions } from './types';
 import { isError } from '@backstage/errors';
 import { Entity } from '@backstage/catalog-model';
 import { nanoid } from 'nanoid';
-import { Job, Queue, Worker } from 'bullmq';
-import Redis from 'ioredis';
+import { createQueue } from '../queue/factory';
+import { AddResult, RenovateQueue, Runnable } from '../queue';
 
-export class RenovateRunner {
-  // @ts-ignore
-  private readonly worker: Worker<RunOptions, any, string>;
-  private readonly queue: Queue<RunOptions, any, string>;
+export class RenovateRunner implements Runnable<RunOptions> {
+  private readonly queue: RenovateQueue<RunOptions>;
 
   constructor(
     private readonly databaseHandler: DatabaseHandler,
     private readonly rootConfig: Config,
-    private readonly logger: LoggerService,
+    readonly logger: LoggerService,
     private readonly runtimes: Map<string, RenovateWrapper>,
   ) {
-    const cacheURL = getCacheConfig(rootConfig);
-
-    if (!cacheURL) {
-      // TODO implement local queue
-      throw new Error('No cache URL found for renovate runner');
-    }
-
-    const connection = new Redis(cacheURL, { maxRetriesPerRequest: null });
-    this.worker = new Worker(
-      'renovate-runner',
-      async (job: Job<RunOptions, any, string>) => this.run(job.data),
-      {
-        connection,
-      },
-    );
-
-    this.queue = new Queue('renovate-runner', { connection });
+    this.queue = createQueue(rootConfig, logger, this);
   }
 
   static async from(options: RouterOptions): Promise<RenovateRunner> {
@@ -62,20 +40,15 @@ export class RenovateRunner {
 
   async addToQueue(
     ...targets: (string | Entity | TargetRepo)[]
-  ): Promise<Job<RunOptions, any, string>[]> {
+  ): Promise<AddResult[]> {
     const props = targets.map(target => {
       const jobId = getTaskID(target);
       const targetRepo = getTargetRepo(target);
       return {
-        name: 'run',
+        jobId,
         data: {
           id: jobId,
           target: targetRepo,
-        },
-        opts: {
-          jobId,
-          removeOnComplete: true,
-          removeOnFail: true,
         },
       };
     });
@@ -83,29 +56,24 @@ export class RenovateRunner {
     return await this.queue.addBulk(props);
   }
 
-  async runNext(
-    target: string | Entity | TargetRepo,
-  ): Promise<'active' | Job<any, any, string>> {
+  async runNext(target: string | Entity | TargetRepo): Promise<AddResult> {
     const jobId = getTaskID(target);
     const targetRepo = getTargetRepo(target);
-    // if the job is already on queue, then remove it and put it in the first position
-    const state = await this.queue.getJobState(jobId);
 
-    if (state === 'active') {
-      return state;
-    }
-    await this.queue.remove(jobId);
     return await this.queue.add(
-      'run',
+      jobId,
       { id: jobId, target: targetRepo },
-      { jobId, lifo: true, removeOnFail: true, removeOnComplete: true },
+      {
+        force: true,
+        insertInFront: true,
+      },
     );
   }
 
-  private async run(props: RunOptions): Promise<void> {
+  async run(props: RunOptions): Promise<void> {
     const { id, target } = props;
     const runID = nanoid();
-    const logger = this.logger.child({ runID, taskID: id, ...target });
+    const logger = this.logger.child({ runID, jobID: id, ...target });
     try {
       logger.info('Renovate run starting');
       const report = await this.renovate(props, logger);
@@ -122,7 +90,7 @@ export class RenovateRunner {
     }
   }
 
-  private async renovate(
+  async renovate(
     { id, target }: RunOptions,
     logger: LoggerService,
   ): Promise<RenovateReport> {
@@ -159,7 +127,7 @@ export class RenovateRunner {
       runtimeConfig,
     });
 
-    return await promise.then(result => {
+    return promise.then(result => {
       return extractReport({
         logger,
         logStream: result.stdout,
