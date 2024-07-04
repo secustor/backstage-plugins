@@ -4173,142 +4173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/cli@npm:0.26.9":
-  version: 0.26.9
-  resolution: "@backstage/cli@npm:0.26.9"
-  dependencies:
-    "@backstage/catalog-model": "npm:^1.5.0"
-    "@backstage/cli-common": "npm:^0.1.14"
-    "@backstage/cli-node": "npm:^0.2.6"
-    "@backstage/config": "npm:^1.2.0"
-    "@backstage/config-loader": "npm:^1.8.1"
-    "@backstage/errors": "npm:^1.2.4"
-    "@backstage/eslint-plugin": "npm:^0.1.8"
-    "@backstage/integration": "npm:^1.12.0"
-    "@backstage/release-manifests": "npm:^0.0.11"
-    "@backstage/types": "npm:^1.1.1"
-    "@manypkg/get-packages": "npm:^1.1.3"
-    "@octokit/graphql": "npm:^5.0.0"
-    "@octokit/graphql-schema": "npm:^13.7.0"
-    "@octokit/oauth-app": "npm:^4.2.0"
-    "@octokit/request": "npm:^6.0.0"
-    "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.7"
-    "@rollup/plugin-commonjs": "npm:^25.0.0"
-    "@rollup/plugin-json": "npm:^6.0.0"
-    "@rollup/plugin-node-resolve": "npm:^15.0.0"
-    "@rollup/plugin-yaml": "npm:^4.0.0"
-    "@spotify/eslint-config-base": "npm:^15.0.0"
-    "@spotify/eslint-config-react": "npm:^15.0.0"
-    "@spotify/eslint-config-typescript": "npm:^15.0.0"
-    "@sucrase/webpack-loader": "npm:^2.0.0"
-    "@svgr/core": "npm:6.5.x"
-    "@svgr/plugin-jsx": "npm:6.5.x"
-    "@svgr/plugin-svgo": "npm:6.5.x"
-    "@svgr/rollup": "npm:6.5.x"
-    "@svgr/webpack": "npm:6.5.x"
-    "@swc/core": "npm:^1.3.46"
-    "@swc/helpers": "npm:^0.5.0"
-    "@swc/jest": "npm:^0.2.22"
-    "@types/jest": "npm:^29.5.11"
-    "@types/webpack-env": "npm:^1.15.2"
-    "@typescript-eslint/eslint-plugin": "npm:^6.12.0"
-    "@typescript-eslint/parser": "npm:^6.7.2"
-    "@yarnpkg/lockfile": "npm:^1.1.0"
-    "@yarnpkg/parsers": "npm:^3.0.0"
-    bfj: "npm:^8.0.0"
-    buffer: "npm:^6.0.3"
-    chalk: "npm:^4.0.0"
-    chokidar: "npm:^3.3.1"
-    commander: "npm:^12.0.0"
-    cross-fetch: "npm:^4.0.0"
-    cross-spawn: "npm:^7.0.3"
-    css-loader: "npm:^6.5.1"
-    ctrlc-windows: "npm:^2.1.0"
-    diff: "npm:^5.0.0"
-    esbuild: "npm:^0.20.0"
-    esbuild-loader: "npm:^4.0.0"
-    eslint: "npm:^8.6.0"
-    eslint-config-prettier: "npm:^9.0.0"
-    eslint-formatter-friendly: "npm:^7.0.0"
-    eslint-plugin-deprecation: "npm:^2.0.0"
-    eslint-plugin-import: "npm:^2.25.4"
-    eslint-plugin-jest: "npm:^27.0.0"
-    eslint-plugin-jsx-a11y: "npm:^6.5.1"
-    eslint-plugin-react: "npm:^7.28.0"
-    eslint-plugin-react-hooks: "npm:^4.3.0"
-    eslint-plugin-unused-imports: "npm:^3.0.0"
-    eslint-webpack-plugin: "npm:^4.0.0"
-    express: "npm:^4.17.1"
-    fork-ts-checker-webpack-plugin: "npm:^9.0.0"
-    fs-extra: "npm:^11.2.0"
-    git-url-parse: "npm:^14.0.0"
-    glob: "npm:^7.1.7"
-    global-agent: "npm:^3.0.0"
-    handlebars: "npm:^4.7.3"
-    html-webpack-plugin: "npm:^5.3.1"
-    inquirer: "npm:^8.2.0"
-    jest: "npm:^29.7.0"
-    jest-css-modules: "npm:^2.1.0"
-    jest-environment-jsdom: "npm:^29.0.2"
-    jest-runtime: "npm:^29.0.2"
-    json-schema: "npm:^0.4.0"
-    lodash: "npm:^4.17.21"
-    mini-css-extract-plugin: "npm:^2.4.2"
-    minimatch: "npm:^9.0.0"
-    node-fetch: "npm:^2.6.7"
-    node-libs-browser: "npm:^2.2.1"
-    npm-packlist: "npm:^5.0.0"
-    ora: "npm:^5.3.0"
-    p-limit: "npm:^3.1.0"
-    p-queue: "npm:^6.6.2"
-    pirates: "npm:^4.0.6"
-    postcss: "npm:^8.1.0"
-    process: "npm:^0.11.10"
-    react-dev-utils: "npm:^12.0.0-next.60"
-    react-refresh: "npm:^0.14.0"
-    recursive-readdir: "npm:^2.2.2"
-    replace-in-file: "npm:^7.1.0"
-    rollup: "npm:^4.0.0"
-    rollup-plugin-dts: "npm:^6.1.0"
-    rollup-plugin-esbuild: "npm:^6.1.1"
-    rollup-plugin-postcss: "npm:^4.0.0"
-    rollup-pluginutils: "npm:^2.8.2"
-    run-script-webpack-plugin: "npm:^0.2.0"
-    semver: "npm:^7.5.3"
-    style-loader: "npm:^3.3.1"
-    sucrase: "npm:^3.20.2"
-    swc-loader: "npm:^0.2.3"
-    tar: "npm:^6.1.12"
-    terser-webpack-plugin: "npm:^5.1.3"
-    util: "npm:^0.12.3"
-    webpack: "npm:^5.70.0"
-    webpack-dev-server: "npm:^5.0.0"
-    webpack-node-externals: "npm:^3.0.0"
-    yaml: "npm:^2.0.0"
-    yml-loader: "npm:^2.1.0"
-    yn: "npm:^4.0.0"
-    zod: "npm:^3.22.4"
-  peerDependencies:
-    "@vitejs/plugin-react": ^4.0.4
-    vite: ^4.4.9
-    vite-plugin-html: ^3.2.0
-    vite-plugin-node-polyfills: ^0.22.0
-  peerDependenciesMeta:
-    "@vitejs/plugin-react":
-      optional: true
-    vite:
-      optional: true
-    vite-plugin-html:
-      optional: true
-    vite-plugin-node-polyfills:
-      optional: true
-  bin:
-    backstage-cli: bin/backstage-cli
-  checksum: 10c0/39af840363e6a13577172315a3555777b7825a8b96987506e317a38473c29bd6df828488476ca8cdbdd2743166b9f29c5bc7ca5d2ee14dcc270509791effdda8
-  languageName: node
-  linkType: hard
-
-"@backstage/cli@npm:^0.26.7":
+"@backstage/cli@npm:0.26.10, @backstage/cli@npm:^0.26.7":
   version: 0.26.10
   resolution: "@backstage/cli@npm:0.26.10"
   dependencies:
@@ -6190,60 +6055,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/repo-tools@npm:0.9.2":
-  version: 0.9.2
-  resolution: "@backstage/repo-tools@npm:0.9.2"
-  dependencies:
-    "@apidevtools/swagger-parser": "npm:^10.1.0"
-    "@apisyouwonthate/style-guide": "npm:^1.4.0"
-    "@backstage/backend-plugin-api": "npm:^0.6.20"
-    "@backstage/catalog-model": "npm:^1.5.0"
-    "@backstage/cli-common": "npm:^0.1.14"
-    "@backstage/cli-node": "npm:^0.2.6"
-    "@backstage/config-loader": "npm:^1.8.1"
-    "@backstage/errors": "npm:^1.2.4"
-    "@manypkg/get-packages": "npm:^1.1.3"
-    "@microsoft/api-documenter": "npm:^7.22.33"
-    "@microsoft/api-extractor": "npm:^7.36.4"
-    "@openapitools/openapi-generator-cli": "npm:^2.7.0"
-    "@stoplight/spectral-core": "npm:^1.18.0"
-    "@stoplight/spectral-formatters": "npm:^1.1.0"
-    "@stoplight/spectral-functions": "npm:^1.7.2"
-    "@stoplight/spectral-parsers": "npm:^1.0.2"
-    "@stoplight/spectral-rulesets": "npm:^1.18.0"
-    "@stoplight/spectral-runtime": "npm:^1.1.2"
-    "@stoplight/types": "npm:^14.0.0"
-    "@useoptic/openapi-utilities": "npm:^0.54.8"
-    chalk: "npm:^4.0.0"
-    codeowners-utils: "npm:^1.0.2"
-    command-exists: "npm:^1.2.9"
-    commander: "npm:^12.0.0"
-    fs-extra: "npm:^11.2.0"
-    glob: "npm:^8.0.3"
-    is-glob: "npm:^4.0.3"
-    js-yaml: "npm:^4.1.0"
-    lodash: "npm:^4.17.21"
-    minimatch: "npm:^9.0.0"
-    p-limit: "npm:^3.0.2"
-    portfinder: "npm:^1.0.32"
-    yaml-diff-patch: "npm:^2.0.0"
-  peerDependencies:
-    "@microsoft/api-extractor-model": "*"
-    "@microsoft/tsdoc": "*"
-    "@microsoft/tsdoc-config": "*"
-    "@useoptic/optic": ^0.50.7
-    prettier: ^2.8.1
-    typescript: "> 3.0.0"
-  peerDependenciesMeta:
-    prettier:
-      optional: true
-  bin:
-    backstage-repo-tools: bin/backstage-repo-tools
-  checksum: 10c0/4cfa4a40fa4a32ba551784f5c0664e22aea49ebc5f6109067afb9a36c95da89e1bbb3ad4634fdb07d0023818745c7835dec2c627d13511af9bb84e108e1cc670
-  languageName: node
-  linkType: hard
-
-"@backstage/repo-tools@npm:^0.9.1":
+"@backstage/repo-tools@npm:0.9.3, @backstage/repo-tools@npm:^0.9.1":
   version: 0.9.3
   resolution: "@backstage/repo-tools@npm:0.9.3"
   dependencies:
@@ -6296,33 +6108,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/test-utils@npm:1.5.6":
-  version: 1.5.6
-  resolution: "@backstage/test-utils@npm:1.5.6"
-  dependencies:
-    "@backstage/config": "npm:^1.2.0"
-    "@backstage/core-app-api": "npm:^1.12.6"
-    "@backstage/core-plugin-api": "npm:^1.9.3"
-    "@backstage/plugin-permission-common": "npm:^0.7.14"
-    "@backstage/plugin-permission-react": "npm:^0.4.23"
-    "@backstage/theme": "npm:^0.5.6"
-    "@backstage/types": "npm:^1.1.1"
-    "@material-ui/core": "npm:^4.12.2"
-    "@material-ui/icons": "npm:^4.9.1"
-    "@types/react": "npm:^16.13.1 || ^17.0.0 || ^18.0.0"
-    cross-fetch: "npm:^4.0.0"
-    i18next: "npm:^22.4.15"
-    zen-observable: "npm:^0.10.0"
-  peerDependencies:
-    "@testing-library/react": ^15.0.0
-    react: ^16.13.1 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
-    react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/d7566af04e95506d66166046edc6041d2a52340bbb7378bc2e8116dc57747cab8c88c56c9919143730a65d15f1d0e516dd2ab405653be94540d2807b4c418099
-  languageName: node
-  linkType: hard
-
-"@backstage/test-utils@npm:^1.5.6":
+"@backstage/test-utils@npm:1.5.7, @backstage/test-utils@npm:^1.5.6":
   version: 1.5.7
   resolution: "@backstage/test-utils@npm:1.5.7"
   dependencies:
@@ -16313,7 +16099,7 @@ __metadata:
     "@backstage/plugin-techdocs-module-addons-contrib": "npm:^1.1.11"
     "@backstage/plugin-techdocs-react": "npm:^1.2.5"
     "@backstage/plugin-user-settings": "npm:^0.8.7"
-    "@backstage/test-utils": "npm:1.5.6"
+    "@backstage/test-utils": "npm:1.5.7"
     "@backstage/theme": "npm:^0.5.6"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
@@ -17062,7 +16848,7 @@ __metadata:
     "@backstage/backend-tasks": "npm:^0.5.24"
     "@backstage/catalog-client": "npm:^1.6.5"
     "@backstage/catalog-model": "npm:^1.5.0"
-    "@backstage/cli": "npm:0.26.9"
+    "@backstage/cli": "npm:0.26.10"
     "@backstage/config": "npm:^1.2.0"
     "@backstage/plugin-app-backend": "npm:^0.3.68"
     "@backstage/plugin-auth-backend": "npm:^0.22.6"
@@ -33590,9 +33376,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@backstage/cli": "npm:0.26.9"
+    "@backstage/cli": "npm:0.26.10"
     "@backstage/e2e-test-utils": "npm:0.1.1"
-    "@backstage/repo-tools": "npm:0.9.2"
+    "@backstage/repo-tools": "npm:0.9.3"
     "@changesets/changelog-github": "npm:0.5.0"
     "@changesets/cli": "npm:2.27.7"
     "@playwright/test": "npm:1.45.0"
