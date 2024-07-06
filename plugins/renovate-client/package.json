@@ -15,7 +15,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/secustor/backstage-plugins.git"
+    "url": "https://github.com/secustor/backstage-plugins.git",
+    "directory": "plugins/renovate-client"
   },
   "bugs": {
     "url": "https://github.com/secustor/backstage-plugins/issues"

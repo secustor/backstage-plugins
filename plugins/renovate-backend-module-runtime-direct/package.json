@@ -17,7 +17,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/secustor/backstage-plugins.git"
+    "url": "https://github.com/secustor/backstage-plugins.git",
+    "directory": "plugins/renovate-backend-module-runtime-direct"
   },
   "bugs": {
     "url": "https://github.com/secustor/backstage-plugins/issues"
