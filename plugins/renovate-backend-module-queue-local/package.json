@@ -15,6 +15,11 @@
     "pluginId": "renovate",
     "pluginPackage": "@secustor/backstage-plugin-renovate-backend"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/secustor/backstage-plugins.git",
+    "directory": "plugins/renovate-backend-module-queue-local"
+  },
   "scripts": {
     "start": "backstage-cli package start",
     "build": "backstage-cli package build",
