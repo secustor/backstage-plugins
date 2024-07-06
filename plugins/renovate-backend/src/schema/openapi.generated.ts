@@ -298,6 +298,11 @@ export const spec = {
               'stringified Entity with SourceLocation URL annotation',
             example: 'component:default/backstage-plugins-example',
           },
+          {
+            type: 'string',
+            description: 'host and path',
+            example: 'secustor/backstage-plugins',
+          },
         ],
       },
       repositoryReportList: {

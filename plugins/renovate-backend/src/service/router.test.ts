@@ -1,4 +1,3 @@
-import { getVoidLogger } from '@backstage/backend-common';
 import express from 'express';
 import request from 'supertest';
 import { MockConfigApi } from '@backstage/test-utils';
@@ -9,6 +8,10 @@ import * as _databasehandler from './databaseHandler';
 import { DatabaseHandler } from './databaseHandler';
 import { RenovateRunner } from '../wrapper';
 import { mockServices } from '@backstage/backend-test-utils';
+import {
+  QueueFactory,
+  RunOptions,
+} from '@secustor/backstage-plugin-renovate-node';
 
 // mock database handler
 jest.mock('./databaseHandler');
@@ -24,10 +27,11 @@ describe('createRouter', () => {
     const router = await createRouter(runnerMock, {
       auth: mockServices.auth(),
       discovery: mockServices.discovery(),
-      logger: getVoidLogger(),
+      logger: mockServices.logger.mock(),
       rootConfig: new MockConfigApi({}),
       databaseHandler: databaseHandlerMock,
       runtimes: new Map<string, RenovateWrapper>(),
+      queueFactories: new Map<string, QueueFactory<RunOptions>>(),
       scheduler: mockServices.scheduler.mock(),
     });
     app = express().use(router);

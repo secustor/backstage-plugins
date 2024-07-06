@@ -112,8 +112,10 @@ renovate:
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }
   runtime:
-    type: docker
+    type: direct
     docker:
+  queue:
+    type: local-fastq
 
   config:
-    test: test
+    dryRun: lookup

@@ -18,20 +18,12 @@ import {
 } from '@backstage/core-components';
 import is from '@sindresorhus/is';
 import { scmIntegrationsApiRef } from '@backstage/integration-react';
+import { isError } from '@backstage/errors';
+import { GitUrl } from 'git-url-parse';
+import { getBiggestUpdate } from '../../tools';
+import { DependencyTableProps, DependencyTableRow } from './types';
 
-type DenseTableProps = {
-  filter?: {
-    path?: string;
-  };
-  report: RepositoryReportResponseElement;
-  baseURL?: string;
-};
-
-export const DependencyTable = ({
-  report,
-  filter,
-  baseURL,
-}: DenseTableProps) => {
+export const DependencyTable = (props: DependencyTableProps) => {
   const columns: TableColumn[] = [
     { title: 'ID', field: 'id', hidden: true },
     { title: 'Package file', field: 'packageFile' },
@@ -43,69 +35,8 @@ export const DependencyTable = ({
     { title: 'Available Version', field: 'newVersion' },
   ];
 
-  const data = [];
-  let id = 0;
-  for (const [manager, packageFilesList] of Object.entries(
-    report.report.packageFiles,
-  )) {
-    for (const packageFileObject of packageFilesList) {
-      const pathFilter = filter?.path;
-      if (pathFilter) {
-        if (!packageFileObject.packageFile.startsWith(pathFilter)) {
-          continue;
-        }
-      }
-      for (const dependency of packageFileObject.deps) {
-        const file = packageFileObject.packageFile;
-        const biggestUpdate = dependency.updates.reduce(
-          (current: any, update: any) => {
-            if (current === null) {
-              return update;
-            }
-            // prefer major updates over all other updates
-            if (
-              current.updateType !== 'major' &&
-              update.updateType === 'major'
-            ) {
-              return update;
-            }
-            if (
-              current.updateType === 'major' &&
-              update.updateType === 'major' &&
-              update.newMajor > current.newMajor
-            ) {
-              return update;
-            }
-            if (
-              current.updateType === 'minor' &&
-              update.updateType === 'minor' &&
-              update.newMinor > current.newMinor
-            ) {
-              return update;
-            }
+  const data = parseData(props);
 
-            return current;
-          },
-          null,
-        );
-        data.push({
-          id,
-          depName: dependency.depName,
-          manager,
-          packageFile: baseURL ? (
-            <Link to={`${baseURL}${file}`}>{file}</Link>
-          ) : (
-            file
-          ),
-          depType: dependency.depType,
-          currentValue: dependency.currentValue,
-          currentVersion: dependency.currentVersion,
-          newVersion: biggestUpdate?.newVersion,
-        });
-        id++;
-      }
-    }
-  }
   return (
     <Table
       title="Dependencies"
@@ -125,26 +56,81 @@ export const EntityRenovateContent = () => {
     useAsync(async (): Promise<RepositoryReportResponseElement | null> => {
       const response = await renovateAPI.getCurrentReport(entity);
       return repositoryReportResponseElement.parse(response);
-    }, []);
+    }, [entity]);
+
+  if (error) {
+    // rethrow error so it is captured by the error panel
+    throw error;
+  }
 
   if (loading || is.nullOrUndefined(value)) {
     return <Progress />;
   }
-  if (error) {
-    return <ResponseErrorPanel error={error} />;
-  }
 
-  const { target } = getEntitySourceLocation(entity);
-  const parsed = getTargetURL(target);
-  const baseURL = scmIntegrationsApi.resolveUrl({
-    url: parsed.filepath,
-    base: target,
-  });
-  return (
-    <DependencyTable
-      report={value}
-      filter={{ path: parsed.filepath }}
-      baseURL={baseURL}
-    />
-  );
+  let baseURL: string;
+  let parsed: GitUrl;
+  try {
+    const { target } = getEntitySourceLocation(entity);
+    parsed = getTargetURL(target);
+    baseURL = scmIntegrationsApi.resolveUrl({
+      url: parsed.filepath,
+      base: target,
+    });
+
+    return (
+      <DependencyTable
+        packageFiles={value.report.packageFiles}
+        filter={{ path: parsed.filepath }}
+        baseURL={baseURL}
+      />
+    );
+  } catch (e) {
+    return (
+      <ResponseErrorPanel
+        error={isError(e) ? e : new Error(JSON.stringify(e))}
+      />
+    );
+  }
 };
+
+function parseData({
+  packageFiles,
+  filter,
+  baseURL,
+}: DependencyTableProps): DependencyTableRow[] {
+  const data: DependencyTableRow[] = [];
+  let id = 0;
+  for (const [manager, packageFilesList] of Object.entries(packageFiles)) {
+    for (const packageFileObject of packageFilesList) {
+      // filter packages which are not in the same folder or in the tree underneath
+      const pathFilter = filter?.path;
+      if (pathFilter) {
+        if (!packageFileObject.packageFile.startsWith(pathFilter)) {
+          continue;
+        }
+      }
+      for (const dependency of packageFileObject.deps) {
+        const file = packageFileObject.packageFile;
+
+        const biggestUpdate = getBiggestUpdate(dependency.updates ?? []);
+
+        data.push({
+          id,
+          depName: dependency.depName,
+          manager,
+          packageFile: baseURL ? (
+            <Link to={`${baseURL}${file}`}>{file}</Link>
+          ) : (
+            file
+          ),
+          depType: dependency.depType,
+          currentValue: dependency.currentValue,
+          currentVersion: dependency.currentVersion,
+          newVersion: biggestUpdate?.newVersion ?? biggestUpdate?.newValue,
+        });
+        id++;
+      }
+    }
+  }
+  return data;
+}

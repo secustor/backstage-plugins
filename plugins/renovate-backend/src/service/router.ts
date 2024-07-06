@@ -1,4 +1,4 @@
-import { errorHandler } from '@backstage/backend-common';
+import { MiddlewareFactory } from '@backstage/backend-defaults/rootHttpRouter';
 import express from 'express';
 import { createOpenApiRouter } from '../schema/openapi.generated';
 import { runRequestBody } from './schema';
@@ -7,17 +7,26 @@ import {
   getTargetRepo,
   getTaskID,
   isEntityRef,
+  TargetRepo,
 } from '@secustor/backstage-plugin-renovate-common';
 import { RenovateRunner } from '../wrapper';
-import { ConflictError, isError } from '@backstage/errors';
 import { CatalogClient } from '@backstage/catalog-client';
 import type { Entity } from '@backstage/catalog-model';
+import is from '@sindresorhus/is';
 
 export async function createRouter(
   runner: RenovateRunner,
   options: RouterOptions,
 ): Promise<express.Router> {
-  const { auth, logger, databaseHandler, discovery } = options;
+  const {
+    auth,
+    rootConfig: config,
+    logger,
+    databaseHandler,
+    discovery,
+  } = options;
+
+  const middlewareFactory = MiddlewareFactory.create({ logger, config });
 
   const client = new CatalogClient({ discoveryApi: discovery });
 
@@ -74,13 +83,13 @@ export async function createRouter(
   router.post('/runs', async (request, response) => {
     const body = runRequestBody.safeParse(request.body);
     if (!body.success) {
-      response.status(400).json({ error: body.error });
+      response.status(400).json({ error: body.error.toString() });
       return;
     }
-    let target: string | Entity = body.data.target;
+    let target: string | TargetRepo | Entity = body.data.target;
 
     // check if we got an entity ref and if yes get the entity
-    if (isEntityRef(target)) {
+    if (is.string(target) && isEntityRef(target)) {
       const { token } = await auth.getPluginRequestToken({
         onBehalfOf: await auth.getOwnServiceCredentials(),
         targetPluginId: 'catalog',
@@ -94,18 +103,14 @@ export async function createRouter(
     // trigger Renovate run
     const targetRepo = getTargetRepo(target);
     const id = getTaskID(targetRepo);
-    try {
-      await runner.trigger(targetRepo);
-      response.status(202).json({ runID: id });
-    } catch (e) {
-      if (isError(e) && ConflictError.name === e.name) {
-        logger.debug('Task already running', { taskID: id });
-        response.status(423).json({ error: e });
-      } else {
-        response.status(400).json({ error: e });
-      }
+    const result = await runner.runNext(targetRepo);
+    if (result.status === 'already-running') {
+      logger.debug('Task already running', { taskID: id });
+      response.status(423).json({ error: 'Task is already running' });
+      return;
     }
+    response.status(202).json({ taskID: id });
   });
-  router.use(errorHandler());
+  router.use(middlewareFactory.error());
   return router;
 }

@@ -72,6 +72,11 @@ export function getTargetURL(
   if (rawTargetUrl?.startsWith('url:')) {
     rawTargetUrl = rawTargetUrl.replace('url:', '');
   }
+
+  if (!rawTargetUrl?.includes('://')) {
+    rawTargetUrl = `https://${rawTargetUrl}`;
+  }
+
   const targetUrl = parseGitUrl(rawTargetUrl);
   if (is.nullOrUndefined(targetUrl)) {
     throw new Error(

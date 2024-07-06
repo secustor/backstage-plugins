@@ -1,4 +1,4 @@
-# @internal/plugin-renovate-backend-module-runtime-direct
+# @secustor/plugin-renovate-backend-module-runtime-direct
 
 The runtime-direct backend module for the renovate plugin.
 

@@ -13,6 +13,10 @@ import {
   TargetRepo,
 } from '@secustor/backstage-plugin-renovate-common';
 import { DatabaseHandler } from './databaseHandler';
+import {
+  QueueFactory,
+  RunOptions,
+} from '@secustor/backstage-plugin-renovate-node';
 
 export interface RouterOptions {
   auth: AuthService;
@@ -20,6 +24,7 @@ export interface RouterOptions {
   logger: LoggerService;
   databaseHandler: DatabaseHandler;
   runtimes: Map<string, RenovateWrapper>;
+  queueFactories: Map<string, QueueFactory<RunOptions>>;
   scheduler: SchedulerService;
   discovery: DiscoveryService;
 }

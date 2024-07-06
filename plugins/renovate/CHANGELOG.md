@@ -1,5 +1,23 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.7.0
+
+### Minor Changes
+
+- [#228](https://github.com/secustor/backstage-plugins/pull/228) [`e7c8fa8`](https://github.com/secustor/backstage-plugins/commit/e7c8fa82a54afe61666eaa8796f3700fbbf7a3bf) Thanks [@secustor](https://github.com/secustor)! - Add inspect report button to Renovate page
+
+### Patch Changes
+
+- [#234](https://github.com/secustor/backstage-plugins/pull/234) [`5bcb902`](https://github.com/secustor/backstage-plugins/commit/5bcb9024a5ceba830496ae6ce8c3570408e3a205) Thanks [@secustor](https://github.com/secustor)! - Do not crash EntityRenovateContent if entity does not contain a non url source-url annoation
+
+- [#237](https://github.com/secustor/backstage-plugins/pull/237) [`055834b`](https://github.com/secustor/backstage-plugins/commit/055834bed6cc6f0532154e78aa9a98883d01ff62) Thanks [@secustor](https://github.com/secustor)! - Move Actions column to the right
+
+- [#234](https://github.com/secustor/backstage-plugins/pull/234) [`5bcb902`](https://github.com/secustor/backstage-plugins/commit/5bcb9024a5ceba830496ae6ce8c3570408e3a205) Thanks [@secustor](https://github.com/secustor)! - Fix crash on RenovateFetchComponent row click
+
+- Updated dependencies [[`2dca129`](https://github.com/secustor/backstage-plugins/commit/2dca129a5d53a2b2afa8ea445e37a63feaabf139), [`de9e112`](https://github.com/secustor/backstage-plugins/commit/de9e1125ba87d7d43efb632f5643a52c87dbe0ac), [`d7e1b7c`](https://github.com/secustor/backstage-plugins/commit/d7e1b7ca9a9903ef8b8616f7e018a4a93647a621), [`5127503`](https://github.com/secustor/backstage-plugins/commit/51275030592f999140fce2fea25f54d0fd2ae8f8)]:
+  - @secustor/backstage-plugin-renovate-client@0.6.0
+  - @secustor/backstage-plugin-renovate-common@0.5.0
+
 ## 0.6.0
 
 ### Minor Changes

@@ -5,7 +5,3 @@ export interface ExtractReportOptions {
   logStream: Readable;
   logger: LoggerService;
 }
-
-export interface RunOptions {
-  logger: LoggerService;
-}

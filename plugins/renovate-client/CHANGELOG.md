@@ -1,5 +1,16 @@
 # @secustor/backstage-plugin-renovate-client
 
+## 0.6.0
+
+### Minor Changes
+
+- [#237](https://github.com/secustor/backstage-plugins/pull/237) [`2dca129`](https://github.com/secustor/backstage-plugins/commit/2dca129a5d53a2b2afa8ea445e37a63feaabf139) Thanks [@secustor](https://github.com/secustor)! - Support supplying URLs with missing protocol to RenovateStarter
+
+### Patch Changes
+
+- Updated dependencies [[`2dca129`](https://github.com/secustor/backstage-plugins/commit/2dca129a5d53a2b2afa8ea445e37a63feaabf139), [`de9e112`](https://github.com/secustor/backstage-plugins/commit/de9e1125ba87d7d43efb632f5643a52c87dbe0ac), [`d7e1b7c`](https://github.com/secustor/backstage-plugins/commit/d7e1b7ca9a9903ef8b8616f7e018a4a93647a621), [`5127503`](https://github.com/secustor/backstage-plugins/commit/51275030592f999140fce2fea25f54d0fd2ae8f8)]:
+  - @secustor/backstage-plugin-renovate-common@0.5.0
+
 ## 0.5.0
 
 ### Minor Changes
