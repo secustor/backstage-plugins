@@ -49,9 +49,7 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
   const data = reports.flatMap(
     report => {
       const packageFiles = Object.values(report.report.packageFiles).flat();
-      const deps: RowDataEntry[] = packageFiles.flatMap(
-        packageFile => packageFile.deps,
-      );
+      const deps = packageFiles.flatMap(packageFile => packageFile.deps);
       return {
         id: report.runID,
         host: report.host,
