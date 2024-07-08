@@ -124,7 +124,7 @@ function parseData({
             file
           ),
           depType: dependency.depType,
-          currentValue: dependency.currentValue,
+          currentValue: dependency.currentValue ?? dependency.skipReason ?? '',
           currentVersion: dependency.currentVersion,
           newVersion: biggestUpdate?.newVersion ?? biggestUpdate?.newValue,
         });
