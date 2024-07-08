@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.7.1
+
+### Patch Changes
+
+- [#240](https://github.com/secustor/backstage-plugins/pull/240) [`0a1987e`](https://github.com/secustor/backstage-plugins/commit/0a1987ed57ffff04a3031e4d4182f29346aa23ba) Thanks [@secustor](https://github.com/secustor)! - Improve version comparison logic, report schema and refactor
+
+- Updated dependencies [[`0a1987e`](https://github.com/secustor/backstage-plugins/commit/0a1987ed57ffff04a3031e4d4182f29346aa23ba)]:
+  - @secustor/backstage-plugin-renovate-common@0.5.1
+  - @secustor/backstage-plugin-renovate-client@0.6.1
+
 ## 0.7.0
 
 ### Minor Changes

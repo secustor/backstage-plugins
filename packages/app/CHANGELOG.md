@@ -1,5 +1,14 @@
 # app
 
+## 0.1.2
+
+### Patch Changes
+
+- [#238](https://github.com/secustor/backstage-plugins/pull/238) [`b4ca24f`](https://github.com/secustor/backstage-plugins/commit/b4ca24f5504d67c334c22e0447415cbd05465c89) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/dom to v10.3.0
+
+- Updated dependencies [[`0a1987e`](https://github.com/secustor/backstage-plugins/commit/0a1987ed57ffff04a3031e4d4182f29346aa23ba)]:
+  - @secustor/backstage-plugin-renovate@0.7.1
+
 ## 0.1.1
 
 ### Patch Changes
