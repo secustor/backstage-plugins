@@ -1,5 +1,19 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.8.0
+
+### Minor Changes
+
+- [#248](https://github.com/secustor/backstage-plugins/pull/248) [`39a7b47`](https://github.com/secustor/backstage-plugins/commit/39a7b47f40760653f36f7b540a3f491ba124725b) Thanks [@secustor](https://github.com/secustor)! - Sort ReportFetchComponent table by timesstamp on load
+
+### Patch Changes
+
+- [#248](https://github.com/secustor/backstage-plugins/pull/248) [`b778def`](https://github.com/secustor/backstage-plugins/commit/b778defe18b69059fd7962f508eb5f930f212bbd) Thanks [@secustor](https://github.com/secustor)! - Make currentValue optional in schema
+
+- Updated dependencies [[`b778def`](https://github.com/secustor/backstage-plugins/commit/b778defe18b69059fd7962f508eb5f930f212bbd)]:
+  - @secustor/backstage-plugin-renovate-common@0.5.2
+  - @secustor/backstage-plugin-renovate-client@0.6.2
+
 ## 0.7.1
 
 ### Patch Changes
