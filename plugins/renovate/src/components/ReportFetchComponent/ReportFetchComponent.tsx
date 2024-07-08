@@ -37,7 +37,7 @@ interface RowDataEntry {
 
 export const DenseTable = ({ reports }: DenseTableProps) => {
   const columns: TableColumn<RowDataEntry>[] = [
-    { title: 'timestamp', field: 'timestamp' },
+    { title: 'timestamp', field: 'timestamp', defaultSort: 'desc' },
     { title: 'Host', field: 'host' },
     { title: 'Repository', field: 'repository' },
     { title: 'Number of PRs', field: 'noPRs' },
