@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.5.2
+
+### Patch Changes
+
+- [#248](https://github.com/secustor/backstage-plugins/pull/248) [`b778def`](https://github.com/secustor/backstage-plugins/commit/b778defe18b69059fd7962f508eb5f930f212bbd) Thanks [@secustor](https://github.com/secustor)! - Make currentValue optional in schema
+
 ## 0.5.1
 
 ### Patch Changes
