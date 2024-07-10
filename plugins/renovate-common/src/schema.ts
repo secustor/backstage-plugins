@@ -22,7 +22,7 @@ export type Update = z.infer<typeof update>;
 
 export const dependency = z
   .object({
-    depName: z.string(),
+    depName: z.string().nullish(),
     datasource: z.string().nullish(),
     depType: z.string().nullish(),
     currentValue: z.string().nullish(),
