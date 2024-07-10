@@ -2,7 +2,6 @@ import React from 'react';
 import { useEntity } from '@backstage/plugin-catalog-react';
 import { getEntitySourceLocation } from '@backstage/catalog-model';
 import { useApi } from '@backstage/core-plugin-api';
-import { renovateApiRef } from '../../api';
 import useAsync from 'react-use/lib/useAsync';
 import {
   getTargetURL,
@@ -22,6 +21,8 @@ import { isError } from '@backstage/errors';
 import { GitUrl } from 'git-url-parse';
 import { getBiggestUpdate } from '../../tools';
 import { DependencyTableProps, DependencyTableRow } from './types';
+import { RenovateEmptyState } from '../RenovateReportEmptyState/RenovateEmptyState';
+import { renovateApiRef } from '../../api';
 
 export const DependencyTable = (props: DependencyTableProps) => {
   const columns: TableColumn[] = [
@@ -63,8 +64,12 @@ export const EntityRenovateContent = () => {
     throw error;
   }
 
-  if (loading || is.nullOrUndefined(value)) {
+  if (loading) {
     return <Progress />;
+  }
+
+  if (is.nullOrUndefined(value)) {
+    return <RenovateEmptyState />;
   }
 
   let baseURL: string;
