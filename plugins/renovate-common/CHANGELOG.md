@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.5.3
+
+### Patch Changes
+
+- [#253](https://github.com/secustor/backstage-plugins/pull/253) [`8180942`](https://github.com/secustor/backstage-plugins/commit/818094266364607fb69e4592d65629fbdb614934) Thanks [@secustor](https://github.com/secustor)! - Fix cases for Docker dependencies which have no depName but rather only registryUrls
+
 ## 0.5.2
 
 ### Patch Changes

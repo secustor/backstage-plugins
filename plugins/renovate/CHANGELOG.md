@@ -1,5 +1,17 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.8.1
+
+### Patch Changes
+
+- [#253](https://github.com/secustor/backstage-plugins/pull/253) [`8180942`](https://github.com/secustor/backstage-plugins/commit/818094266364607fb69e4592d65629fbdb614934) Thanks [@secustor](https://github.com/secustor)! - Fix cases for Docker dependencies which have no depName but rather only registryUrls
+
+- [#251](https://github.com/secustor/backstage-plugins/pull/251) [`9ced2fd`](https://github.com/secustor/backstage-plugins/commit/9ced2fd120ee17394c5279511b2fa4b3750f8b41) Thanks [@secustor](https://github.com/secustor)! - Add Empty state to RenovateEntityContent with rescan functionality
+
+- Updated dependencies [[`8180942`](https://github.com/secustor/backstage-plugins/commit/818094266364607fb69e4592d65629fbdb614934)]:
+  - @secustor/backstage-plugin-renovate-common@0.5.3
+  - @secustor/backstage-plugin-renovate-client@0.6.3
+
 ## 0.8.0
 
 ### Minor Changes
