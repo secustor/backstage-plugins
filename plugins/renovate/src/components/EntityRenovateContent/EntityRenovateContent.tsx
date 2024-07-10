@@ -119,9 +119,11 @@ function parseData({
 
         const biggestUpdate = getBiggestUpdate(dependency.updates ?? []);
 
+        const massagedDepName =
+          dependency.depName ?? dependency.registryUrls?.join(',') ?? '';
         data.push({
           id,
-          depName: dependency.depName,
+          depName: massagedDepName,
           manager,
           packageFile: baseURL ? (
             <Link to={`${baseURL}${file}`}>{file}</Link>
