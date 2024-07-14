@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, CardActions, CircularProgress } from '@material-ui/core';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import is from '@sindresorhus/is';
-import { useApi } from '@backstage/core-plugin-api';
+import { alertApiRef, useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';
 import { Entity, stringifyEntityRef } from '@backstage/catalog-model';
 
@@ -16,14 +16,14 @@ export interface StartRenovateButtonProps {
 export function StartRenovateButton(props: StartRenovateButtonProps) {
   const { onFailure, onSuccess, target, title } = props;
 
+  const alertAPI = useApi(alertApiRef);
+
   const massagedTarget = is.string(target)
     ? target
     : stringifyEntityRef(target);
   const renovateAPI = useApi(renovateApiRef);
 
   const [loading, setLoading] = useState<boolean>(false);
-
-  const timer = React.useRef<number>();
 
   const triggerRenovateRun = async () => {
     if (is.emptyString(massagedTarget)) {
@@ -38,16 +38,28 @@ export function StartRenovateButton(props: StartRenovateButtonProps) {
     }
     setLoading(true);
 
-    await renovateAPI.runsPost({
+    const result = await renovateAPI.runsPost({
       body: {
         target: massagedTarget,
       },
     });
+    const body = await result.json();
 
-    // add some sleep, so it is actually visible that we have done something
-    timer.current = window.setTimeout(() => {
-      setLoading(false);
-    }, 500);
+    setLoading(false);
+
+    if (result.ok) {
+      alertAPI.post({
+        severity: 'success',
+        display: 'transient',
+        message: `Started job ${body.taskID}`,
+      });
+      return;
+    }
+
+    alertAPI.post({
+      severity: 'error',
+      message: result.statusText,
+    });
   };
 
   return (
