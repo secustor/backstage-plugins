@@ -11741,10 +11741,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@secustor/backstage-plugin-renovate-client@workspace:plugins/renovate-client"
   dependencies:
+    "@backstage/backend-test-utils": "npm:^0.4.0"
     "@backstage/catalog-model": "npm:^1.5.0"
     "@backstage/cli": "npm:^0.26.7"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     cross-fetch: "npm:^4.0.0"
+    msw: "npm:^2.0.0"
     uri-template: "npm:^2.0.0"
   languageName: unknown
   linkType: soft
