@@ -16,11 +16,16 @@ export class RenovateClient extends DefaultApiClient {
     const response = await this.reportsHostRepositoryGet({
       path: targetRepo,
     }).then(value => value.json());
-    return response.reduce((previousValue, currentValue) => {
-      if (previousValue.timestamp < currentValue.timestamp) {
-        return currentValue;
+
+    let result: ReportsGet200ResponseInner | null = null;
+    for (const responseElement of response) {
+      if (!result) {
+        result = responseElement;
       }
-      return previousValue;
-    });
+      if (result.timestamp < responseElement.timestamp) {
+        result = responseElement;
+      }
+    }
+    return result;
   }
 }
