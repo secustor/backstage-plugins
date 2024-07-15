@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-client
 
+## 0.6.4
+
+### Patch Changes
+
+- [#263](https://github.com/secustor/backstage-plugins/pull/263) [`003673f`](https://github.com/secustor/backstage-plugins/commit/003673fd703c6cfd156de793283992d94d5ffdac) Thanks [@secustor](https://github.com/secustor)! - Handle empty results from renvate client
+
 ## 0.6.3
 
 ### Patch Changes
