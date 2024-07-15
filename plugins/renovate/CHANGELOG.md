@@ -1,5 +1,18 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.9.0
+
+### Minor Changes
+
+- [#265](https://github.com/secustor/backstage-plugins/pull/265) [`c62394f`](https://github.com/secustor/backstage-plugins/commit/c62394f0febb1f6db5e9486b8172d1e5ddcf77a6) Thanks [@secustor](https://github.com/secustor)! - Add notification for RenovateStartButton run
+
+### Patch Changes
+
+- [#263](https://github.com/secustor/backstage-plugins/pull/263) [`003673f`](https://github.com/secustor/backstage-plugins/commit/003673fd703c6cfd156de793283992d94d5ffdac) Thanks [@secustor](https://github.com/secustor)! - Handle empty results from renvate client
+
+- Updated dependencies [[`003673f`](https://github.com/secustor/backstage-plugins/commit/003673fd703c6cfd156de793283992d94d5ffdac)]:
+  - @secustor/backstage-plugin-renovate-client@0.6.4
+
 ## 0.8.1
 
 ### Patch Changes
