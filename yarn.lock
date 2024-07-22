@@ -4476,7 +4476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/e2e-test-utils@npm:^0.1.1":
+"@backstage/e2e-test-utils@npm:0.1.1":
   version: 0.1.1
   resolution: "@backstage/e2e-test-utils@npm:0.1.1"
   dependencies:
@@ -6073,7 +6073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/repo-tools@npm:^0.9.4":
+"@backstage/repo-tools@npm:0.9.4, @backstage/repo-tools@npm:^0.9.4":
   version: 0.9.4
   resolution: "@backstage/repo-tools@npm:0.9.4"
   dependencies:
@@ -33742,9 +33742,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@backstage/cli": "npm:^0.26.11"
-    "@backstage/e2e-test-utils": "npm:^0.1.1"
-    "@backstage/repo-tools": "npm:^0.9.4"
+    "@backstage/cli": "npm:0.26.11"
+    "@backstage/e2e-test-utils": "npm:0.1.1"
+    "@backstage/repo-tools": "npm:0.9.4"
     "@changesets/changelog-github": "npm:0.5.0"
     "@changesets/cli": "npm:2.27.7"
     "@playwright/test": "npm:1.45.2"
