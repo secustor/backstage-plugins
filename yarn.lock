@@ -6126,12 +6126,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/test-utils@npm:1.5.8, @backstage/test-utils@npm:^1.5.8":
-  version: 1.5.8
-  resolution: "@backstage/test-utils@npm:1.5.8"
+"@backstage/test-utils@npm:1.5.9, @backstage/test-utils@npm:^1.5.8":
+  version: 1.5.9
+  resolution: "@backstage/test-utils@npm:1.5.9"
   dependencies:
     "@backstage/config": "npm:^1.2.0"
-    "@backstage/core-app-api": "npm:^1.14.0"
+    "@backstage/core-app-api": "npm:^1.14.1"
     "@backstage/core-plugin-api": "npm:^1.9.3"
     "@backstage/plugin-permission-common": "npm:^0.8.0"
     "@backstage/plugin-permission-react": "npm:^0.4.24"
@@ -6148,7 +6148,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/e74dfdeaa2a340ab62dbb7308902179ad2e7fa7723d9add1a727c9f14bc6ebfc53f9250d2afba4e0b2284f1d0f65237f50104b5768ff1ebb905c98cfe34f53f2
+  checksum: 10c0/437d92caeed9f307ac5b03e971dfadf8dfaf3f46ffa194fa5c1dd63115c3e1dcde8519f621d7cdfc42580ee0cd4bc6b7b0203d1fc8b3da035e8976f360f8a6a5
   languageName: node
   linkType: hard
 
@@ -16135,7 +16135,7 @@ __metadata:
     "@backstage/plugin-techdocs-module-addons-contrib": "npm:^1.1.12"
     "@backstage/plugin-techdocs-react": "npm:^1.2.6"
     "@backstage/plugin-user-settings": "npm:^0.8.9"
-    "@backstage/test-utils": "npm:1.5.8"
+    "@backstage/test-utils": "npm:1.5.9"
     "@backstage/theme": "npm:^0.5.6"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
