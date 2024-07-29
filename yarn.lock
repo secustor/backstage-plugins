@@ -3791,13 +3791,13 @@ __metadata:
   linkType: hard
 
 "@backstage-community/plugin-tech-radar@npm:^0.7.4":
-  version: 0.7.5
-  resolution: "@backstage-community/plugin-tech-radar@npm:0.7.5"
+  version: 0.7.6
+  resolution: "@backstage-community/plugin-tech-radar@npm:0.7.6"
   dependencies:
-    "@backstage/core-compat-api": "npm:^0.2.4"
-    "@backstage/core-components": "npm:^0.14.4"
-    "@backstage/core-plugin-api": "npm:^1.9.2"
-    "@backstage/frontend-plugin-api": "npm:^0.6.4"
+    "@backstage/core-compat-api": "npm:^0.2.7"
+    "@backstage/core-components": "npm:^0.14.9"
+    "@backstage/core-plugin-api": "npm:^1.9.3"
+    "@backstage/frontend-plugin-api": "npm:^0.6.7"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
     "@types/react": "npm:^16.13.1 || ^17.0.0 || ^18.0.0"
@@ -3808,7 +3808,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/c0bcb777a86b17de6b9fffe0c5ab32e73b113b4d845065e26e06e2af43a17e158e3f6ea39aec7771cc91cd432b309109265d11a76c64278a2e6f615e57ec136a
+  checksum: 10c0/b4ff8472ad97468ffa9adeeb644df4c3c235cebd1ce07b8de15649adf93ce74c7fd034e2ec219b089690837e5958c145d04ca23b2521c99bd453d783886101b2
   languageName: node
   linkType: hard
 
@@ -4372,7 +4372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/core-compat-api@npm:^0.2.4, @backstage/core-compat-api@npm:^0.2.7":
+"@backstage/core-compat-api@npm:^0.2.7":
   version: 0.2.7
   resolution: "@backstage/core-compat-api@npm:0.2.7"
   dependencies:
@@ -4387,7 +4387,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/core-components@npm:^0.14.4, @backstage/core-components@npm:^0.14.9":
+"@backstage/core-components@npm:^0.14.9":
   version: 0.14.9
   resolution: "@backstage/core-components@npm:0.14.9"
   dependencies:
@@ -4436,7 +4436,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/core-plugin-api@npm:^1.9.2, @backstage/core-plugin-api@npm:^1.9.3":
+"@backstage/core-plugin-api@npm:^1.9.3":
   version: 1.9.3
   resolution: "@backstage/core-plugin-api@npm:1.9.3"
   dependencies:
@@ -4513,7 +4513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/frontend-plugin-api@npm:^0.6.4, @backstage/frontend-plugin-api@npm:^0.6.7":
+"@backstage/frontend-plugin-api@npm:^0.6.7":
   version: 0.6.7
   resolution: "@backstage/frontend-plugin-api@npm:0.6.7"
   dependencies:
