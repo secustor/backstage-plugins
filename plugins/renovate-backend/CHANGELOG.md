@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.9.4
+
+### Patch Changes
+
+- [#279](https://github.com/secustor/backstage-plugins/pull/279) [`e9cee4f`](https://github.com/secustor/backstage-plugins/commit/e9cee4f6af7e472bc864ec374b8df0e48ca68a5f) Thanks [@secustor](https://github.com/secustor)! - Update to release Backstage 1.29.1
+
+- Updated dependencies [[`e9cee4f`](https://github.com/secustor/backstage-plugins/commit/e9cee4f6af7e472bc864ec374b8df0e48ca68a5f)]:
+  - @secustor/backstage-plugin-renovate-common@0.5.4
+  - @secustor/backstage-plugin-renovate-node@0.3.4
+
 ## 0.9.3
 
 ### Patch Changes
