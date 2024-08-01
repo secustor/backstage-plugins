@@ -1,5 +1,24 @@
 # app
 
+## 0.1.6
+
+### Patch Changes
+
+- [#269](https://github.com/secustor/backstage-plugins/pull/269) [`0427b7c`](https://github.com/secustor/backstage-plugins/commit/0427b7c8f51db8ec2234cc4a4b8a4c62fc21fd1b) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/dom to v10.3.2
+
+- [#282](https://github.com/secustor/backstage-plugins/pull/282) [`7be7ad4`](https://github.com/secustor/backstage-plugins/commit/7be7ad495816138bf6f8c9d62cec8adf6c1d1bdc) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/dom to v10.4.0
+
+- [#285](https://github.com/secustor/backstage-plugins/pull/285) [`3289a43`](https://github.com/secustor/backstage-plugins/commit/3289a43f97567cddb2c2a2ca7bc209b273ee0032) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.4.7
+
+- [#287](https://github.com/secustor/backstage-plugins/pull/287) [`4cb258d`](https://github.com/secustor/backstage-plugins/commit/4cb258d803b4d9dc6107f9295b0e60a0c44f8b3d) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.4.8
+
+- [#288](https://github.com/secustor/backstage-plugins/pull/288) [`6b75cf0`](https://github.com/secustor/backstage-plugins/commit/6b75cf0655487005e3a790ae059b9dab30340747) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update backstage monorepo
+
+- [#279](https://github.com/secustor/backstage-plugins/pull/279) [`e9cee4f`](https://github.com/secustor/backstage-plugins/commit/e9cee4f6af7e472bc864ec374b8df0e48ca68a5f) Thanks [@secustor](https://github.com/secustor)! - Update to release Backstage 1.29.1
+
+- Updated dependencies [[`e9cee4f`](https://github.com/secustor/backstage-plugins/commit/e9cee4f6af7e472bc864ec374b8df0e48ca68a5f)]:
+  - @secustor/backstage-plugin-renovate@0.9.1
+
 ## 0.1.5
 
 ### Patch Changes
