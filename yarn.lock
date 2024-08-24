@@ -3424,13 +3424,13 @@ __metadata:
   linkType: hard
 
 "@backstage-community/plugin-tech-radar@npm:^0.7.4":
-  version: 0.7.6
-  resolution: "@backstage-community/plugin-tech-radar@npm:0.7.6"
+  version: 0.7.8
+  resolution: "@backstage-community/plugin-tech-radar@npm:0.7.8"
   dependencies:
-    "@backstage/core-compat-api": "npm:^0.2.7"
-    "@backstage/core-components": "npm:^0.14.9"
+    "@backstage/core-compat-api": "npm:^0.2.8"
+    "@backstage/core-components": "npm:^0.14.10"
     "@backstage/core-plugin-api": "npm:^1.9.3"
-    "@backstage/frontend-plugin-api": "npm:^0.6.7"
+    "@backstage/frontend-plugin-api": "npm:^0.7.0"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
     "@types/react": "npm:^16.13.1 || ^17.0.0 || ^18.0.0"
@@ -3441,7 +3441,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/b4ff8472ad97468ffa9adeeb644df4c3c235cebd1ce07b8de15649adf93ce74c7fd034e2ec219b089690837e5958c145d04ca23b2521c99bd453d783886101b2
+  checksum: 10c0/130426a2cf59a0f69f742f65ac3adaa56e6f3eeb337f3a97290a2d8422524c37adc0c1a8deffd642d76e08ae6fa2294e532756e747e73b219e9737c65cd551b4
   languageName: node
   linkType: hard
 
@@ -4005,24 +4005,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/core-compat-api@npm:^0.2.7":
-  version: 0.2.7
-  resolution: "@backstage/core-compat-api@npm:0.2.7"
+"@backstage/core-compat-api@npm:^0.2.7, @backstage/core-compat-api@npm:^0.2.8":
+  version: 0.2.8
+  resolution: "@backstage/core-compat-api@npm:0.2.8"
   dependencies:
     "@backstage/core-plugin-api": "npm:^1.9.3"
-    "@backstage/frontend-plugin-api": "npm:^0.6.7"
+    "@backstage/frontend-plugin-api": "npm:^0.7.0"
     "@backstage/version-bridge": "npm:^1.0.8"
     "@types/react": "npm:^16.13.1 || ^17.0.0"
+    lodash: "npm:^4.17.21"
   peerDependencies:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/7508c451e2027c1b36f5083341fab32730020dc61db4a745e699cfaf185e3015f7bcee7d413c2e6e88078a5ac1317d572848a492613f9e68515cb3dc99752488
+  checksum: 10c0/0f497f61c46da9bdf061c058ab20aa59ab74e25623d18930a2a8f461daeea6d49f93e0c7647efab87cbe84ccf6308be314088cd0ee50c286fd5db7218507815a
   languageName: node
   linkType: hard
 
-"@backstage/core-components@npm:^0.14.9":
-  version: 0.14.9
-  resolution: "@backstage/core-components@npm:0.14.9"
+"@backstage/core-components@npm:^0.14.10, @backstage/core-components@npm:^0.14.9":
+  version: 0.14.10
+  resolution: "@backstage/core-components@npm:0.14.10"
   dependencies:
     "@backstage/config": "npm:^1.2.0"
     "@backstage/core-plugin-api": "npm:^1.9.3"
@@ -4065,7 +4066,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/c2b019a4af6918b03c6345552cd7269e5d13c0798b6a53c2f38d07bc6aeb277b2cef7ea857b3ef7c43cb71abcdac0fde36309b1032f0a75fe5ea826c947eb04f
+  checksum: 10c0/5afb8394e254e6ded61dd87addbf298059e3393ee2bc1532193109d469c843bb434469ba888b6b07fe5381360e2f10b6d9e4d35a7625b1e8fc3a3c7fcf8036db
   languageName: node
   linkType: hard
 
@@ -4163,6 +4164,26 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
   checksum: 10c0/7185d050447a51837a43906c050936e188a6341fc42fffd9fb3e40d18594a3b107445e60c245312b078a82ccc12c3ac6a5ff546aaae312870ebebfa26cac2a6e
+  languageName: node
+  linkType: hard
+
+"@backstage/frontend-plugin-api@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@backstage/frontend-plugin-api@npm:0.7.0"
+  dependencies:
+    "@backstage/core-components": "npm:^0.14.10"
+    "@backstage/core-plugin-api": "npm:^1.9.3"
+    "@backstage/types": "npm:^1.1.1"
+    "@backstage/version-bridge": "npm:^1.0.8"
+    "@material-ui/core": "npm:^4.12.4"
+    "@types/react": "npm:^16.13.1 || ^17.0.0 || ^18.0.0"
+    lodash: "npm:^4.17.21"
+    zod: "npm:^3.22.4"
+    zod-to-json-schema: "npm:^3.21.4"
+  peerDependencies:
+    react: ^16.13.1 || ^17.0.0 || ^18.0.0
+    react-router-dom: 6.0.0-beta.0 || ^6.3.0
+  checksum: 10c0/cad642587a8eb4f9dec6cd743e4e93c9b90d5269c8cd90f4ffe637d2b1e2c25f1cdee4ccc9659de1e19f08872acbe0b04e200812aaced0c57d6f3682d2bbf765
   languageName: node
   linkType: hard
 
