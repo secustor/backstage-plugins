@@ -57,7 +57,7 @@
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@sindresorhus/is": "^4.6.0",
     "@textea/json-viewer": "^3.4.1",
-    "git-url-parse": "^14.0.0",
+    "git-url-parse": "^15.0.0",
     "react-use": "^17.2.4"
   },
   "peerDependencies": {
