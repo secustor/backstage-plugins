@@ -11421,7 +11421,7 @@ __metadata:
     "@backstage/types": "npm:^1.1.1"
     "@sindresorhus/is": "npm:^4.6.0"
     "@types/git-url-parse": "npm:^9.0.3"
-    git-url-parse: "npm:^14.0.0"
+    git-url-parse: "npm:^15.0.0"
     zod: "npm:^3.22.4"
   languageName: unknown
   linkType: soft
@@ -11462,7 +11462,7 @@ __metadata:
     "@testing-library/user-event": "npm:^14.0.0"
     "@textea/json-viewer": "npm:^3.4.1"
     "@types/git-url-parse": "npm:^9.0.3"
-    git-url-parse: "npm:^14.0.0"
+    git-url-parse: "npm:^15.0.0"
     msw: "npm:^2.0.0"
     react-use: "npm:^17.2.4"
   peerDependencies:
@@ -22377,6 +22377,15 @@ __metadata:
   dependencies:
     git-up: "npm:^7.0.0"
   checksum: 10c0/cd91547210eccdfaca92c41c5ab018c23a75e881f36aa8d7c46cef8e10dea790a455aeb4ca91426109fd5f645c6e874c0cf80a38be6a8675ed91abb08ed904d4
+  languageName: node
+  linkType: hard
+
+"git-url-parse@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "git-url-parse@npm:15.0.0"
+  dependencies:
+    git-up: "npm:^7.0.0"
+  checksum: 10c0/1813a3ac8e97d348e46471db4710d776cc7b24a56a432339ab0c0f4f2323525a8627a1891aa80a53fd9be973191fe2902c0af8e17fb9b04f29445a83fbef3a4e
   languageName: node
   linkType: hard
 
