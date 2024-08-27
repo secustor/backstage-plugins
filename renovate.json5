@@ -1,20 +1,9 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:best-practices', ':semanticCommitTypeAll(fix)'],
-
-  ignorePresets: [
-    // we cannot update right now to @mui
-    'replacements:material-ui-to-mui',
-  ],
-
-  // create a single PR to update all in range upgrades, to save CI minutes
-  lockFileMaintenance: {
-    enabled: true,
-  },
-
-  postUpdateOptions: [
-    // run `yarn dedupe --strategy highest` after every npm package upgrade
-    'yarnDedupeHighest',
+  extends: [
+    'config:best-practices',
+    ':semanticCommitTypeAll(fix)',
+    'github>secustor/backstage-renovate-config',
   ],
 
   // add a Renovate label for renovate-changesets workflow
@@ -50,28 +39,6 @@
       matchDepTypes: ['devDependencies'],
       matchManagers: ['npm'],
       automerge: true,
-    },
-
-    // disable upgrade to pure ESM versions
-    {
-      matchPackageNames: ['@sindresorhus/is'],
-      allowedVersions: '<5.0.0',
-    },
-    {
-      matchPackageNames: ['yn'],
-      allowedVersions: '<5.0.0',
-    },
-    {
-      matchPackageNames: ['find-up'],
-      allowedVersions: '<6.0.0',
-    },
-    {
-      matchPackageNames: ['node-fetch'],
-      allowedVersions: '<3.0.0',
-    },
-    {
-      matchPackageNames: ['nanoid'],
-      allowedVersions: '<4.0.0',
     },
 
     {
