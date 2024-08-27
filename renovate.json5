@@ -67,6 +67,8 @@
         'tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)',
         // runtime.ts
         "imageTag\\s*=\\s*'(?<currentValue>\\S*?)'",
+        // config.d.ts
+        "Default:\\s*'(?<currentValue>[\\.\\d]*?)'",
       ],
       depNameTemplate: 'renovate',
       packageNameTemplate: 'ghcr.io/renovatebot/renovate',
