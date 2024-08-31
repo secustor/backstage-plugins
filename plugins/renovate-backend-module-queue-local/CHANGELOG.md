@@ -1,5 +1,14 @@
 # @secustor/backstage-plugin-renovate-backend-module-queue-local
 
+## 0.2.5
+
+### Patch Changes
+
+- [#333](https://github.com/secustor/backstage-plugins/pull/333) [`28e1ff6`](https://github.com/secustor/backstage-plugins/commit/28e1ff60fa1630f9be80add8951566bc2a2ca4f8) Thanks [@secustor](https://github.com/secustor)! - Upgrade Backstage to 1.30.4
+
+- Updated dependencies [[`28e1ff6`](https://github.com/secustor/backstage-plugins/commit/28e1ff60fa1630f9be80add8951566bc2a2ca4f8)]:
+  - @secustor/backstage-plugin-renovate-node@0.3.5
+
 ## 0.2.4
 
 ### Patch Changes

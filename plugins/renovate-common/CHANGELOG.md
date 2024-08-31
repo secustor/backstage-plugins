@@ -1,5 +1,13 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.5.5
+
+### Patch Changes
+
+- [#324](https://github.com/secustor/backstage-plugins/pull/324) [`48ca691`](https://github.com/secustor/backstage-plugins/commit/48ca691ab1b66c7622d1b5ff67ea73922f9cf563) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency git-url-parse to v15
+
+- [#333](https://github.com/secustor/backstage-plugins/pull/333) [`28e1ff6`](https://github.com/secustor/backstage-plugins/commit/28e1ff60fa1630f9be80add8951566bc2a2ca4f8) Thanks [@secustor](https://github.com/secustor)! - Upgrade Backstage to 1.30.4
+
 ## 0.5.4
 
 ### Patch Changes

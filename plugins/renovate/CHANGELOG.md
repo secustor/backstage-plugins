@@ -1,5 +1,21 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.9.2
+
+### Patch Changes
+
+- [#338](https://github.com/secustor/backstage-plugins/pull/338) [`6ac2b2b`](https://github.com/secustor/backstage-plugins/commit/6ac2b2bc7fb252287261857c3981fbe08de3d2ef) Thanks [@secustor](https://github.com/secustor)! - Fix urls to Git hoster if the catalog file is in a subdirectory
+
+- [#324](https://github.com/secustor/backstage-plugins/pull/324) [`48ca691`](https://github.com/secustor/backstage-plugins/commit/48ca691ab1b66c7622d1b5ff67ea73922f9cf563) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency git-url-parse to v15
+
+- [#338](https://github.com/secustor/backstage-plugins/pull/338) [`6ac2b2b`](https://github.com/secustor/backstage-plugins/commit/6ac2b2bc7fb252287261857c3981fbe08de3d2ef) Thanks [@secustor](https://github.com/secustor)! - Enable pagination for RenovateFetcher and allow deactivation
+
+- [#333](https://github.com/secustor/backstage-plugins/pull/333) [`28e1ff6`](https://github.com/secustor/backstage-plugins/commit/28e1ff60fa1630f9be80add8951566bc2a2ca4f8) Thanks [@secustor](https://github.com/secustor)! - Upgrade Backstage to 1.30.4
+
+- Updated dependencies [[`48ca691`](https://github.com/secustor/backstage-plugins/commit/48ca691ab1b66c7622d1b5ff67ea73922f9cf563), [`28e1ff6`](https://github.com/secustor/backstage-plugins/commit/28e1ff60fa1630f9be80add8951566bc2a2ca4f8)]:
+  - @secustor/backstage-plugin-renovate-common@0.5.5
+  - @secustor/backstage-plugin-renovate-client@0.6.6
+
 ## 0.9.1
 
 ### Patch Changes
