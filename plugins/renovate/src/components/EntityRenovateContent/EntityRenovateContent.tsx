@@ -18,7 +18,6 @@ import {
 import is from '@sindresorhus/is';
 import { scmIntegrationsApiRef } from '@backstage/integration-react';
 import { isError } from '@backstage/errors';
-import { GitUrl } from 'git-url-parse';
 import { getBiggestUpdate } from '../../tools';
 import { DependencyTableProps, DependencyTableRow } from './types';
 import { RenovateEmptyState } from '../RenovateReportEmptyState/RenovateEmptyState';
@@ -36,7 +35,7 @@ export const DependencyTable = (props: DependencyTableProps) => {
     { title: 'Available Version', field: 'newVersion' },
   ];
 
-  const data = parseData(props);
+  const data = useData(props);
 
   return (
     <Table
@@ -75,12 +74,10 @@ export const EntityRenovateContent = () => {
     return <RenovateEmptyState />;
   }
 
-  let baseURL: string;
-  let parsed: GitUrl;
   try {
     const { target } = getEntitySourceLocation(entity);
-    parsed = getTargetURL(target);
-    baseURL = scmIntegrationsApi.resolveUrl({
+    const parsed = getTargetURL(target);
+    const baseURL = scmIntegrationsApi.resolveUrl({
       url: parsed.filepath,
       base: target,
     });
@@ -101,11 +98,13 @@ export const EntityRenovateContent = () => {
   }
 };
 
-function parseData({
+function useData({
   packageFiles,
   filter,
   baseURL,
 }: DependencyTableProps): DependencyTableRow[] {
+  const scmIntegrationsApi = useApi(scmIntegrationsApiRef);
+
   const data: DependencyTableRow[] = [];
   let id = 0;
   for (const [manager, packageFilesList] of Object.entries(packageFiles)) {
@@ -118,18 +117,23 @@ function parseData({
         }
       }
       for (const dependency of packageFileObject.deps) {
-        const file = packageFileObject.packageFile;
+        const file = `/${packageFileObject.packageFile}`;
 
         const biggestUpdate = getBiggestUpdate(dependency.updates ?? []);
 
         const massagedDepName =
           dependency.depName ?? dependency.registryUrls?.join(',') ?? '';
+
         data.push({
           id,
           depName: massagedDepName,
           manager,
           packageFile: baseURL ? (
-            <Link to={`${baseURL}${file}`}>{file}</Link>
+            <Link
+              to={scmIntegrationsApi.resolveUrl({ base: baseURL, url: file })}
+            >
+              {file}
+            </Link>
           ) : (
             file
           ),
