@@ -21,6 +21,7 @@ import { InspectReportDialog } from './InspectReportDialog';
 
 type DenseTableProps = {
   reports: RepositoryReportResponse;
+  paginate?: boolean;
 };
 
 interface RowDataEntry {
@@ -35,7 +36,8 @@ interface RowDataEntry {
   report: RepositoryReportResponseElement;
 }
 
-export const DenseTable = ({ reports }: DenseTableProps) => {
+export const DenseTable = (options: DenseTableProps) => {
+  const { reports } = options;
   const columns: TableColumn<RowDataEntry>[] = [
     { title: 'timestamp', field: 'timestamp', defaultSort: 'desc' },
     { title: 'Host', field: 'host' },
@@ -77,7 +79,11 @@ export const DenseTable = ({ reports }: DenseTableProps) => {
     <>
       <Table
         title="Report List"
-        options={{ search: true, paging: false, actionsColumnIndex: -1 }}
+        options={{
+          search: true,
+          paging: options.paginate ?? true,
+          actionsColumnIndex: -1,
+        }}
         columns={columns}
         data={data}
         actions={[
