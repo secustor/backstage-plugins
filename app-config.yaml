@@ -118,4 +118,4 @@ renovate:
     type: local-fastq
 
   config:
-    dryRun: lookup
+    dryRun: extract

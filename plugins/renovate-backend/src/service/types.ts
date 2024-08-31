@@ -38,6 +38,27 @@ export interface ReportsRow {
   report: RepositoryReport;
 }
 
+export interface DependencyRow {
+  id?: string;
+  run_id: string;
+  host: string;
+  extractionTimestamp: Date;
+  repository: string;
+  manager: string;
+  datasource: string;
+  depName: string;
+  packageName?: string;
+  packageFile: string;
+  depType?: string;
+  currentValue?: string;
+  currentVersion?: string;
+  currentVersionTimestamp?: Date;
+  skipReason?: string;
+  registryUrl?: string;
+  sourceUrl?: string;
+  currentVersionReleased?: Date;
+}
+
 export interface ReportTargetQuery {
   host?: string;
   repository?: string;

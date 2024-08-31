@@ -1,9 +1,10 @@
 import { resolvePackagePath } from '@backstage/backend-plugin-api';
 import { Knex } from 'knex';
-import type {
+import {
   AddReportParameters,
   DatabaseCreationParameters,
   DeleteOptions,
+  DependencyRow,
   ReportQueryParameters,
   ReportsRow,
   ReportTargetQuery,
@@ -42,12 +43,14 @@ export class DatabaseHandler {
     const { runID, taskID, report, target } = options;
     const logger = options.logger ?? this.logger;
 
+    const timestamp = new Date();
+
     const inserts: ReportsRow[] = [];
     for (const [repository, value] of Object.entries(report.repositories)) {
       inserts.push({
         run_id: runID,
         task_id: taskID,
-        timestamp: new Date(),
+        timestamp,
         host: target.host,
         repository,
         report: value,
@@ -57,6 +60,8 @@ export class DatabaseHandler {
     await this.client('reports')
       .insert(inserts)
       .catch(reason => logger.error('Failed insert data', reason));
+
+    await this.updateDependencies(timestamp, options);
   }
 
   async getReports(
@@ -117,5 +122,58 @@ export class DatabaseHandler {
     );
     // sum up
     return modified.reduce((a, b) => a + b, 0);
+  }
+
+  private async updateDependencies(
+    timestamp: Date,
+    options: AddReportParameters,
+  ): Promise<void> {
+    const { runID, report, target } = options;
+    const dependencies: DependencyRow[] = [];
+    for (const [repository, repositoryContent] of Object.entries(
+      report.repositories,
+    )) {
+      for (const [manager, packageFiles] of Object.entries(
+        repositoryContent.packageFiles,
+      )) {
+        for (const packageFile of packageFiles) {
+          const packageFilePath = packageFile.packageFile;
+          for (const dependency of packageFile.deps) {
+            const {
+              packageName,
+              depName,
+              depType,
+              datasource,
+              currentValue,
+              currentVersion,
+              skipReason,
+              registryUrl,
+              sourceUrl,
+              currentVersionTimestamp,
+            } = dependency;
+            dependencies.push({
+              run_id: runID,
+              host: target.host,
+              extractionTimestamp: timestamp,
+              repository,
+              manager,
+              datasource:
+                datasource ?? packageFile.datasource ?? 'no-datasource',
+              depName,
+              packageName,
+              packageFile: packageFilePath,
+              depType,
+              currentValue,
+              currentVersion,
+              currentVersionTimestamp,
+              skipReason,
+              registryUrl,
+              sourceUrl,
+            });
+          }
+        }
+      }
+    }
+    await this.client('dependencies').insert(dependencies);
   }
 }
