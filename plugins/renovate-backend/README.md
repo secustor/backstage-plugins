@@ -33,6 +33,11 @@ renovate:
     # -1 translates to never delete reports during maintenance tasks
     # x > 0 number of reports to maintain
     minimumReports: -1
+
+    # -1 translates to never delete dependencies during maintenance tasks
+    # x > 0 number of dependencies to maintain
+    dependencyHistory: -1
+
   schedules:
     cleanup:
       frequency: { minutes: 60 }

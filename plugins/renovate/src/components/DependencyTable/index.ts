@@ -1,0 +1,1 @@
+export { DependencyTable } from './DependencyTable';

@@ -36,7 +36,7 @@ interface RowDataEntry {
   report: RepositoryReportResponseElement;
 }
 
-export const DenseTable = (options: DenseTableProps) => {
+export const ReportTable = (options: DenseTableProps) => {
   const { reports } = options;
   const columns: TableColumn<RowDataEntry>[] = [
     { title: 'timestamp', field: 'timestamp', defaultSort: 'desc' },
@@ -153,5 +153,5 @@ export const ReportFetchComponent = () => {
     return <ResponseErrorPanel error={error} />;
   }
 
-  return <DenseTable reports={value || []} />;
+  return <ReportTable reports={value || []} />;
 };

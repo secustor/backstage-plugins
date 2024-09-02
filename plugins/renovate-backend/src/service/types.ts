@@ -42,13 +42,13 @@ export interface DependencyRow {
   id?: string;
   run_id: string;
   host: string;
-  extractionTimestamp: Date;
   repository: string;
+  extractionTimestamp: Date;
   manager: string;
   datasource: string;
+  packageFile: string;
   depName: string;
   packageName?: string;
-  packageFile: string;
   depType?: string;
   currentValue?: string;
   currentVersion?: string;
@@ -89,4 +89,16 @@ export interface AddReportParameters {
   report: RenovateReport;
   target: TargetRepo;
   logger?: LoggerService;
+}
+
+export interface DependenciesFilter {
+  datasource?: string[];
+  depName?: string[];
+  depType?: string[];
+  host?: string[];
+  latestOnly?: boolean;
+  limit?: number;
+  manager?: string[];
+  packageFile?: string[];
+  repository?: string[];
 }

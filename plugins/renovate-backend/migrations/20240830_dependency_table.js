@@ -49,7 +49,8 @@ exports.up = async function up(knex) {
 
     table.index(['host', 'repository'], 'repositoryIndex');
     table.index(['host', 'repository', 'packageFile'], 'packageFileIndex');
-    table.index(['datasource', 'packageName'], 'packageIndex');
+    table.index(['datasource', 'depName'], 'packageIndex');
+    table.index(['manager', 'depName'], 'packageIndex');
   });
 };
 

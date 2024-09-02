@@ -101,6 +101,8 @@ catalog:
 renovate:
   cleanup:
     minimumReports: 2
+    dependencyHistory: 2
+
   schedules:
     jobSync:
       frequency: { minutes: 5 }

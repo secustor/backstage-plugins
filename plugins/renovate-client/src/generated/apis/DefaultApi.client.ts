@@ -9,6 +9,7 @@ import crossFetch from 'cross-fetch';
 import { pluginId } from '../pluginId';
 import * as parser from 'uri-template';
 
+import { Dependency } from '../models/Dependency.model';
 import { ReportsDelete200Response } from '../models/ReportsDelete200Response.model';
 import { ReportsGet200ResponseInner } from '../models/ReportsGet200ResponseInner.model';
 import { RunsPost202Response } from '../models/RunsPost202Response.model';
@@ -45,6 +46,52 @@ export class DefaultApiClient {
   }) {
     this.discoveryApi = options.discoveryApi;
     this.fetchApi = options.fetchApi || { fetch: crossFetch };
+  }
+
+  /**
+   * Get dependencies for host
+   * @param datasource filter by datasource
+   * @param depName filter by dependency name
+   * @param depType filter by dependency type
+   * @param host
+   * @param latestOnly include only dependencies which have been found in the last extraction
+   * @param limit limit the number of dependencies returned
+   * @param manager filter by manager
+   * @param packageFile filter by package file
+   * @param repository
+   */
+  public async dependenciesGet(
+    // @ts-ignore
+    request: {
+      query: {
+        datasource?: Array<string>;
+        depName?: Array<string>;
+        depType?: Array<string>;
+        host?: Array<string>;
+        latestOnly?: boolean;
+        limit?: number;
+        manager?: Array<string>;
+        packageFile?: Array<string>;
+        repository?: Array<string>;
+      };
+    },
+    options?: RequestOptions,
+  ): Promise<TypedResponse<Array<Dependency>>> {
+    const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
+
+    const uriTemplate = `/dependencies{?datasource*,depName*,depType*,host*,latestOnly,limit,manager*,packageFile*,repository*}`;
+
+    const uri = parser.parse(uriTemplate).expand({
+      ...request.query,
+    });
+
+    return await this.fetchApi.fetch(`${baseUrl}${uri}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options?.token && { Authorization: `Bearer ${options?.token}` }),
+      },
+      method: 'GET',
+    });
   }
 
   /**

@@ -1,5 +1,6 @@
 //
 
+export * from '../models/Dependency.model';
 export * from '../models/ModelError.model';
 export * from '../models/ReportsDelete200Response.model';
 export * from '../models/ReportsGet200ResponseInner.model';
