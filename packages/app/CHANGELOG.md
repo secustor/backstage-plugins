@@ -1,5 +1,18 @@
 # app
 
+## 0.2.0
+
+### Minor Changes
+
+- [#343](https://github.com/secustor/backstage-plugins/pull/343) [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a) Thanks [@secustor](https://github.com/secustor)! - Add global dependency overview, dependency api endpoint and dependency database
+
+### Patch Changes
+
+- [#339](https://github.com/secustor/backstage-plugins/pull/339) [`adb8110`](https://github.com/secustor/backstage-plugins/commit/adb8110b0f9a24192af39ba0d2da763f4ae70742) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/react to v16.0.1
+
+- Updated dependencies [[`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a), [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a), [`9c39a80`](https://github.com/secustor/backstage-plugins/commit/9c39a802bca087a06f2d5fc1d308d40689ba9fb1)]:
+  - @secustor/backstage-plugin-renovate@0.10.0
+
 ## 0.1.7
 
 ### Patch Changes

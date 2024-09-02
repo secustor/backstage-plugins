@@ -1,5 +1,12 @@
 # @secustor/backstage-plugin-renovate-backend-module-queue-local
 
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @secustor/backstage-plugin-renovate-node@0.3.6
+
 ## 0.2.5
 
 ### Patch Changes
