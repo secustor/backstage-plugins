@@ -13,6 +13,7 @@ export interface Dependency {
   manager: string;
   datasource: string;
   packageFile: string;
+  packageFileUrl?: string;
   depName: string;
   packageName?: string;
   depType?: string;

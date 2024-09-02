@@ -502,6 +502,9 @@ export const spec = {
           packageFile: {
             type: 'string',
           },
+          packageFileUrl: {
+            type: 'string',
+          },
           depName: {
             type: 'string',
           },

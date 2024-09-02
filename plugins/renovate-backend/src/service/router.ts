@@ -13,6 +13,7 @@ import { RenovateRunner } from '../wrapper';
 import { CatalogClient } from '@backstage/catalog-client';
 import type { Entity } from '@backstage/catalog-model';
 import is from '@sindresorhus/is';
+import { getFileUrl } from '../wrapper/platforms';
 
 export async function createRouter(
   runner: RenovateRunner,
@@ -84,8 +85,15 @@ export async function createRouter(
     const filter: DependenciesFilter = request.query;
     const dependencies = await databaseHandler.getDependencies(filter);
 
+    const massaged = dependencies.map(dep => {
+      return {
+        ...dep,
+        packageFileUrl: getFileUrl(dep),
+      };
+    });
+
     // openapi gen expects an empty array
-    response.json(dependencies as []);
+    response.json(massaged as []);
   });
 
   router.post('/runs', async (request, response) => {

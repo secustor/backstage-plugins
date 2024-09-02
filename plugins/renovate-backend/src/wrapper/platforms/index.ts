@@ -83,3 +83,14 @@ function requireConfigVariable<T>(
   }
   return input;
 }
+
+export function getFileUrl(options: {
+  packageFile: string;
+  host: string;
+  repository: string;
+}): string | null {
+  if (options.host.includes('github')) {
+    return `https://${options.host}/${options.repository}/blob/HEAD/${options.packageFile}`;
+  }
+  return null;
+}

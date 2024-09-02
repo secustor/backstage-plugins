@@ -1,4 +1,6 @@
+import React from 'react';
 import { DependencyTableColumn } from './DependencyTable';
+import { Link } from '@backstage/core-components';
 
 export const defaultColumns: DependencyTableColumn[] = [
   {
@@ -23,6 +25,12 @@ export const defaultColumns: DependencyTableColumn[] = [
     width: 'auto',
     field: 'depName',
     showFilter: 'multiple-select',
+    render: rowData => {
+      if (rowData.sourceUrl) {
+        return <Link to={rowData.sourceUrl}>{rowData.depName}</Link>;
+      }
+      return rowData.depName;
+    },
   },
   {
     title: 'Manager',
@@ -39,8 +47,13 @@ export const defaultColumns: DependencyTableColumn[] = [
   {
     title: 'Package File',
     width: 'auto',
-    field: 'packageFile',
     showFilter: 'multiple-select',
+    render: rowData => {
+      if (rowData.packageFileUrl) {
+        return <Link to={rowData.packageFileUrl}>{rowData.packageFile}</Link>;
+      }
+      return rowData.packageFile;
+    },
   },
   {
     title: 'Current Value',
