@@ -1,14 +1,18 @@
-import { resolvePackagePath } from '@backstage/backend-plugin-api';
+import {
+  LoggerService,
+  resolvePackagePath,
+} from '@backstage/backend-plugin-api';
 import { Knex } from 'knex';
-import type {
+import {
   AddReportParameters,
   DatabaseCreationParameters,
   DeleteOptions,
+  DependenciesFilter,
+  DependencyRow,
   ReportQueryParameters,
   ReportsRow,
   ReportTargetQuery,
 } from './types';
-import { LoggerService } from '@backstage/backend-plugin-api';
 import is from '@sindresorhus/is';
 import { RepositoryReportResponse } from '@secustor/backstage-plugin-renovate-common';
 
@@ -42,12 +46,14 @@ export class DatabaseHandler {
     const { runID, taskID, report, target } = options;
     const logger = options.logger ?? this.logger;
 
+    const timestamp = new Date();
+
     const inserts: ReportsRow[] = [];
     for (const [repository, value] of Object.entries(report.repositories)) {
       inserts.push({
         run_id: runID,
         task_id: taskID,
-        timestamp: new Date(),
+        timestamp,
         host: target.host,
         repository,
         report: value,
@@ -57,6 +63,8 @@ export class DatabaseHandler {
     await this.client('reports')
       .insert(inserts)
       .catch(reason => logger.error('Failed insert data', reason));
+
+    await this.updateDependencies(timestamp, options);
   }
 
   async getReports(
@@ -91,15 +99,8 @@ export class DatabaseHandler {
     { host, repository }: ReportTargetQuery,
     options?: DeleteOptions,
   ): Promise<number> {
-    let offset = 0;
-    if (
-      is.nullOrUndefined(options?.keepLatest) ||
-      is.boolean(options?.keepLatest)
-    ) {
-      offset = options?.keepLatest ? 1 : 0;
-    } else {
-      offset = options.keepLatest;
-    }
+    const offset = getOffset(options);
+
     const toBeDeletedIDs = this.client('reports')
       .select('run_id')
       .where('host', host)
@@ -118,4 +119,145 @@ export class DatabaseHandler {
     // sum up
     return modified.reduce((a, b) => a + b, 0);
   }
+
+  private async updateDependencies(
+    timestamp: Date,
+    options: AddReportParameters,
+  ): Promise<void> {
+    const { runID, report, target } = options;
+    const dependencies: DependencyRow[] = [];
+    for (const [repository, repositoryContent] of Object.entries(
+      report.repositories,
+    )) {
+      for (const [manager, packageFiles] of Object.entries(
+        repositoryContent.packageFiles,
+      )) {
+        for (const packageFile of packageFiles) {
+          const packageFilePath = packageFile.packageFile;
+          for (const dependency of packageFile.deps) {
+            const {
+              packageName,
+              depName,
+              depType,
+              datasource,
+              currentValue,
+              currentVersion,
+              skipReason,
+              registryUrl,
+              sourceUrl,
+              currentVersionTimestamp,
+            } = dependency;
+            dependencies.push({
+              run_id: runID,
+              host: target.host,
+              extractionTimestamp: timestamp,
+              repository,
+              manager,
+              datasource:
+                datasource ?? packageFile.datasource ?? 'no-datasource',
+              depName,
+              packageName,
+              packageFile: packageFilePath,
+              depType,
+              currentValue,
+              currentVersion,
+              currentVersionTimestamp,
+              skipReason,
+              registryUrl,
+              sourceUrl,
+            });
+          }
+        }
+      }
+    }
+    await this.client('dependencies').insert(dependencies);
+  }
+
+  async getDependencies(filters: DependenciesFilter): Promise<DependencyRow[]> {
+    const builder = this.client('dependencies').select<DependencyRow[]>();
+
+    if (filters.host) {
+      builder.whereIn('host', filters.host);
+    }
+    if (filters.repository) {
+      builder.whereIn('repository', filters.repository);
+    }
+    if (filters.manager) {
+      builder.whereIn('manager', filters.manager);
+    }
+    if (filters.datasource) {
+      builder.whereIn('datasource', filters.datasource);
+    }
+    if (filters.depName) {
+      builder.whereIn('depName', filters.depName);
+    }
+
+    if (filters.latestOnly) {
+      const runIDs = this.client('dependencies')
+        .select('d.run_id')
+        .from('dependencies as d')
+        .join(
+          this.client('dependencies')
+            .select('host', 'repository')
+            .max('extractionTimestamp as max_timestamp')
+            .groupBy('host', 'repository')
+            .as('max_d'),
+          // eslint-disable-next-line func-names
+          function () {
+            this.on('d.host', '=', 'max_d.host')
+              .andOn('d.repository', '=', 'max_d.repository')
+              .andOn('d.extractionTimestamp', '=', 'max_d.max_timestamp');
+          },
+        )
+        .distinct();
+
+      builder.whereIn('run_id', runIDs);
+    }
+
+    return builder.limit(filters.limit ?? 500);
+  }
+
+  async deleteDependencies(options: DeleteOptions): Promise<number> {
+    const targets = await this.getTargets();
+    const modified = await Promise.all(
+      targets.map(target => this.deleteDependenciesByTarget(target, options)),
+    );
+    // sum up
+    return modified.reduce((a, b) => a + b, 0);
+  }
+
+  async deleteDependenciesByTarget(
+    { host, repository }: ReportTargetQuery,
+    options?: DeleteOptions,
+  ): Promise<number> {
+    const offset = getOffset(options);
+
+    const dependencies = this.client('dependencies')
+      .select('run_id', 'extractionTimestamp')
+      .distinct('host', 'repository')
+      .where('host', host)
+      .andWhere('repository', repository);
+
+    const toBeDeletedIDs = this.client(dependencies)
+      .select('run_id')
+      .orderBy('extractionTimestamp', 'DESC')
+      .offset(offset);
+
+    return this.client('dependencies')
+      .delete()
+      .whereIn('run_id', [toBeDeletedIDs]);
+  }
+}
+
+function getOffset(options?: DeleteOptions): number {
+  let offset = 0;
+  if (
+    is.nullOrUndefined(options?.keepLatest) ||
+    is.boolean(options?.keepLatest)
+  ) {
+    offset = options?.keepLatest ? 1 : 0;
+  } else {
+    offset = options.keepLatest;
+  }
+  return offset;
 }

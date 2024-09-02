@@ -2,7 +2,7 @@ import { MiddlewareFactory } from '@backstage/backend-defaults/rootHttpRouter';
 import express from 'express';
 import { createOpenApiRouter } from '../schema/openapi.generated';
 import { runRequestBody } from './schema';
-import type { RouterOptions } from './types';
+import { DependenciesFilter, RouterOptions } from './types';
 import {
   getTargetRepo,
   getTaskID,
@@ -78,6 +78,14 @@ export async function createRouter(
       { keepLatest: request.query.keepLatest },
     );
     response.status(200).json({ modified });
+  });
+
+  router.get('/dependencies', async (request, response) => {
+    const filter: DependenciesFilter = request.query;
+    const dependencies = await databaseHandler.getDependencies(filter);
+
+    // openapi gen expects an empty array
+    response.json(dependencies as []);
   });
 
   router.post('/runs', async (request, response) => {

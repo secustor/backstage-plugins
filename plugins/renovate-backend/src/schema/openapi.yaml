@@ -85,6 +85,81 @@ paths:
         200:
           $ref: '#/components/responses/deleted-successful'
 
+  /dependencies:
+    get:
+      summary: Get dependencies for host
+      parameters:
+        - name: datasource
+          in: query
+          description: filter by datasource
+          schema:
+            type: array
+            items:
+              example: npm,pypi
+              type: string
+        - name: depName
+          in: query
+          description: filter by dependency name
+          schema:
+            type: array
+            items:
+              example: pdm,react
+              type: string
+        - name: depType
+          in: query
+          description: filter by dependency type
+          schema:
+            type: array
+            items:
+              example: dev,prod
+              type: string
+        - name: host
+          in: query
+          schema:
+            type: array
+            example: github.com,gitlab.example.com
+            items:
+              type: string
+        - name: latestOnly
+          in: query
+          description: include only dependencies which have been found in the last extraction
+          schema:
+            type: boolean
+        - name: limit
+          in: query
+          description: limit the number of dependencies returned
+          schema:
+            type: number
+            default: 500
+        - name: manager
+          in: query
+          description: filter by manager
+          schema:
+            type: array
+            items:
+              example: npm,composer
+              type: string
+        - name: packageFile
+          in: query
+          description: filter by package file
+          schema:
+            type: array
+            items:
+              example: package.json,composer.json
+              type: string
+        - name: repository
+          in: query
+          schema:
+            type: array
+            example: myOrg/myRepository,myOrg/myOtherRepository
+            items:
+              type: string
+      responses:
+        200:
+          $ref: '#/components/responses/dependencies'
+        404:
+          description: unknown host
+
   /runs:
     post:
       summary: Start or get Renovate runs
@@ -133,6 +208,15 @@ components:
         type: number
 
   responses:
+    dependencies:
+      description: Returns dependencies
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/dependency'
+
     deleted-successful:
       description: Successful deleted
       content:
@@ -197,6 +281,7 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/repositoryReport'
+
     repositoryReport:
       description: report for a specific repository
       type: object
@@ -216,3 +301,54 @@ components:
           type: array
           items:
             type: object
+
+    dependency:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - runID
+        - host
+        - repository
+        - extractionTimestamp
+        - manager
+        - datasource
+        - packageFile
+        - depName
+      properties:
+        id:
+          type: string
+        runID:
+          type: string
+        host:
+          type: string
+        repository:
+          type: string
+        extractionTimestamp:
+          type: string
+          format: date-time
+        manager:
+          type: string
+        datasource:
+          type: string
+        packageFile:
+          type: string
+        depName:
+          type: string
+        packageName:
+          type: string
+        depType:
+          type: string
+        currentValue:
+          type: string
+        currentVersion:
+          type: string
+        currentVersionTimestamp:
+          type: string
+          format: date-time
+        skipReason:
+          type: string
+        registryUrl:
+          type: string
+        sourceUrl:
+          type: string
