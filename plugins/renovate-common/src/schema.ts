@@ -7,12 +7,20 @@ export const targetRepo = z.object({
 
 export const problem = z.any();
 
+export const NullishString = z
+  .string()
+  .optional()
+  .catch(ctx => {
+    if (ctx.input === null) return undefined;
+    throw ctx.error;
+  });
+
 export const update = z
   .object({
     updateType: z.string(),
-    newVersion: z.string().optional(),
-    lockedVersion: z.string().optional(),
-    newValue: z.string().nullish(),
+    newVersion: NullishString,
+    lockedVersion: NullishString,
+    newValue: NullishString,
     newMajor: z.number().nullish(),
     newMinor: z.number().nullish(),
     newPatch: z.number().nullish(),
@@ -22,21 +30,25 @@ export type Update = z.infer<typeof update>;
 
 export const dependency = z
   .object({
-    depName: z.string().nullish(),
-    datasource: z.string().nullish(),
-    depType: z.string().nullish(),
-    currentValue: z.string().nullish(),
-    skipReason: z.string().nullish(),
-    currentVersion: z.string().nullish(),
-    updates: z.array(update).nullish(),
-    registryUrls: z.array(z.string()).nullish(),
+    depName: z.string(),
+    datasource: NullishString,
+    packageName: NullishString,
+    depType: NullishString,
+    currentValue: NullishString,
+    skipReason: NullishString,
+    currentVersion: NullishString,
+    updates: z.array(update).optional(),
+    registryUrl: NullishString,
+    sourceUrl: NullishString,
+    currentVersionTimestamp: z.coerce.date().optional(),
   })
   .passthrough();
 
 export const packageFile = z
   .object({
     packageFile: z.string(),
-    packageFileVersion: z.string().nullish(),
+    packageFileVersion: NullishString,
+    datasource: NullishString,
     deps: z.array(dependency),
   })
   .passthrough();

@@ -13,10 +13,17 @@ export interface Config {
     cleanup: {
       /**
        * How many reports to keep in the database during cleanup tasks
-       * -1 translates to never delete reports during maintenance tasks
+       * -1 translates to never delete reports during maintenance
        * x > 0 number of reports to maintain
        */
       minimumReports: number;
+
+      /**
+       * How many dependency history entries to keep in the database during cleanup tasks
+       * -1 translates to never delete entries during maintenance
+       * x > 0 number of dependencies to maintain
+       */
+      dependencyHistory: number;
     };
 
     schedules: {

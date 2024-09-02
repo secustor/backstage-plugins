@@ -8,6 +8,9 @@ export async function scheduleCleanupTask(routerOptions: RouterOptions) {
   const reportsToKeep =
     pluginConfig.getOptionalNumber('cleanup.minimumReports') ?? -1;
 
+  const dependencyHistoryKeep =
+    pluginConfig.getOptionalNumber('cleanup.dependencyHistory') ?? -1;
+
   return scheduler.scheduleTask({
     id: `renovate_report_cleanup`,
     ...schedule,
@@ -18,6 +21,15 @@ export async function scheduleCleanupTask(routerOptions: RouterOptions) {
           keepLatest: reportsToKeep,
         });
         logger.debug(`Report cleanup completed. ${modified} reports deleted`);
+      }
+      if (dependencyHistoryKeep >= 0) {
+        logger.debug('Running dependency history cleanup');
+        const modified = await databaseHandler.deleteDependencies({
+          keepLatest: dependencyHistoryKeep,
+        });
+        logger.debug(
+          `Dependency history cleanup completed. ${modified} dependencies deleted`,
+        );
       }
     },
   });

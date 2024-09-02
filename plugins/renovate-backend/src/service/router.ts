@@ -2,7 +2,7 @@ import { MiddlewareFactory } from '@backstage/backend-defaults/rootHttpRouter';
 import express from 'express';
 import { createOpenApiRouter } from '../schema/openapi.generated';
 import { runRequestBody } from './schema';
-import type { RouterOptions } from './types';
+import { DependenciesFilter, RouterOptions } from './types';
 import {
   getTargetRepo,
   getTaskID,
@@ -13,6 +13,7 @@ import { RenovateRunner } from '../wrapper';
 import { CatalogClient } from '@backstage/catalog-client';
 import type { Entity } from '@backstage/catalog-model';
 import is from '@sindresorhus/is';
+import { getFileUrl } from '../wrapper/platforms';
 
 export async function createRouter(
   runner: RenovateRunner,
@@ -78,6 +79,21 @@ export async function createRouter(
       { keepLatest: request.query.keepLatest },
     );
     response.status(200).json({ modified });
+  });
+
+  router.get('/dependencies', async (request, response) => {
+    const filter: DependenciesFilter = request.query;
+    const dependencies = await databaseHandler.getDependencies(filter);
+
+    const massaged = dependencies.map(dep => {
+      return {
+        ...dep,
+        packageFileUrl: getFileUrl(dep),
+      };
+    });
+
+    // openapi gen expects an empty array
+    response.json(massaged as []);
   });
 
   router.post('/runs', async (request, response) => {
