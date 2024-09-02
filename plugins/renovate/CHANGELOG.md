@@ -1,5 +1,21 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.10.0
+
+### Minor Changes
+
+- [#343](https://github.com/secustor/backstage-plugins/pull/343) [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a) Thanks [@secustor](https://github.com/secustor)! - Add global dependency overview, dependency api endpoint and dependency database
+
+- [#343](https://github.com/secustor/backstage-plugins/pull/343) [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a) Thanks [@secustor](https://github.com/secustor)! - Hide RenovateStarter by default allow to enable via props
+
+### Patch Changes
+
+- [`9c39a80`](https://github.com/secustor/backstage-plugins/commit/9c39a802bca087a06f2d5fc1d308d40689ba9fb1) Thanks [@secustor](https://github.com/secustor)! - Add packageFileUrl to dependencies API and show resovled link
+
+- Updated dependencies [[`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a), [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a), [`9c39a80`](https://github.com/secustor/backstage-plugins/commit/9c39a802bca087a06f2d5fc1d308d40689ba9fb1)]:
+  - @secustor/backstage-plugin-renovate-client@0.7.0
+  - @secustor/backstage-plugin-renovate-common@0.6.0
+
 ## 0.9.2
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.6.0
+
+### Minor Changes
+
+- [#343](https://github.com/secustor/backstage-plugins/pull/343) [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a) Thanks [@secustor](https://github.com/secustor)! - Add global dependency overview, dependency api endpoint and dependency database
+
+### Patch Changes
+
+- [#343](https://github.com/secustor/backstage-plugins/pull/343) [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a) Thanks [@secustor](https://github.com/secustor)! - Hide RenovateStarter by default allow to enable via props
+
 ## 0.5.5
 
 ### Patch Changes

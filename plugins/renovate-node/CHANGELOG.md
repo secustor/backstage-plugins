@@ -1,5 +1,12 @@
 # @secustor/backstage-plugin-renovate-node
 
+## 0.3.6
+
+### Patch Changes
+
+- Updated dependencies [[`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a), [`c755655`](https://github.com/secustor/backstage-plugins/commit/c7556558e815f0c4fcf9671b8f919bee51b51e5a)]:
+  - @secustor/backstage-plugin-renovate-common@0.6.0
+
 ## 0.3.5
 
 ### Patch Changes
