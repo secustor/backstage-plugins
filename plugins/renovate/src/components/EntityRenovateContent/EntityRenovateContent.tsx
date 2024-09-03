@@ -122,7 +122,7 @@ function useData({
         const biggestUpdate = getBiggestUpdate(dependency.updates ?? []);
 
         const massagedDepName =
-          dependency.depName ?? dependency.registryUrls ?? '';
+          dependency.depName ?? dependency.registryUrl ?? '';
         data.push({
           id,
           depName: massagedDepName,
