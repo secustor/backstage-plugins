@@ -1,5 +1,16 @@
 # backend
 
+## 0.2.9
+
+### Patch Changes
+
+- Updated dependencies [[`bc22208`](https://github.com/secustor/backstage-plugins/commit/bc2220832518951e71969b1d2a81ba9e7e63552f)]:
+  - @secustor/backstage-plugin-renovate-backend@0.10.2
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.4.4
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@0.4.3
+  - @secustor/backstage-plugin-renovate-backend-module-queue-local@0.2.7
+  - @secustor/backstage-plugin-renovate-backend-module-queue-redis@0.2.7
+
 ## 0.2.8
 
 ### Patch Changes

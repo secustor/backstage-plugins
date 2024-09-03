@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.10.1
+
+### Patch Changes
+
+- [#347](https://github.com/secustor/backstage-plugins/pull/347) [`bc22208`](https://github.com/secustor/backstage-plugins/commit/bc2220832518951e71969b1d2a81ba9e7e63552f) Thanks [@secustor](https://github.com/secustor)! - Make skip entries which contain no packageName and not a depName
+
+- Updated dependencies [[`bc22208`](https://github.com/secustor/backstage-plugins/commit/bc2220832518951e71969b1d2a81ba9e7e63552f)]:
+  - @secustor/backstage-plugin-renovate-common@0.6.1
+  - @secustor/backstage-plugin-renovate-client@0.7.1
+
 ## 0.10.0
 
 ### Minor Changes
