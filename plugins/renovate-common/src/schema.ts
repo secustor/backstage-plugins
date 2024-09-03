@@ -30,7 +30,7 @@ export type Update = z.infer<typeof update>;
 
 export const dependency = z
   .object({
-    depName: z.string(),
+    depName: NullishString,
     datasource: NullishString,
     packageName: NullishString,
     depType: NullishString,

@@ -147,6 +147,13 @@ export class DatabaseHandler {
               sourceUrl,
               currentVersionTimestamp,
             } = dependency;
+
+            // TODO remove this once Renovate enforces packageName
+            const massagedDepName = depName ?? packageName;
+            if (!massagedDepName) {
+              continue;
+            }
+
             dependencies.push({
               run_id: runID,
               host: target.host,
@@ -155,7 +162,7 @@ export class DatabaseHandler {
               manager,
               datasource:
                 datasource ?? packageFile.datasource ?? 'no-datasource',
-              depName,
+              depName: massagedDepName,
               packageName,
               packageFile: packageFilePath,
               depType,
