@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.10.1
+
+### Patch Changes
+
+- [#345](https://github.com/secustor/backstage-plugins/pull/345) [`de5c67b`](https://github.com/secustor/backstage-plugins/commit/de5c67be3ce44c61e0d8bbf64adf9f3603ca35b0) Thanks [@secustor](https://github.com/secustor)! - Fix index creation for new dependency table
+
 ## 0.10.0
 
 ### Minor Changes
