@@ -1,5 +1,12 @@
 # @secustor/backstage-plugin-renovate-backend-module-queue-redis
 
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @secustor/backstage-plugin-renovate-node@0.3.7
+
 ## 0.2.6
 
 ### Patch Changes
