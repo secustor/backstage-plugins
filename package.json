@@ -77,5 +77,9 @@
     "*.{json,json5,md,yaml,yml}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "@mui/styles": "^6.0.2",
+    "@mui/x-data-grid": "^7.15.0"
   }
 }
