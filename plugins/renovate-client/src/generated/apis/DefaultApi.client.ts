@@ -9,7 +9,7 @@ import crossFetch from 'cross-fetch';
 import { pluginId } from '../pluginId';
 import * as parser from 'uri-template';
 
-import { Dependency } from '../models/Dependency.model';
+import { DependenciesGet200Response } from '../models/DependenciesGet200Response.model';
 import { ReportsDelete200Response } from '../models/ReportsDelete200Response.model';
 import { ReportsGet200ResponseInner } from '../models/ReportsGet200ResponseInner.model';
 import { RunsPost202Response } from '../models/RunsPost202Response.model';
@@ -50,6 +50,7 @@ export class DefaultApiClient {
 
   /**
    * Get dependencies for host
+   * @param availableValues if set to true, the response will include all available values for the filters
    * @param datasource filter by datasource
    * @param depName filter by dependency name
    * @param depType filter by dependency type
@@ -64,6 +65,7 @@ export class DefaultApiClient {
     // @ts-ignore
     request: {
       query: {
+        availableValues?: boolean;
         datasource?: Array<string>;
         depName?: Array<string>;
         depType?: Array<string>;
@@ -76,10 +78,10 @@ export class DefaultApiClient {
       };
     },
     options?: RequestOptions,
-  ): Promise<TypedResponse<Array<Dependency>>> {
+  ): Promise<TypedResponse<DependenciesGet200Response>> {
     const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
 
-    const uriTemplate = `/dependencies{?datasource*,depName*,depType*,host*,latestOnly,limit,manager*,packageFile*,repository*}`;
+    const uriTemplate = `/dependencies{?availableValues,datasource*,depName*,depType*,host*,latestOnly,limit,manager*,packageFile*,repository*}`;
 
     const uri = parser.parse(uriTemplate).expand({
       ...request.query,

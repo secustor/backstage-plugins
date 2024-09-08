@@ -10,7 +10,7 @@ export const spec = {
   info: {
     title: 'renovate',
     description: 'Backstage Renovate API',
-    version: '0.1.0',
+    version: '0.2.0',
   },
   servers: [
     {
@@ -147,6 +147,15 @@ export const spec = {
       get: {
         summary: 'Get dependencies for host',
         parameters: [
+          {
+            name: 'availableValues',
+            in: 'query',
+            description:
+              'if set to true, the response will include all available values for the filters',
+            schema: {
+              type: 'boolean',
+            },
+          },
           {
             name: 'datasource',
             in: 'query',
@@ -332,9 +341,64 @@ export const spec = {
         content: {
           'application/json': {
             schema: {
-              type: 'array',
-              items: {
-                $ref: '#/components/schemas/dependency',
+              type: 'object',
+              required: ['dependencies'],
+              properties: {
+                dependencies: {
+                  type: 'array',
+                  items: {
+                    $ref: '#/components/schemas/dependency',
+                  },
+                },
+                availableValues: {
+                  type: 'object',
+                  description:
+                    'Will only be part of the response if `availableValues` is true. Returns all available values for the applied filters\n',
+                  properties: {
+                    datasource: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    depName: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    depType: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    host: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    manager: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    packageFile: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    repository: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                  },
+                },
               },
             },
           },

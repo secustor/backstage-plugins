@@ -9,6 +9,10 @@ import {
   DeleteOptions,
   DependenciesFilter,
   DependencyRow,
+  DependencyValueFilters,
+  DependencyValueFiltersKey,
+  DependencyValueFiltersKeys,
+  DependencyValues,
   ReportQueryParameters,
   ReportsRow,
   ReportTargetQuery,
@@ -222,6 +226,67 @@ export class DatabaseHandler {
     }
 
     return builder.limit(filters.limit ?? 500);
+  }
+
+  /**
+   * Gets the available values for the dependencies stored in the database.
+   * If filters are supplied, OTHER values are filtered accordingly, if a filter is supplied, all values are returned
+   * @param filters
+   */
+  async getDependenciesValues(
+    filters?: DependencyValueFilters,
+  ): Promise<DependencyValues> {
+    const baseBuilder = this.client<DependencyRow, DependencyValueFilters>(
+      'dependencies',
+    );
+    const limitedValuesBuilder = baseBuilder.clone();
+
+    const allValuesKeys: DependencyValueFiltersKey[] = [];
+    const limitedValuesKeys: DependencyValueFiltersKey[] = [];
+    for (const filterKey of DependencyValueFiltersKeys) {
+      const suppliedFilter = filters?.[filterKey];
+      // if no filter is supplied, return all values
+      if (suppliedFilter) {
+        limitedValuesBuilder.whereIn(filterKey, suppliedFilter);
+        limitedValuesKeys.push(filterKey);
+        continue;
+      }
+
+      allValuesKeys.push(filterKey);
+    }
+
+    const result: DependencyValues = {
+      datasource: [],
+      manager: [],
+      depType: [],
+      depName: [],
+      host: [],
+      packageFile: [],
+      repository: [],
+    };
+
+    const allValues = allValuesKeys.map(
+      async (filterKey: DependencyValueFiltersKey) => {
+        // get all unique values for the column and do not return as object but list
+        const values = await limitedValuesBuilder
+          .clone()
+          .select(filterKey)
+          .distinct()
+          .pluck(filterKey);
+        result[filterKey] = values.filter(is.string);
+      },
+    );
+    const limitedValues = limitedValuesKeys.map(async filterKey => {
+      const values = await baseBuilder
+        .clone()
+        .select(filterKey)
+        .distinct()
+        .pluck(filterKey);
+
+      result[filterKey] = values.filter(is.string);
+    });
+    await Promise.all([...allValues, ...limitedValues]);
+    return result;
   }
 
   async deleteDependencies(options: DeleteOptions): Promise<number> {

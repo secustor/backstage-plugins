@@ -91,14 +91,26 @@ export interface AddReportParameters {
   logger?: LoggerService;
 }
 
-export interface DependenciesFilter {
-  datasource?: string[];
-  depName?: string[];
-  depType?: string[];
-  host?: string[];
+export interface DependenciesFilter extends DependencyValueFilters {
   latestOnly?: boolean;
   limit?: number;
-  manager?: string[];
-  packageFile?: string[];
-  repository?: string[];
 }
+
+export const DependencyValueFiltersKeys = [
+  'datasource',
+  'depName',
+  'depType',
+  'host',
+  'manager',
+  'packageFile',
+  'repository',
+] as const;
+export type DependencyValueFiltersKey =
+  (typeof DependencyValueFiltersKeys)[number];
+
+export type DependencyValueFilters = Record<
+  DependencyValueFiltersKey,
+  string[]
+>;
+
+export type DependencyValues = Record<DependencyValueFiltersKey, string[]>;

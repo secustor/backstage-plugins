@@ -88,12 +88,24 @@ export async function createRouter(
     const massaged = dependencies.map(dep => {
       return {
         ...dep,
-        packageFileUrl: getFileUrl(dep),
+        id: dep.id!,
+        runID: dep.run_id,
+        extractionTimestamp: dep.extractionTimestamp?.toISOString(),
+        currentVersionTimestamp: dep.currentVersionTimestamp?.toISOString(),
+        packageFileUrl: getFileUrl(dep) ?? undefined,
       };
     });
 
+    let availableValues: Record<string, string[]> | undefined;
+    if (request.query.availableValues) {
+      availableValues = await databaseHandler.getDependenciesValues(filter);
+    }
+
     // openapi gen expects an empty array
-    response.json(massaged as []);
+    response.json({
+      dependencies: massaged,
+      availableValues,
+    });
   });
 
   router.post('/runs', async (request, response) => {

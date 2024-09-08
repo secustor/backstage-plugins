@@ -78,7 +78,7 @@ export function DependencyTable(props: DependencyTableProps): ReactElement {
     <Table<Dependency>
       filters={filters}
       columns={columns}
-      data={value ?? []}
+      data={value?.dependencies ?? []}
       isLoading={loading}
       onStateChange={onStateChange}
       options={{
