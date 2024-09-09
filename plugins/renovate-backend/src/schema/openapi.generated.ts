@@ -148,6 +148,23 @@ export const spec = {
         summary: 'Get dependencies for host',
         parameters: [
           {
+            name: 'pageSize',
+            in: 'query',
+            description: 'size of the page',
+            schema: {
+              type: 'number',
+              default: 100,
+            },
+          },
+          {
+            name: 'page',
+            in: 'query',
+            description: 'page number. starting with 0',
+            schema: {
+              type: 'number',
+            },
+          },
+          {
             name: 'availableValues',
             in: 'query',
             description:
@@ -210,15 +227,6 @@ export const spec = {
               'include only dependencies which have been found in the last extraction',
             schema: {
               type: 'boolean',
-            },
-          },
-          {
-            name: 'limit',
-            in: 'query',
-            description: 'limit the number of dependencies returned',
-            schema: {
-              type: 'number',
-              default: 500,
             },
           },
           {
@@ -343,6 +351,24 @@ export const spec = {
             schema: {
               type: 'integer',
               description: 'Total number of entries',
+            },
+          },
+          'X-Page-Count': {
+            schema: {
+              type: 'integer',
+              description: 'Total number of pages',
+            },
+          },
+          'X-Page': {
+            schema: {
+              type: 'integer',
+              description: 'Current page',
+            },
+          },
+          'X-Page-Size': {
+            schema: {
+              type: 'integer',
+              description: 'Number of entries per page',
             },
           },
         },

@@ -93,7 +93,6 @@ export interface AddReportParameters {
 
 export interface DependenciesFilter extends DependencyValueFilters {
   latestOnly?: boolean;
-  limit?: number;
 }
 
 export const DependencyValueFiltersKeys = [
@@ -114,3 +113,16 @@ export type DependencyValueFilters = Record<
 >;
 
 export type DependencyValues = Record<DependencyValueFiltersKey, string[]>;
+
+export interface PaginationOptions {
+  page: number;
+  pageSize: number;
+}
+
+export interface Pagination<T> {
+  result: T;
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
+}

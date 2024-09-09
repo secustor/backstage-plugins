@@ -50,13 +50,14 @@ export class DefaultApiClient {
 
   /**
    * Get dependencies for host
+   * @param pageSize size of the page
+   * @param page page number. starting with 0
    * @param availableValues if set to true, the response will include all available values for the filters
    * @param datasource filter by datasource
    * @param depName filter by dependency name
    * @param depType filter by dependency type
    * @param host
    * @param latestOnly include only dependencies which have been found in the last extraction
-   * @param limit limit the number of dependencies returned
    * @param manager filter by manager
    * @param packageFile filter by package file
    * @param repository
@@ -65,13 +66,14 @@ export class DefaultApiClient {
     // @ts-ignore
     request: {
       query: {
+        pageSize?: number;
+        page?: number;
         availableValues?: boolean;
         datasource?: Array<string>;
         depName?: Array<string>;
         depType?: Array<string>;
         host?: Array<string>;
         latestOnly?: boolean;
-        limit?: number;
         manager?: Array<string>;
         packageFile?: Array<string>;
         repository?: Array<string>;
@@ -81,7 +83,7 @@ export class DefaultApiClient {
   ): Promise<TypedResponse<DependenciesGet200Response>> {
     const baseUrl = await this.discoveryApi.getBaseUrl(pluginId);
 
-    const uriTemplate = `/dependencies{?availableValues,datasource*,depName*,depType*,host*,latestOnly,limit,manager*,packageFile*,repository*}`;
+    const uriTemplate = `/dependencies{?pageSize,page,availableValues,datasource*,depName*,depType*,host*,latestOnly,manager*,packageFile*,repository*}`;
 
     const uri = parser.parse(uriTemplate).expand({
       ...request.query,

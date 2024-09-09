@@ -2,7 +2,7 @@ import { MiddlewareFactory } from '@backstage/backend-defaults/rootHttpRouter';
 import express from 'express';
 import { createOpenApiRouter } from '../schema/openapi.generated';
 import { runRequestBody } from './schema';
-import { DependenciesFilter, RouterOptions } from './types';
+import { RouterOptions } from './types';
 import {
   getTargetRepo,
   getTaskID,
@@ -82,11 +82,13 @@ export async function createRouter(
   });
 
   router.get('/dependencies', async (request, response) => {
-    const filter: DependenciesFilter = request.query;
-    const dependencies = await databaseHandler.getDependencies(filter);
-    const dependencyCountPromise = databaseHandler.getDependenciesCount(filter);
+    const filter = request.query;
+    const { result, total, pageCount } = await databaseHandler.getDependencies(
+      filter,
+      filter,
+    );
 
-    const massaged = dependencies.map(dep => {
+    const massaged = result.map(dep => {
       return {
         ...dep,
         id: dep.id!,
@@ -102,10 +104,10 @@ export async function createRouter(
       availableValues = await databaseHandler.getDependenciesValues(filter);
     }
 
-    const count = await dependencyCountPromise;
-    if (count) {
-      response.setHeader('X-Total-Count', count.toString());
-    }
+    response.setHeader('X-Total-Count', total);
+    response.setHeader('X-Page-Count', pageCount);
+    response.setHeader('X-Page', filter.page);
+    response.setHeader('X-Page-Size', filter.pageSize);
     // openapi gen expects an empty array
     response.json({
       dependencies: massaged,

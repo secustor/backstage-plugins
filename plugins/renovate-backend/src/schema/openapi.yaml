@@ -89,11 +89,27 @@ paths:
     get:
       summary: Get dependencies for host
       parameters:
+        # pagination
+        - name: pageSize
+          in: query
+          description: size of the page
+          schema:
+            type: number
+            default: 100
+        - name: page
+          in: query
+          description: page number. starting with 0
+          schema:
+            type: number
+
+        # optional data requests
         - name: availableValues
           in: query
           description: if set to true, the response will include all available values for the filters
           schema:
             type: boolean
+
+        # filters
         - name: datasource
           in: query
           description: filter by datasource
@@ -130,12 +146,6 @@ paths:
           description: include only dependencies which have been found in the last extraction
           schema:
             type: boolean
-        - name: limit
-          in: query
-          description: limit the number of dependencies returned
-          schema:
-            type: number
-            default: 500
         - name: manager
           in: query
           description: filter by manager
@@ -220,6 +230,18 @@ components:
           schema:
             type: integer
             description: Total number of entries
+        X-Page-Count:
+          schema:
+            type: integer
+            description: Total number of pages
+        X-Current-Page:
+          schema:
+            type: integer
+            description: Current page
+        X-Page-Size:
+          schema:
+            type: integer
+            description: Number of entries per page
       content:
         application/json:
           schema:

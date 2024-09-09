@@ -31,8 +31,10 @@ export function DependencyTable(props: DependencyTableProps): ReactElement {
   const alertAPI = useApi(alertApiRef);
 
   const columns = props.columns ?? defaultColumns;
+  const initialPageSize = props.options?.pageSize ?? 10;
+  const pageSizeOptions = props.options?.pageSizeOptions ?? [10, 20, 50];
 
-  // create filters from columns and  filter out filters which are not possible or enabled
+  // create filters from columns and filter out filters which are not possible or enabled
   const filters = columns
     .map(dependencyColumnToFilter)
     .filter(value => value !== null);
@@ -40,6 +42,9 @@ export function DependencyTable(props: DependencyTableProps): ReactElement {
   const [state, setState] = useState<
     { [key: string]: string | string[] } | undefined
   >();
+
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(initialPageSize);
 
   const { value, loading, error } = useAsync(async () => {
     // create query parameters from defined filters and columns
@@ -57,11 +62,23 @@ export function DependencyTable(props: DependencyTableProps): ReactElement {
     const response = await renovateAPI.dependenciesGet({
       query: {
         latestOnly: true,
+        pageSize,
+        page,
         ...queryParameters,
       },
     });
-    return await response.json();
-  }, [state]);
+    const { dependencies, availableValues } = await response.json();
+
+    const totalCountHeader = response.headers.get('X-Total-Count');
+    const totalCount = totalCountHeader
+      ? Number.parseInt(totalCountHeader, 10)
+      : dependencies.length;
+    return {
+      dependencies,
+      availableValues,
+      totalCount,
+    };
+  }, [state, page, pageSize]);
 
   if (error) {
     alertAPI.post({
@@ -74,16 +91,24 @@ export function DependencyTable(props: DependencyTableProps): ReactElement {
     setState(tableState.filters);
   };
 
+  const totalCount = value?.totalCount ?? 0;
+
   return (
     <Table<Dependency>
       filters={filters}
       columns={columns}
       data={value?.dependencies ?? []}
       isLoading={loading}
+      totalCount={totalCount}
       onStateChange={onStateChange}
+      onPageChange={(newPage, newPageSize) => {
+        setPage(newPage);
+        setPageSize(newPageSize);
+      }}
+      onRowsPerPageChange={newPageSize => setPageSize(newPageSize)}
       options={{
-        pageSize: 5,
-        pageSizeOptions: [5, 20, 25, 50],
+        pageSize,
+        pageSizeOptions,
         ...props.options,
       }}
     />

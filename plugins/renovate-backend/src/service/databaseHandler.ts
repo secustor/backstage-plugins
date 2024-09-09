@@ -13,6 +13,8 @@ import {
   DependencyValueFiltersKey,
   DependencyValueFiltersKeys,
   DependencyValues,
+  Pagination,
+  PaginationOptions,
   ReportQueryParameters,
   ReportsRow,
   ReportTargetQuery,
@@ -184,22 +186,36 @@ export class DatabaseHandler {
     await this.client('dependencies').insert(dependencies);
   }
 
-  async getDependencies(filters: DependenciesFilter): Promise<DependencyRow[]> {
+  async getDependencies(
+    filters: DependenciesFilter,
+    pagination: PaginationOptions = { pageSize: 500, page: 0 },
+  ): Promise<Pagination<DependencyRow[]>> {
     const builder = this.client('dependencies').select<DependencyRow[]>();
 
     this.applyDependencyFilters(builder, filters);
 
-    return builder.limit(filters.limit ?? 500);
+    const total = await this.getDependenciesCount(filters);
+
+    const offset = pagination.page * pagination.pageSize;
+    return {
+      result: await builder.offset(offset).limit(pagination.pageSize),
+      total,
+      page: pagination.page,
+      pageSize: pagination.pageSize,
+      pageCount: Math.ceil(total / pagination.pageSize),
+    };
   }
 
-  async getDependenciesCount(
-    filters: DependenciesFilter,
-  ): Promise<number | string | undefined> {
+  async getDependenciesCount(filters: DependenciesFilter): Promise<number> {
     const builder = this.client('dependencies').count({ count: '*' });
 
     this.applyDependencyFilters(builder, filters);
 
-    return builder.first().then(result => result?.count);
+    const count = await builder.first().then(result => result?.count);
+    if (is.string(count)) {
+      return Number.parseInt(count, 10);
+    }
+    return count ?? 0;
   }
 
   private applyDependencyFilters(
