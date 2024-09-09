@@ -187,6 +187,25 @@ export class DatabaseHandler {
   async getDependencies(filters: DependenciesFilter): Promise<DependencyRow[]> {
     const builder = this.client('dependencies').select<DependencyRow[]>();
 
+    this.applyDependencyFilters(builder, filters);
+
+    return builder.limit(filters.limit ?? 500);
+  }
+
+  async getDependenciesCount(
+    filters: DependenciesFilter,
+  ): Promise<number | string | undefined> {
+    const builder = this.client('dependencies').count({ count: '*' });
+
+    this.applyDependencyFilters(builder, filters);
+
+    return builder.first().then(result => result?.count);
+  }
+
+  private applyDependencyFilters(
+    builder: Knex.QueryBuilder,
+    filters: DependenciesFilter,
+  ): void {
     if (filters.host) {
       builder.whereIn('host', filters.host);
     }
@@ -224,8 +243,6 @@ export class DatabaseHandler {
 
       builder.whereIn('run_id', runIDs);
     }
-
-    return builder.limit(filters.limit ?? 500);
   }
 
   /**

@@ -338,6 +338,14 @@ export const spec = {
     responses: {
       dependencies: {
         description: 'Returns dependencies',
+        headers: {
+          'X-Total-Count': {
+            schema: {
+              type: 'integer',
+              description: 'Total number of entries',
+            },
+          },
+        },
         content: {
           'application/json': {
             schema: {

@@ -84,6 +84,7 @@ export async function createRouter(
   router.get('/dependencies', async (request, response) => {
     const filter: DependenciesFilter = request.query;
     const dependencies = await databaseHandler.getDependencies(filter);
+    const dependencyCountPromise = databaseHandler.getDependenciesCount(filter);
 
     const massaged = dependencies.map(dep => {
       return {
@@ -101,6 +102,10 @@ export async function createRouter(
       availableValues = await databaseHandler.getDependenciesValues(filter);
     }
 
+    const count = await dependencyCountPromise;
+    if (count) {
+      response.setHeader('X-Total-Count', count.toString());
+    }
     // openapi gen expects an empty array
     response.json({
       dependencies: massaged,
