@@ -188,21 +188,23 @@ export class DatabaseHandler {
 
   async getDependencies(
     filters: DependenciesFilter,
-    pagination: PaginationOptions = { pageSize: 500, page: 0 },
+    pagination?: PaginationOptions,
   ): Promise<Pagination<DependencyRow[]>> {
+    const page = pagination?.page ?? 0;
+    const pageSize = pagination?.pageSize ?? 500;
     const builder = this.client('dependencies').select<DependencyRow[]>();
 
     this.applyDependencyFilters(builder, filters);
 
     const total = await this.getDependenciesCount(filters);
 
-    const offset = pagination.page * pagination.pageSize;
+    const offset = page * pageSize;
     return {
-      result: await builder.offset(offset).limit(pagination.pageSize),
+      result: await builder.offset(offset).limit(pageSize),
       total,
-      page: pagination.page,
-      pageSize: pagination.pageSize,
-      pageCount: Math.ceil(total / pagination.pageSize),
+      page,
+      pageSize,
+      pageCount: Math.ceil(total / pageSize),
     };
   }
 

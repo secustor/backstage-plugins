@@ -83,10 +83,8 @@ export async function createRouter(
 
   router.get('/dependencies', async (request, response) => {
     const filter = request.query;
-    const { result, total, pageCount } = await databaseHandler.getDependencies(
-      filter,
-      filter,
-    );
+    const { result, total, pageCount, page, pageSize } =
+      await databaseHandler.getDependencies(filter, filter);
 
     const massaged = result.map(dep => {
       return {
@@ -106,8 +104,8 @@ export async function createRouter(
 
     response.setHeader('X-Total-Count', total);
     response.setHeader('X-Page-Count', pageCount);
-    response.setHeader('X-Page', filter.page);
-    response.setHeader('X-Page-Size', filter.pageSize);
+    response.setHeader('X-Page', page);
+    response.setHeader('X-Page-Size', pageSize);
     // openapi gen expects an empty array
     response.json({
       dependencies: massaged,
