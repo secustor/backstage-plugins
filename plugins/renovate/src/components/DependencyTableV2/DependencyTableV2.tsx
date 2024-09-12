@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo, useState } from 'react';
+import React, { ReactElement, useMemo } from 'react';
 import useAsync from 'react-use/lib/useAsync';
 import { alertApiRef, useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';
@@ -10,6 +10,7 @@ import { makeStyles } from '@mui/styles';
 import { CustomToolbar } from './CustomToolbar';
 import { FilterableColumnDef } from './types';
 import { DependenciesGet200ResponseAvailableValues } from '@secustor/backstage-plugin-renovate-client';
+import { useQueryParamState } from '@backstage/core-components';
 
 export interface DependencyTableV2Props {
   columns?: FilterableColumnDef[];
@@ -40,9 +41,8 @@ export function DependencyTableV2(props: DependencyTableV2Props): ReactElement {
     );
   }, [props.initialColumnVisibility]);
 
-  const [selectedFilters, setSelectedFilters] = useState<
-    Record<string, string[]>
-  >({});
+  const [selectedFilters, setSelectedFilters] =
+    useQueryParamState<Record<string, string[]>>('filters');
 
   const { value, loading, error } = useAsync(async () => {
     const response = await renovateAPI.dependenciesGet({
