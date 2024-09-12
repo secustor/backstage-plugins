@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Grid } from '@material-ui/core';
+import Grid from '@mui/material/Grid2';
 import {
   Header,
   Page,
@@ -30,15 +30,9 @@ export function RenovateDefaultOverview(
           <SupportButton>Renovate support</SupportButton>
         </ContentHeader>
         <Grid container spacing={3} direction="column">
-          <Grid item>
-            <DependencyTable />
-          </Grid>
-          {props?.showStarter && (
-            <Grid item>
-              <RenovateStarter />
-            </Grid>
-          )}
-          <Grid item>
+          <DependencyTable />
+          {props?.showStarter && <RenovateStarter />}
+          <Grid>
             <ReportFetchComponent />
           </Grid>
         </Grid>

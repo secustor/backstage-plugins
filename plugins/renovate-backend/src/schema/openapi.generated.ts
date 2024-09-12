@@ -10,7 +10,7 @@ export const spec = {
   info: {
     title: 'renovate',
     description: 'Backstage Renovate API',
-    version: '0.1.0',
+    version: '0.2.0',
   },
   servers: [
     {
@@ -148,6 +148,32 @@ export const spec = {
         summary: 'Get dependencies for host',
         parameters: [
           {
+            name: 'pageSize',
+            in: 'query',
+            description: 'size of the page',
+            schema: {
+              type: 'number',
+              default: 100,
+            },
+          },
+          {
+            name: 'page',
+            in: 'query',
+            description: 'page number. starting with 0',
+            schema: {
+              type: 'number',
+            },
+          },
+          {
+            name: 'availableValues',
+            in: 'query',
+            description:
+              'if set to true, the response will include all available values for the filters',
+            schema: {
+              type: 'boolean',
+            },
+          },
+          {
             name: 'datasource',
             in: 'query',
             description: 'filter by datasource',
@@ -201,15 +227,6 @@ export const spec = {
               'include only dependencies which have been found in the last extraction',
             schema: {
               type: 'boolean',
-            },
-          },
-          {
-            name: 'limit',
-            in: 'query',
-            description: 'limit the number of dependencies returned',
-            schema: {
-              type: 'number',
-              default: 500,
             },
           },
           {
@@ -329,12 +346,93 @@ export const spec = {
     responses: {
       dependencies: {
         description: 'Returns dependencies',
+        headers: {
+          'X-Total-Count': {
+            schema: {
+              type: 'integer',
+              description: 'Total number of entries',
+            },
+          },
+          'X-Page-Count': {
+            schema: {
+              type: 'integer',
+              description: 'Total number of pages',
+            },
+          },
+          'X-Page': {
+            schema: {
+              type: 'integer',
+              description: 'Current page',
+            },
+          },
+          'X-Page-Size': {
+            schema: {
+              type: 'integer',
+              description: 'Number of entries per page',
+            },
+          },
+        },
         content: {
           'application/json': {
             schema: {
-              type: 'array',
-              items: {
-                $ref: '#/components/schemas/dependency',
+              type: 'object',
+              required: ['dependencies'],
+              properties: {
+                dependencies: {
+                  type: 'array',
+                  items: {
+                    $ref: '#/components/schemas/dependency',
+                  },
+                },
+                availableValues: {
+                  type: 'object',
+                  description:
+                    'Will only be part of the response if `availableValues` is true. Returns all available values for the applied filters\n',
+                  properties: {
+                    datasource: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    depName: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    depType: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    host: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    manager: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    packageFile: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                    repository: {
+                      type: 'array',
+                      items: {
+                        type: 'string',
+                      },
+                    },
+                  },
+                },
               },
             },
           },

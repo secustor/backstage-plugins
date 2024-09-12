@@ -1,67 +1,63 @@
-import React, { ReactElement, useState } from 'react';
-import { alertApiRef, useApi } from '@backstage/core-plugin-api';
-import {
-  Table,
-  TableColumn,
-  TableFilter,
-  TableState,
-} from '@backstage/core-components';
-import { renovateApiRef } from '../../api';
+import React, { ReactElement, useMemo } from 'react';
 import useAsync from 'react-use/lib/useAsync';
+import { alertApiRef, useApi } from '@backstage/core-plugin-api';
+import { renovateApiRef } from '../../api';
 import { defaultColumns } from './defaultColumns';
-import { Dependency } from '@secustor/backstage-plugin-renovate-client';
-import { coerceFilter } from '../../tools';
+import { DataGrid } from '@mui/x-data-grid/DataGrid';
+import Box from '@mui/material/Box';
+import { makeStyles } from '@mui/styles';
+import { CustomToolbar } from './CustomToolbar';
+import type { DependencyTableV2Props, FilterableColumnDef } from './types';
+import type { DependenciesGet200ResponseAvailableValues } from '@secustor/backstage-plugin-renovate-client';
+import { useQueryParamState } from '@backstage/core-components';
 
-export interface DependencyTableProps {
-  columns?: DependencyTableColumn[];
-  options?: {
-    pageSize?: number;
-    pageSizeOptions?: number[];
-  };
-}
+const useTableStyles = makeStyles(
+  {
+    root: {
+      display: 'flex',
+      alignItems: 'start',
+    },
+  },
+  { name: 'BackstageTable' },
+);
 
-// only allow title to be a string and add showFilter
-export type DependencyTableColumn = Omit<TableColumn<Dependency>, 'title'> & {
-  title: string;
-  showFilter?: 'select' | 'multiple-select';
-};
-
-export function DependencyTable(props: DependencyTableProps): ReactElement {
+export function DependencyTable(props: DependencyTableV2Props): ReactElement {
   const renovateAPI = useApi(renovateApiRef);
   const alertAPI = useApi(alertApiRef);
 
-  const columns = props.columns ?? defaultColumns;
+  const tableClasses = useTableStyles();
 
-  // create filters from columns and  filter out filters which are not possible or enabled
-  const filters = columns
-    .map(dependencyColumnToFilter)
-    .filter(value => value !== null);
+  const initialColumnVisibility = useMemo(() => {
+    return (
+      props.initialColumnVisibility ?? {
+        id: true,
+      }
+    );
+  }, [props.initialColumnVisibility]);
 
-  const [state, setState] = useState<
-    { [key: string]: string | string[] } | undefined
-  >();
+  const [selectedFilters, setSelectedFilters] =
+    useQueryParamState<Record<string, string[]>>('filters');
 
   const { value, loading, error } = useAsync(async () => {
-    // create query parameters from defined filters and columns
-    const queryParameters: Record<string, string[] | undefined> = {};
-    for (const filter of filters) {
-      const fieldName = columns.find(
-        column => column.title === filter.column,
-      )?.field;
-      if (!fieldName) {
-        continue;
-      }
-      queryParameters[fieldName] = coerceFilter(state?.[filter.column]);
-    }
-
     const response = await renovateAPI.dependenciesGet({
       query: {
         latestOnly: true,
-        ...queryParameters,
+        availableValues: true,
+        ...selectedFilters,
       },
     });
-    return await response.json();
-  }, [state]);
+    const { dependencies, availableValues } = await response.json();
+
+    const totalCountHeader = response.headers.get('X-Total-Count');
+    const totalCount = totalCountHeader
+      ? Number.parseInt(totalCountHeader, 10)
+      : dependencies.length;
+    return {
+      dependencies,
+      availableValues,
+      totalCount,
+    };
+  }, [selectedFilters]);
 
   if (error) {
     alertAPI.post({
@@ -70,34 +66,55 @@ export function DependencyTable(props: DependencyTableProps): ReactElement {
     });
   }
 
-  const onStateChange = (tableState: TableState) => {
-    setState(tableState.filters);
-  };
+  const filterAbleColumns = useMemo(() => {
+    const columns = props.columns ?? defaultColumns;
+    const columnsWithOptions: FilterableColumnDef[] = columns.map(column => {
+      const availableValues = value?.availableValues;
+      if (!availableValues) {
+        return column;
+      }
+
+      const field = column.field;
+      if (field in availableValues) {
+        return {
+          ...column,
+          filterOptions:
+            availableValues[
+              field as keyof DependenciesGet200ResponseAvailableValues
+            ],
+        };
+      }
+      return column;
+    });
+
+    return columnsWithOptions;
+  }, [props.columns, value?.availableValues]);
 
   return (
-    <Table<Dependency>
-      filters={filters}
-      columns={columns}
-      data={value ?? []}
-      isLoading={loading}
-      onStateChange={onStateChange}
-      options={{
-        pageSize: 5,
-        pageSizeOptions: [5, 20, 25, 50],
-        ...props.options,
-      }}
-    />
+    <Box className={tableClasses.root}>
+      <DataGrid
+        disableColumnMenu
+        columns={filterAbleColumns}
+        rows={value?.dependencies ?? []}
+        loading={loading}
+        initialState={{
+          columns: {
+            columnVisibilityModel: {
+              ...initialColumnVisibility,
+            },
+          },
+        }}
+        slots={{
+          toolbar: CustomToolbar,
+        }}
+        slotProps={{
+          toolbar: {
+            filterAbleColumns,
+            selectedFilters,
+            onUpdateFilters: setSelectedFilters,
+          },
+        }}
+      />
+    </Box>
   );
-}
-
-export function dependencyColumnToFilter(
-  column: DependencyTableColumn,
-): TableFilter | null {
-  if (!column.field || !column.showFilter) {
-    return null;
-  }
-  return {
-    column: column.title,
-    type: column.showFilter,
-  };
 }

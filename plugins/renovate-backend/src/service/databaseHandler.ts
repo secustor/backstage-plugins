@@ -9,6 +9,12 @@ import {
   DeleteOptions,
   DependenciesFilter,
   DependencyRow,
+  DependencyValueFilters,
+  DependencyValueFiltersKey,
+  DependencyValueFiltersKeys,
+  DependencyValues,
+  Pagination,
+  PaginationOptions,
   ReportQueryParameters,
   ReportsRow,
   ReportTargetQuery,
@@ -180,9 +186,44 @@ export class DatabaseHandler {
     await this.client('dependencies').insert(dependencies);
   }
 
-  async getDependencies(filters: DependenciesFilter): Promise<DependencyRow[]> {
+  async getDependencies(
+    filters: DependenciesFilter,
+    pagination?: PaginationOptions,
+  ): Promise<Pagination<DependencyRow[]>> {
+    const page = pagination?.page ?? 0;
+    const pageSize = pagination?.pageSize ?? 500;
     const builder = this.client('dependencies').select<DependencyRow[]>();
 
+    this.applyDependencyFilters(builder, filters);
+
+    const total = await this.getDependenciesCount(filters);
+
+    const offset = page * pageSize;
+    return {
+      result: await builder.offset(offset).limit(pageSize),
+      total,
+      page,
+      pageSize,
+      pageCount: Math.ceil(total / pageSize),
+    };
+  }
+
+  async getDependenciesCount(filters: DependenciesFilter): Promise<number> {
+    const builder = this.client('dependencies').count({ count: '*' });
+
+    this.applyDependencyFilters(builder, filters);
+
+    const count = await builder.first().then(result => result?.count);
+    if (is.string(count)) {
+      return Number.parseInt(count, 10);
+    }
+    return count ?? 0;
+  }
+
+  private applyDependencyFilters(
+    builder: Knex.QueryBuilder,
+    filters: DependenciesFilter,
+  ): void {
     if (filters.host) {
       builder.whereIn('host', filters.host);
     }
@@ -197,6 +238,9 @@ export class DatabaseHandler {
     }
     if (filters.depName) {
       builder.whereIn('depName', filters.depName);
+    }
+    if (filters.depType) {
+      builder.whereIn('depType', filters.depType);
     }
 
     if (filters.latestOnly) {
@@ -220,8 +264,67 @@ export class DatabaseHandler {
 
       builder.whereIn('run_id', runIDs);
     }
+  }
 
-    return builder.limit(filters.limit ?? 500);
+  /**
+   * Gets the available values for the dependencies stored in the database.
+   * If filters are supplied, OTHER values are filtered accordingly, if a filter is supplied, all values are returned
+   * @param filters
+   */
+  async getDependenciesValues(
+    filters?: DependencyValueFilters,
+  ): Promise<DependencyValues> {
+    const baseBuilder = this.client<DependencyRow, DependencyValueFilters>(
+      'dependencies',
+    );
+    const limitedValuesBuilder = baseBuilder.clone();
+
+    const allValuesKeys: DependencyValueFiltersKey[] = [];
+    const limitedValuesKeys: DependencyValueFiltersKey[] = [];
+    for (const filterKey of DependencyValueFiltersKeys) {
+      const suppliedFilter = filters?.[filterKey];
+      // if no filter is supplied, return all values
+      if (suppliedFilter) {
+        limitedValuesBuilder.whereIn(filterKey, suppliedFilter);
+        limitedValuesKeys.push(filterKey);
+        continue;
+      }
+
+      allValuesKeys.push(filterKey);
+    }
+
+    const result: DependencyValues = {
+      datasource: [],
+      manager: [],
+      depType: [],
+      depName: [],
+      host: [],
+      packageFile: [],
+      repository: [],
+    };
+
+    const allValues = allValuesKeys.map(
+      async (filterKey: DependencyValueFiltersKey) => {
+        // get all unique values for the column and do not return as object but list
+        const values = await limitedValuesBuilder
+          .clone()
+          .select(filterKey)
+          .distinct()
+          .pluck(filterKey);
+        result[filterKey] = values.filter(is.string);
+      },
+    );
+    const limitedValues = limitedValuesKeys.map(async filterKey => {
+      const values = await baseBuilder
+        .clone()
+        .select(filterKey)
+        .distinct()
+        .pluck(filterKey);
+
+      result[filterKey] = values.filter(is.string);
+    });
+    await Promise.all([...allValues, ...limitedValues]);
+    return result;
   }
 
   async deleteDependencies(options: DeleteOptions): Promise<number> {
