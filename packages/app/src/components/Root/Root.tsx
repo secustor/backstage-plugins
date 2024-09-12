@@ -1,11 +1,13 @@
 import React, { PropsWithChildren } from 'react';
-import { makeStyles } from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
-import ExtensionIcon from '@material-ui/icons/Extension';
-import MapIcon from '@material-ui/icons/MyLocation';
-import LibraryBooks from '@material-ui/icons/LibraryBooks';
-import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
-import FormatPaintIcon from '@material-ui/icons/FormatPaint';
+import { makeStyles } from '@mui/styles';
+import HomeIcon from '@mui/icons-material/Home';
+import ExtensionIcon from '@mui/icons-material/Extension';
+import MapIcon from '@mui/icons-material/Map';
+import LibraryBooks from '@mui/icons-material/LibraryBooks';
+import CreateComponentIcon from '@mui/icons-material/Create';
+import FormatPaintIcon from '@mui/icons-material/FormatPaint';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import {
@@ -25,8 +27,7 @@ import {
   useSidebarOpenState,
   Link,
 } from '@backstage/core-components';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+import { IconComponent } from '@backstage/core-plugin-api';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -66,15 +67,39 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <SidebarDivider />
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
         {/* Global nav, not org-specific */}
-        <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
-        <SidebarItem icon={FormatPaintIcon} to="renovate" text="Renovate" />
-        <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
-        <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
-        <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
+        <SidebarItem
+          icon={HomeIcon as IconComponent}
+          to="catalog"
+          text="Home"
+        />
+        <SidebarItem
+          icon={FormatPaintIcon as IconComponent}
+          to="renovate"
+          text="Renovate"
+        />
+        <SidebarItem
+          icon={ExtensionIcon as IconComponent}
+          to="api-docs"
+          text="APIs"
+        />
+        <SidebarItem
+          icon={LibraryBooks as IconComponent}
+          to="docs"
+          text="Docs"
+        />
+        <SidebarItem
+          icon={CreateComponentIcon as IconComponent}
+          to="create"
+          text="Create..."
+        />
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>
-          <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+          <SidebarItem
+            icon={MapIcon as IconComponent}
+            to="tech-radar"
+            text="Tech Radar"
+          />
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarSpace />

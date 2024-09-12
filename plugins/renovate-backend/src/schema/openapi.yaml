@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: renovate
   description: Backstage Renovate API
-  version: 0.1.0
+  version: 0.2.0
 servers:
   - description: local test setup
     url: http://localhost:7007
@@ -89,6 +89,27 @@ paths:
     get:
       summary: Get dependencies for host
       parameters:
+        # pagination
+        - name: pageSize
+          in: query
+          description: size of the page
+          schema:
+            type: number
+            default: 100
+        - name: page
+          in: query
+          description: page number. starting with 0
+          schema:
+            type: number
+
+        # optional data requests
+        - name: availableValues
+          in: query
+          description: if set to true, the response will include all available values for the filters
+          schema:
+            type: boolean
+
+        # filters
         - name: datasource
           in: query
           description: filter by datasource
@@ -125,12 +146,6 @@ paths:
           description: include only dependencies which have been found in the last extraction
           schema:
             type: boolean
-        - name: limit
-          in: query
-          description: limit the number of dependencies returned
-          schema:
-            type: number
-            default: 500
         - name: manager
           in: query
           description: filter by manager
@@ -210,12 +225,68 @@ components:
   responses:
     dependencies:
       description: Returns dependencies
+      headers:
+        X-Total-Count:
+          schema:
+            type: integer
+            description: Total number of entries
+        X-Page-Count:
+          schema:
+            type: integer
+            description: Total number of pages
+        X-Current-Page:
+          schema:
+            type: integer
+            description: Current page
+        X-Page-Size:
+          schema:
+            type: integer
+            description: Number of entries per page
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/dependency'
+            type: object
+            required:
+              - dependencies
+            properties:
+              dependencies:
+                type: array
+                items:
+                  $ref: '#/components/schemas/dependency'
+              availableValues:
+                type: object
+                description: >
+                  Will only be part of the response if `availableValues` is true.
+                  Returns all available values for the applied filters
+                properties:
+                  datasource:
+                    type: array
+                    items:
+                      type: string
+                  depName:
+                    type: array
+                    items:
+                      type: string
+                  depType:
+                    type: array
+                    items:
+                      type: string
+                  host:
+                    type: array
+                    items:
+                      type: string
+                  manager:
+                    type: array
+                    items:
+                      type: string
+                  packageFile:
+                    type: array
+                    items:
+                      type: string
+                  repository:
+                    type: array
+                    items:
+                      type: string
 
     deleted-successful:
       description: Successful deleted

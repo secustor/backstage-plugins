@@ -1,74 +1,69 @@
-import React from 'react';
-import { DependencyTableColumn } from './DependencyTable';
 import { Link } from '@backstage/core-components';
+import React from 'react';
+import type { FilterableColumnDef } from './types';
 
-export const defaultColumns: DependencyTableColumn[] = [
+export const defaultColumns: FilterableColumnDef[] = [
   {
-    title: 'id',
-    hidden: true,
-    field: 'id',
-  },
-  {
-    title: 'Host',
-    width: 'auto',
+    headerName: 'Host',
     field: 'host',
-    showFilter: 'multiple-select',
+    flex: 0.5,
   },
   {
-    title: 'Repository',
-    width: 'auto',
+    headerName: 'Repository',
     field: 'repository',
-    showFilter: 'multiple-select',
+    flex: 1,
   },
   {
-    title: 'Name',
-    width: 'auto',
+    headerName: 'Name',
     field: 'depName',
-    showFilter: 'multiple-select',
-    render: rowData => {
-      if (rowData.sourceUrl) {
-        return <Link to={rowData.sourceUrl}>{rowData.depName}</Link>;
+    flex: 1,
+    renderCell: ({ row }) => {
+      const sourceUrl = row.sourceUrl;
+      const depName = row.depName;
+      if (sourceUrl) {
+        return <Link to={sourceUrl}>{depName}</Link>;
       }
-      return rowData.depName;
+      return depName;
     },
   },
   {
-    title: 'Manager',
-    width: 'auto',
+    headerName: 'Manager',
     field: 'manager',
-    showFilter: 'multiple-select',
+    flex: 1,
   },
   {
-    title: 'Type',
-    width: 'auto',
+    headerName: 'Datasource',
+    field: 'datasource',
+    flex: 1,
+  },
+  {
+    headerName: 'Type',
     field: 'depType',
-    showFilter: 'multiple-select',
+    flex: 1,
   },
   {
-    title: 'Package File',
-    width: 'auto',
-    showFilter: 'multiple-select',
-    render: rowData => {
-      if (rowData.packageFileUrl) {
-        return <Link to={rowData.packageFileUrl}>{rowData.packageFile}</Link>;
+    headerName: 'Package File',
+    field: 'packageFile',
+    flex: 1,
+    renderCell: ({ row }) => {
+      const packageFileUrl = row.packageFileUrl;
+      const packageFile = row.packageFile;
+      if (packageFileUrl) {
+        return <Link to={packageFileUrl}>{packageFile}</Link>;
       }
-      return rowData.packageFile;
+      return packageFile;
     },
   },
   {
-    title: 'Current Value',
-    width: 'auto',
+    headerName: 'Current Value',
     field: 'currentValue',
+    flex: 1,
+    isFilterable: false,
   },
   {
-    title: 'Current Version',
-    width: 'auto',
-    field: 'currentVersion',
-  },
-  {
-    title: 'skipReason',
-    width: 'auto',
+    headerName: 'Skip Reason',
     field: 'skipReason',
-    showFilter: 'multiple-select',
+    flex: 1,
+    isFilterable: false,
   },
 ];

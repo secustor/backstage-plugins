@@ -2,7 +2,7 @@ import { MiddlewareFactory } from '@backstage/backend-defaults/rootHttpRouter';
 import express from 'express';
 import { createOpenApiRouter } from '../schema/openapi.generated';
 import { runRequestBody } from './schema';
-import { DependenciesFilter, RouterOptions } from './types';
+import { RouterOptions } from './types';
 import {
   getTargetRepo,
   getTaskID,
@@ -82,18 +82,35 @@ export async function createRouter(
   });
 
   router.get('/dependencies', async (request, response) => {
-    const filter: DependenciesFilter = request.query;
-    const dependencies = await databaseHandler.getDependencies(filter);
+    const filter = request.query;
+    const { result, total, pageCount, page, pageSize } =
+      await databaseHandler.getDependencies(filter, filter);
 
-    const massaged = dependencies.map(dep => {
+    const massaged = result.map(dep => {
       return {
         ...dep,
-        packageFileUrl: getFileUrl(dep),
+        id: dep.id!,
+        runID: dep.run_id,
+        extractionTimestamp: dep.extractionTimestamp?.toISOString(),
+        currentVersionTimestamp: dep.currentVersionTimestamp?.toISOString(),
+        packageFileUrl: getFileUrl(dep) ?? undefined,
       };
     });
 
+    let availableValues: Record<string, string[]> | undefined;
+    if (request.query.availableValues) {
+      availableValues = await databaseHandler.getDependenciesValues(filter);
+    }
+
+    response.setHeader('X-Total-Count', total);
+    response.setHeader('X-Page-Count', pageCount);
+    response.setHeader('X-Page', page);
+    response.setHeader('X-Page-Size', pageSize);
     // openapi gen expects an empty array
-    response.json(massaged as []);
+    response.json({
+      dependencies: massaged,
+      availableValues,
+    });
   });
 
   router.post('/runs', async (request, response) => {

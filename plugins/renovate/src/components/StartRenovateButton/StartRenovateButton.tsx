@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Button, CardActions, CircularProgress } from '@material-ui/core';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardActions';
+import CircularProgress from '@mui/material/CircularProgress';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import is from '@sindresorhus/is';
 import { alertApiRef, useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';

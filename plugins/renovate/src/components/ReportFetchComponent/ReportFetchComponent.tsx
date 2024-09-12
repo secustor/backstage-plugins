@@ -5,8 +5,8 @@ import {
   Progress,
   ResponseErrorPanel,
 } from '@backstage/core-components';
-import NotesIcon from '@material-ui/icons/Notes';
-import RefreshIcon from '@material-ui/icons/Refresh';
+import NotesIcon from '@mui/icons-material/Notes';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import useAsync from 'react-use/lib/useAsync';
 import { alertApiRef, useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';
@@ -88,7 +88,7 @@ export const ReportTable = (options: DenseTableProps) => {
         data={data}
         actions={[
           {
-            icon: NotesIcon,
+            icon: () => <NotesIcon />,
             tooltip: 'Open raw report',
             onClick: (_event, rowData) => {
               const report = is.array(rowData)
@@ -99,7 +99,7 @@ export const ReportTable = (options: DenseTableProps) => {
           },
           rowData => {
             return {
-              icon: RefreshIcon,
+              icon: () => <RefreshIcon />,
               tooltip: 'Rescan',
               onClick: async _event => {
                 const target = getTargetRepoSafe(rowData);
