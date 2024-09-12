@@ -27,6 +27,7 @@ import {
   useSidebarOpenState,
   Link,
 } from '@backstage/core-components';
+import { IconComponent } from '@backstage/core-plugin-api';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -66,15 +67,39 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <SidebarDivider />
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
         {/* Global nav, not org-specific */}
-        <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
-        <SidebarItem icon={FormatPaintIcon} to="renovate" text="Renovate" />
-        <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
-        <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
-        <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
+        <SidebarItem
+          icon={HomeIcon as IconComponent}
+          to="catalog"
+          text="Home"
+        />
+        <SidebarItem
+          icon={FormatPaintIcon as IconComponent}
+          to="renovate"
+          text="Renovate"
+        />
+        <SidebarItem
+          icon={ExtensionIcon as IconComponent}
+          to="api-docs"
+          text="APIs"
+        />
+        <SidebarItem
+          icon={LibraryBooks as IconComponent}
+          to="docs"
+          text="Docs"
+        />
+        <SidebarItem
+          icon={CreateComponentIcon as IconComponent}
+          to="create"
+          text="Create..."
+        />
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>
-          <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+          <SidebarItem
+            icon={MapIcon as IconComponent}
+            to="tech-radar"
+            text="Tech Radar"
+          />
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarSpace />
