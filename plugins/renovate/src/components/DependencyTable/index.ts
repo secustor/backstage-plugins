@@ -1,1 +1,2 @@
-export { DependencyTable } from './DependencyTable';
+export * from './DependencyTable';
+export type * from './types';

@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Popover from '@mui/material/Popover';
 import { Filters } from './Filters';
-import { FilterableColumnDef } from './types';
+import type { FilterableColumnDef } from './types';
 
 export interface CustomToolBarProps extends GridToolbarProps {
   selectedFilters?: Record<string, string[]>;

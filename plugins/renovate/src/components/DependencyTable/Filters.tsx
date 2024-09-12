@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { FilterableColumnDef } from './types';
+import type { FilterableColumnDef } from './types';
 
 const useFilterStyles = makeStyles(
   _theme => ({
