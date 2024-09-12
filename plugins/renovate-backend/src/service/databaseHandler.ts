@@ -239,6 +239,9 @@ export class DatabaseHandler {
     if (filters.depName) {
       builder.whereIn('depName', filters.depName);
     }
+    if (filters.depType) {
+      builder.whereIn('depType', filters.depType);
+    }
 
     if (filters.latestOnly) {
       const runIDs = this.client('dependencies')
