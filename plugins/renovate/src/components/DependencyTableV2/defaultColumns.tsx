@@ -1,24 +1,22 @@
-import { Dependency } from '@secustor/backstage-plugin-renovate-client';
 import { Link } from '@backstage/core-components';
 import React from 'react';
-import { GridColDef } from '@mui/x-data-grid';
+import { FilterableColumnDef } from './types';
 
-export const defaultColumns: GridColDef<Dependency>[] = [
-  {
-    field: 'id',
-    headerName: 'ID',
-  },
+export const defaultColumns: FilterableColumnDef[] = [
   {
     headerName: 'Host',
     field: 'host',
+    flex: 0.5,
   },
   {
     headerName: 'Repository',
     field: 'repository',
+    flex: 1,
   },
   {
     headerName: 'Name',
     field: 'depName',
+    flex: 1,
     renderCell: ({ row }) => {
       const sourceUrl = row.sourceUrl;
       const depName = row.depName;
@@ -31,15 +29,22 @@ export const defaultColumns: GridColDef<Dependency>[] = [
   {
     headerName: 'Manager',
     field: 'manager',
+    flex: 1,
+  },
+  {
+    headerName: 'Datasource',
+    field: 'datasource',
+    flex: 1,
   },
   {
     headerName: 'Type',
     field: 'depType',
+    flex: 1,
   },
   {
     headerName: 'Package File',
     field: 'packageFile',
-
+    flex: 1,
     renderCell: ({ row }) => {
       const packageFileUrl = row.packageFileUrl;
       const packageFile = row.packageFile;
@@ -52,13 +57,13 @@ export const defaultColumns: GridColDef<Dependency>[] = [
   {
     headerName: 'Current Value',
     field: 'currentValue',
-  },
-  {
-    headerName: 'Current Version',
-    field: 'currentVersion',
+    flex: 1,
+    isFilterable: false,
   },
   {
     headerName: 'Skip Reason',
     field: 'skipReason',
+    flex: 1,
+    isFilterable: false,
   },
 ];
