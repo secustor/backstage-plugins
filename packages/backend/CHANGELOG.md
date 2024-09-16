@@ -1,5 +1,13 @@
 # backend
 
+## 0.2.10
+
+### Patch Changes
+
+- Updated dependencies [[`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`030fba8`](https://github.com/secustor/backstage-plugins/commit/030fba84098ef938e2ec632da0cfed1f62de3f56), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49)]:
+  - @secustor/backstage-plugin-renovate-backend@0.11.0
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.4.5
+
 ## 0.2.9
 
 ### Patch Changes
