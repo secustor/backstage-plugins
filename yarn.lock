@@ -7515,23 +7515,22 @@ __metadata:
   linkType: hard
 
 "@inquirer/core@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "@inquirer/core@npm:9.1.0"
+  version: 9.2.0
+  resolution: "@inquirer/core@npm:9.2.0"
   dependencies:
     "@inquirer/figures": "npm:^1.0.5"
-    "@inquirer/type": "npm:^1.5.3"
+    "@inquirer/type": "npm:^1.5.4"
     "@types/mute-stream": "npm:^0.0.4"
-    "@types/node": "npm:^22.5.2"
+    "@types/node": "npm:^22.5.5"
     "@types/wrap-ansi": "npm:^3.0.0"
     ansi-escapes: "npm:^4.3.2"
-    cli-spinners: "npm:^2.9.2"
     cli-width: "npm:^4.1.0"
     mute-stream: "npm:^1.0.0"
     signal-exit: "npm:^4.1.0"
     strip-ansi: "npm:^6.0.1"
     wrap-ansi: "npm:^6.2.0"
     yoctocolors-cjs: "npm:^2.1.2"
-  checksum: 10c0/c86cbd1980788dee4151002ed717b5664a79eec1d925e1b38896bbad079647af5c423eaaa39a2291ba4fdf78a33c541ea3f69cbbf030f03815eb523fa05230f8
+  checksum: 10c0/e7982a75a55b9d2dcc4f5902df00a7b967b4a8dd9eafd6c22568237c416a13389d5bfcd275abe8e2f8e32c0fe6dd827be2070ad61d20022cd9339fa05b241e8e
   languageName: node
   linkType: hard
 
@@ -7542,12 +7541,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@inquirer/type@npm:^1.5.3":
-  version: 1.5.3
-  resolution: "@inquirer/type@npm:1.5.3"
+"@inquirer/type@npm:^1.5.3, @inquirer/type@npm:^1.5.4":
+  version: 1.5.4
+  resolution: "@inquirer/type@npm:1.5.4"
   dependencies:
     mute-stream: "npm:^1.0.0"
-  checksum: 10c0/da92a7410efcb20cf12422558fb8e00136e2ff1746ae1d17ea05511e77139bf2044527d37a70e77f188f158099f7751ed808ca3f82769cbe99c1052509481e95
+  checksum: 10c0/a29a690c8639a6b6326d35b1be43535fcffdb2c73da4a58b47c62445625f0c2b2ab63305d31ca37ef754ff3bb96ee16f332291df6c0000a86faa8cda41493038
   languageName: node
   linkType: hard
 
@@ -14832,7 +14831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=13.7.0, @types/node@npm:^22.5.2":
+"@types/node@npm:*, @types/node@npm:>=13.7.0, @types/node@npm:^22.5.5":
   version: 22.5.5
   resolution: "@types/node@npm:22.5.5"
   dependencies:
@@ -18225,7 +18224,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-spinners@npm:^2.5.0, cli-spinners@npm:^2.9.2":
+"cli-spinners@npm:^2.5.0":
   version: 2.9.2
   resolution: "cli-spinners@npm:2.9.2"
   checksum: 10c0/907a1c227ddf0d7a101e7ab8b300affc742ead4b4ebe920a5bf1bc6d45dce2958fcd195eb28fa25275062fe6fa9b109b93b63bc8033396ed3bcb50297008b3a3
@@ -29144,8 +29143,8 @@ __metadata:
   linkType: hard
 
 "mysql2@npm:^3.0.0":
-  version: 3.11.2
-  resolution: "mysql2@npm:3.11.2"
+  version: 3.11.3
+  resolution: "mysql2@npm:3.11.3"
   dependencies:
     aws-ssl-profiles: "npm:^1.1.1"
     denque: "npm:^2.1.0"
@@ -29156,7 +29155,7 @@ __metadata:
     named-placeholders: "npm:^1.1.3"
     seq-queue: "npm:^0.0.5"
     sqlstring: "npm:^2.3.2"
-  checksum: 10c0/5d3def0a1719fd895a6b35e7e3ab05ff8b8244d12a83dcb523fb07d4c6d78c971defb6eefc2916e263bf7dd9e059e95270c31da743599e4b06a7c8661125f35a
+  checksum: 10c0/5d4d72a6ea0db8fab29403bd87b5efb244e756badb29a6078fa8fda11a097bbf0634ccad891d9f5decdce8efb98ac13b9bcbc9a3ddce8a232ee140aaacc2c479
   languageName: node
   linkType: hard
 
