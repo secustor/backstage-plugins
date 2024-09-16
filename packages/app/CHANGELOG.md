@@ -1,5 +1,18 @@
 # app
 
+## 0.3.0
+
+### Minor Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add DependencyTableV2 using MUI Datagrid
+
+### Patch Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Allow to filter for depTypes in dependencies API
+
+- Updated dependencies [[`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49)]:
+  - @secustor/backstage-plugin-renovate@0.11.0
+
 ## 0.2.1
 
 ### Patch Changes
