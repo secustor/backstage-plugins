@@ -30,13 +30,13 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/backend-plugin-api": "^0.8.1",
+    "@backstage/backend-plugin-api": "^1.0.0",
     "@secustor/backstage-plugin-renovate-node": "workspace:^",
     "fastq": "^1.17.1"
   },
   "devDependencies": {
-    "@backstage/backend-test-utils": "^0.5.1",
-    "@backstage/cli": "^0.27.0"
+    "@backstage/backend-test-utils": "^1.0.0",
+    "@backstage/cli": "^0.27.1"
   },
   "files": [
     "dist"
