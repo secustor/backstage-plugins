@@ -51,7 +51,7 @@
     "dist"
   ],
   "dependencies": {
-    "@backstage/backend-plugin-api": "^0.8.1",
+    "@backstage/backend-plugin-api": "^1.0.0",
     "@backstage/catalog-model": "^1.6.0",
     "@backstage/config": "^1.2.0",
     "@backstage/types": "^1.1.1",

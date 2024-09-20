@@ -48,7 +48,7 @@
     "dist"
   ],
   "dependencies": {
-    "@backstage/backend-plugin-api": "^0.8.1",
+    "@backstage/backend-plugin-api": "^1.0.0",
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
   }
 }
