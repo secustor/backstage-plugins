@@ -20,7 +20,7 @@
     "@backstage/catalog-model": "^1.6.0",
     "@backstage/cli": "^0.27.0",
     "@backstage/core-app-api": "^1.14.2",
-    "@backstage/core-components": "^0.14.10",
+    "@backstage/core-components": "^0.15.0",
     "@backstage/core-plugin-api": "^1.9.3",
     "@backstage/integration-react": "^1.1.30",
     "@backstage/plugin-api-docs": "^0.11.8",
@@ -53,7 +53,7 @@
     "react-use": "^17.2.4"
   },
   "devDependencies": {
-    "@backstage/test-utils": "1.5.10",
+    "@backstage/test-utils": "1.6.0",
     "@playwright/test": "1.47.1",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.5.0",
