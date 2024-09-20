@@ -7,9 +7,9 @@
   },
   "volta": {
     "node": "20.16.0",
-    "yarn": "4.4.1"
+    "yarn": "4.5.0"
   },
-  "packageManager": "yarn@4.4.1",
+  "packageManager": "yarn@4.5.0",
   "scripts": {
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
