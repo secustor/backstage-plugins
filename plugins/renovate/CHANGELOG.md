@@ -1,5 +1,19 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.11.1
+
+### Patch Changes
+
+- [#374](https://github.com/secustor/backstage-plugins/pull/374) [`69ef066`](https://github.com/secustor/backstage-plugins/commit/69ef066f14dd2be629e192c0c2d733e808ddd513) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @textea/json-viewer to v4
+
+- [#375](https://github.com/secustor/backstage-plugins/pull/375) [`5827163`](https://github.com/secustor/backstage-plugins/commit/582716384e91ac182a92ab37eacb51be2ad41677) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- [#370](https://github.com/secustor/backstage-plugins/pull/370) [`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to v1.31.1
+
+- Updated dependencies [[`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a)]:
+  - @secustor/backstage-plugin-renovate-client@0.8.1
+  - @secustor/backstage-plugin-renovate-common@0.6.2
+
 ## 0.11.0
 
 ### Minor Changes
