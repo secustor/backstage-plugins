@@ -60,7 +60,7 @@
     "@secustor/backstage-plugin-renovate-client": "workspace:^",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@sindresorhus/is": "^4.6.0",
-    "@textea/json-viewer": "^3.4.1",
+    "@textea/json-viewer": "^4.0.0",
     "git-url-parse": "^15.0.0",
     "react-use": "^17.2.4"
   },

@@ -12433,7 +12433,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.0.0"
     "@testing-library/react": "npm:^16.0.0"
     "@testing-library/user-event": "npm:^14.0.0"
-    "@textea/json-viewer": "npm:^3.4.1"
+    "@textea/json-viewer": "npm:^4.0.0"
     "@types/git-url-parse": "npm:^9.0.3"
     git-url-parse: "npm:^15.0.0"
     msw: "npm:^2.0.0"
@@ -14446,9 +14446,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@textea/json-viewer@npm:^3.4.1":
-  version: 3.5.0
-  resolution: "@textea/json-viewer@npm:3.5.0"
+"@textea/json-viewer@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@textea/json-viewer@npm:4.0.0"
   dependencies:
     clsx: "npm:^2.1.1"
     copy-to-clipboard: "npm:^3.3.3"
@@ -14456,10 +14456,10 @@ __metadata:
   peerDependencies:
     "@emotion/react": ^11
     "@emotion/styled": ^11
-    "@mui/material": ^5
+    "@mui/material": ^6
     react: ^17 || ^18
     react-dom: ^17 || ^18
-  checksum: 10c0/2950046f83d7615935c2d1c0a4b9004e69eeb06de57db2738420300707875d5560e793bc5ac4a836086f79657c608e04bf6d46adcb79d695347b10c2e41af557
+  checksum: 10c0/bf3d4574daac2ce43797ec863ab73b143129f4c4f83392a84480fd8ce2c6df8b8a908cc66de263092c40345479e3c202862060ddb93c8bab55d42cbf270d113e
   languageName: node
   linkType: hard
 
