@@ -1,7 +1,7 @@
 # renovate
 
 This plugin allows running [Renovate](https://github.com/renovatebot/renovate/) against repositories
-and extract reports from it.
+and extracts reports from it.
 
 Supported platforms:
 
@@ -9,6 +9,24 @@ Supported platforms:
 - Gitlab
 
 ## Getting started
+
+Install the plugin:
+
+```bash
+# Install packages from the root directory
+yarn --cwd packages/backend add @secustor/backstage-plugin-renovate-backend
+```
+
+Add the plugin to your Backstage instance:
+
+```ts
+// Add the following to `packages/backend/src/index.ts`
+backend.add(import('@secustor/backstage-plugin-renovate-backend'));
+```
+
+If you wish to install the frontend plugin, you can do so by following the instructions in the frontend plugin's [README](../renovate).
+
+## Configuration
 
 The configurations are derived from integrations.
 
