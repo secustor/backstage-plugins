@@ -14,6 +14,24 @@ Additional requirements:
 
 - Needs a configured redis cache for Backstage
 
+## Getting started
+
+Install the plugin:
+
+```bash
+# Install packages from the root directory
+yarn --cwd packages/backend add @secustor/backstage-plugin-renovate-backend-module-queue-redis
+```
+
+Add the plugin to your Backstage instance:
+
+```ts
+// Add the following to `packages/backend/src/index.ts`
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-queue-redis'),
+);
+```
+
 ```yaml
 backend:
   cache:
