@@ -24,6 +24,15 @@ Add the plugin to your Backstage instance:
 backend.add(import('@secustor/backstage-plugin-renovate-backend'));
 ```
 
+Further, you need to add a queue and a runtime implementation.
+
+See the respective plugins for more information:
+
+- [@secustor/backstage-plugin-renovate-backend-module-queue-local](https://www.npmjs.com/package/@secustor/backstage-plugin-renovate-backend-module-queue-local)
+- [@secustor/backstage-plugin-renovate-backend-module-queue-redis](https://www.npmjs.com/package/@secustor/backstage-plugin-renovate-backend-module-queue-redis)
+- [@secustor/backstage-plugin-renovate-backend-module-runtime-direct](https://www.npmjs.com/package/@secustor/backstage-plugin-renovate-backend-module-runtime-direct)
+- [@secustor/backstage-plugin-renovate-backend-module-runtime-docker](https://www.npmjs.com/package/@secustor/backstage-plugin-renovate-backend-module-runtime-docker)
+
 If you wish to install the frontend plugin, you can do so by following the instructions in the frontend plugin's [README](../renovate).
 
 ## Configuration
