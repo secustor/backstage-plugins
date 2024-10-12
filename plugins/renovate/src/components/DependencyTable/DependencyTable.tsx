@@ -10,6 +10,7 @@ import { CustomToolbar } from './CustomToolbar';
 import type { DependencyTableV2Props, FilterableColumnDef } from './types';
 import type { DependenciesGet200ResponseAvailableValues } from '@secustor/backstage-plugin-renovate-client';
 import { useQueryParamState } from '@backstage/core-components';
+import { GridColumnVisibilityModel } from '@mui/x-data-grid';
 
 const useTableStyles = makeStyles(
   {
@@ -33,14 +34,6 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
     page: 0,
     pageSize: 100,
   });
-
-  const initialColumnVisibility = useMemo(() => {
-    return (
-      props.initialColumnVisibility ?? {
-        id: true,
-      }
-    );
-  }, [props.initialColumnVisibility]);
 
   const [selectedFilters, setSelectedFilters] =
     useQueryParamState<Record<string, string[]>>('filters');
@@ -98,6 +91,14 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
     return columnsWithOptions;
   }, [props.columns, value?.availableValues]);
 
+  const columnVisibilityModel = useMemo(() => {
+    const model: GridColumnVisibilityModel = {};
+    for (const column of filterAbleColumns) {
+      model[column.field] = !column.isHiddenOnInit;
+    }
+    return model;
+  }, [filterAbleColumns]);
+
   return (
     <Box className={tableClasses.root}>
       <DataGrid
@@ -118,9 +119,7 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
         // init
         initialState={{
           columns: {
-            columnVisibilityModel: {
-              ...initialColumnVisibility,
-            },
+            columnVisibilityModel,
           },
         }}
         // sub component customization
