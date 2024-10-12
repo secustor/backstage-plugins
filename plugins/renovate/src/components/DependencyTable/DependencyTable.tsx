@@ -27,6 +27,11 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
 
   const tableClasses = useTableStyles();
 
+  const [paginationModel, setPaginationModel] = React.useState({
+    page: 0,
+    pageSize: 100,
+  });
+
   const initialColumnVisibility = useMemo(() => {
     return (
       props.initialColumnVisibility ?? {
@@ -43,6 +48,7 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
       query: {
         latestOnly: true,
         availableValues: true,
+        ...paginationModel,
         ...selectedFilters,
       },
     });
@@ -57,7 +63,7 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
       availableValues,
       totalCount,
     };
-  }, [selectedFilters]);
+  }, [paginationModel, selectedFilters]);
 
   if (error) {
     alertAPI.post({
@@ -93,10 +99,15 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
   return (
     <Box className={tableClasses.root}>
       <DataGrid
+        autoHeight
         disableColumnMenu
         columns={filterAbleColumns}
         rows={value?.dependencies ?? []}
+        rowCount={value?.totalCount}
         loading={loading}
+        paginationMode="server"
+        paginationModel={paginationModel}
+        onPaginationModelChange={model => setPaginationModel(model)}
         initialState={{
           columns: {
             columnVisibilityModel: {
@@ -111,7 +122,15 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
           toolbar: {
             filterAbleColumns,
             selectedFilters,
-            onUpdateFilters: setSelectedFilters,
+            onUpdateFilters: (filters: Record<string, string[]>) => {
+              setSelectedFilters(filters);
+
+              // Reset pagination when filters are updated
+              setPaginationModel({
+                page: 0,
+                pageSize: paginationModel.pageSize,
+              });
+            },
           },
         }}
       />
