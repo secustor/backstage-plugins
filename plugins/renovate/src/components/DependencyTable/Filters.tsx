@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import type { FilterableColumnDef } from './types';
@@ -58,11 +58,8 @@ export function Filters(props: Props) {
   const { selectedFilters } = props;
   const onChangeFilters = props.onChangeFilters || (() => {});
 
-  const [_reset, triggerReset] = useState(false);
-
-  // Trigger re-rendering
   const handleResetClick = () => {
-    triggerReset(el => !el);
+    onChangeFilters({});
   };
 
   // As material table doesn't provide a way to add a column filter tab we will make our own filter logic
