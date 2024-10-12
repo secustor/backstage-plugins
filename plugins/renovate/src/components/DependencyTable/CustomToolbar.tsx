@@ -9,9 +9,9 @@ import {
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Popover from '@mui/material/Popover';
 import { Filters } from './Filters';
 import type { FilterableColumnDef } from './types';
+import Dialog from '@mui/material/Dialog';
 
 export interface CustomToolBarProps extends GridToolbarProps {
   selectedFilters?: Record<string, string[]>;
@@ -37,17 +37,13 @@ export function CustomToolbar(props: CustomToolBarProps) {
         Filters
       </Button>
       {filters.length && (
-        <Popover
-          open={filterOpen}
-          onClose={() => toggleFilterOpen(false)}
-          anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
-        >
+        <Dialog open={filterOpen} onClose={() => toggleFilterOpen(false)}>
           <Filters
             filters={filters}
             selectedFilters={props.selectedFilters}
             onChangeFilters={props.onUpdateFilters}
           />
-        </Popover>
+        </Dialog>
       )}
 
       <GridToolbarColumnsButton />

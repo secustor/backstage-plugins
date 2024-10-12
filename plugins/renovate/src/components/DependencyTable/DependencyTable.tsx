@@ -10,15 +10,18 @@ import { CustomToolbar } from './CustomToolbar';
 import type { DependencyTableV2Props, FilterableColumnDef } from './types';
 import type { DependenciesGet200ResponseAvailableValues } from '@secustor/backstage-plugin-renovate-client';
 import { useQueryParamState } from '@backstage/core-components';
+import { GridColumnVisibilityModel } from '@mui/x-data-grid';
 
 const useTableStyles = makeStyles(
   {
     root: {
       display: 'flex',
-      alignItems: 'start',
+    },
+    grid: {
+      height: '80vh',
     },
   },
-  { name: 'BackstageTable' },
+  { name: 'DependencyTable' },
 );
 
 export function DependencyTable(props: DependencyTableV2Props): ReactElement {
@@ -27,13 +30,10 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
 
   const tableClasses = useTableStyles();
 
-  const initialColumnVisibility = useMemo(() => {
-    return (
-      props.initialColumnVisibility ?? {
-        id: true,
-      }
-    );
-  }, [props.initialColumnVisibility]);
+  const [paginationModel, setPaginationModel] = React.useState({
+    page: 0,
+    pageSize: 100,
+  });
 
   const [selectedFilters, setSelectedFilters] =
     useQueryParamState<Record<string, string[]>>('filters');
@@ -43,6 +43,7 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
       query: {
         latestOnly: true,
         availableValues: true,
+        ...paginationModel,
         ...selectedFilters,
       },
     });
@@ -57,7 +58,7 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
       availableValues,
       totalCount,
     };
-  }, [selectedFilters]);
+  }, [paginationModel, selectedFilters]);
 
   if (error) {
     alertAPI.post({
@@ -90,20 +91,38 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
     return columnsWithOptions;
   }, [props.columns, value?.availableValues]);
 
+  const columnVisibilityModel = useMemo(() => {
+    const model: GridColumnVisibilityModel = {};
+    for (const column of filterAbleColumns) {
+      model[column.field] = !column.isHiddenOnInit;
+    }
+    return model;
+  }, [filterAbleColumns]);
+
   return (
     <Box className={tableClasses.root}>
       <DataGrid
+        // theming
+        className={tableClasses.grid}
+        // columns
         disableColumnMenu
         columns={filterAbleColumns}
+        // rows
         rows={value?.dependencies ?? []}
+        rowCount={value?.totalCount}
         loading={loading}
+        // pagination
+        pageSizeOptions={[]} // do not show the page size selector
+        paginationMode="server"
+        paginationModel={paginationModel}
+        onPaginationModelChange={model => setPaginationModel(model)}
+        // init
         initialState={{
           columns: {
-            columnVisibilityModel: {
-              ...initialColumnVisibility,
-            },
+            columnVisibilityModel,
           },
         }}
+        // sub component customization
         slots={{
           toolbar: CustomToolbar,
         }}
@@ -111,7 +130,15 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
           toolbar: {
             filterAbleColumns,
             selectedFilters,
-            onUpdateFilters: setSelectedFilters,
+            onUpdateFilters: (filters: Record<string, string[]>) => {
+              setSelectedFilters(filters);
+
+              // Reset pagination when filters are updated
+              setPaginationModel({
+                page: 0,
+                pageSize: paginationModel.pageSize,
+              });
+            },
           },
         }}
       />
