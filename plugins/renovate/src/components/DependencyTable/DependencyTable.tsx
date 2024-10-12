@@ -15,10 +15,12 @@ const useTableStyles = makeStyles(
   {
     root: {
       display: 'flex',
-      alignItems: 'start',
+    },
+    grid: {
+      height: '80vh',
     },
   },
-  { name: 'BackstageTable' },
+  { name: 'DependencyTable' },
 );
 
 export function DependencyTable(props: DependencyTableV2Props): ReactElement {
@@ -99,15 +101,21 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
   return (
     <Box className={tableClasses.root}>
       <DataGrid
-        autoHeight
+        // theming
+        className={tableClasses.grid}
+        // columns
         disableColumnMenu
         columns={filterAbleColumns}
+        // rows
         rows={value?.dependencies ?? []}
         rowCount={value?.totalCount}
         loading={loading}
+        // pagination
+        pageSizeOptions={[]} // do not show the page size selector
         paginationMode="server"
         paginationModel={paginationModel}
         onPaginationModelChange={model => setPaginationModel(model)}
+        // init
         initialState={{
           columns: {
             columnVisibilityModel: {
@@ -115,6 +123,7 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
             },
           },
         }}
+        // sub component customization
         slots={{
           toolbar: CustomToolbar,
         }}
