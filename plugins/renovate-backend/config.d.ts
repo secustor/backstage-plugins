@@ -1,5 +1,5 @@
-import { SchedulerServiceTaskScheduleDefinition } from '@backstage/backend-plugin-api';
 import { JsonObject } from '@backstage/types';
+import { EnabledScheduleDefinition } from './src/config/types';
 
 export interface Config {
   renovate: {
@@ -30,12 +30,12 @@ export interface Config {
       /**
        * Schedule for the cleanup task
        */
-      cleanup: SchedulerServiceTaskScheduleDefinition;
+      cleanup?: EnabledScheduleDefinition;
 
       /**
        * Schedule when a renovation of all repositories should be triggered
        */
-      renovation: SchedulerServiceTaskScheduleDefinition;
+      renovation?: EnabledScheduleDefinition;
     };
 
     /**
