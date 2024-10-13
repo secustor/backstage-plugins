@@ -1,5 +1,19 @@
 # backend
 
+## 0.2.12
+
+### Patch Changes
+
+- [#385](https://github.com/secustor/backstage-plugins/pull/385) [`0164772`](https://github.com/secustor/backstage-plugins/commit/0164772aa2e4bcab41fffd945fb39973ac3bde01) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/express-serve-static-core to v4.19.6
+
+- [#386](https://github.com/secustor/backstage-plugins/pull/386) [`3635f2a`](https://github.com/secustor/backstage-plugins/commit/3635f2aeac2c844e8e093d413a01e1b5547028d8) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/express to v5
+
+- [#388](https://github.com/secustor/backstage-plugins/pull/388) [`f03e15f`](https://github.com/secustor/backstage-plugins/commit/f03e15fd80ee4cafc2aac4761b8da33afe7309ef) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/express-serve-static-core to v5
+
+- Updated dependencies [[`4acdd37`](https://github.com/secustor/backstage-plugins/commit/4acdd37311939061339584d6af58205c6dce4115), [`d8d139b`](https://github.com/secustor/backstage-plugins/commit/d8d139b2e4406a96f71475328cc0cd15b4e1558d), [`51225fb`](https://github.com/secustor/backstage-plugins/commit/51225fbfcceb88c22a9882842e4f6adc2430382a)]:
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.4.7
+  - @secustor/backstage-plugin-renovate-backend@0.12.0
+
 ## 0.2.11
 
 ### Patch Changes

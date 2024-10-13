@@ -1,5 +1,23 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.12.0
+
+### Minor Changes
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Always show the max row count and limit height to 80% of view
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Add additional ( hidden ) columns to DependencyTable
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Use Dialog for filters instead of PopOver
+
+### Patch Changes
+
+- [#404](https://github.com/secustor/backstage-plugins/pull/404) [`3cd5005`](https://github.com/secustor/backstage-plugins/commit/3cd5005821aea8a8aa8d189c33eaad4b5639ca38) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Correctly clear all filters for DependencyTable
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Set server side mode for DependencyTable
+
 ## 0.11.1
 
 ### Patch Changes
