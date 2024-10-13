@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.12.0
+
+### Minor Changes
+
+- [#406](https://github.com/secustor/backstage-plugins/pull/406) [`51225fb`](https://github.com/secustor/backstage-plugins/commit/51225fbfcceb88c22a9882842e4f6adc2430382a) Thanks [@secustor](https://github.com/secustor)! - Allow disabling schedules
+
 ## 0.11.1
 
 ### Patch Changes
