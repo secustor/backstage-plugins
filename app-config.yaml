@@ -1,3 +1,30 @@
+renovate:
+  cleanup:
+    minimumReports: 2
+    dependencyHistory: 2
+
+  schedules:
+    cleanup:
+      # enabled: true  # default value
+      frequency: { minutes: 5 }
+      timeout: { minutes: 1 }
+    renovation:
+      # enabled: false # disable schedule. This is useful e.g. for local development
+      frequency: { minutes: 60 }
+      timeout: { minutes: 60 }
+
+  runtime:
+    type: direct
+    docker:
+
+  queue:
+    type: local-fastq
+
+  config:
+    dryRun: full
+
+# General configuration for the app
+
 app:
   title: Scaffolded Backstage App
   baseUrl: http://localhost:3000
@@ -105,27 +132,3 @@ catalog:
         - catalog
         - search
         - renovate
-
-renovate:
-  cleanup:
-    minimumReports: 2
-    dependencyHistory: 2
-
-  schedules:
-    jobSync:
-      frequency: { minutes: 5 }
-      timeout: { minutes: 1 }
-    cleanup:
-      frequency: { minutes: 5 }
-      timeout: { minutes: 1 }
-    renovation:
-      frequency: { minutes: 60 }
-      timeout: { minutes: 60 }
-  runtime:
-    type: direct
-    docker:
-  queue:
-    type: local-fastq
-
-  config:
-    dryRun: full

@@ -51,6 +51,14 @@ backend:
     store: redis
     connection: redis://user:pass@cache.example.com:6379
 
+    cors:
+      # expose paginagtion headers to the frontend
+      exposedHeaders:
+        - x-total-count
+        - x-current-page
+        - x-page-count
+        - x-page-size
+
 renovate:
   cache:
     # Allows turning off cache injection. You can still manually supply caches using the Renovate config
@@ -67,9 +75,11 @@ renovate:
 
   schedules:
     cleanup:
+      # enabled: true  # default value
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }
     renovation:
+      enabled: false # disable schedule. This is useful e.g. for local development
       frequency: { minutes: 60 }
       timeout: { minutes: 60 }
 

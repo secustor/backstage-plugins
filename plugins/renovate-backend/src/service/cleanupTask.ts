@@ -5,6 +5,10 @@ export async function scheduleCleanupTask(routerOptions: RouterOptions) {
   const { scheduler, rootConfig, databaseHandler, logger } = routerOptions;
   const pluginConfig = getPluginConfig(rootConfig);
   const schedule = getScheduleDefinition(pluginConfig, 'cleanup');
+  if (!schedule.enabled) {
+    return Promise.resolve();
+  }
+
   const reportsToKeep =
     pluginConfig.getOptionalNumber('cleanup.minimumReports') ?? -1;
 
