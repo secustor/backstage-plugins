@@ -46,8 +46,8 @@
     "@backstage/e2e-test-utils": "0.1.1",
     "@backstage/repo-tools": "0.9.7",
     "@changesets/changelog-github": "0.5.0",
-    "@changesets/cli": "2.27.8",
-    "@playwright/test": "1.47.2",
+    "@changesets/cli": "2.27.9",
+    "@playwright/test": "1.48.0",
     "@spotify/prettier-config": "15.0.0",
     "@types/jest": "29.5.13",
     "concurrently": "9.0.1",
@@ -59,7 +59,7 @@
     "pinst": "3.0.0",
     "prettier": "3.3.3",
     "ts-jest": "29.2.5",
-    "typescript": "5.6.2"
+    "typescript": "5.6.3"
   },
   "resolutions": {
     "@types/react": "^18",

@@ -4,6 +4,7 @@ import type { Dependency } from '@secustor/backstage-plugin-renovate-client';
 export type FilterableColumnDef = GridColDef<Dependency> & {
   isFilterable?: boolean;
   filterOptions?: string[];
+  isHiddenOnInit?: boolean;
 };
 
 export interface DependencyTableV2Props {
