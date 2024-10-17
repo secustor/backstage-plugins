@@ -3437,7 +3437,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/cli@npm:^0.28.0":
+"@backstage/cli@npm:0.28.0, @backstage/cli@npm:^0.28.0":
   version: 0.28.0
   resolution: "@backstage/cli@npm:0.28.0"
   dependencies:
@@ -3836,7 +3836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/e2e-test-utils@npm:^0.1.1":
+"@backstage/e2e-test-utils@npm:0.1.1":
   version: 0.1.1
   resolution: "@backstage/e2e-test-utils@npm:0.1.1"
   dependencies:
@@ -5679,7 +5679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/repo-tools@npm:^0.10.0":
+"@backstage/repo-tools@npm:0.10.0, @backstage/repo-tools@npm:^0.10.0":
   version: 0.10.0
   resolution: "@backstage/repo-tools@npm:0.10.0"
   dependencies:
@@ -5733,7 +5733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/test-utils@npm:^1.7.0":
+"@backstage/test-utils@npm:1.7.0, @backstage/test-utils@npm:^1.7.0":
   version: 1.7.0
   resolution: "@backstage/test-utils@npm:1.7.0"
   dependencies:
@@ -16348,7 +16348,7 @@ __metadata:
     "@backstage/plugin-techdocs-module-addons-contrib": "npm:^1.1.16"
     "@backstage/plugin-techdocs-react": "npm:^1.2.9"
     "@backstage/plugin-user-settings": "npm:^0.8.14"
-    "@backstage/test-utils": "npm:^1.7.0"
+    "@backstage/test-utils": "npm:1.7.0"
     "@backstage/theme": "npm:^0.6.0"
     "@material-ui/core": "npm:^4.12.4"
     "@material-ui/icons": "npm:^4.11.3"
@@ -17090,7 +17090,7 @@ __metadata:
     "@backstage/backend-tasks": "npm:^0.6.1"
     "@backstage/catalog-client": "npm:^1.7.1"
     "@backstage/catalog-model": "npm:^1.7.0"
-    "@backstage/cli": "npm:^0.28.0"
+    "@backstage/cli": "npm:0.28.0"
     "@backstage/config": "npm:^1.2.0"
     "@backstage/plugin-app-backend": "npm:^0.3.76"
     "@backstage/plugin-auth-backend": "npm:^0.23.1"
@@ -34363,9 +34363,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@backstage/cli": "npm:^0.28.0"
-    "@backstage/e2e-test-utils": "npm:^0.1.1"
-    "@backstage/repo-tools": "npm:^0.10.0"
+    "@backstage/cli": "npm:0.28.0"
+    "@backstage/e2e-test-utils": "npm:0.1.1"
+    "@backstage/repo-tools": "npm:0.10.0"
     "@changesets/changelog-github": "npm:0.5.0"
     "@changesets/cli": "npm:2.27.9"
     "@playwright/test": "npm:1.48.0"
