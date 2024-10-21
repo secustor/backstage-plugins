@@ -1,5 +1,16 @@
 # app
 
+## 0.4.1
+
+### Patch Changes
+
+- [#421](https://github.com/secustor/backstage-plugins/pull/421) [`003b483`](https://github.com/secustor/backstage-plugins/commit/003b483f43a4e7982d6f6c2b5ef2b5dd40397676) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.6.1
+
+- [#422](https://github.com/secustor/backstage-plugins/pull/422) [`a1a288a`](https://github.com/secustor/backstage-plugins/commit/a1a288a6372c4972c2cd11c20cea99b3109346be) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.6.2
+
+- Updated dependencies [[`a45a343`](https://github.com/secustor/backstage-plugins/commit/a45a343d5992c613f6764a1448290790eedae93a)]:
+  - @secustor/backstage-plugin-renovate@0.13.1
+
 ## 0.4.0
 
 ### Minor Changes
