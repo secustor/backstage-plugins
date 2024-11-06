@@ -1,5 +1,49 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-direct
 
+## 0.5.1
+
+### Patch Changes
+
+- [#452](https://github.com/secustor/backstage-plugins/pull/452) [`21db57c`](https://github.com/secustor/backstage-plugins/commit/21db57c3a2d53c7ebeb0a46f3388a3e2b88e959c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update renovate docker tag to v39
+
+## 0.5.0
+
+### Minor Changes
+
+- [#413](https://github.com/secustor/backstage-plugins/pull/413) [`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to 1.32.1
+
+### Patch Changes
+
+- [#407](https://github.com/secustor/backstage-plugins/pull/407) [`3c74d2a`](https://github.com/secustor/backstage-plugins/commit/3c74d2aaa7780bb866b36730cf904663633797a0) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update renovate docker tag to v38.124.3
+
+- Updated dependencies [[`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b)]:
+  - @secustor/backstage-plugin-renovate-common@0.7.0
+  - @secustor/backstage-plugin-renovate-node@0.4.0
+
+## 0.4.7
+
+### Patch Changes
+
+- [#364](https://github.com/secustor/backstage-plugins/pull/364) [`4acdd37`](https://github.com/secustor/backstage-plugins/commit/4acdd37311939061339584d6af58205c6dce4115) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update renovate docker tag to v38.110.2
+
+- [#398](https://github.com/secustor/backstage-plugins/pull/398) [`d8d139b`](https://github.com/secustor/backstage-plugins/commit/d8d139b2e4406a96f71475328cc0cd15b4e1558d) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update renovate docker tag to v38.120.1
+
+## 0.4.6
+
+### Patch Changes
+
+- [#370](https://github.com/secustor/backstage-plugins/pull/370) [`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to v1.31.1
+
+- Updated dependencies [[`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a)]:
+  - @secustor/backstage-plugin-renovate-common@0.6.2
+  - @secustor/backstage-plugin-renovate-node@0.3.8
+
+## 0.4.5
+
+### Patch Changes
+
+- [#344](https://github.com/secustor/backstage-plugins/pull/344) [`030fba8`](https://github.com/secustor/backstage-plugins/commit/030fba84098ef938e2ec632da0cfed1f62de3f56) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update renovate docker tag to v38.80.0
+
 ## 0.4.4
 
 ### Patch Changes

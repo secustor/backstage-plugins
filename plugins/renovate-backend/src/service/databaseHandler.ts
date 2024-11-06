@@ -94,11 +94,13 @@ export class DatabaseHandler {
     });
   }
 
-  async getTargets(): Promise<ReportTargetQuery[]> {
+  async getTargets(
+    table: 'reports' | 'dependencies' = 'reports',
+  ): Promise<ReportTargetQuery[]> {
     return this.client
       .select()
       .distinct<ReportsRow[]>('host', 'repository')
-      .from('reports');
+      .from(table);
   }
 
   async deleteReportsByTarget(
@@ -328,7 +330,7 @@ export class DatabaseHandler {
   }
 
   async deleteDependencies(options: DeleteOptions): Promise<number> {
-    const targets = await this.getTargets();
+    const targets = await this.getTargets('dependencies');
     const modified = await Promise.all(
       targets.map(target => this.deleteDependenciesByTarget(target, options)),
     );
@@ -346,7 +348,8 @@ export class DatabaseHandler {
       .select('run_id', 'extractionTimestamp')
       .distinct('host', 'repository')
       .where('host', host)
-      .andWhere('repository', repository);
+      .andWhere('repository', repository)
+      .as('runs');
 
     const toBeDeletedIDs = this.client(dependencies)
       .select('run_id')

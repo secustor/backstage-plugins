@@ -1,5 +1,43 @@
 # @secustor/backstage-plugin-renovate-client
 
+## 0.9.0
+
+### Minor Changes
+
+- [#413](https://github.com/secustor/backstage-plugins/pull/413) [`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to 1.32.1
+
+### Patch Changes
+
+- Updated dependencies [[`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b)]:
+  - @secustor/backstage-plugin-renovate-common@0.7.0
+
+## 0.8.1
+
+### Patch Changes
+
+- [#370](https://github.com/secustor/backstage-plugins/pull/370) [`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to v1.31.1
+
+- Updated dependencies [[`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a)]:
+  - @secustor/backstage-plugin-renovate-common@0.6.2
+
+## 0.8.0
+
+### Minor Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Breaking Change to the new Dependencies API!
+  The dependencies' endpoint does no longer return an array but rather an object with the field `dependencies`.
+  This is to allow adding other data such as available filter options
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add DependencyTableV2 using MUI Datagrid
+
+### Patch Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add backend pagination options for the dependencies endpoint
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Allow to filter for depTypes in dependencies API
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Added a X-Total-Count header to dependency endpoint for knowing what the maximum requests would be
+
 ## 0.7.1
 
 ### Patch Changes

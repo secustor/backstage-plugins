@@ -1,5 +1,73 @@
 # app
 
+## 0.5.0
+
+### Minor Changes
+
+- [#442](https://github.com/secustor/backstage-plugins/pull/442) [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841) Thanks [@renovate](https://github.com/apps/renovate)! - Drop support for NodeJS v18
+
+### Patch Changes
+
+- [#439](https://github.com/secustor/backstage-plugins/pull/439) [`5a04398`](https://github.com/secustor/backstage-plugins/commit/5a043981724854e3e508f279b865b9eaafdbd80c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @backstage-community/plugin-tech-radar to v1
+
+- [#451](https://github.com/secustor/backstage-plugins/pull/451) [`ecfdcff`](https://github.com/secustor/backstage-plugins/commit/ecfdcff26cb9b3bf86162fb592690f7eedab7830) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.6.3
+
+- Updated dependencies [[`390a278`](https://github.com/secustor/backstage-plugins/commit/390a2781f301a65c31412aaece4313262c515c27), [`c997e2b`](https://github.com/secustor/backstage-plugins/commit/c997e2b77f33cfffc3eff577bba2a3567349e5c6), [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841)]:
+  - @secustor/backstage-plugin-renovate@0.14.0
+
+## 0.4.1
+
+### Patch Changes
+
+- [#421](https://github.com/secustor/backstage-plugins/pull/421) [`003b483`](https://github.com/secustor/backstage-plugins/commit/003b483f43a4e7982d6f6c2b5ef2b5dd40397676) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.6.1
+
+- [#422](https://github.com/secustor/backstage-plugins/pull/422) [`a1a288a`](https://github.com/secustor/backstage-plugins/commit/a1a288a6372c4972c2cd11c20cea99b3109346be) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.6.2
+
+- Updated dependencies [[`a45a343`](https://github.com/secustor/backstage-plugins/commit/a45a343d5992c613f6764a1448290790eedae93a)]:
+  - @secustor/backstage-plugin-renovate@0.13.1
+
+## 0.4.0
+
+### Minor Changes
+
+- [#413](https://github.com/secustor/backstage-plugins/pull/413) [`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to 1.32.1
+
+### Patch Changes
+
+- [#408](https://github.com/secustor/backstage-plugins/pull/408) [`9745085`](https://github.com/secustor/backstage-plugins/commit/974508584542bf353b175cab225af11d1a1c24ef) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/react-dom to v18.3.1
+
+- Updated dependencies [[`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b)]:
+  - @secustor/backstage-plugin-renovate@0.13.0
+
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies [[`3cd5005`](https://github.com/secustor/backstage-plugins/commit/3cd5005821aea8a8aa8d189c33eaad4b5639ca38), [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76), [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76), [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76), [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76), [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76)]:
+  - @secustor/backstage-plugin-renovate@0.12.0
+
+## 0.3.1
+
+### Patch Changes
+
+- [#370](https://github.com/secustor/backstage-plugins/pull/370) [`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to v1.31.1
+
+- Updated dependencies [[`69ef066`](https://github.com/secustor/backstage-plugins/commit/69ef066f14dd2be629e192c0c2d733e808ddd513), [`5827163`](https://github.com/secustor/backstage-plugins/commit/582716384e91ac182a92ab37eacb51be2ad41677), [`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a)]:
+  - @secustor/backstage-plugin-renovate@0.11.1
+
+## 0.3.0
+
+### Minor Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add DependencyTableV2 using MUI Datagrid
+
+### Patch Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Allow to filter for depTypes in dependencies API
+
+- Updated dependencies [[`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49)]:
+  - @secustor/backstage-plugin-renovate@0.11.0
+
 ## 0.2.1
 
 ### Patch Changes

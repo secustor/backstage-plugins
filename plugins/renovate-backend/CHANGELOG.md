@@ -1,5 +1,67 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.14.0
+
+### Minor Changes
+
+- [#442](https://github.com/secustor/backstage-plugins/pull/442) [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841) Thanks [@renovate](https://github.com/apps/renovate)! - Drop support for NodeJS v18
+
+### Patch Changes
+
+- [#454](https://github.com/secustor/backstage-plugins/pull/454) [`4da2662`](https://github.com/secustor/backstage-plugins/commit/4da26625dc8ed3e7fb591e6c197893e6b9585930) Thanks [@secustor](https://github.com/secustor)! - Add an alias to dependency delete subquery. This should fix failing cleanup on Postgres 13
+
+## 0.13.1
+
+### Patch Changes
+
+- [#425](https://github.com/secustor/backstage-plugins/pull/425) [`a53c9df`](https://github.com/secustor/backstage-plugins/commit/a53c9df5d41ec8988a742305d7ed9e127143bf65) Thanks [@secustor](https://github.com/secustor)! - Use correct table for dependency maintenance table
+
+## 0.13.0
+
+### Minor Changes
+
+- [#413](https://github.com/secustor/backstage-plugins/pull/413) [`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to 1.32.1
+
+### Patch Changes
+
+- Updated dependencies [[`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b)]:
+  - @secustor/backstage-plugin-renovate-common@0.7.0
+  - @secustor/backstage-plugin-renovate-node@0.4.0
+
+## 0.12.0
+
+### Minor Changes
+
+- [#406](https://github.com/secustor/backstage-plugins/pull/406) [`51225fb`](https://github.com/secustor/backstage-plugins/commit/51225fbfcceb88c22a9882842e4f6adc2430382a) Thanks [@secustor](https://github.com/secustor)! - Allow disabling schedules
+
+## 0.11.1
+
+### Patch Changes
+
+- [#370](https://github.com/secustor/backstage-plugins/pull/370) [`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to v1.31.1
+
+- Updated dependencies [[`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a)]:
+  - @secustor/backstage-plugin-renovate-common@0.6.2
+  - @secustor/backstage-plugin-renovate-node@0.3.8
+
+## 0.11.0
+
+### Minor Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Breaking Change to the new Dependencies API!
+  The dependencies' endpoint does no longer return an array but rather an object with the field `dependencies`.
+  This is to allow adding other data such as available filter options
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add DependencyTableV2 using MUI Datagrid
+
+### Patch Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add backend pagination options for the dependencies endpoint
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Allow to filter for depTypes in dependencies API
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Added a X-Total-Count header to dependency endpoint for knowing what the maximum requests would be
+
 ## 0.10.2
 
 ### Patch Changes

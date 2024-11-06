@@ -21,6 +21,9 @@ export async function scheduleJobSync(
 
   const pluginConfig = getPluginConfig(rootConfig);
   const schedule = getScheduleDefinition(pluginConfig, 'renovation');
+  if (!schedule.enabled) {
+    return Promise.resolve();
+  }
 
   return scheduler.scheduleTask({
     id: `renovate_scheduled_runs`,

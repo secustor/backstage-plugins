@@ -1,13 +1,55 @@
 # renovate
 
-Welcome to the renovate plugin!
+This plugin provides the UI for the @backstage/renovate-backend plugin to display the reports generated and dependencies extracted by Renovate.
 
-_This plugin was created through the Backstage CLI_
+The main features provided by this plugin currently are:
+
+- A utility to run Renovate against repositories to extract reports.
+- A central overview for all reports with the option to inspect and reschedule them.
+- A data grid to display all dependencies extracted by Renovate.
+- A entity page to display dependencies for a specific component.
 
 ## Getting started
 
-Your plugin has been added to the example app in this repository, meaning you'll be able to access it by running `yarn start` in the root directory, and then navigating to [/renovate](http://localhost:3000/renovate).
+For this plugin to work, you need to have the [@backstage/renovate-backend](../renovate-backend) plugin installed and configured.
 
-You can also serve the plugin in isolation by running `yarn start` in the plugin directory.
-This method of serving the plugin provides quicker iteration speed and a faster startup and hot reloads.
-It is only meant for local development, and the setup for it can be found inside the [/dev](./dev) directory.
+Install the plugin:
+
+```bash
+# Install packages from the root directory
+yarn --cwd packages/app add @backstage/backstage-plugin-renovate
+```
+
+Add the plugin to your Backstage instance:
+
+```tsx
+// Add the following to `packages/app/src/App.tsx`
+import { RenovatePage } from '@backstage/backstage-plugin-renovate';
+
+const routes = (
+  <FlatRoutes>
+    {/* Your other routes */}
+    <Route path="/renovate" element={<RenovatePage showStarter />} />
+  </FlatRoutes>
+);
+```
+
+```tsx
+// Add the following to `packages/app/src/components/catalog/EntityPage.tsx`
+import { EntityRenovateContent } from '@secustor/backstage-plugin-renovate';
+
+const defaultEntityPage = (
+  <EntityLayout>
+    {/* Existing entity content */}
+    <EntityLayout.Route path="/renovate" title="Renovate">
+      <EntityRenovateContent />
+    </EntityLayout.Route>
+  </EntityLayout>
+);
+```
+
+## Screenshots
+
+![dependencies-overview.png](docs/screenshots/dependencies-overview.png)
+
+![runner-and-reports.png](docs/screenshots/runner-and-reports.png)

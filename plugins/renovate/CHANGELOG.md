@@ -1,5 +1,90 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.14.0
+
+### Minor Changes
+
+- [#442](https://github.com/secustor/backstage-plugins/pull/442) [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841) Thanks [@renovate](https://github.com/apps/renovate)! - Drop support for NodeJS v18
+
+### Patch Changes
+
+- [#432](https://github.com/secustor/backstage-plugins/pull/432) [`390a278`](https://github.com/secustor/backstage-plugins/commit/390a2781f301a65c31412aaece4313262c515c27) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- [#449](https://github.com/secustor/backstage-plugins/pull/449) [`c997e2b`](https://github.com/secustor/backstage-plugins/commit/c997e2b77f33cfffc3eff577bba2a3567349e5c6) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @mui/lab to v6.0.0-beta.14
+
+## 0.13.1
+
+### Patch Changes
+
+- [#418](https://github.com/secustor/backstage-plugins/pull/418) [`a45a343`](https://github.com/secustor/backstage-plugins/commit/a45a343d5992c613f6764a1448290790eedae93a) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+## 0.13.0
+
+### Minor Changes
+
+- [#413](https://github.com/secustor/backstage-plugins/pull/413) [`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to 1.32.1
+
+### Patch Changes
+
+- Updated dependencies [[`6590670`](https://github.com/secustor/backstage-plugins/commit/6590670257a3cac792a8d423f58877925302729b)]:
+  - @secustor/backstage-plugin-renovate-client@0.9.0
+  - @secustor/backstage-plugin-renovate-common@0.7.0
+
+## 0.12.0
+
+### Minor Changes
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Always show the max row count and limit height to 80% of view
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Add additional ( hidden ) columns to DependencyTable
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Use Dialog for filters instead of PopOver
+
+### Patch Changes
+
+- [#404](https://github.com/secustor/backstage-plugins/pull/404) [`3cd5005`](https://github.com/secustor/backstage-plugins/commit/3cd5005821aea8a8aa8d189c33eaad4b5639ca38) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Correctly clear all filters for DependencyTable
+
+- [#405](https://github.com/secustor/backstage-plugins/pull/405) [`954bdb0`](https://github.com/secustor/backstage-plugins/commit/954bdb0bed413ef086b83bca7cd6dd477f878f76) Thanks [@secustor](https://github.com/secustor)! - Set server side mode for DependencyTable
+
+## 0.11.1
+
+### Patch Changes
+
+- [#374](https://github.com/secustor/backstage-plugins/pull/374) [`69ef066`](https://github.com/secustor/backstage-plugins/commit/69ef066f14dd2be629e192c0c2d733e808ddd513) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @textea/json-viewer to v4
+
+- [#375](https://github.com/secustor/backstage-plugins/pull/375) [`5827163`](https://github.com/secustor/backstage-plugins/commit/582716384e91ac182a92ab37eacb51be2ad41677) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- [#370](https://github.com/secustor/backstage-plugins/pull/370) [`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a) Thanks [@secustor](https://github.com/secustor)! - Update Backstage to v1.31.1
+
+- Updated dependencies [[`0dd0369`](https://github.com/secustor/backstage-plugins/commit/0dd03690cfc1a6309085927c05e2a6c5d2824f5a)]:
+  - @secustor/backstage-plugin-renovate-client@0.8.1
+  - @secustor/backstage-plugin-renovate-common@0.6.2
+
+## 0.11.0
+
+### Minor Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Use URL parameters as filter state. This allows sharing search queries
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Breaking Change to the new Dependencies API!
+  The dependencies' endpoint does no longer return an array but rather an object with the field `dependencies`.
+  This is to allow adding other data such as available filter options
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add DependencyTableV2 using MUI Datagrid
+
+### Patch Changes
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Add backend pagination options for the dependencies endpoint
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Allow to filter for depTypes in dependencies API
+
+- [#356](https://github.com/secustor/backstage-plugins/pull/356) [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49) Thanks [@secustor](https://github.com/secustor)! - Added a X-Total-Count header to dependency endpoint for knowing what the maximum requests would be
+
+- Updated dependencies [[`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49), [`b00ea62`](https://github.com/secustor/backstage-plugins/commit/b00ea623e29804f2cb1860fa9fa6aabb9c81bf49)]:
+  - @secustor/backstage-plugin-renovate-client@0.8.0
+
 ## 0.10.1
 
 ### Patch Changes
