@@ -348,7 +348,8 @@ export class DatabaseHandler {
       .select('run_id', 'extractionTimestamp')
       .distinct('host', 'repository')
       .where('host', host)
-      .andWhere('repository', repository);
+      .andWhere('repository', repository)
+      .as('runs');
 
     const toBeDeletedIDs = this.client(dependencies)
       .select('run_id')
