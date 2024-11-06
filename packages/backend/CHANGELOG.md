@@ -1,5 +1,20 @@
 # backend
 
+## 0.4.0
+
+### Minor Changes
+
+- [#442](https://github.com/secustor/backstage-plugins/pull/442) [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841) Thanks [@renovate](https://github.com/apps/renovate)! - Drop support for NodeJS v18
+
+### Patch Changes
+
+- [#437](https://github.com/secustor/backstage-plugins/pull/437) [`21b2333`](https://github.com/secustor/backstage-plugins/commit/21b2333c397a407b99e9709cabb78586cee982a7) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/express-serve-static-core to v5.0.1
+
+- Updated dependencies [[`4da2662`](https://github.com/secustor/backstage-plugins/commit/4da26625dc8ed3e7fb591e6c197893e6b9585930), [`21db57c`](https://github.com/secustor/backstage-plugins/commit/21db57c3a2d53c7ebeb0a46f3388a3e2b88e959c), [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841)]:
+  - @secustor/backstage-plugin-renovate-backend@0.14.0
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.5.1
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@0.5.1
+
 ## 0.3.1
 
 ### Patch Changes

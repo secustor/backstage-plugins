@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.14.0
+
+### Minor Changes
+
+- [#442](https://github.com/secustor/backstage-plugins/pull/442) [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841) Thanks [@renovate](https://github.com/apps/renovate)! - Drop support for NodeJS v18
+
+### Patch Changes
+
+- [#454](https://github.com/secustor/backstage-plugins/pull/454) [`4da2662`](https://github.com/secustor/backstage-plugins/commit/4da26625dc8ed3e7fb591e6c197893e6b9585930) Thanks [@secustor](https://github.com/secustor)! - Add an alias to dependency delete subquery. This should fix failing cleanup on Postgres 13
+
 ## 0.13.1
 
 ### Patch Changes

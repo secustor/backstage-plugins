@@ -1,5 +1,20 @@
 # app
 
+## 0.5.0
+
+### Minor Changes
+
+- [#442](https://github.com/secustor/backstage-plugins/pull/442) [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841) Thanks [@renovate](https://github.com/apps/renovate)! - Drop support for NodeJS v18
+
+### Patch Changes
+
+- [#439](https://github.com/secustor/backstage-plugins/pull/439) [`5a04398`](https://github.com/secustor/backstage-plugins/commit/5a043981724854e3e508f279b865b9eaafdbd80c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @backstage-community/plugin-tech-radar to v1
+
+- [#451](https://github.com/secustor/backstage-plugins/pull/451) [`ecfdcff`](https://github.com/secustor/backstage-plugins/commit/ecfdcff26cb9b3bf86162fb592690f7eedab7830) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/jest-dom to v6.6.3
+
+- Updated dependencies [[`390a278`](https://github.com/secustor/backstage-plugins/commit/390a2781f301a65c31412aaece4313262c515c27), [`c997e2b`](https://github.com/secustor/backstage-plugins/commit/c997e2b77f33cfffc3eff577bba2a3567349e5c6), [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841)]:
+  - @secustor/backstage-plugin-renovate@0.14.0
+
 ## 0.4.1
 
 ### Patch Changes

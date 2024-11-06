@@ -1,5 +1,17 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.14.0
+
+### Minor Changes
+
+- [#442](https://github.com/secustor/backstage-plugins/pull/442) [`0633a98`](https://github.com/secustor/backstage-plugins/commit/0633a98791ff9cd7930015b9c793b988c38cd841) Thanks [@renovate](https://github.com/apps/renovate)! - Drop support for NodeJS v18
+
+### Patch Changes
+
+- [#432](https://github.com/secustor/backstage-plugins/pull/432) [`390a278`](https://github.com/secustor/backstage-plugins/commit/390a2781f301a65c31412aaece4313262c515c27) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- [#449](https://github.com/secustor/backstage-plugins/pull/449) [`c997e2b`](https://github.com/secustor/backstage-plugins/commit/c997e2b77f33cfffc3eff577bba2a3567349e5c6) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @mui/lab to v6.0.0-beta.14
+
 ## 0.13.1
 
 ### Patch Changes
