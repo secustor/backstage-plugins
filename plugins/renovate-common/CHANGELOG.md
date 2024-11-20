@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.7.1
+
+### Patch Changes
+
+- [#464](https://github.com/secustor/backstage-plugins/pull/464) [`dc16ec4`](https://github.com/secustor/backstage-plugins/commit/dc16ec4a4aa0d1794a3c22aacb426b4ea12cc112) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency git-url-parse to v16
+
 ## 0.7.0
 
 ### Minor Changes
