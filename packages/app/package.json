@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@backstage/test-utils": "1.7.1",
-    "@playwright/test": "1.48.2",
+    "@playwright/test": "1.49.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.0.1",
