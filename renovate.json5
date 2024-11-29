@@ -1,78 +1,57 @@
 {
-  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
-    'config:best-practices',
-    ':semanticCommitTypeAll(fix)',
-    'github>secustor/backstage-renovate-config',
+    "config:best-practices",
+    ":semanticCommitTypeAll(fix)",
+    "github>secustor/backstage-renovate-config",
   ],
-
-  // add a Renovate label for renovate-changesets workflow
-  addLabels: ['renovate'],
-  // ignore author of changesets
-  gitIgnoredAuthors: ['renovate@poxhofer.at'],
-
+  addLabels: ["renovate"],
+  gitIgnoredAuthors: ["renovate@poxhofer.at"],
   packageRules: [
     {
-      // general configs for all plugins
-      matchFileNames: ['plugins/**'],
-      // only update if the new version falls outside the range.
-      // Normally we would use update-lockfile, tough we use lockfile maintenance to save CI minutes
-      rangeStrategy: 'replace',
+      matchFileNames: ["plugins/**"],
+      rangeStrategy: "replace",
     },
-
-    // activate unpublish safeguard for npm packages except Renovate, so that docker and npm references are in sync
     {
-      matchDatasources: ['npm'],
-      excludeDepNames: ['renovate'],
-      minimumReleaseAge: '3 days',
+      matchDatasources: ["npm"],
+      minimumReleaseAge: "3 days",
+      matchDepNames: ["!renovate"],
     },
-
-    // auto merges
     {
-      // auto merge @types npm packages, if CI is successful
-      matchPackagePrefixes: ['@types/'],
-      matchManagers: ['npm'],
+      matchManagers: ["npm"],
+      automerge: true,
+      matchPackageNames: ["@types/{/,}**"],
+    },
+    {
+      matchDepTypes: ["devDependencies"],
+      matchManagers: ["npm"],
       automerge: true,
     },
     {
-      // auto merge devDependencies in package.json files, as we expect unit tests to fail for them if they break
-      matchDepTypes: ['devDependencies'],
-      matchManagers: ['npm'],
-      automerge: true,
-    },
-
-    {
-      // do not try to pin Docker and regex references as they are not published or tested
-      matchManagers: ['regex', 'docker-compose', 'dockerfile'],
+      matchManagers: ["custom.regex", "docker-compose", "dockerfile"],
       pinDigests: false,
     },
   ],
-
   customManagers: [
     {
-      // update backstage.json file
-      customType: 'regex',
-      fileMatch: 'backstage\\.json$',
+      customType: "regex",
+      fileMatch: "backstage\\.json$",
       matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
-      depNameTemplate: 'backstage/backstage',
-      datasourceTemplate: 'github-releases',
-      versioningTemplate: 'semver-coerced',
+      depNameTemplate: "backstage/backstage",
+      datasourceTemplate: "github-releases",
+      versioningTemplate: "semver-coerced",
     },
     {
-      // updating renovate defaults
-      customType: 'regex',
-      fileMatch: '^plugins/renovate-backend-module-runtime-docker/.*',
+      customType: "regex",
+      fileMatch: "^plugins/renovate-backend-module-runtime-docker/.*",
       matchStrings: [
-        // README defaults
-        'tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)',
-        // runtime.ts
+        "tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)",
         "imageTag\\s*=\\s*'(?<currentValue>\\S*?)'",
-        // config.d.ts
         "Default:\\s*'(?<currentValue>[\\.\\d]*?)'",
       ],
-      depNameTemplate: 'renovate',
-      packageNameTemplate: 'ghcr.io/renovatebot/renovate',
-      datasourceTemplate: 'docker',
+      depNameTemplate: "renovate",
+      packageNameTemplate: "ghcr.io/renovatebot/renovate",
+      datasourceTemplate: "docker",
     },
   ],
 }
