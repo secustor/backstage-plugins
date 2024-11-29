@@ -23,14 +23,14 @@
     // activate unpublish safeguard for npm packages except Renovate, so that docker and npm references are in sync
     {
       matchDatasources: ['npm'],
-      excludeDepNames: ['renovate'],
+      matchDepNames: ['!renovate'],
       minimumReleaseAge: '3 days',
     },
 
     // auto merges
     {
       // auto merge @types npm packages, if CI is successful
-      matchPackagePrefixes: ['@types/'],
+      matchPackageNames: ['/^@types//'],
       matchManagers: ['npm'],
       automerge: true,
     },
@@ -49,15 +49,6 @@
   ],
 
   customManagers: [
-    {
-      // update backstage.json file
-      customType: 'regex',
-      fileMatch: 'backstage\\.json$',
-      matchStrings: ['"version":\\s*"(?<currentValue>[^"]+)'],
-      depNameTemplate: 'backstage/backstage',
-      datasourceTemplate: 'github-releases',
-      versioningTemplate: 'semver-coerced',
-    },
     {
       // updating renovate defaults
       customType: 'regex',
