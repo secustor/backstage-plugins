@@ -31857,6 +31857,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:3.4.0":
+  version: 3.4.0
+  resolution: "prettier@npm:3.4.0"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10c0/00974e5053dcf04cefe8d6bdef16d6a311d834ff074e927dcb85a425c8a300113fe60dc269373c892edb58e0e57749541f2a7a91ee51cdd40ab3092587772cae
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.7.1":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
@@ -34074,7 +34083,7 @@ __metadata:
     lint-staged: "npm:15.2.10"
     node-gyp: "npm:10.2.0"
     pinst: "npm:3.0.0"
-    prettier: "npm:3.3.3"
+    prettier: "npm:3.4.0"
     ts-jest: "npm:29.2.5"
     typescript: "npm:5.7.2"
   languageName: unknown
