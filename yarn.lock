@@ -2880,8 +2880,8 @@ __metadata:
   linkType: hard
 
 "@backstage-community/plugin-github-actions@npm:^0.6.16":
-  version: 0.6.25
-  resolution: "@backstage-community/plugin-github-actions@npm:0.6.25"
+  version: 0.6.26
+  resolution: "@backstage-community/plugin-github-actions@npm:0.6.26"
   dependencies:
     "@backstage/catalog-model": "npm:^1.7.0"
     "@backstage/core-compat-api": "npm:^0.3.1"
@@ -2903,7 +2903,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/060810416770101174052c5d8864b9f5db7e93a0cdd06618527d111842c1f0e7e940303f7ab19cb3106c61202e258d89e138ec81e0ed6b3904867670f5d06ae9
+  checksum: 10c0/11a9cdbd6536f93a69140729eb3a2ec8d31e42c088f4cb74232cf905d084d64a58eced28a72b06b811bb8238d41510ee0f76f01b31effda1900765aca4c36b77
   languageName: node
   linkType: hard
 
