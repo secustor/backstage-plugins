@@ -7,9 +7,9 @@
   },
   "volta": {
     "node": "22.11.0",
-    "yarn": "4.5.2"
+    "yarn": "4.5.3"
   },
-  "packageManager": "yarn@4.5.2",
+  "packageManager": "yarn@4.5.3",
   "scripts": {
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
@@ -57,7 +57,7 @@
     "lint-staged": "15.2.10",
     "node-gyp": "10.2.0",
     "pinst": "3.0.0",
-    "prettier": "3.3.3",
+    "prettier": "3.4.1",
     "ts-jest": "29.2.5",
     "typescript": "5.7.2"
   },
