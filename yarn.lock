@@ -29397,7 +29397,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp@npm:10.2.0, node-gyp@npm:^10.0.0, node-gyp@npm:^10.2.0, node-gyp@npm:latest":
+"node-gyp@npm:10.3.1, node-gyp@npm:^10.0.0, node-gyp@npm:^10.2.0":
+  version: 10.3.1
+  resolution: "node-gyp@npm:10.3.1"
+  dependencies:
+    env-paths: "npm:^2.2.0"
+    exponential-backoff: "npm:^3.1.1"
+    glob: "npm:^10.3.10"
+    graceful-fs: "npm:^4.2.6"
+    make-fetch-happen: "npm:^13.0.0"
+    nopt: "npm:^7.0.0"
+    proc-log: "npm:^4.1.0"
+    semver: "npm:^7.3.5"
+    tar: "npm:^6.2.1"
+    which: "npm:^4.0.0"
+  bin:
+    node-gyp: bin/node-gyp.js
+  checksum: 10c0/87c3b50e1f6f5256b5d2879a8c064eefa53ed444bad2a20870be43bc189db7cbffe22c30af056046c6d904181d73881b1726fd391d2f6f79f89b991019f195ea
+  languageName: node
+  linkType: hard
+
+"node-gyp@npm:latest":
   version: 10.2.0
   resolution: "node-gyp@npm:10.2.0"
   dependencies:
@@ -34081,7 +34101,7 @@ __metadata:
     jest: "npm:29.7.0"
     lerna: "npm:8.1.9"
     lint-staged: "npm:15.2.10"
-    node-gyp: "npm:10.2.0"
+    node-gyp: "npm:10.3.1"
     pinst: "npm:3.0.0"
     prettier: "npm:3.4.1"
     ts-jest: "npm:29.2.5"
