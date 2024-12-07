@@ -56,4 +56,4 @@ const defaultEntityPage = (
 
 ## Demos
 
-- [Extract Dependency Data on Scale with Renovate - Open Source Summit Europe 2024]https://www.youtube.com/watch?v=dWuAn0x-yAk
+- [Extract Dependency Data on Scale with Renovate - Open Source Summit Europe 2024](https://youtu.be/dWuAn0x-yAk?t=1568)
