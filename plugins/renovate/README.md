@@ -53,3 +53,7 @@ const defaultEntityPage = (
 ![dependencies-overview.png](docs/screenshots/dependencies-overview.png)
 
 ![runner-and-reports.png](docs/screenshots/runner-and-reports.png)
+
+## Demos
+
+- [Extract Dependency Data on Scale with Renovate - Open Source Summit Europe 2024]https://www.youtube.com/watch?v=dWuAn0x-yAk
