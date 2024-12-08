@@ -1,5 +1,11 @@
 # backend
 
+## 0.4.2
+
+### Patch Changes
+
+- [#467](https://github.com/secustor/backstage-plugins/pull/467) [`2ef2138`](https://github.com/secustor/backstage-plugins/commit/2ef21383aafd90afdfef83af112724c203e2babd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.32
+
 ## 0.4.1
 
 ### Patch Changes
