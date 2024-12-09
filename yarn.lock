@@ -14866,12 +14866,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19.0.0":
-  version: 19.0.1
-  resolution: "@types/react-dom@npm:19.0.1"
+"@types/react-dom@npm:^18":
+  version: 18.3.2
+  resolution: "@types/react-dom@npm:18.3.2"
   dependencies:
-    "@types/react": "npm:*"
-  checksum: 10c0/fb40069a7c5c70475155dff91d25ff5a51226c14d45c8ad55894480366876426981c8be63ef322486af879bb220bf48443f2344c1a89cb75a47a1a761acee9d3
+    "@types/react": "npm:^18"
+  checksum: 10c0/22510231af67044a9542633b5b52ec16a8d71fa1da177f82428b8120d36619fd874c3b975b2eda6895baa53667f9fe8cba3acea1232a0244dffe8b11f6b32284
   languageName: node
   linkType: hard
 
@@ -16227,7 +16227,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:6.6.3"
     "@testing-library/react": "npm:16.1.0"
     "@testing-library/user-event": "npm:14.5.2"
-    "@types/react-dom": "npm:19.0.1"
+    "@types/react-dom": "npm:18.3.2"
     cross-env: "npm:7.0.3"
     history: "npm:^5.0.0"
     react: "npm:^18.0.2"
