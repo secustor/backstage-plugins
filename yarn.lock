@@ -11913,7 +11913,7 @@ __metadata:
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
     "@sindresorhus/is": "npm:^4.6.0"
-    "@types/express": "npm:*"
+    "@types/express": "npm:^4.17.21"
     "@types/supertest": "npm:^6.0.0"
     express: "npm:^4.17.1"
     express-promise-router: "npm:^4.1.0"
