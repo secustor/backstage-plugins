@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.14.2
+
+### Patch Changes
+
+- [#475](https://github.com/secustor/backstage-plugins/pull/475) [`4939099`](https://github.com/secustor/backstage-plugins/commit/4939099dbd97a1b551b0b173f1d34a69961d8875) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @mui/lab to v6.0.0-beta.16
+
+- [#488](https://github.com/secustor/backstage-plugins/pull/488) [`7bf4cb2`](https://github.com/secustor/backstage-plugins/commit/7bf4cb2d865a7bb84cc3882e12e6de15c5a29738) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @mui/lab to v6.0.0-beta.17
+
+- [#495](https://github.com/secustor/backstage-plugins/pull/495) [`201c77b`](https://github.com/secustor/backstage-plugins/commit/201c77b2b64d23ea39fb204b9a65c42e3d0a81bd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @mui/lab to v6.0.0-beta.18
+
 ## 0.14.1
 
 ### Patch Changes

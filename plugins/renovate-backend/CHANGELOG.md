@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.14.2
+
+### Patch Changes
+
+- [#507](https://github.com/secustor/backstage-plugins/pull/507) [`f29bef2`](https://github.com/secustor/backstage-plugins/commit/f29bef2d7d7fe1596898fda83b4edc7bcde3a4db) Thanks [@secustor](https://github.com/secustor)! - Pin @types/express to v4
+
 ## 0.14.1
 
 ### Patch Changes

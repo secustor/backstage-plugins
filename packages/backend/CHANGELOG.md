@@ -1,5 +1,18 @@
 # backend
 
+## 0.4.2
+
+### Patch Changes
+
+- [#467](https://github.com/secustor/backstage-plugins/pull/467) [`2ef2138`](https://github.com/secustor/backstage-plugins/commit/2ef21383aafd90afdfef83af112724c203e2babd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.32
+
+- [#506](https://github.com/secustor/backstage-plugins/pull/506) [`584c3c4`](https://github.com/secustor/backstage-plugins/commit/584c3c4477eecd5d0238353008fd384b1e37967c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/express-serve-static-core to v4.19.6
+
+- Updated dependencies [[`9b059c3`](https://github.com/secustor/backstage-plugins/commit/9b059c3e126ffe977e62d69520d41649955ca431), [`f29bef2`](https://github.com/secustor/backstage-plugins/commit/f29bef2d7d7fe1596898fda83b4edc7bcde3a4db)]:
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.5.3
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@0.5.3
+  - @secustor/backstage-plugin-renovate-backend@0.14.2
+
 ## 0.4.1
 
 ### Patch Changes
