@@ -29,16 +29,15 @@
 
     // auto merges
     {
-      // auto merge @types npm packages, if CI is successful
-      matchPackageNames: ['/^@types//'],
-      matchManagers: ['npm'],
-      automerge: true,
-    },
-    {
       // auto merge devDependencies in package.json files, as we expect unit tests to fail for them if they break
       matchDepTypes: ['devDependencies'],
       matchManagers: ['npm'],
       automerge: true,
+    },
+    {
+      // do not auto merge major updates
+      matchUpdateTypes: 'major',
+      automerge: false,
     },
 
     {
