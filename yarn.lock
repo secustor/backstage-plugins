@@ -14425,19 +14425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-serve-static-core@npm:4.19.5":
-  version: 4.19.5
-  resolution: "@types/express-serve-static-core@npm:4.19.5"
-  dependencies:
-    "@types/node": "npm:*"
-    "@types/qs": "npm:*"
-    "@types/range-parser": "npm:*"
-    "@types/send": "npm:*"
-  checksum: 10c0/ba8d8d976ab797b2602c60e728802ff0c98a00f13d420d82770f3661b67fa36ea9d3be0b94f2ddd632afe1fbc6e41620008b01db7e4fabdd71a2beb5539b0725
-  languageName: node
-  linkType: hard
-
-"@types/express-serve-static-core@npm:^4.17.33, @types/express-serve-static-core@npm:^4.17.5":
+"@types/express-serve-static-core@npm:4.19.6, @types/express-serve-static-core@npm:^4.17.33, @types/express-serve-static-core@npm:^4.17.5":
   version: 4.19.6
   resolution: "@types/express-serve-static-core@npm:4.19.6"
   dependencies:
@@ -16964,7 +16952,7 @@ __metadata:
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@types/dockerode": "npm:3.3.32"
     "@types/express": "npm:4.17.21"
-    "@types/express-serve-static-core": "npm:4.19.5"
+    "@types/express-serve-static-core": "npm:4.19.6"
     "@types/luxon": "npm:3.4.2"
     app: "link:../app"
     better-sqlite3: "npm:^10.0.0"
