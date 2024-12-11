@@ -11873,7 +11873,7 @@ __metadata:
     "@types/find-up": "npm:^4.0.0"
     "@types/jest": "npm:^29.5.12"
     find-up: "npm:^5.0.0"
-    renovate: "npm:39.60.0"
+    renovate: "npm:39.62.0"
   languageName: unknown
   linkType: soft
 
@@ -33631,9 +33631,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:39.60.0":
-  version: 39.60.0
-  resolution: "renovate@npm:39.60.0"
+"renovate@npm:39.62.0":
+  version: 39.62.0
+  resolution: "renovate@npm:39.62.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.699.0"
     "@aws-sdk/client-ec2": "npm:3.701.0"
@@ -33757,7 +33757,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/a0554683376935892d6c41d6d5b8d5be716022f0196c42630286c2bdb1e67b3580d1ef679a1a5768c1b98f40f1056b3399d9612c05b1bde2ae035fecdbfbf894
+  checksum: 10c0/ec58745a1d65481dec99823fa88b317461bc1f52f425f72f32165fbd511e649bf78d799ddf094fa6d22dbc269afe94eab2e309231ad34e67ca403e7514276830
   languageName: node
   linkType: hard
 
