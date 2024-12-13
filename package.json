@@ -47,7 +47,7 @@
     "@backstage/repo-tools": "0.11.1",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.10",
-    "@playwright/test": "1.49.0",
+    "@playwright/test": "1.49.1",
     "@spotify/prettier-config": "15.0.0",
     "@types/jest": "29.5.14",
     "concurrently": "9.1.0",
