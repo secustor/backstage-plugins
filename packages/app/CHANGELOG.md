@@ -1,5 +1,11 @@
 # app
 
+## 0.5.3
+
+### Patch Changes
+
+- [#511](https://github.com/secustor/backstage-plugins/pull/511) [`cdb4a9e`](https://github.com/secustor/backstage-plugins/commit/cdb4a9e46239f4b7501c6cc07e375b2733aedfa7) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/react-dom to v18.3.3
+
 ## 0.5.2
 
 ### Patch Changes
