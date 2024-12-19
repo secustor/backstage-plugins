@@ -82,7 +82,7 @@ export const repositoryReportResponseElement = z
   .object({
     runID: z.string(),
     taskID: z.string(),
-    timestamp: z.string().datetime(),
+    timestamp: z.date(),
     host: z.string(),
     repository: z.string(),
     report: repositoryReport,

@@ -85,7 +85,7 @@ export class DatabaseHandler {
       return {
         runID: row.run_id,
         taskID: row.task_id,
-        timestamp: row.timestamp.toISOString(),
+        timestamp: row.timestamp,
         host: row.host,
         repository: row.repository,
         // if the JSON field has not been auto-parsed do it manually
@@ -190,7 +190,7 @@ export class DatabaseHandler {
 
   async getDependencies(
     filters: DependenciesFilter,
-    pagination?: PaginationOptions,
+    pagination?: Partial<PaginationOptions>,
   ): Promise<Pagination<DependencyRow[]>> {
     const page = pagination?.page ?? 0;
     const pageSize = pagination?.pageSize ?? 500;

@@ -28,7 +28,7 @@ interface RowDataEntry {
   id: string;
   host: string;
   repository: string;
-  timestamp: string;
+  timestamp: Date;
   noPRs: number;
   noBranches: number;
   noUpdates: number;

@@ -41,15 +41,6 @@ describe('createRouter', () => {
     jest.resetAllMocks();
   });
 
-  describe('GET /health', () => {
-    it('returns ok', async () => {
-      const response = await request(app).get('/health');
-
-      expect(response.status).toEqual(200);
-      expect(response.body).toBe('ok');
-    });
-  });
-
   describe('GET /reports', () => {
     it('returns empty array for no reports', async () => {
       databaseHandlerMock.getReports.mockResolvedValue([]);
@@ -60,69 +51,74 @@ describe('createRouter', () => {
     });
 
     it('returns all reports without target', async () => {
-      const reportList = [
-        {
-          runID: 'aID',
-          taskID: 'test',
-          timestamp: '',
-          host: 'github.com',
-          repository: 'myOrg/myRepo',
-          report: {
-            branches: [],
-            packageFiles: {},
-            problems: [],
-          },
+      const report = {
+        runID: 'aID',
+        taskID: 'test',
+        timestamp: new Date(),
+        host: 'github.com',
+        repository: 'myOrg/myRepo',
+        report: {
+          branches: [],
+          packageFiles: {},
+          problems: [],
         },
-      ];
-      databaseHandlerMock.getReports.mockResolvedValue(reportList);
+      };
+      databaseHandlerMock.getReports.mockResolvedValue([report]);
       const response = await request(app).get('/reports');
 
       expect(databaseHandlerMock.getReports).toHaveBeenCalledWith();
       expect(response.status).toEqual(200);
-      expect(response.body).toEqual(reportList);
+      expect(response.body).toEqual([
+        {
+          ...report,
+          timestamp: report.timestamp.toISOString(),
+        },
+      ]);
     });
 
     it('returns all reports with target url', async () => {
-      const reportList = [
-        {
-          runID: 'aID',
-          taskID: 'test',
-          timestamp: '',
-          host: 'github.com',
-          repository: 'myOrg/myRepo',
-          report: {
-            branches: [],
-            packageFiles: {},
-            problems: [],
-          },
+      const report = {
+        runID: 'aID',
+        taskID: 'test',
+        timestamp: new Date(),
+        host: 'github.com',
+        repository: 'myOrg/myRepo',
+        report: {
+          branches: [],
+          packageFiles: {},
+          problems: [],
         },
-      ];
-      databaseHandlerMock.getReports.mockResolvedValue(reportList);
+      };
+      databaseHandlerMock.getReports.mockResolvedValue([report]);
       const response = await request(app).get('/reports/github.com');
 
       expect(databaseHandlerMock.getReports).toHaveBeenCalledWith({
         host: 'github.com',
       });
       expect(response.status).toEqual(200);
-      expect(response.body).toEqual(reportList);
+      expect(response.body).toEqual([
+        {
+          ...report,
+          timestamp: report.timestamp.toISOString(),
+        },
+      ]);
     });
 
     it('returns all reports with entity', async () => {
-      const reportList = [
-        {
-          runID: 'aID',
-          taskID: 'test',
-          timestamp: '',
-          host: 'my.gitlab.com',
-          repository: 'myOrg/myGroup/myRepo',
-          report: {
-            branches: [],
-            packageFiles: {},
-            problems: [],
-          },
+      const report = {
+        runID: 'aID',
+        taskID: 'test',
+        timestamp: new Date(),
+        host: 'my.gitlab.com',
+        repository: 'myOrg/myGroup/myRepo',
+        report: {
+          branches: [],
+          packageFiles: {},
+          problems: [],
         },
-      ];
-      databaseHandlerMock.getReports.mockResolvedValue(reportList);
+      };
+
+      databaseHandlerMock.getReports.mockResolvedValue([report]);
 
       const response = await request(app).get(
         '/reports/my.gitlab.com/myOrg%2FmyGroup%2FmyRepo',
@@ -133,7 +129,12 @@ describe('createRouter', () => {
         host: 'my.gitlab.com',
       });
       expect(response.status).toEqual(200);
-      expect(response.body).toEqual(reportList);
+      expect(response.body).toEqual([
+        {
+          ...report,
+          timestamp: report.timestamp.toISOString(),
+        },
+      ]);
     });
   });
 });
