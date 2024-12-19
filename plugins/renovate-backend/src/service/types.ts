@@ -107,9 +107,8 @@ export const DependencyValueFiltersKeys = [
 export type DependencyValueFiltersKey =
   (typeof DependencyValueFiltersKeys)[number];
 
-export type DependencyValueFilters = Record<
-  DependencyValueFiltersKey,
-  string[]
+export type DependencyValueFilters = Partial<
+  Record<DependencyValueFiltersKey, string[]>
 >;
 
 export type DependencyValues = Record<DependencyValueFiltersKey, string[]>;
