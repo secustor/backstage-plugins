@@ -1,5 +1,18 @@
 # app
 
+## 0.6.0
+
+### Minor Changes
+
+- [#509](https://github.com/secustor/backstage-plugins/pull/509) [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.34.1
+
+### Patch Changes
+
+- [#511](https://github.com/secustor/backstage-plugins/pull/511) [`cdb4a9e`](https://github.com/secustor/backstage-plugins/commit/cdb4a9e46239f4b7501c6cc07e375b2733aedfa7) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/react-dom to v18.3.3
+
+- Updated dependencies [[`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600)]:
+  - @secustor/backstage-plugin-renovate@0.15.0
+
 ## 0.5.2
 
 ### Patch Changes
