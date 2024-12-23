@@ -8,17 +8,6 @@ servers:
     url: http://localhost:7007
 
 paths:
-  /health:
-    get:
-      summary: Get health status of the plugin
-      responses:
-        200:
-          description: health status is green
-          content:
-            application/json:
-              schema:
-                type: string
-                example: ok
   /reports:
     get:
       summary: Get all reports
@@ -295,7 +284,7 @@ components:
           schema:
             type: object
             properties:
-              deleted:
+              modified:
                 type: number
                 example: 15
                 description: Numbers of reports deleted

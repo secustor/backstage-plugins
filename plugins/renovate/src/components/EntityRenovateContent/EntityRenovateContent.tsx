@@ -3,11 +3,7 @@ import { useEntity } from '@backstage/plugin-catalog-react';
 import { getEntitySourceLocation } from '@backstage/catalog-model';
 import { useApi } from '@backstage/core-plugin-api';
 import useAsync from 'react-use/lib/useAsync';
-import {
-  getTargetURL,
-  repositoryReportResponseElement,
-  RepositoryReportResponseElement,
-} from '@secustor/backstage-plugin-renovate-common';
+import { getTargetURL } from '@secustor/backstage-plugin-renovate-common';
 import {
   Link,
   Progress,
@@ -52,14 +48,10 @@ export const EntityRenovateContent = () => {
   const renovateAPI = useApi(renovateApiRef);
   const scmIntegrationsApi = useApi(scmIntegrationsApiRef);
 
-  const { value, loading, error } =
-    useAsync(async (): Promise<RepositoryReportResponseElement | null> => {
-      const response = await renovateAPI.getCurrentReport(entity);
-      if (response) {
-        return repositoryReportResponseElement.parse(response);
-      }
-      return response;
-    }, [entity]);
+  const { value, loading, error } = useAsync(
+    () => renovateAPI.getCurrentReport(entity),
+    [entity],
+  );
 
   if (error) {
     // rethrow error so it is captured by the error panel

@@ -17,6 +17,8 @@
     "build:backend": "yarn workspace backend build",
     "build:all": "backstage-cli repo build --all",
     "build-image": "yarn workspace backend build-image",
+    "build:api-reports": "yarn build:api-reports:only --tsc",
+    "build:api-reports:only": "NODE_OPTIONS=--max-old-space-size=8192 backstage-repo-tools api-reports --allow-all-warnings -o ae-wrong-input-file-type --validate-release-tags",
     "docker-deps": "docker compose up -d",
     "generate": "yarn workspace @secustor/backstage-plugin-renovate-backend generate",
     "tsc": "tsc",
@@ -42,9 +44,9 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "0.29.2",
-    "@backstage/e2e-test-utils": "0.1.1",
-    "@backstage/repo-tools": "0.11.1",
+    "@backstage/cli": "^0.29.4",
+    "@backstage/e2e-test-utils": "^0.1.1",
+    "@backstage/repo-tools": "^0.12.0",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.11",
     "@playwright/test": "1.49.1",

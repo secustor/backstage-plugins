@@ -12,7 +12,6 @@ import { alertApiRef, useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';
 import {
   getTargetRepoSafe,
-  repositoryReportResponse,
   RepositoryReportResponse,
   RepositoryReportResponseElement,
 } from '@secustor/backstage-plugin-renovate-common';
@@ -28,7 +27,7 @@ interface RowDataEntry {
   id: string;
   host: string;
   repository: string;
-  timestamp: string;
+  timestamp: Date;
   noPRs: number;
   noBranches: number;
   noUpdates: number;
@@ -39,7 +38,12 @@ interface RowDataEntry {
 export const ReportTable = (options: DenseTableProps) => {
   const { reports } = options;
   const columns: TableColumn<RowDataEntry>[] = [
-    { title: 'timestamp', field: 'timestamp', defaultSort: 'desc' },
+    {
+      title: 'timestamp',
+      field: 'timestamp',
+      defaultSort: 'desc',
+      type: 'datetime',
+    },
     { title: 'Host', field: 'host' },
     { title: 'Repository', field: 'repository' },
     { title: 'Number of PRs', field: 'noPRs' },
@@ -141,17 +145,17 @@ export const ReportTable = (options: DenseTableProps) => {
 
 export const ReportFetchComponent = () => {
   const renovateAPI = useApi(renovateApiRef);
-  const { value, loading, error } =
-    useAsync(async (): Promise<RepositoryReportResponse> => {
-      const result = await (await renovateAPI.reportsGet({})).json();
-      return repositoryReportResponse.parse(result);
-    }, []);
+  const { value, loading, error } = useAsync(
+    () => renovateAPI.getReports(),
+    [],
+  );
 
   if (loading) {
     return <Progress />;
-  } else if (error) {
+  }
+  if (error) {
     return <ResponseErrorPanel error={error} />;
   }
 
-  return <ReportTable reports={value || []} />;
+  return <ReportTable reports={value ?? []} />;
 };
