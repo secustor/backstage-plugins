@@ -48,7 +48,7 @@
     "@backstage/e2e-test-utils": "^0.1.1",
     "@backstage/repo-tools": "^0.12.0",
     "@changesets/changelog-github": "0.5.0",
-    "@changesets/cli": "2.27.10",
+    "@changesets/cli": "2.27.11",
     "@playwright/test": "1.49.1",
     "@spotify/prettier-config": "15.0.0",
     "@types/jest": "29.5.14",
