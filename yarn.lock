@@ -14263,14 +14263,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dockerode@npm:3.3.32, @types/dockerode@npm:^3.3.0, @types/dockerode@npm:^3.3.26, @types/dockerode@npm:^3.3.29":
-  version: 3.3.32
-  resolution: "@types/dockerode@npm:3.3.32"
+"@types/dockerode@npm:3.3.33, @types/dockerode@npm:^3.3.0, @types/dockerode@npm:^3.3.26, @types/dockerode@npm:^3.3.29":
+  version: 3.3.33
+  resolution: "@types/dockerode@npm:3.3.33"
   dependencies:
     "@types/docker-modem": "npm:*"
     "@types/node": "npm:*"
     "@types/ssh2": "npm:*"
-  checksum: 10c0/89b45da46ffd0eee36b469a6e61ddcbf101835ee2212ac26b84ee01556c5a99155469e5e345eadb677fd3dd80e7f238d3f265c15b3f99f94f4c53cad9b35023c
+  checksum: 10c0/0844b4a7a950d9a9687b50bd845411736b27ed94361251622e151454a98be679503d4366dc58a09d77cf49493d8e1a2fc5578b8e1f8dd9bbe4226dc8c00c8542
   languageName: node
   linkType: hard
 
@@ -16873,7 +16873,7 @@ __metadata:
     "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "workspace:^"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
-    "@types/dockerode": "npm:3.3.32"
+    "@types/dockerode": "npm:3.3.33"
     "@types/express": "npm:4.17.21"
     "@types/express-serve-static-core": "npm:4.19.6"
     "@types/luxon": "npm:3.4.2"
