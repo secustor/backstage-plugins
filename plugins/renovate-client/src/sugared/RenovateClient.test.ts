@@ -26,9 +26,27 @@ describe('RenovateClient', () => {
           _info => {
             return HttpResponse.json([
               {
+                runID: 'aID',
+                taskID: 'test',
+                host: 'github.com',
+                repository: 'foo/bar',
+                report: {
+                  problems: [],
+                  branches: [],
+                  packageFiles: {},
+                },
                 timestamp: new Date('2024-07-14T08:30:10.245Z'),
               },
               {
+                runID: 'bID',
+                taskID: 'test',
+                host: 'github.com',
+                repository: 'foo/bar',
+                report: {
+                  problems: [],
+                  branches: [],
+                  packageFiles: {},
+                },
                 timestamp: new Date('2024-07-13T08:30:10.245Z'),
               },
             ]);
@@ -37,8 +55,8 @@ describe('RenovateClient', () => {
       );
       await expect(
         client.getCurrentReport('https://github.com/foo/bar'),
-      ).resolves.toEqual({
-        timestamp: '2024-07-14T08:30:10.245Z',
+      ).resolves.toMatchObject({
+        timestamp: new Date('2024-07-14T08:30:10.245Z'),
       });
     });
 

@@ -1,6 +1,6 @@
 import { MiddlewareFactory } from '@backstage/backend-defaults/rootHttpRouter';
 import express from 'express';
-import { createOpenApiRouter } from '../schema/openapi.generated';
+import { createOpenApiRouter } from '../schema/openapi';
 import { runRequestBody } from './schema';
 import { RouterOptions } from './types';
 import {
@@ -33,11 +33,6 @@ export async function createRouter(
 
   const router = await createOpenApiRouter();
   router.use(express.json());
-
-  router.get('/health', (_, response) => {
-    logger.debug('healthcheck request');
-    response.json('ok');
-  });
 
   router.get('/reports', async (_request, response) => {
     const reports = await databaseHandler.getReports();
@@ -91,8 +86,6 @@ export async function createRouter(
         ...dep,
         id: dep.id!,
         runID: dep.run_id,
-        extractionTimestamp: dep.extractionTimestamp?.toISOString(),
-        currentVersionTimestamp: dep.currentVersionTimestamp?.toISOString(),
         packageFileUrl: getFileUrl(dep) ?? undefined,
       };
     });

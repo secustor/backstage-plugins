@@ -6,10 +6,10 @@
     "node": "20 || 22"
   },
   "volta": {
-    "node": "22.12.0",
-    "yarn": "4.5.3"
+    "node": "22.13.0",
+    "yarn": "4.6.0"
   },
-  "packageManager": "yarn@4.5.3",
+  "packageManager": "yarn@4.6.0",
   "scripts": {
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
@@ -17,6 +17,8 @@
     "build:backend": "yarn workspace backend build",
     "build:all": "backstage-cli repo build --all",
     "build-image": "yarn workspace backend build-image",
+    "build:api-reports": "yarn build:api-reports:only --tsc",
+    "build:api-reports:only": "NODE_OPTIONS=--max-old-space-size=8192 backstage-repo-tools api-reports --allow-all-warnings -o ae-wrong-input-file-type --validate-release-tags",
     "docker-deps": "docker compose up -d",
     "generate": "yarn workspace @secustor/backstage-plugin-renovate-backend generate",
     "tsc": "tsc",
@@ -42,24 +44,24 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "0.29.2",
+    "@backstage/cli": "0.29.4",
     "@backstage/e2e-test-utils": "0.1.1",
-    "@backstage/repo-tools": "0.11.1",
+    "@backstage/repo-tools": "0.12.0",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.11",
     "@playwright/test": "1.49.1",
     "@spotify/prettier-config": "15.0.0",
     "@types/jest": "29.5.14",
-    "concurrently": "9.1.0",
+    "concurrently": "9.1.2",
     "husky": "9.1.7",
     "jest": "29.7.0",
     "lerna": "8.1.9",
-    "lint-staged": "15.2.11",
+    "lint-staged": "15.3.0",
     "node-gyp": "11.0.0",
     "pinst": "3.0.0",
     "prettier": "3.4.2",
     "ts-jest": "29.2.5",
-    "typescript": "5.7.2"
+    "typescript": "5.7.3"
   },
   "resolutions": {
     "@types/react": "^18",
