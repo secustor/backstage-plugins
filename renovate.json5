@@ -23,7 +23,7 @@
     // activate unpublish safeguard for npm packages except Renovate, so that docker and npm references are in sync
     {
       matchDatasources: ['npm'],
-      matchDepNames: ['!renovate'],
+      matchDepNames: ['!renovate', '!@backstage/*'],
       minimumReleaseAge: '3 days',
     },
 
