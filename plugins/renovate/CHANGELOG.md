@@ -1,5 +1,23 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.15.0
+
+### Minor Changes
+
+- [#541](https://github.com/secustor/backstage-plugins/pull/541) [`6492b0b`](https://github.com/secustor/backstage-plugins/commit/6492b0be0983f6db3002636385a7fb8b45b99796) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.35.0
+
+- [#509](https://github.com/secustor/backstage-plugins/pull/509) [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.34.1
+
+### Patch Changes
+
+- [#536](https://github.com/secustor/backstage-plugins/pull/536) [`6a5a93c`](https://github.com/secustor/backstage-plugins/commit/6a5a93c87c8d3f85d0ca8baea266da0ba73c0d01) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @mui/lab to v6.0.0-beta.22
+
+- [#542](https://github.com/secustor/backstage-plugins/pull/542) [`4c81275`](https://github.com/secustor/backstage-plugins/commit/4c81275bdb05d33960ba4bb7cc69ed621bf81458) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- Updated dependencies [[`6492b0b`](https://github.com/secustor/backstage-plugins/commit/6492b0be0983f6db3002636385a7fb8b45b99796), [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600), [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600)]:
+  - @secustor/backstage-plugin-renovate-client@0.10.0
+  - @secustor/backstage-plugin-renovate-common@0.8.0
+
 ## 0.14.2
 
 ### Patch Changes
