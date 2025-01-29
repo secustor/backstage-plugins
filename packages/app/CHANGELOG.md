@@ -1,5 +1,28 @@
 # app
 
+## 0.6.0
+
+### Minor Changes
+
+- [#541](https://github.com/secustor/backstage-plugins/pull/541) [`6492b0b`](https://github.com/secustor/backstage-plugins/commit/6492b0be0983f6db3002636385a7fb8b45b99796) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.35.0
+
+- [#509](https://github.com/secustor/backstage-plugins/pull/509) [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.34.1
+
+### Patch Changes
+
+- [#511](https://github.com/secustor/backstage-plugins/pull/511) [`cdb4a9e`](https://github.com/secustor/backstage-plugins/commit/cdb4a9e46239f4b7501c6cc07e375b2733aedfa7) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/react-dom to v18.3.3
+
+- [#528](https://github.com/secustor/backstage-plugins/pull/528) [`db45ae3`](https://github.com/secustor/backstage-plugins/commit/db45ae306c70e73e4a1d4b2abddb41c61937e213) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @backstage-community/plugin-github-actions to ^0.7.0
+
+- [#543](https://github.com/secustor/backstage-plugins/pull/543) [`0f63b9a`](https://github.com/secustor/backstage-plugins/commit/0f63b9abdd36173b4c757cbbfc233c64c6210bcd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/user-event to v14.6.0
+
+- [#544](https://github.com/secustor/backstage-plugins/pull/544) [`46c7ca7`](https://github.com/secustor/backstage-plugins/commit/46c7ca7d51968bb2e7a3039f486dcee8b28e1d32) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/react to v16.2.0
+
+- [#550](https://github.com/secustor/backstage-plugins/pull/550) [`6083cf8`](https://github.com/secustor/backstage-plugins/commit/6083cf8126e9f1c4ae77a26aae6db79054b973f2) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/user-event to v14.6.1
+
+- Updated dependencies [[`6492b0b`](https://github.com/secustor/backstage-plugins/commit/6492b0be0983f6db3002636385a7fb8b45b99796), [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600), [`6a5a93c`](https://github.com/secustor/backstage-plugins/commit/6a5a93c87c8d3f85d0ca8baea266da0ba73c0d01), [`4c81275`](https://github.com/secustor/backstage-plugins/commit/4c81275bdb05d33960ba4bb7cc69ed621bf81458)]:
+  - @secustor/backstage-plugin-renovate@0.15.0
+
 ## 0.5.2
 
 ### Patch Changes

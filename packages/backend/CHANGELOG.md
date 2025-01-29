@@ -1,5 +1,26 @@
 # backend
 
+## 0.5.0
+
+### Minor Changes
+
+- [#541](https://github.com/secustor/backstage-plugins/pull/541) [`6492b0b`](https://github.com/secustor/backstage-plugins/commit/6492b0be0983f6db3002636385a7fb8b45b99796) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.35.0
+
+- [#509](https://github.com/secustor/backstage-plugins/pull/509) [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.34.1
+
+### Patch Changes
+
+- [#533](https://github.com/secustor/backstage-plugins/pull/533) [`626127e`](https://github.com/secustor/backstage-plugins/commit/626127e2eae00c7c8c8fc3801ff2716a094f3160) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.33
+
+- [#538](https://github.com/secustor/backstage-plugins/pull/538) [`2242b2e`](https://github.com/secustor/backstage-plugins/commit/2242b2e5b2090382d10453cd59b45dd0de6b67d6) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.34
+
+- Updated dependencies [[`6492b0b`](https://github.com/secustor/backstage-plugins/commit/6492b0be0983f6db3002636385a7fb8b45b99796), [`152462b`](https://github.com/secustor/backstage-plugins/commit/152462bb3878ee6d7fb13f8455e3018236f38600), [`de09989`](https://github.com/secustor/backstage-plugins/commit/de099895a0f662c84104279b980743a33d461059)]:
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.6.0
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@0.6.0
+  - @secustor/backstage-plugin-renovate-backend-module-queue-local@0.4.0
+  - @secustor/backstage-plugin-renovate-backend-module-queue-redis@0.4.0
+  - @secustor/backstage-plugin-renovate-backend@0.15.0
+
 ## 0.4.2
 
 ### Patch Changes
