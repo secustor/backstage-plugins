@@ -10,7 +10,7 @@ export async function extractReport(
   opts: ExtractReportOptions,
 ): Promise<RenovateReport> {
   const { logStream, logger } = opts;
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     let uncompletedText = '';
     logStream.on('data', (chunk: Buffer) => {
       const text = uncompletedText.concat(chunk.toString());
@@ -44,6 +44,16 @@ export async function extractReport(
         const msg = is.string(log.msg) ? log.msg : JSON.stringify(log.msg);
         logger.debug(msg, meta);
       }
+    });
+
+    logStream.on('end', () => {
+      if (uncompletedText) {
+        logger.warn('Uncompleted log line found', { uncompletedText });
+        reject(
+          'Premature exit of Renovate. Uncompleted log line found in log stream after end of stream',
+        );
+      }
+      reject('No report found in log stream');
     });
   });
 }
