@@ -23,7 +23,7 @@ services:
       - --bind 0.0.0.0
       - --save 60 1
       - --loglevel warning
-      - --maxmemory-policy allkeys-lru
+      - --maxmemory-policy noeviction
       - --maxmemory 200mb
     extra_hosts:
       # allow to use `host.docker.internal` for cases when DockerForMac or DockerForWindows are NOT used.
