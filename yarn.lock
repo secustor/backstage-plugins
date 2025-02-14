@@ -9498,9 +9498,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/lab@npm:6.0.0-beta.26":
-  version: 6.0.0-beta.26
-  resolution: "@mui/lab@npm:6.0.0-beta.26"
+"@mui/lab@npm:6.0.0-beta.27":
+  version: 6.0.0-beta.27
+  resolution: "@mui/lab@npm:6.0.0-beta.27"
   dependencies:
     "@babel/runtime": "npm:^7.26.0"
     "@mui/base": "npm:5.0.0-beta.69"
@@ -9512,7 +9512,7 @@ __metadata:
   peerDependencies:
     "@emotion/react": ^11.5.0
     "@emotion/styled": ^11.3.0
-    "@mui/material": ^6.4.3
+    "@mui/material": ^6.4.4
     "@mui/material-pigment-css": ^6.4.3
     "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -9526,7 +9526,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 10c0/bad11c54986608bb076423f2f058896f9aee4d840ac24b11d930eaf25212f7856b2e9915d9af89a76bf9ad2f9a838e5ad7b9980ef9bda539c1e34e3fba71bf83
+  checksum: 10c0/9fc424dea5b3f729d1623af04c0659fa7bb9ce4648a1cd746c38406eb5dbf825cf425a26406226f1faf86f89ba9d8d728fd1140309ac78aed9bbf12742db6bb4
   languageName: node
   linkType: hard
 
@@ -12817,7 +12817,7 @@ __metadata:
     "@emotion/react": "npm:^11.13.3"
     "@emotion/styled": "npm:^11.13.0"
     "@mui/icons-material": "npm:^6.1.0"
-    "@mui/lab": "npm:6.0.0-beta.26"
+    "@mui/lab": "npm:6.0.0-beta.27"
     "@mui/material": "npm:^6.1.0"
     "@mui/styles": "npm:^6.1.0"
     "@mui/x-data-grid": "npm:^7.26.0"
