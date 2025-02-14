@@ -18,13 +18,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Enable Corepack
         run: corepack enable
 
       - name: Set up Node
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/ # Needed for auth
@@ -41,7 +41,7 @@ jobs:
 
       - name: Publish packages
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@07dc948a9f77d5ebbdbcea0d7e452a2f57c55ca9 # v1.4.9
         with:
           title: Version Packages
           version: yarn changeset version
