@@ -9072,41 +9072,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^7.16.0":
-  version: 7.22.2
-  resolution: "@mui/x-data-grid@npm:7.22.2"
+"@mui/x-data-grid@npm:^7.26.0":
+  version: 7.26.0
+  resolution: "@mui/x-data-grid@npm:7.26.0"
   dependencies:
     "@babel/runtime": "npm:^7.25.7"
     "@mui/utils": "npm:^5.16.6 || ^6.0.0"
-    "@mui/x-internals": "npm:7.21.0"
+    "@mui/x-internals": "npm:7.26.0"
     clsx: "npm:^2.1.1"
     prop-types: "npm:^15.8.1"
     reselect: "npm:^5.1.1"
+    use-sync-external-store: "npm:^1.0.0"
   peerDependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@mui/material": ^5.15.14 || ^6.0.0
     "@mui/system": ^5.15.14 || ^6.0.0
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
   peerDependenciesMeta:
     "@emotion/react":
       optional: true
     "@emotion/styled":
       optional: true
-  checksum: 10c0/99905d3842b232e2e0639f2cfe56a3a691ffd6e27c57c12bfb77c24ad0a952e73ddfcbb240cb9b2526b6d6886be1370a950f01f0d212aaaf8b758fdbfc0edd82
+  checksum: 10c0/c41f3246f0937a00e2ad82248b25326e3360a8fd50a6b3f8b7f8ca88af051f03d44e4732a90e9834718057530de0fcd3e8d4740d9bb964c6d409712256b470ec
   languageName: node
   linkType: hard
 
-"@mui/x-internals@npm:7.21.0":
-  version: 7.21.0
-  resolution: "@mui/x-internals@npm:7.21.0"
+"@mui/x-internals@npm:7.26.0":
+  version: 7.26.0
+  resolution: "@mui/x-internals@npm:7.26.0"
   dependencies:
     "@babel/runtime": "npm:^7.25.7"
     "@mui/utils": "npm:^5.16.6 || ^6.0.0"
   peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-  checksum: 10c0/46d105cee6cc9e53ce8fdf6149bf0758271b546ad3319b3b8fa48f1e93b574c9255218e43dffbd90214e922933291cb1d8aab54be475bcc8303fa8452078d3cb
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/f2d05cbb346dae358d5f87aa13b8e77ca8286e43fb28b5e5f8eb422fb935cf30a732041961a8cc62028743dacc61cb888202f7561e9a9698c967fdb7717abebf
   languageName: node
   linkType: hard
 
@@ -12056,7 +12057,7 @@ __metadata:
     "@mui/lab": "npm:6.0.0-beta.26"
     "@mui/material": "npm:^6.1.0"
     "@mui/styles": "npm:^6.1.0"
-    "@mui/x-data-grid": "npm:^7.16.0"
+    "@mui/x-data-grid": "npm:^7.26.0"
     "@secustor/backstage-plugin-renovate-client": "workspace:^"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     "@sindresorhus/is": "npm:^4.6.0"

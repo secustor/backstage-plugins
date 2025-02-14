@@ -56,7 +56,7 @@
     "@mui/lab": "6.0.0-beta.26",
     "@mui/material": "^6.1.0",
     "@mui/styles": "^6.1.0",
-    "@mui/x-data-grid": "^7.16.0",
+    "@mui/x-data-grid": "^7.26.0",
     "@secustor/backstage-plugin-renovate-client": "workspace:^",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@sindresorhus/is": "^4.6.0",

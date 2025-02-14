@@ -4,7 +4,7 @@ import {
   GridToolbarExport,
   GridToolbarQuickFilter,
   GridFilterListIcon,
-  GridToolbarProps,
+  GridSlotsComponentsProps,
 } from '@mui/x-data-grid';
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -13,13 +13,17 @@ import { Filters } from './Filters';
 import type { FilterableColumnDef } from './types';
 import Dialog from '@mui/material/Dialog';
 
-export interface CustomToolBarProps extends GridToolbarProps {
-  selectedFilters?: Record<string, string[]>;
-  onUpdateFilters?: (filters: Record<string, string[]>) => void;
-  filterAbleColumns?: FilterableColumnDef[];
+declare module '@mui/x-data-grid' {
+  interface ToolbarPropsOverrides {
+    selectedFilters?: Record<string, string[]>;
+    onUpdateFilters?: (filters: Record<string, string[]>) => void;
+    filterAbleColumns?: FilterableColumnDef[];
+  }
 }
 
-export function CustomToolbar(props: CustomToolBarProps) {
+export function CustomToolbar(
+  props: NonNullable<GridSlotsComponentsProps['toolbar']>,
+) {
   const [filterOpen, toggleFilterOpen] = React.useState(false);
 
   const filters =
@@ -58,3 +62,5 @@ export function CustomToolbar(props: CustomToolBarProps) {
     </GridToolbarContainer>
   );
 }
+
+export class CustomToolBarProps {}
