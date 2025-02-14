@@ -39,6 +39,49 @@ describe('renovate-backend/wrapper/utils', () => {
       expect(logger.debug).not.toHaveBeenCalled();
     });
 
+    it('extracts report split over multiple log lines', async () => {
+      const report: RenovateReport = {
+        problems: [],
+        repositories: {
+          'a-repository': {
+            problems: [],
+            branches: [],
+            packageFiles: {
+              'a-manager': [],
+            },
+          },
+        },
+      };
+
+      const jsonString = JSON.stringify({ report });
+
+      const logStream = new PassThrough();
+      logStream.write(`${jsonString.slice(0, jsonString.length / 2)}`);
+      logStream.write(`${jsonString.slice(jsonString.length / 2)}\n`);
+      logStream.end();
+      await expect(
+        extractReport({
+          logger,
+          logStream,
+        }),
+      ).resolves.toEqual(report);
+
+      expect(logger.debug).not.toHaveBeenCalled();
+    });
+
+    it('should reject if stream ends and no report could be found', () => {
+      const logStream = new PassThrough();
+      logStream.write(`${JSON.stringify({ msg: 'Foo' })}\n`);
+      logStream.write(`${JSON.stringify({ msg: 'Bar' })}\n`);
+      logStream.end();
+      return expect(
+        extractReport({
+          logger,
+          logStream,
+        }),
+      ).rejects.toBe('No report found in log stream');
+    });
+
     it('extracts report in between lines', async () => {
       const report: RenovateReport = {
         problems: [],
