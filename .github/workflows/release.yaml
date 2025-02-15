@@ -45,6 +45,8 @@ jobs:
         with:
           title: Version Packages
           version: yarn changeset version
+          # https://github.com/changesets/action/pull/271/files#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5R162
+          publish: yarn changeset tag
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
