@@ -11,7 +11,7 @@ concurrency:
 jobs:
   ci:
     name: CI step for node ${{ matrix.node-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         node-version: [20.x]
@@ -21,12 +21,14 @@ jobs:
       NODE_OPTIONS: --max-old-space-size=8192
 
     steps:
+      # This is needed so backstage-cli can compare the current branch with main
       - name: Checkout main branch for tests purposes
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           ref: main
+
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
 
@@ -34,7 +36,7 @@ jobs:
         run: corepack enable
 
       - name: Set up Node ${{ matrix.node-version }}
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/ # Needed for auth
@@ -84,28 +86,32 @@ jobs:
 
   verify:
     name: Verify step
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout head branch
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
+
       - name: Enable Corepack
         run: corepack enable
+
       - name: Setup node
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
           node-version: 20.x
           cache: 'yarn'
+
       - name: Install root dependencies
         run: yarn install --immutable
+
       - name: Verify lockfile duplicates
         run: yarn dedupe --strategy highest --check
 
   result:
     if: ${{ always() }}
     name: check all required jobs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [ci, verify]
     steps:
       - run: exit 1
