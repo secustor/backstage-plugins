@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-queue-redis
 
+## 0.4.1
+
+### Patch Changes
+
+- [#578](https://github.com/secustor/backstage-plugins/pull/578) [`2ccb0bf`](https://github.com/secustor/backstage-plugins/commit/2ccb0bfc4973d5a0d07c4c145d145b78d004018f) Thanks [@secustor](https://github.com/secustor)! - Bump range of bullmq to ^5.41.0 and fix type issues
+
 ## 0.4.0
 
 ### Minor Changes

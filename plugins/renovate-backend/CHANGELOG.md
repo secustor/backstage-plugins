@@ -1,5 +1,13 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.15.1
+
+### Patch Changes
+
+- [#578](https://github.com/secustor/backstage-plugins/pull/578) [`ad53599`](https://github.com/secustor/backstage-plugins/commit/ad53599f1a03cec90d5ff0cf29863937c49c69bc) Thanks [@secustor](https://github.com/secustor)! - Forward log objects of Renovate as JSON strings to Backstage. This will correctly render Renovate errors and config objects in log lines.
+
+- [#578](https://github.com/secustor/backstage-plugins/pull/578) [`a9a5f79`](https://github.com/secustor/backstage-plugins/commit/a9a5f79480a07e27e8dd4cb7bdaa1820512577d6) Thanks [@secustor](https://github.com/secustor)! - Gracefully handle missing reports after logstream ends
+
 ## 0.15.0
 
 ### Minor Changes
