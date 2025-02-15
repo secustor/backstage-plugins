@@ -9,22 +9,20 @@ import {
 } from '@secustor/backstage-plugin-renovate-node';
 
 export class RedisQueue<T extends object> implements RenovateQueue<T> {
-  private bullQueue: Queue<T, any, string>;
+  private bullQueue: Queue<Job<T, void, string>>;
 
   static id = 'redis';
 
   constructor(cacheURL: string, logger: LoggerService, runnable: Runnable<T>) {
     const connection = new Redis(cacheURL, { maxRetriesPerRequest: null });
-    const worker = new Worker(
-      'renovate-runner',
-      async (job: Job<T, any, string>) => runnable.run(job.data),
-      {
-        connection,
-      },
-    );
+    const processor = async (job: Job<T, void, string>) =>
+      runnable.run(job.data);
+    const worker = new Worker('renovate-runner', processor, {
+      connection,
+    });
     logger.info(`Renovation worker started with ${worker.name}`);
 
-    this.bullQueue = new Queue<T>('renovate-runner', {
+    this.bullQueue = new Queue<Job<T, void>>('renovate-runner', {
       connection,
       defaultJobOptions: {
         removeOnFail: true,

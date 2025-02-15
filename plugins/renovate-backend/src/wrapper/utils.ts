@@ -4,12 +4,13 @@ import { Config } from '@backstage/config';
 import is from '@sindresorhus/is';
 import { LoggerService } from '@backstage/backend-plugin-api';
 import { getPluginConfig } from '../config';
+import { JsonObject } from '@backstage/types';
 
 export async function extractReport(
   opts: ExtractReportOptions,
 ): Promise<RenovateReport> {
   const { logStream, logger } = opts;
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     let uncompletedText = '';
     logStream.on('data', (chunk: Buffer) => {
       const text = uncompletedText.concat(chunk.toString());
@@ -20,19 +21,39 @@ export async function extractReport(
       uncompletedText = logLines.pop() ?? '';
 
       for (const logLine of logLines) {
-        const log = JSON.parse(logLine);
+        const log: JsonObject = JSON.parse(logLine);
         if (log.report) {
           // TODO use schema and reject if report does not fit expectation
           const report = log.report as RenovateReport;
           // do not forward the report to logging
           resolve(report);
+          continue;
         }
-        const msg = log.msg;
-        delete log.msg;
-        // delete logContext as it is the same as runID
-        delete log.logContext;
-        logger.debug(msg, log);
+
+        const meta: JsonObject = {};
+        // unpack log object
+        for (const [key, value] of Object.entries(log)) {
+          // skip fields which are transported outside of the meta object
+          if (['msg', 'logContext', 'report'].includes(key)) {
+            continue;
+          }
+
+          meta[key] = JSON.stringify(value);
+        }
+
+        const msg = is.string(log.msg) ? log.msg : JSON.stringify(log.msg);
+        logger.debug(msg, meta);
       }
+    });
+
+    logStream.on('end', () => {
+      if (uncompletedText) {
+        logger.warn('Uncompleted log line found', { uncompletedText });
+        reject(
+          'Premature exit of Renovate. Uncompleted log line found in log stream after end of stream',
+        );
+      }
+      reject('No report found in log stream');
     });
   });
 }

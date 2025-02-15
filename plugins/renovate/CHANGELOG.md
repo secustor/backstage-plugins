@@ -1,5 +1,13 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.15.1
+
+### Patch Changes
+
+- [#577](https://github.com/secustor/backstage-plugins/pull/577) [`f76d3e4`](https://github.com/secustor/backstage-plugins/commit/f76d3e46e91870447e5627b793955ab6c8004f1d) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @mui/lab to v6.0.0-beta.27
+
+- [#580](https://github.com/secustor/backstage-plugins/pull/580) [`bc2386c`](https://github.com/secustor/backstage-plugins/commit/bc2386c8ff3bb468cd6c38c3d442192389d4c2be) Thanks [@secustor](https://github.com/secustor)! - Bump `@mui/x-data-grid` to `^7.26.0` and fix type issues
+
 ## 0.15.0
 
 ### Minor Changes
