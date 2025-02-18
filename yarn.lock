@@ -11089,6 +11089,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opentelemetry/semantic-conventions@npm:1.29.0":
+  version: 1.29.0
+  resolution: "@opentelemetry/semantic-conventions@npm:1.29.0"
+  checksum: 10c0/54a4033fa1e7c31394d41f96e812b922aa406551d69361e804dc107ae9e75923328001398f78faf2dbd77cbd9df3c928223662642babc2d0e82b24f5ef0c5347
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -12041,10 +12048,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pep440@npm:4.0.1":
-  version: 4.0.1
-  resolution: "@renovatebot/pep440@npm:4.0.1"
-  checksum: 10c0/58f7faf946917c88a0af1eac6cab68ec44ee35d00106072d6cdedf4cd74a7f332b6818b26bc50ae506adfc9778332acce91318666a6b7a27fa994638b576bd7e
+"@renovatebot/pep440@npm:4.1.0":
+  version: 4.1.0
+  resolution: "@renovatebot/pep440@npm:4.1.0"
+  checksum: 10c0/16fde4018f5c61a9e976481fe771b5b9e085dbebe3908d5bf60da71c68966fd195ccf220f93ff9640e484671defc8d5a1f44fdbd8c26f854f330e6a35a3c94d8
   languageName: node
   linkType: hard
 
@@ -12491,7 +12498,7 @@ __metadata:
     "@types/find-up": "npm:^4.0.0"
     "@types/jest": "npm:^29.5.12"
     find-up: "npm:^5.0.0"
-    renovate: "npm:39.170.1"
+    renovate: "npm:39.174.3"
   languageName: unknown
   linkType: soft
 
@@ -32952,15 +32959,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.4.2":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10c0/99e076a26ed0aba4ebc043880d0f08bbb8c59a4c6641cdee6cdadf2205bdd87aa1d7823f50c3aea41e015e99878d37c58d7b5f0e663bba0ef047f94e36b96446
-  languageName: node
-  linkType: hard
-
 "prettier@npm:3.5.1":
   version: 3.5.1
   resolution: "prettier@npm:3.5.1"
@@ -34560,9 +34558,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:39.170.1":
-  version: 39.170.1
-  resolution: "renovate@npm:39.170.1"
+"renovate@npm:39.174.3":
+  version: 39.174.3
+  resolution: "renovate@npm:39.174.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.738.0"
     "@aws-sdk/client-ec2": "npm:3.738.0"
@@ -34581,13 +34579,13 @@ __metadata:
     "@opentelemetry/resources": "npm:1.30.1"
     "@opentelemetry/sdk-trace-base": "npm:1.30.1"
     "@opentelemetry/sdk-trace-node": "npm:1.30.1"
-    "@opentelemetry/semantic-conventions": "npm:1.28.0"
+    "@opentelemetry/semantic-conventions": "npm:1.29.0"
     "@pnpm/parse-overrides": "npm:1000.0.2"
     "@qnighy/marshal": "npm:0.1.3"
     "@renovatebot/detect-tools": "npm:1.1.0"
     "@renovatebot/kbpgp": "npm:4.0.1"
     "@renovatebot/osv-offline": "npm:1.5.12"
-    "@renovatebot/pep440": "npm:4.0.1"
+    "@renovatebot/pep440": "npm:4.1.0"
     "@renovatebot/ruby-semver": "npm:4.0.0"
     "@sindresorhus/is": "npm:4.6.0"
     "@yarnpkg/core": "npm:4.2.0"
@@ -34653,7 +34651,7 @@ __metadata:
     p-queue: "npm:6.6.2"
     p-throttle: "npm:4.1.1"
     parse-link-header: "npm:2.0.0"
-    prettier: "npm:3.4.2"
+    prettier: "npm:3.5.1"
     protobufjs: "npm:7.4.0"
     punycode: "npm:2.3.1"
     re2: "npm:1.21.4"
@@ -34687,7 +34685,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/71c17f62c1a932235d499f208f6639467e20c382b508e67ce55dcd4400a0d3cd3cb27dd55b115622c1eb83165784e9f3d9d16eec2bed77fc355aa4875b52a61a
+  checksum: 10c0/8fb534d4b405e1df6bb84d3080e223f888b4653dfd251c540c2665d29b3293ec9184c3bbd07168d6c8ab73569e83f9aad00cf13b229d57bbb6e94e72568d5dfb
   languageName: node
   linkType: hard
 
