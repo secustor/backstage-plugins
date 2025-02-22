@@ -44,7 +44,7 @@
     "postpack": "backstage-cli package postpack"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.29.4",
+    "@backstage/cli": "^0.30.0",
     "@types/git-url-parse": "^9.0.3"
   },
   "files": [
