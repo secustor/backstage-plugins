@@ -6338,7 +6338,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/apply-release-plan@npm:^7.0.9":
+"@changesets/apply-release-plan@npm:^7.0.10":
   version: 7.0.10
   resolution: "@changesets/apply-release-plan@npm:7.0.10"
   dependencies:
@@ -6393,17 +6393,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:2.28.0":
-  version: 2.28.0
-  resolution: "@changesets/cli@npm:2.28.0"
+"@changesets/cli@npm:2.28.1":
+  version: 2.28.1
+  resolution: "@changesets/cli@npm:2.28.1"
   dependencies:
-    "@changesets/apply-release-plan": "npm:^7.0.9"
+    "@changesets/apply-release-plan": "npm:^7.0.10"
     "@changesets/assemble-release-plan": "npm:^6.0.6"
     "@changesets/changelog-git": "npm:^0.2.1"
-    "@changesets/config": "npm:^3.1.0"
+    "@changesets/config": "npm:^3.1.1"
     "@changesets/errors": "npm:^0.2.0"
     "@changesets/get-dependents-graph": "npm:^2.1.3"
-    "@changesets/get-release-plan": "npm:^4.0.7"
+    "@changesets/get-release-plan": "npm:^4.0.8"
     "@changesets/git": "npm:^3.0.2"
     "@changesets/logger": "npm:^0.1.1"
     "@changesets/pre": "npm:^2.0.2"
@@ -6427,11 +6427,11 @@ __metadata:
     term-size: "npm:^2.1.0"
   bin:
     changeset: bin.js
-  checksum: 10c0/46f56b2ebef543fbefb51946e2f3fab8bba1ae0aaec3890c29360c439596046a58d07810c72e3ac9dd0431825aae4692b12ea1cd4c97a7acb79e7af4a273391a
+  checksum: 10c0/f965b56fa533f91b5de0f5fd5b09fac46662f023dafbe474d3fc7ceb71629dce4783a37429a927d50292a7ea95c0694e5a8f0c143d9cbba95d28a4d11ab8106b
   languageName: node
   linkType: hard
 
-"@changesets/config@npm:^3.1.0, @changesets/config@npm:^3.1.1":
+"@changesets/config@npm:^3.1.1":
   version: 3.1.1
   resolution: "@changesets/config@npm:3.1.1"
   dependencies:
@@ -6477,7 +6477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/get-release-plan@npm:^4.0.7":
+"@changesets/get-release-plan@npm:^4.0.8":
   version: 4.0.8
   resolution: "@changesets/get-release-plan@npm:4.0.8"
   dependencies:
@@ -35490,7 +35490,7 @@ __metadata:
     "@backstage/e2e-test-utils": "npm:0.1.1"
     "@backstage/repo-tools": "npm:0.13.0"
     "@changesets/changelog-github": "npm:0.5.1"
-    "@changesets/cli": "npm:2.28.0"
+    "@changesets/cli": "npm:2.28.1"
     "@playwright/test": "npm:1.50.1"
     "@spotify/prettier-config": "npm:15.0.0"
     "@types/jest": "npm:29.5.14"
