@@ -1,5 +1,18 @@
 # backend
 
+## 0.5.2
+
+### Patch Changes
+
+- [#589](https://github.com/secustor/backstage-plugins/pull/589) [`eafe639`](https://github.com/secustor/backstage-plugins/commit/eafe63929edeab0f19e48f0fcad76f70dabd94a0) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency better-sqlite3 to v11
+
+- Updated dependencies [[`7ff6f40`](https://github.com/secustor/backstage-plugins/commit/7ff6f40d825c3b97f094f5eadff9d4a1ce70533d)]:
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.6.2
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@0.6.2
+  - @secustor/backstage-plugin-renovate-backend-module-queue-local@0.4.1
+  - @secustor/backstage-plugin-renovate-backend-module-queue-redis@0.4.2
+  - @secustor/backstage-plugin-renovate-backend@0.15.2
+
 ## 0.5.1
 
 ### Patch Changes
