@@ -1,5 +1,14 @@
 # app
 
+## 0.6.2
+
+### Patch Changes
+
+- [#593](https://github.com/secustor/backstage-plugins/pull/593) [`0c8c09d`](https://github.com/secustor/backstage-plugins/commit/0c8c09dff650ce34086025cc83aa56e0606e58d7) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @backstage-community/plugin-github-actions to ^0.8.0
+
+- Updated dependencies [[`c407407`](https://github.com/secustor/backstage-plugins/commit/c407407412052354934b206eb86c4bf14abf1d1a), [`7ff6f40`](https://github.com/secustor/backstage-plugins/commit/7ff6f40d825c3b97f094f5eadff9d4a1ce70533d)]:
+  - @secustor/backstage-plugin-renovate@0.15.2
+
 ## 0.6.1
 
 ### Patch Changes

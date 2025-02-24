@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.15.2
+
+### Patch Changes
+
+- [#586](https://github.com/secustor/backstage-plugins/pull/586) [`7ff6f40`](https://github.com/secustor/backstage-plugins/commit/7ff6f40d825c3b97f094f5eadff9d4a1ce70533d) Thanks [@renovate](https://github.com/apps/renovate)! - bump Backstage to 1.36.1
+
+- Updated dependencies [[`7ff6f40`](https://github.com/secustor/backstage-plugins/commit/7ff6f40d825c3b97f094f5eadff9d4a1ce70533d)]:
+  - @secustor/backstage-plugin-renovate-common@0.8.1
+  - @secustor/backstage-plugin-renovate-node@0.5.1
+
 ## 0.15.1
 
 ### Patch Changes
