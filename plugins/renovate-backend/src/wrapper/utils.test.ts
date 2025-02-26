@@ -1,6 +1,6 @@
 import { extractReport, getCacheEnvs } from './utils';
 import { mockServices } from '@backstage/backend-test-utils';
-import { MockConfigApi } from '@backstage/test-utils';
+import { mockApis } from '@backstage/test-utils';
 import { PassThrough } from 'stream';
 import { RenovateReport } from '@secustor/backstage-plugin-renovate-common';
 
@@ -153,23 +153,27 @@ describe('renovate-backend/wrapper/utils', () => {
 
   describe('getCacheEnvs', () => {
     it('returns empty for empty', () => {
-      const config = new MockConfigApi({
-        renovate: {},
+      const config = mockApis.config({
+        data: {
+          renovate: {},
+        },
       });
       expect(getCacheEnvs(config, logger)).toEqual({});
     });
 
     it('returns config for enabled cache', () => {
-      const config = new MockConfigApi({
-        backend: {
-          cache: {
-            store: 'redis',
-            connection: 'redis://localhost',
+      const config = mockApis.config({
+        data: {
+          backend: {
+            cache: {
+              store: 'redis',
+              connection: 'redis://localhost',
+            },
           },
-        },
-        renovate: {
-          cache: {
-            enabled: true,
+          renovate: {
+            cache: {
+              enabled: true,
+            },
           },
         },
       });
@@ -180,14 +184,16 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('default to enabled cache', () => {
-      const config = new MockConfigApi({
-        backend: {
-          cache: {
-            store: 'redis',
-            connection: 'redis://localhost',
+      const config = mockApis.config({
+        data: {
+          backend: {
+            cache: {
+              store: 'redis',
+              connection: 'redis://localhost',
+            },
           },
+          renovate: {},
         },
-        renovate: {},
       });
       expect(getCacheEnvs(config, logger)).toEqual({
         RENOVATE_REDIS_PREFIX: 'renovate_',
@@ -196,16 +202,18 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('returns empty for disabled cache', () => {
-      const config = new MockConfigApi({
-        backend: {
-          cache: {
-            store: 'redis',
-            connection: 'redis://localhost',
+      const config = mockApis.config({
+        data: {
+          backend: {
+            cache: {
+              store: 'redis',
+              connection: 'redis://localhost',
+            },
           },
-        },
-        renovate: {
-          cache: {
-            enabled: false,
+          renovate: {
+            cache: {
+              enabled: false,
+            },
           },
         },
       });
@@ -213,33 +221,39 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('returns empty for no cache', () => {
-      const config = new MockConfigApi({
-        backend: {},
-        renovate: {},
+      const config = mockApis.config({
+        data: {
+          backend: {},
+          renovate: {},
+        },
       });
       expect(getCacheEnvs(config, logger)).toEqual({});
     });
 
     it('returns empty for unsupported cache', () => {
-      const config = new MockConfigApi({
-        backend: {
-          cache: {
-            store: 'memcached',
+      const config = mockApis.config({
+        data: {
+          backend: {
+            cache: {
+              store: 'memcached',
+            },
           },
+          renovate: {},
         },
-        renovate: {},
       });
       expect(getCacheEnvs(config, logger)).toEqual({});
     });
 
     it('returns empty for missing connection', () => {
-      const config = new MockConfigApi({
-        backend: {
-          cache: {
-            store: 'redis',
+      const config = mockApis.config({
+        data: {
+          backend: {
+            cache: {
+              store: 'redis',
+            },
           },
+          renovate: {},
         },
-        renovate: {},
       });
       expect(getCacheEnvs(config, logger)).toEqual({});
     });

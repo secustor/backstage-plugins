@@ -1,8 +1,8 @@
 import { getPlatformEnvs } from './index';
-import { MockConfigApi } from '@backstage/test-utils';
-import { mockServices } from '@backstage/backend-test-utils';
 import { mockDeep } from 'jest-mock-extended';
 import { DefaultGithubCredentialsProvider } from '@backstage/integration';
+import { mockServices } from '@backstage/backend-test-utils';
+import { mockApis } from '@backstage/test-utils';
 
 const githubCredentialProvider = mockDeep<DefaultGithubCredentialsProvider>();
 DefaultGithubCredentialsProvider.fromIntegrations = jest
@@ -15,6 +15,7 @@ describe('wrapper/platforms', () => {
   });
 
   it('throw if platform could not be identified', async () => {
+    const rootConfig = mockApis.config({ data: {} });
     await expect(
       getPlatformEnvs(
         {
@@ -22,7 +23,7 @@ describe('wrapper/platforms', () => {
           repository: 'myOrg/myRepo',
         },
         {
-          rootConfig: new MockConfigApi({}),
+          rootConfig,
           logger: mockServices.logger.mock(),
         },
       ),
@@ -32,6 +33,18 @@ describe('wrapper/platforms', () => {
   });
 
   it('return env for github.com', async () => {
+    const rootConfig = mockApis.config({
+      data: {
+        integrations: {
+          github: [
+            {
+              host: 'github.com',
+              token: 'aaaaaa',
+            },
+          ],
+        },
+      },
+    });
     githubCredentialProvider.getCredentials.mockResolvedValue({
       token: 'aaaaaa',
       type: 'token',
@@ -43,16 +56,7 @@ describe('wrapper/platforms', () => {
           repository: 'myOrg/myRepo',
         },
         {
-          rootConfig: new MockConfigApi({
-            integrations: {
-              github: [
-                {
-                  host: 'github.com',
-                  token: 'aaaaaa',
-                },
-              ],
-            },
-          }),
+          rootConfig,
           logger: mockServices.logger.mock(),
         },
       ),
@@ -65,6 +69,26 @@ describe('wrapper/platforms', () => {
   });
 
   it('return env for github.com app', async () => {
+    const rootConfig = mockApis.config({
+      data: {
+        integrations: {
+          github: [
+            {
+              host: 'github.com',
+              apps: [
+                {
+                  appId: 1000000,
+                  clientId: 'aaaaaa',
+                  clientSecret: 'aaaaaa',
+                  privateKey: 'aaaaaa',
+                  webhookSecret: 'aaaaa',
+                },
+              ],
+            },
+          ],
+        },
+      },
+    });
     githubCredentialProvider.getCredentials.mockResolvedValue({
       token: 'bbbbbbbbbb',
       type: 'app',
@@ -76,24 +100,7 @@ describe('wrapper/platforms', () => {
           repository: 'myOrg/myRepo',
         },
         {
-          rootConfig: new MockConfigApi({
-            integrations: {
-              github: [
-                {
-                  host: 'github.com',
-                  apps: [
-                    {
-                      appId: 1000000,
-                      clientId: 'aaaaaa',
-                      clientSecret: 'aaaaaa',
-                      privateKey: 'aaaaaa',
-                      webhookSecret: 'aaaaa',
-                    },
-                  ],
-                },
-              ],
-            },
-          }),
+          rootConfig,
           logger: mockServices.logger.mock(),
         },
       ),
@@ -106,6 +113,24 @@ describe('wrapper/platforms', () => {
   });
 
   it('return env for gitlab.com with github.com token', async () => {
+    const rootConfig = mockApis.config({
+      data: {
+        integrations: {
+          github: [
+            {
+              host: 'github.com',
+              token: 'aaaaaa',
+            },
+          ],
+          gitlab: [
+            {
+              host: 'gitlab.com',
+              token: 'bbbbbbbbbb',
+            },
+          ],
+        },
+      },
+    });
     githubCredentialProvider.getCredentials.mockResolvedValue({
       token: 'aaaaaa',
       type: 'token',
@@ -117,22 +142,7 @@ describe('wrapper/platforms', () => {
           repository: 'myOrg/myRepo',
         },
         {
-          rootConfig: new MockConfigApi({
-            integrations: {
-              github: [
-                {
-                  host: 'github.com',
-                  token: 'aaaaaa',
-                },
-              ],
-              gitlab: [
-                {
-                  host: 'gitlab.com',
-                  token: 'bbbbbbbbbb',
-                },
-              ],
-            },
-          }),
+          rootConfig,
           logger: mockServices.logger.mock(),
         },
       ),
