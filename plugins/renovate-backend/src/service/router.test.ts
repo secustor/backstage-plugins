@@ -1,6 +1,5 @@
 import express from 'express';
 import request from 'supertest';
-import { MockConfigApi } from '@backstage/test-utils';
 import { createRouter } from './router';
 import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 import { mockDeep } from 'jest-mock-extended';
@@ -28,7 +27,7 @@ describe('createRouter', () => {
       auth: mockServices.auth(),
       discovery: mockServices.discovery(),
       logger: mockServices.logger.mock(),
-      rootConfig: new MockConfigApi({}),
+      rootConfig: mockServices.rootConfig.mock(),
       databaseHandler: databaseHandlerMock,
       runtimes: new Map<string, RenovateWrapper>(),
       queueFactories: new Map<string, QueueFactory<RunOptions>>(),
