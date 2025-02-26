@@ -57,7 +57,7 @@ describe('wrapper/platforms', () => {
         },
       ),
     ).resolves.toEqual({
-      RENOVATE_GITHUB_COM: 'aaaaaa',
+      GITHUB_COM_TOKEN: 'aaaaaa',
       RENOVATE_PLATFORM: 'github',
       RENOVATE_REPOSITORIES: 'myOrg/myRepo',
       RENOVATE_TOKEN: 'aaaaaa',
@@ -98,7 +98,7 @@ describe('wrapper/platforms', () => {
         },
       ),
     ).resolves.toEqual({
-      RENOVATE_GITHUB_COM: 'bbbbbbbbbb',
+      GITHUB_COM_TOKEN: 'bbbbbbbbbb',
       RENOVATE_PLATFORM: 'github',
       RENOVATE_REPOSITORIES: 'myOrg/myRepo',
       RENOVATE_TOKEN: 'bbbbbbbbbb',
@@ -138,7 +138,7 @@ describe('wrapper/platforms', () => {
       ),
     ).resolves.toEqual({
       RENOVATE_ENDPOINT: 'https://gitlab.com/api/v4',
-      RENOVATE_GITHUB_COM: 'aaaaaa',
+      GITHUB_COM_TOKEN: 'aaaaaa',
       RENOVATE_PLATFORM: 'gitlab',
       RENOVATE_REPOSITORIES: 'myOrg/myRepo',
       RENOVATE_TOKEN: 'bbbbbbbbbb',

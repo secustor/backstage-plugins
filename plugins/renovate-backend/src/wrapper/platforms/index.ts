@@ -63,7 +63,7 @@ export async function getPlatformEnvs(
   } else {
     const githubComToken = await getGithubToken(integrations, githubComURL);
     if (githubComToken) {
-      env.RENOVATE_GITHUB_COM = githubComToken;
+      env.GITHUB_COM_TOKEN = githubComToken;
     } else {
       logger.warn(
         `Could not get token for Github.com token in the defined integrations`,
