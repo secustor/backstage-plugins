@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.15.3
+
+### Patch Changes
+
+- [#600](https://github.com/secustor/backstage-plugins/pull/600) [`99ba696`](https://github.com/secustor/backstage-plugins/commit/99ba69657b82ae3a83faf951927fd1f1bef322e8) Thanks [@secustor](https://github.com/secustor)! - Correctly use GITHUB_COM_TOKEN instead of RENOVATE_GITHUB_COM
+
 ## 0.15.2
 
 ### Patch Changes
