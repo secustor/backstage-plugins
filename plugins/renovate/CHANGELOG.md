@@ -1,5 +1,13 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.15.3
+
+### Patch Changes
+
+- [#605](https://github.com/secustor/backstage-plugins/pull/605) [`2075d19`](https://github.com/secustor/backstage-plugins/commit/2075d19991dcda9ff5decc14a9f4ccd7de426efa) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
+- [#613](https://github.com/secustor/backstage-plugins/pull/613) [`49c61e7`](https://github.com/secustor/backstage-plugins/commit/49c61e736facdc771c7faceaa819bd2fd539f5c5) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
 ## 0.15.2
 
 ### Patch Changes
