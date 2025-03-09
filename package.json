@@ -11,6 +11,8 @@
   },
   "packageManager": "yarn@4.7.0",
   "scripts": {
+    "fix": "yarn prettier:fix && backstage-cli repo fix --publish && yarn dedupe --strategy highest",
+    "check": "yarn tsc:full && yarn lint && yarn test:all && yarn dedupe --check",
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
     "start-backend": "yarn workspace backend start",
@@ -28,7 +30,6 @@
     "test": "backstage-cli repo test",
     "test:all": "backstage-cli repo test --coverage",
     "test:e2e": "playwright test",
-    "fix": "backstage-cli repo fix --publish",
     "lint": "backstage-cli repo lint --since origin/main",
     "lint:fix": "yarn prettier:fix && backstage-cli repo lint --fix && yarn tsc:full && yarn dedupe --strategy highest",
     "lint:all": "backstage-cli repo lint",

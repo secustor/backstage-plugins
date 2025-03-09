@@ -46,17 +46,10 @@ jobs:
         run: yarn install --immutable
 
       - name: check for missing repo fixes
-        run: yarn fix --check
+        run: yarn run check
 
       - name: validate config
         run: yarn backstage-cli config:check --lax
-
-      # running into problems with tsc:full after installing repo-tools
-      - name: type checking and declarations
-        run: yarn tsc:full
-
-      - name: prettier
-        run: yarn prettier:check
 
       #      - name: check api reports and generate API reference
       #        # check flags
