@@ -80,5 +80,16 @@
     "*.{json,json5,md,yaml,yml}": [
       "prettier --write"
     ]
+  },
+  "backstage": {
+    "cli": {
+      "new": {
+        "globals": {
+          "license": "LGPL-3.0",
+          "namePrefix": "@secustor/",
+          "namePluginInfix": "backstage-plugin-"
+        }
+      }
+    }
   }
 }
