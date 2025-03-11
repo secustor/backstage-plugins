@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-docker
 
+## 0.6.3
+
+### Patch Changes
+
+- [#583](https://github.com/secustor/backstage-plugins/pull/583) [`8deea4b`](https://github.com/secustor/backstage-plugins/commit/8deea4b9293701343482f42093479bd699a6ccdb) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update renovate docker tag to v39.195.0
+
 ## 0.6.2
 
 ### Patch Changes
