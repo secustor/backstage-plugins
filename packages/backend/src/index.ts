@@ -39,4 +39,9 @@ backend.add(
   import('@secustor/backstage-plugin-renovate-backend-module-queue-redis'),
 );
 
+backend.add(
+  import(
+    '@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities'
+  ),
+);
 backend.start();
