@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@backstage/catalog-model": "^1.7.2",
-    "@backstage/core-components": "^0.16.2",
+    "@backstage/core-components": "^0.17.0",
     "@backstage/core-plugin-api": "^1.10.2",
     "@backstage/errors": "^1.2.6",
     "@backstage/integration-react": "^1.2.2",
@@ -53,7 +53,7 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.0",
-    "@mui/lab": "6.0.0-beta.30",
+    "@mui/lab": "6.0.0-beta.31",
     "@mui/material": "^6.1.0",
     "@mui/styles": "^6.1.0",
     "@mui/x-data-grid": "^7.26.0",
@@ -68,7 +68,7 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.30.0",
+    "@backstage/cli": "^0.31.0",
     "@backstage/core-app-api": "^1.15.3",
     "@backstage/dev-utils": "^1.1.5",
     "@backstage/test-utils": "^1.7.3",
