@@ -1,6 +1,6 @@
 {
   "name": "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "LGPL-3.0",
   "description": "The filter-utilities module for @backstage/plugin-scaffolder-backend",
   "main": "src/index.ts",
