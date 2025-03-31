@@ -7,9 +7,9 @@
   },
   "volta": {
     "node": "22.14.0",
-    "yarn": "4.7.0"
+    "yarn": "4.8.0"
   },
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.8.0",
   "scripts": {
     "fix": "yarn prettier:fix && backstage-cli repo fix --publish && yarn dedupe --strategy highest",
     "check": "yarn tsc:full && yarn lint && yarn test:all && yarn dedupe --check",
