@@ -1,6 +1,6 @@
 {
   "name": "@secustor/backstage-plugin-renovate-backend",
-  "version": "0.15.3",
+  "version": "0.15.4",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "type": "commonjs",
@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@backstage/backend-test-utils": "^1.2.0",
-    "@backstage/cli": "^0.30.0",
+    "@backstage/cli": "^0.31.0",
     "@backstage/repo-tools": "^0.13.0",
     "@backstage/test-utils": "^1.7.3",
     "@types/supertest": "^6.0.0",

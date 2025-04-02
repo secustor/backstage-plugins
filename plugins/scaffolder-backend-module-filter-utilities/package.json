@@ -1,6 +1,6 @@
 {
   "name": "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "LGPL-3.0",
   "description": "The filter-utilities module for @backstage/plugin-scaffolder-backend",
   "main": "src/index.ts",
@@ -35,13 +35,13 @@
   },
   "dependencies": {
     "@backstage/backend-plugin-api": "^1.2.0",
-    "@backstage/plugin-scaffolder-node": "^0.7.0",
+    "@backstage/plugin-scaffolder-node": "^0.8.0",
     "jsonata": "^2.0.6",
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.30.0",
-    "@backstage/plugin-scaffolder-node-test-utils": "^0.1.19"
+    "@backstage/cli": "^0.31.0",
+    "@backstage/plugin-scaffolder-node-test-utils": "^0.2.0"
   },
   "files": [
     "dist"

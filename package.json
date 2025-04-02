@@ -7,9 +7,9 @@
   },
   "volta": {
     "node": "22.14.0",
-    "yarn": "4.7.0"
+    "yarn": "4.8.1"
   },
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.8.1",
   "scripts": {
     "fix": "yarn prettier:fix && backstage-cli repo fix --publish && yarn dedupe --strategy highest",
     "check": "yarn tsc:full && yarn lint && yarn test:all && yarn dedupe --check",
@@ -45,12 +45,12 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "0.30.0",
+    "@backstage/cli": "0.31.0",
     "@backstage/e2e-test-utils": "0.1.1",
-    "@backstage/repo-tools": "0.13.0",
+    "@backstage/repo-tools": "0.13.1",
     "@changesets/changelog-github": "0.5.1",
     "@changesets/cli": "2.28.1",
-    "@playwright/test": "1.51.0",
+    "@playwright/test": "1.51.1",
     "@spotify/prettier-config": "15.0.0",
     "@types/jest": "29.5.14",
     "concurrently": "9.1.2",
@@ -61,7 +61,7 @@
     "node-gyp": "11.1.0",
     "pinst": "3.0.0",
     "prettier": "3.5.3",
-    "ts-jest": "29.2.6",
+    "ts-jest": "29.3.0",
     "typescript": "5.8.2"
   },
   "resolutions": {
