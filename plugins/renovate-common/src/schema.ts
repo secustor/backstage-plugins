@@ -7,7 +7,7 @@ export const targetRepo = z.object({
 
 export const problem = z.any();
 
-export const NullishString = z
+export const NullishString = z.coerce
   .string()
   .optional()
   .catch(ctx => {
