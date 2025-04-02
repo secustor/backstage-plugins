@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.8.3
+
+### Patch Changes
+
+- [#645](https://github.com/secustor/backstage-plugins/pull/645) [`9c3def7`](https://github.com/secustor/backstage-plugins/commit/9c3def7a0ec8b2d3cee2cb7f290ec6da8b1c13c3) Thanks [@secustor](https://github.com/secustor)! - Coerce currentValue allways to string while schema parsing
+
 ## 0.8.2
 
 ### Patch Changes
