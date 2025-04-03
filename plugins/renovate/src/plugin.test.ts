@@ -1,4 +1,4 @@
-import { renovatePlugin } from './plugin';
+import { renovatePlugin } from './plugin.tsx';
 
 describe('renovate', () => {
   it('should export plugin', () => {

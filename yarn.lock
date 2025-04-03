@@ -12073,10 +12073,13 @@ __metadata:
     "@backstage/catalog-model": "backstage:^"
     "@backstage/cli": "backstage:^"
     "@backstage/core-app-api": "backstage:^"
+    "@backstage/core-compat-api": "backstage:^"
     "@backstage/core-components": "backstage:^"
     "@backstage/core-plugin-api": "backstage:^"
     "@backstage/dev-utils": "backstage:^"
     "@backstage/errors": "backstage:^"
+    "@backstage/frontend-defaults": "npm:^0.2.0"
+    "@backstage/frontend-plugin-api": "backstage:^"
     "@backstage/integration-react": "backstage:^"
     "@backstage/plugin-catalog-react": "backstage:^"
     "@backstage/test-utils": "backstage:^"
@@ -12101,6 +12104,7 @@ __metadata:
     react-use: "npm:^17.2.4"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
+    react-dom: "*"
   languageName: unknown
   linkType: soft
 

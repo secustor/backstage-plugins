@@ -1,12 +1,9 @@
-import React from 'react';
-import { createDevApp } from '@backstage/dev-utils';
-import { renovatePlugin, RenovatePage } from '../src/plugin';
+import { createApp } from '@backstage/frontend-defaults';
+import RenovatePlugin from '../src/alpha.tsx';
+import ReactDOM from 'react-dom';
 
-createDevApp()
-  .registerPlugin(renovatePlugin)
-  .addPage({
-    element: <RenovatePage />,
-    title: 'Root Page',
-    path: '/renovate',
-  })
-  .render();
+const app = createApp({
+  features: [RenovatePlugin],
+});
+
+ReactDOM.createRoot(document.getElementById('root')!).render(app.createRoot());
