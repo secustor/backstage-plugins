@@ -12078,7 +12078,7 @@ __metadata:
     "@backstage/core-plugin-api": "backstage:^"
     "@backstage/dev-utils": "backstage:^"
     "@backstage/errors": "backstage:^"
-    "@backstage/frontend-defaults": "npm:^0.2.0"
+    "@backstage/frontend-defaults": "backstage:^"
     "@backstage/frontend-plugin-api": "backstage:^"
     "@backstage/integration-react": "backstage:^"
     "@backstage/plugin-catalog-react": "backstage:^"
