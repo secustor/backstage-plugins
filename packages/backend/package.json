@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@backstage/cli": "backstage:^",
-    "@types/dockerode": "3.3.36",
+    "@types/dockerode": "3.3.37",
     "@types/express": "4.17.21",
     "@types/express-serve-static-core": "4.19.6",
     "@types/luxon": "3.4.2"
