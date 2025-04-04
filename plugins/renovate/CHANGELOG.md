@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.16.0
+
+### Minor Changes
+
+- [#652](https://github.com/secustor/backstage-plugins/pull/652) [`fce71ed`](https://github.com/secustor/backstage-plugins/commit/fce71ed178ff06ad7b784252e879d764218d3a13) Thanks [@secustor](https://github.com/secustor)! - Support using the new frontend system via /alpha export
+
 ## 0.15.5
 
 ### Patch Changes

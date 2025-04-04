@@ -1,5 +1,13 @@
 # backend
 
+## 0.5.7
+
+### Patch Changes
+
+- [#649](https://github.com/secustor/backstage-plugins/pull/649) [`49ed1c9`](https://github.com/secustor/backstage-plugins/commit/49ed1c91103aabb63d886a67f28ba1bc405fb17e) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.37
+
+- [#654](https://github.com/secustor/backstage-plugins/pull/654) [`b6a5851`](https://github.com/secustor/backstage-plugins/commit/b6a585120148851464045d57629bef36d4dc33f1) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/luxon to v3.6.0
+
 ## 0.5.6
 
 ### Patch Changes
