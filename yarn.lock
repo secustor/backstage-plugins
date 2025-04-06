@@ -12050,7 +12050,7 @@ __metadata:
     "@backstage/config": "backstage:^"
     "@backstage/types": "backstage:^"
     "@sindresorhus/is": "npm:^4.6.0"
-    "@types/git-url-parse": "npm:^9.0.3"
+    "@types/git-url-parse": "npm:^16.0.0"
     git-url-parse: "npm:^16.0.0"
     zod: "npm:^3.22.4"
   languageName: unknown
@@ -12098,7 +12098,7 @@ __metadata:
     "@testing-library/react": "npm:^16.0.0"
     "@testing-library/user-event": "npm:^14.0.0"
     "@textea/json-viewer": "npm:^4.0.0"
-    "@types/git-url-parse": "npm:^9.0.3"
+    "@types/git-url-parse": "npm:^16.0.0"
     git-url-parse: "npm:^16.0.0"
     msw: "npm:^2.0.0"
     react-use: "npm:^17.2.4"
@@ -14711,10 +14711,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/git-url-parse@npm:^9.0.3":
-  version: 9.0.3
-  resolution: "@types/git-url-parse@npm:9.0.3"
-  checksum: 10c0/7335a185ed33921c025428fba62d86208573001f3ec686519bda272a9dfefbf32aba2dbc5c782ca705282f3338e04a45df6548863d26b9616531d45078160b93
+"@types/git-up@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@types/git-up@npm:8.0.0"
+  dependencies:
+    parse-url: "npm:^9.2.0"
+  checksum: 10c0/f7f70985a53f15b34de9698c87fb1cf5a10d1aed5a4c2914cb145dad78105f16b9ad1a97e34d2b17054c8048eef74247991f717c609b80219b90fc78bcb0cb64
+  languageName: node
+  linkType: hard
+
+"@types/git-url-parse@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "@types/git-url-parse@npm:16.0.0"
+  dependencies:
+    "@types/git-up": "npm:^8.0.0"
+  checksum: 10c0/e058e86fe815a2ed5ee7f7fcd2c410f55bb8b167b5b2a19f94ccdc65148700a58215b541cf3d91d0f900f62ae745da3c96de6ad92c0506507b4add9c43eca4e0
   languageName: node
   linkType: hard
 
