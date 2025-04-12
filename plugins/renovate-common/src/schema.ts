@@ -63,11 +63,19 @@ export const branch = z
 export const packageFiles = z.record(z.string(), z.array(packageFile));
 export type PackageFiles = z.infer<typeof packageFiles>;
 
+export const libYears = z.object({
+  managerLibYears: z.record(z.string(), z.number()),
+  totalLibYears: z.number(),
+  totalDepsCount: z.number(),
+  outdatedDepsCount: z.number(),
+});
+
 export const repositoryReport = z
   .object({
     problems: z.array(problem),
     branches: z.array(branch),
     packageFiles,
+    libYears: libYears.optional(),
   })
   .passthrough();
 export type RepositoryReport = z.infer<typeof repositoryReport>;

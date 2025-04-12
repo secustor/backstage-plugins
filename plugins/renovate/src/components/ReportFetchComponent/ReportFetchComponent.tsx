@@ -35,7 +35,7 @@ interface RowDataEntry {
   report: RepositoryReportResponseElement;
 }
 
-export const ReportTable = (options: DenseTableProps) => {
+export function ReportTable(options: DenseTableProps) {
   const { reports } = options;
   const columns: TableColumn<RowDataEntry>[] = [
     {
@@ -46,10 +46,18 @@ export const ReportTable = (options: DenseTableProps) => {
     },
     { title: 'Host', field: 'host' },
     { title: 'Repository', field: 'repository' },
+    {
+      title: 'Total Libyears',
+      field: 'libyears',
+      render: rowData =>
+        rowData.report.report.libYears?.totalLibYears?.toFixed(2),
+      align: 'right',
+    },
+    { title: 'Number of dependencies', field: 'noDeps' },
+    { title: 'Number of outdated dependencies', field: 'outdatedDeps' },
     { title: 'Number of PRs', field: 'noPRs' },
     { title: 'Number of branches', field: 'noBranches' },
     { title: 'Number of updates', field: 'noUpdates' },
-    { title: 'Number of dependencies', field: 'noDeps' },
   ];
 
   const data = reports.flatMap(
@@ -60,6 +68,7 @@ export const ReportTable = (options: DenseTableProps) => {
         id: report.runID,
         host: report.host,
         repository: report.repository,
+        libyears: report.report.libYears?.totalLibYears,
         timestamp: report.timestamp,
         noPRs: report.report.branches.filter(
           branch => !is.nullOrUndefined(branch.prNo),
@@ -67,7 +76,8 @@ export const ReportTable = (options: DenseTableProps) => {
         noBranches: report.report.branches.length,
         noUpdates: report.report.branches.flatMap(branch => branch.upgrades)
           .length,
-        noDeps: deps.length,
+        outdatedDeps: report.report.libYears?.outdatedDepsCount,
+        noDeps: report.report.libYears?.totalDepsCount ?? deps.length,
         report,
       };
     },
@@ -141,7 +151,7 @@ export const ReportTable = (options: DenseTableProps) => {
       />
     </>
   );
-};
+}
 
 export const ReportFetchComponent = () => {
   const renovateAPI = useApi(renovateApiRef);
