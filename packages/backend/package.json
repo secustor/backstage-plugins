@@ -46,6 +46,7 @@
     "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "workspace:^",
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^",
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^",
+    "@secustor/backstage-plugin-renovate-backend-module-runtime-s3": "workspace:^",
     "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities": "workspace:^",
     "app": "link:../app",
     "better-sqlite3": "^11.0.0",
