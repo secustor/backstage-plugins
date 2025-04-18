@@ -10818,7 +10818,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/core@npm:2.0.0":
+"@opentelemetry/core@npm:2.0.0, @opentelemetry/core@npm:^2.0.0":
   version: 2.0.0
   resolution: "@opentelemetry/core@npm:2.0.0"
   dependencies:
@@ -10915,7 +10915,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/resources@npm:2.0.0":
+"@opentelemetry/resource-detector-aws@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@opentelemetry/resource-detector-aws@npm:2.0.0"
+  dependencies:
+    "@opentelemetry/core": "npm:^2.0.0"
+    "@opentelemetry/resources": "npm:^2.0.0"
+    "@opentelemetry/semantic-conventions": "npm:^1.27.0"
+  peerDependencies:
+    "@opentelemetry/api": ^1.0.0
+  checksum: 10c0/07b5d383bfb539497e5c9ce336e07b2f2b0d900ea2a0b907c026192e95a644b37a2000f3905feaaa862918f952f5d93bccfdd4353e3a00ecf3c6598b40bf7345
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/resource-detector-azure@npm:0.7.0":
+  version: 0.7.0
+  resolution: "@opentelemetry/resource-detector-azure@npm:0.7.0"
+  dependencies:
+    "@opentelemetry/core": "npm:^2.0.0"
+    "@opentelemetry/resources": "npm:^2.0.0"
+    "@opentelemetry/semantic-conventions": "npm:^1.27.0"
+  peerDependencies:
+    "@opentelemetry/api": ^1.0.0
+  checksum: 10c0/00244a9eee3a57e37f4bb3ad2012127d2e020a101a224d11e2b761fe80a626d4c124c7a63d97f6b91354f838315b511fd7284486d553dd94810d444dfaf2e086
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/resource-detector-gcp@npm:0.34.0":
+  version: 0.34.0
+  resolution: "@opentelemetry/resource-detector-gcp@npm:0.34.0"
+  dependencies:
+    "@opentelemetry/core": "npm:^2.0.0"
+    "@opentelemetry/resources": "npm:^2.0.0"
+    "@opentelemetry/semantic-conventions": "npm:^1.27.0"
+    gcp-metadata: "npm:^6.0.0"
+  peerDependencies:
+    "@opentelemetry/api": ^1.0.0
+  checksum: 10c0/0b55e191033ba229c5ccba0a7407e8c023b2955630b4d1a2125373cd3e39da63ada2e31da5d5bdd29540f7055aae41068349e035cd19f0da206917276201086c
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/resource-detector-github@npm:0.31.0":
+  version: 0.31.0
+  resolution: "@opentelemetry/resource-detector-github@npm:0.31.0"
+  dependencies:
+    "@opentelemetry/resources": "npm:^2.0.0"
+  peerDependencies:
+    "@opentelemetry/api": ^1.0.0
+  checksum: 10c0/adecc840f8544bcd3aa6a826284cc81bcab0e33907e8cffb36cd931842385e3f8161b7715dc46e4788175af6fa3b9dee2b6648040f023a7d48852a2e456d5640
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/resources@npm:2.0.0, @opentelemetry/resources@npm:^2.0.0":
   version: 2.0.0
   resolution: "@opentelemetry/resources@npm:2.0.0"
   dependencies:
@@ -10978,10 +11029,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/semantic-conventions@npm:1.30.0, @opentelemetry/semantic-conventions@npm:^1.29.0":
-  version: 1.30.0
-  resolution: "@opentelemetry/semantic-conventions@npm:1.30.0"
-  checksum: 10c0/0bf99552e3b4b7e8b7eb504b678d52f59c6f259df88e740a2011a0d858e523d36fee86047ae1b7f45849c77f00f970c3059ba58e0a06a7d47d6f01dbe8c455bd
+"@opentelemetry/semantic-conventions@npm:1.32.0, @opentelemetry/semantic-conventions@npm:^1.27.0, @opentelemetry/semantic-conventions@npm:^1.29.0":
+  version: 1.32.0
+  resolution: "@opentelemetry/semantic-conventions@npm:1.32.0"
+  checksum: 10c0/977c93225490f2456e8bb13b90a8627861207eb5eb4771d7565c2321be883ec711c1701485451f9e10b8d2a724525496c0e4441b43190a7a550bcf7c73f681cd
   languageName: node
   linkType: hard
 
@@ -11922,16 +11973,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/osv-offline@npm:1.6.4":
-  version: 1.6.4
-  resolution: "@renovatebot/osv-offline@npm:1.6.4"
+"@renovatebot/osv-offline@npm:1.6.5":
+  version: 1.6.5
+  resolution: "@renovatebot/osv-offline@npm:1.6.5"
   dependencies:
     "@renovatebot/osv-offline-db": "npm:1.7.3"
     adm-zip: "npm:~0.5.16"
     fs-extra: "npm:^11.3.0"
     got: "npm:^11.8.6"
-    luxon: "npm:^3.6.0"
-  checksum: 10c0/21a0e825fab2d986fdb69e05d07c8d72d88f10ecaedc3a367b1c652685db02f15e832abf0b580fdec91513452354638bff1d61fbed6217028c78209e05b2c851
+    luxon: "npm:^3.6.1"
+  checksum: 10c0/aaa30adc4fdf8d1bba2716c50f17e7e3c56c57b79123d4580b2a67ff3d5416ac75298300aa4b832ba01f83aec533a402e1c779f555e09ee7f9e01753d10c38f7
   languageName: node
   linkType: hard
 
@@ -12392,7 +12443,7 @@ __metadata:
     "@types/find-up": "npm:^4.0.0"
     "@types/jest": "npm:^29.5.12"
     find-up: "npm:^5.0.0"
-    renovate: "npm:39.230.2"
+    renovate: "npm:39.251.0"
   languageName: unknown
   linkType: soft
 
@@ -16378,15 +16429,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/core@npm:4.2.1":
-  version: 4.2.1
-  resolution: "@yarnpkg/core@npm:4.2.1"
+"@yarnpkg/core@npm:4.4.0":
+  version: 4.4.0
+  resolution: "@yarnpkg/core@npm:4.4.0"
   dependencies:
     "@arcanis/slice-ansi": "npm:^1.1.1"
     "@types/semver": "npm:^7.1.0"
     "@types/treeify": "npm:^1.0.0"
     "@yarnpkg/fslib": "npm:^3.1.2"
-    "@yarnpkg/libzip": "npm:^3.1.1"
+    "@yarnpkg/libzip": "npm:^3.2.0"
     "@yarnpkg/parsers": "npm:^3.0.3"
     "@yarnpkg/shell": "npm:^4.1.2"
     camelcase: "npm:^5.3.1"
@@ -16408,7 +16459,7 @@ __metadata:
     treeify: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
     tunnel: "npm:^0.0.6"
-  checksum: 10c0/6943450ea0955cffb71e64c0154ecb81721ce8e9a6b4575d357d26732e1c632b805b52d305fd09e55607d38fba169cc680ad84ff3ca48d23a146ccda0a0e1b5e
+  checksum: 10c0/8d6a7f63ed342fd6aa3808044124228c9bed4e4f94af331e570f0c452da838ebb2be98b5a87d5567f3eb03ef49e26547718fd9740de3c204802b121f3ac69e13
   languageName: node
   linkType: hard
 
@@ -16421,16 +16472,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/libzip@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@yarnpkg/libzip@npm:3.1.1"
+"@yarnpkg/libzip@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "@yarnpkg/libzip@npm:3.2.1"
   dependencies:
     "@types/emscripten": "npm:^1.39.6"
     "@yarnpkg/fslib": "npm:^3.1.2"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@yarnpkg/fslib": ^3.1.2
-  checksum: 10c0/819ad37fbba51f4d7f65fff02b80cd7eb94134d7f7672a8b664a0672f12e710223ff9a8adb4ca565fd6aaa3432e74e964ee71d5ed929e900657c3a9fde9a381d
+  checksum: 10c0/067b57953fe6f7f624b4ca0cabdeb117eaed351ec7c7571551e0380f5b396260fe0350812ab9d003238f01b37398c878d3d1b6b944654d39484a98aa38db3283
   languageName: node
   linkType: hard
 
@@ -19974,12 +20025,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:2.56.0":
-  version: 2.56.0
-  resolution: "cronstrue@npm:2.56.0"
+"cronstrue@npm:2.59.0":
+  version: 2.59.0
+  resolution: "cronstrue@npm:2.59.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10c0/383a3fb3a307aa78182f31ac71523bb01fb0af8092f2014b1671821da82e2a675aa17af570b07b2cd5a8e59cb06f7db157df1aeef9a9693efc6e45966046b565
+  checksum: 10c0/f04c9720eacae8cc58ee700a33ced44947c7d722f9deb8a0d0a9a9b533f493b8c2fabed0e72e6bf9d6d1e5191b7b8325e107496ed93a85a2789e57954084b055
   languageName: node
   linkType: hard
 
@@ -23468,7 +23519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gcp-metadata@npm:^6.1.0":
+"gcp-metadata@npm:^6.0.0, gcp-metadata@npm:^6.1.0":
   version: 6.1.1
   resolution: "gcp-metadata@npm:6.1.1"
   dependencies:
@@ -23732,13 +23783,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-up@npm:^8.0.0":
-  version: 8.1.0
-  resolution: "git-up@npm:8.1.0"
+"git-up@npm:^8.1.0":
+  version: 8.1.1
+  resolution: "git-up@npm:8.1.1"
   dependencies:
     is-ssh: "npm:^1.4.0"
     parse-url: "npm:^9.2.0"
-  checksum: 10c0/9b8565b40ef6183daea0a94607abfdd793744f53125d6379d9abfeac3ed619efc4ebdf2eb1581880901e59e548ba634c157eb9b3ffc2339bf92d242f41157d70
+  checksum: 10c0/2cc4461d8565a3f7a1ecd3d262a58ddb8df0a67f7f7d4915df2913c460b2e88ae570a6ea810700a6d22fb3b9e4bea8dd10a8eb469900ddc12e35c62208608c03
   languageName: node
   linkType: hard
 
@@ -23751,12 +23802,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-url-parse@npm:16.0.1, git-url-parse@npm:^16.0.0":
-  version: 16.0.1
-  resolution: "git-url-parse@npm:16.0.1"
+"git-url-parse@npm:16.1.0, git-url-parse@npm:^16.0.0":
+  version: 16.1.0
+  resolution: "git-url-parse@npm:16.1.0"
   dependencies:
-    git-up: "npm:^8.0.0"
-  checksum: 10c0/bef681b3726c730a3efb599d38ab6affbb13e5e85269fc9c35831ddfe0d195e6a29098c79c8faa63ccd8503ace54c2c4b01a73122af3b66c2ce11f4692b3ef19
+    git-up: "npm:^8.1.0"
+  checksum: 10c0/b8f5ebcbd5b2baf9f1bb77a217376f0247c47fe1d42811ccaac3015768eebb0759a59051f758e50e70adf5c67ae059d1975bf6b750164f36bfd39138d11b940b
   languageName: node
   linkType: hard
 
@@ -28440,14 +28491,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:3.6.0":
-  version: 3.6.0
-  resolution: "luxon@npm:3.6.0"
-  checksum: 10c0/60cc3fe8f7dce51f0e406529b80eec815b335a7202d5c41e210a8acc8e698d8be797f3c77ed60efe581af07f2a88defbe7a77e506121e2f460a667690e71c0d1
-  languageName: node
-  linkType: hard
-
-"luxon@npm:^3.0.0, luxon@npm:^3.2.1, luxon@npm:^3.6.0":
+"luxon@npm:3.6.1, luxon@npm:^3.0.0, luxon@npm:^3.2.1, luxon@npm:^3.6.1":
   version: 3.6.1
   resolution: "luxon@npm:3.6.1"
   checksum: 10c0/906d57a9dc4d1de9383f2e9223e378c298607c1b4d17b6657b836a3cd120feb1c1de3b5d06d846a3417e1ca764de8476e8c23b3cd4083b5cdb870adcb06a99d5
@@ -34560,9 +34604,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:39.230.2":
-  version: 39.230.2
-  resolution: "renovate@npm:39.230.2"
+"renovate@npm:39.251.0":
+  version: 39.251.0
+  resolution: "renovate@npm:39.251.0"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.777.0"
     "@aws-sdk/client-ec2": "npm:3.779.0"
@@ -34580,19 +34624,23 @@ __metadata:
     "@opentelemetry/instrumentation": "npm:0.200.0"
     "@opentelemetry/instrumentation-bunyan": "npm:0.46.0"
     "@opentelemetry/instrumentation-http": "npm:0.200.0"
+    "@opentelemetry/resource-detector-aws": "npm:2.0.0"
+    "@opentelemetry/resource-detector-azure": "npm:0.7.0"
+    "@opentelemetry/resource-detector-gcp": "npm:0.34.0"
+    "@opentelemetry/resource-detector-github": "npm:0.31.0"
     "@opentelemetry/resources": "npm:2.0.0"
     "@opentelemetry/sdk-trace-base": "npm:2.0.0"
     "@opentelemetry/sdk-trace-node": "npm:2.0.0"
-    "@opentelemetry/semantic-conventions": "npm:1.30.0"
+    "@opentelemetry/semantic-conventions": "npm:1.32.0"
     "@pnpm/parse-overrides": "npm:1000.0.2"
     "@qnighy/marshal": "npm:0.1.3"
     "@renovatebot/detect-tools": "npm:1.1.0"
     "@renovatebot/kbpgp": "npm:4.0.1"
-    "@renovatebot/osv-offline": "npm:1.6.4"
+    "@renovatebot/osv-offline": "npm:1.6.5"
     "@renovatebot/pep440": "npm:4.1.0"
     "@renovatebot/ruby-semver": "npm:4.0.0"
     "@sindresorhus/is": "npm:4.6.0"
-    "@yarnpkg/core": "npm:4.2.1"
+    "@yarnpkg/core": "npm:4.4.0"
     "@yarnpkg/parsers": "npm:3.0.3"
     agentkeepalive: "npm:4.6.0"
     aggregate-error: "npm:3.1.0"
@@ -34609,7 +34657,7 @@ __metadata:
     commander: "npm:13.1.0"
     conventional-commits-detector: "npm:1.0.3"
     croner: "npm:9.0.0"
-    cronstrue: "npm:2.56.0"
+    cronstrue: "npm:2.59.0"
     deepmerge: "npm:4.3.1"
     dequal: "npm:2.0.3"
     detect-indent: "npm:6.1.0"
@@ -34623,7 +34671,7 @@ __metadata:
     find-packages: "npm:10.0.4"
     find-up: "npm:5.0.0"
     fs-extra: "npm:11.3.0"
-    git-url-parse: "npm:16.0.1"
+    git-url-parse: "npm:16.1.0"
     github-url-from-git: "npm:1.5.0"
     glob: "npm:11.0.1"
     global-agent: "npm:3.0.0"
@@ -34640,7 +34688,7 @@ __metadata:
     jsonata: "npm:2.0.6"
     jsonc-parser: "npm:3.3.1"
     klona: "npm:2.0.6"
-    luxon: "npm:3.6.0"
+    luxon: "npm:3.6.1"
     markdown-it: "npm:14.1.0"
     markdown-table: "npm:2.0.0"
     minimatch: "npm:10.0.1"
@@ -34677,7 +34725,7 @@ __metadata:
     validate-npm-package-name: "npm:6.0.0"
     vuln-vects: "npm:1.1.0"
     xmldoc: "npm:1.3.0"
-    yaml: "npm:2.7.0"
+    yaml: "npm:2.7.1"
     zod: "npm:3.24.2"
   dependenciesMeta:
     better-sqlite3:
@@ -34689,7 +34737,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/f9650f437293564ad80852578cb783a2560205bf4c563cdb6395a81ba2cac3b25ae441fa4c0853ffc01b35ca60cc0a1c27c115a0447012dc1254ea6ab494a2e1
+  checksum: 10c0/c1429112f12d27feb0b27a085c26e7f2c6e8ffefb3070118ac49e8dbf84377349f52faeb2297cb2941a7667402ff4fc001372d6e53a4f3609f8eabefc3b9bd34
   languageName: node
   linkType: hard
 
@@ -39941,12 +39989,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:2.7.0":
-  version: 2.7.0
-  resolution: "yaml@npm:2.7.0"
+"yaml@npm:2.7.1, yaml@npm:^2.0.0, yaml@npm:^2.0.0-10, yaml@npm:^2.2.1, yaml@npm:^2.2.2, yaml@npm:^2.6.0, yaml@npm:^2.7.0":
+  version: 2.7.1
+  resolution: "yaml@npm:2.7.1"
   bin:
     yaml: bin.mjs
-  checksum: 10c0/886a7d2abbd70704b79f1d2d05fe9fb0aa63aefb86e1cb9991837dced65193d300f5554747a872b4b10ae9a12bc5d5327e4d04205f70336e863e35e89d8f4ea9
+  checksum: 10c0/ee2126398ab7d1fdde566b4013b68e36930b9e6d8e68b6db356875c99614c10d678b6f45597a145ff6d63814961221fc305bf9242af8bf7450177f8a68537590
   languageName: node
   linkType: hard
 
@@ -39954,15 +40002,6 @@ __metadata:
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: 10c0/5c28b9eb7adc46544f28d9a8d20c5b3cb1215a886609a2fd41f51628d8aaa5878ccd628b755dbcd29f6bb4921bd04ffbc6dcc370689bb96e594e2f9813d2605f
-  languageName: node
-  linkType: hard
-
-"yaml@npm:^2.0.0, yaml@npm:^2.0.0-10, yaml@npm:^2.2.1, yaml@npm:^2.2.2, yaml@npm:^2.6.0, yaml@npm:^2.7.0":
-  version: 2.7.1
-  resolution: "yaml@npm:2.7.1"
-  bin:
-    yaml: bin.mjs
-  checksum: 10c0/ee2126398ab7d1fdde566b4013b68e36930b9e6d8e68b6db356875c99614c10d678b6f45597a145ff6d63814961221fc305bf9242af8bf7450177f8a68537590
   languageName: node
   linkType: hard
 
