@@ -1,5 +1,21 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.16.0
+
+### Minor Changes
+
+- [`2b15972`](https://github.com/secustor/backstage-plugins/commit/2b159725dfa82ca80d3dc9fa0c71b26ec2fb1ef2) Thanks [@secustor](https://github.com/secustor)! - Show libyears and outdated tabs on ReportTable
+
+- [#652](https://github.com/secustor/backstage-plugins/pull/652) [`fce71ed`](https://github.com/secustor/backstage-plugins/commit/fce71ed178ff06ad7b784252e879d764218d3a13) Thanks [@secustor](https://github.com/secustor)! - Support using the new frontend system via /alpha export
+
+### Patch Changes
+
+- [#651](https://github.com/secustor/backstage-plugins/pull/651) [`492d5a2`](https://github.com/secustor/backstage-plugins/commit/492d5a2c52e287d8f4c4f92238aa238d0f542b2d) Thanks [@renovate](https://github.com/apps/renovate)! - Use new JSX transform migration with Backstage 1.38.0
+
+- Updated dependencies [[`2b15972`](https://github.com/secustor/backstage-plugins/commit/2b159725dfa82ca80d3dc9fa0c71b26ec2fb1ef2)]:
+  - @secustor/backstage-plugin-renovate-common@0.9.0
+  - @secustor/backstage-plugin-renovate-client@0.10.4
+
 ## 0.15.5
 
 ### Patch Changes

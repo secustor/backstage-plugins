@@ -1,5 +1,14 @@
 # app
 
+## 0.6.6
+
+### Patch Changes
+
+- [#656](https://github.com/secustor/backstage-plugins/pull/656) [`3390e4d`](https://github.com/secustor/backstage-plugins/commit/3390e4de301c2799fd411f2e4942a532bc759379) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @testing-library/react to v16.3.0
+
+- Updated dependencies [[`492d5a2`](https://github.com/secustor/backstage-plugins/commit/492d5a2c52e287d8f4c4f92238aa238d0f542b2d), [`2b15972`](https://github.com/secustor/backstage-plugins/commit/2b159725dfa82ca80d3dc9fa0c71b26ec2fb1ef2), [`fce71ed`](https://github.com/secustor/backstage-plugins/commit/fce71ed178ff06ad7b784252e879d764218d3a13)]:
+  - @secustor/backstage-plugin-renovate@0.16.0
+
 ## 0.6.5
 
 ### Patch Changes

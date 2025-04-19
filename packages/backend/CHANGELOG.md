@@ -1,5 +1,27 @@
 # backend
 
+## 0.5.7
+
+### Patch Changes
+
+- [#649](https://github.com/secustor/backstage-plugins/pull/649) [`49ed1c9`](https://github.com/secustor/backstage-plugins/commit/49ed1c91103aabb63d886a67f28ba1bc405fb17e) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.37
+
+- [#654](https://github.com/secustor/backstage-plugins/pull/654) [`b6a5851`](https://github.com/secustor/backstage-plugins/commit/b6a585120148851464045d57629bef36d4dc33f1) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/luxon to v3.6.0
+
+- [#657](https://github.com/secustor/backstage-plugins/pull/657) [`8a18096`](https://github.com/secustor/backstage-plugins/commit/8a180961047460ee79c0fafb2d6ad17f50ede690) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/luxon to v3.6.1
+
+- [#659](https://github.com/secustor/backstage-plugins/pull/659) [`17b01e3`](https://github.com/secustor/backstage-plugins/commit/17b01e3e7808df3ae5dc8be48cd7430bd7634f46) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/luxon to v3.6.2
+
+- [#676](https://github.com/secustor/backstage-plugins/pull/676) [`1dcf346`](https://github.com/secustor/backstage-plugins/commit/1dcf346180acb3fa20e63ff17122001347509658) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.38
+
+- Updated dependencies [[`492d5a2`](https://github.com/secustor/backstage-plugins/commit/492d5a2c52e287d8f4c4f92238aa238d0f542b2d)]:
+  - @secustor/backstage-plugin-scaffolder-backend-module-filter-utilities@0.2.2
+  - @secustor/backstage-plugin-renovate-backend@0.15.6
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@0.6.6
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@0.6.6
+  - @secustor/backstage-plugin-renovate-backend-module-queue-local@0.4.4
+  - @secustor/backstage-plugin-renovate-backend-module-queue-redis@0.4.5
+
 ## 0.5.6
 
 ### Patch Changes

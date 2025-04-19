@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-scaffolder-backend-module-filter-utilities
 
+## 0.2.2
+
+### Patch Changes
+
+- [#651](https://github.com/secustor/backstage-plugins/pull/651) [`492d5a2`](https://github.com/secustor/backstage-plugins/commit/492d5a2c52e287d8f4c4f92238aa238d0f542b2d) Thanks [@renovate](https://github.com/apps/renovate)! - Fix types for JSONATA filters
+
 ## 0.2.1
 
 ### Patch Changes
