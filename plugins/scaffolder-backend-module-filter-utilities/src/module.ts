@@ -1,6 +1,6 @@
 import { createBackendModule } from '@backstage/backend-plugin-api';
 import { scaffolderTemplatingExtensionPoint } from '@backstage/plugin-scaffolder-node/alpha';
-import { createFilters } from './filters';
+import { createJSONATAFilter } from './filters/jsonata';
 
 /**
  * A backend module that registers the action into the scaffolder
@@ -14,7 +14,7 @@ export const scaffolderModule = createBackendModule({
         scaffolderTemplating: scaffolderTemplatingExtensionPoint,
       },
       async init({ scaffolderTemplating }) {
-        scaffolderTemplating.addTemplateFilters(createFilters());
+        scaffolderTemplating.addTemplateFilters([createJSONATAFilter()]);
       },
     });
   },
