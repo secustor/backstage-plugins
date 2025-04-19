@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo } from 'react';
+import { useState, ReactElement, useMemo } from 'react';
 import useAsync from 'react-use/lib/useAsync';
 import { alertApiRef, useApi } from '@backstage/core-plugin-api';
 import { renovateApiRef } from '../../api';
@@ -30,7 +30,7 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
 
   const tableClasses = useTableStyles();
 
-  const [paginationModel, setPaginationModel] = React.useState({
+  const [paginationModel, setPaginationModel] = useState({
     page: 0,
     pageSize: 100,
   });

@@ -1,6 +1,6 @@
 import { InfoCard } from '@backstage/core-components';
 import TextField from '@mui/material/TextField';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StartRenovateButton } from '../StartRenovateButton/StartRenovateButton';
 
 export const RenovateStarter = () => {

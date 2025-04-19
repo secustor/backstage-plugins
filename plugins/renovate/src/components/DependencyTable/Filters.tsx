@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
-import React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import type { FilterableColumnDef } from './types';

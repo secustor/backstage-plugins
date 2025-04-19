@@ -6,7 +6,7 @@ import {
   GridFilterListIcon,
   GridSlotsComponentsProps,
 } from '@mui/x-data-grid';
-import React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Filters } from './Filters';
@@ -24,7 +24,7 @@ declare module '@mui/x-data-grid' {
 export function CustomToolbar(
   props: NonNullable<GridSlotsComponentsProps['toolbar']>,
 ) {
-  const [filterOpen, toggleFilterOpen] = React.useState(false);
+  const [filterOpen, toggleFilterOpen] = useState(false);
 
   const filters =
     props.filterAbleColumns?.filter(column => column.isFilterable ?? true) ??

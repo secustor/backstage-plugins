@@ -1,4 +1,3 @@
-import React from 'react';
 import { EmptyState } from '@backstage/core-components';
 import { StartRenovateButton } from '../StartRenovateButton/StartRenovateButton';
 import { useEntity } from '@backstage/plugin-catalog-react';
