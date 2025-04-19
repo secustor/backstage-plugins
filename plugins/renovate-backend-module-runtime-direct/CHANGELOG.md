@@ -1,5 +1,13 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-direct
 
+## 0.6.6
+
+### Patch Changes
+
+- Updated dependencies [[`2b15972`](https://github.com/secustor/backstage-plugins/commit/2b159725dfa82ca80d3dc9fa0c71b26ec2fb1ef2)]:
+  - @secustor/backstage-plugin-renovate-common@0.9.0
+  - @secustor/backstage-plugin-renovate-node@0.5.4
+
 ## 0.6.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.9.0
+
+### Minor Changes
+
+- [`2b15972`](https://github.com/secustor/backstage-plugins/commit/2b159725dfa82ca80d3dc9fa0c71b26ec2fb1ef2) Thanks [@secustor](https://github.com/secustor)! - Show libyears and outdated tabs on ReportTable
+
 ## 0.8.3
 
 ### Patch Changes
