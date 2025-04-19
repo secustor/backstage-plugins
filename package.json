@@ -7,9 +7,9 @@
   },
   "volta": {
     "node": "22.14.0",
-    "yarn": "4.9.0"
+    "yarn": "4.9.1"
   },
-  "packageManager": "yarn@4.9.0",
+  "packageManager": "yarn@4.9.1",
   "scripts": {
     "fix": "yarn prettier:fix && backstage-cli repo fix --publish && backstage-cli repo lint --fix && yarn dedupe --strategy highest",
     "check": "yarn tsc:full && yarn lint && yarn test:all && yarn dedupe --check",
@@ -49,7 +49,7 @@
     "@backstage/e2e-test-utils": "backstage:^",
     "@backstage/repo-tools": "backstage:^",
     "@changesets/changelog-github": "0.5.1",
-    "@changesets/cli": "2.29.0",
+    "@changesets/cli": "2.29.1",
     "@playwright/test": "1.51.1",
     "@spotify/prettier-config": "15.0.0",
     "@types/jest": "29.5.14",
