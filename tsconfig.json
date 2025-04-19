@@ -7,6 +7,7 @@
     "plugins/*/migrations"
   ],
   "compilerOptions": {
+    "jsx": "react-jsx",
     "outDir": "dist-types",
     "rootDir": ".",
     "sourceMap": true,

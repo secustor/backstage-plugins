@@ -1,5 +1,4 @@
 import { Link } from '@backstage/core-components';
-import React from 'react';
 import type { FilterableColumnDef } from './types';
 
 export const defaultColumns: FilterableColumnDef[] = [
