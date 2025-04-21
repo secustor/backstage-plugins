@@ -12468,10 +12468,7 @@ __metadata:
     "@backstage/config": "backstage:^"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
-    "@types/find-up": "npm:^4.0.0"
     "@types/jest": "npm:^29.5.12"
-    find-up: "npm:^5.0.0"
-    renovate: "npm:39.230.2"
   languageName: unknown
   linkType: soft
 
