@@ -31,6 +31,7 @@ renovate:
       bucket: backstage-data
       region: eu-west-x
       key: renovate.json
+      endpoint: https://s3.eu-west-x.amazonaws.com #optional
 ```
 
 ## Authentication
