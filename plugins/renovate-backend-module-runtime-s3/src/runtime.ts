@@ -2,14 +2,11 @@ import {
   RenovateRunOptions,
   RenovateRunResult,
   RenovateWrapper,
+  RenovateReport,
 } from '@secustor/backstage-plugin-renovate-common';
 import { LoggerService } from '@backstage/backend-plugin-api';
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
 import { Readable } from 'stream';
-
-interface RenovateReport {
-  repositories: Record<string, unknown>;
-}
 
 interface S3Config {
   bucket: string;
@@ -70,7 +67,18 @@ class ReportReader {
     try {
       const report = JSON.parse(fileContent);
       return {
-        repositories: report.repositories || {},
+        problems: report.problems || [],
+        repositories: Object.fromEntries(
+          Object.entries(report.repositories || {}).map(([repoKey, value]: [string, any]) => [
+            repoKey,
+            {
+              problems: value?.problems || [],
+              branches: value?.branches || [],
+              packageFiles: value?.packageFiles || {},
+              libYears: value?.libYears,
+            }
+          ])
+        )
       };
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : String(error);
@@ -86,7 +94,15 @@ class ReportFormatter {
       msg: error ? `Error reading report: ${error}` : 'Renovate report extracted from file',
       logContext: targetRepo || 'unknown',
       report: {
-        repositories: data ? { [targetRepo]: data } : {}
+        problems: [],
+        repositories: data ? {
+          [targetRepo]: {
+            problems: (data as any)?.problems || [],
+            branches: (data as any)?.branches || [],
+            packageFiles: (data as any)?.packageFiles || {},
+            libYears: (data as any)?.libYears,
+          }
+        } : {}
       }
     };
     return {
