@@ -3364,8 +3364,8 @@ __metadata:
   linkType: hard
 
 "@backstage-community/plugin-tech-radar@npm:^1.0.0":
-  version: 1.5.0
-  resolution: "@backstage-community/plugin-tech-radar@npm:1.5.0"
+  version: 1.6.0
+  resolution: "@backstage-community/plugin-tech-radar@npm:1.6.0"
   dependencies:
     "@backstage-community/plugin-tech-radar-common": "npm:^1.5.0"
     "@backstage/core-compat-api": "npm:^0.4.1"
@@ -3382,7 +3382,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/b73af1e0d144d41db5e14ea9fa6159672b670c281ea92c8695a07151a0c59d7cbfa19b9990ce3bf963a09d9b52883045ab100caeae35def8d722ed9b94533c5f
+  checksum: 10c0/d0d83990e3c4af069e3f2d326b0332437787e7adac741cba831dba88735dd06ee943da7efee185bffdfc16acf29258e68ff44b8329b851595796911e84f3faef
   languageName: node
   linkType: hard
 
