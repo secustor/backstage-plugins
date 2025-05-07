@@ -41,6 +41,7 @@
     "@backstage/plugin-search-backend-module-techdocs": "backstage:^",
     "@backstage/plugin-search-backend-node": "backstage:^",
     "@backstage/plugin-techdocs-backend": "backstage:^",
+    "@secustor/backstage-plugin-mcp-wrapper-backend": "workspace:^",
     "@secustor/backstage-plugin-renovate-backend": "workspace:^",
     "@secustor/backstage-plugin-renovate-backend-module-queue-local": "workspace:^",
     "@secustor/backstage-plugin-renovate-backend-module-queue-redis": "workspace:^",

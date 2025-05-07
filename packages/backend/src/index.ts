@@ -44,4 +44,5 @@ backend.add(
     '@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities'
   ),
 );
+backend.add(import('@secustor/backstage-plugin-mcp-wrapper-backend'));
 backend.start();
