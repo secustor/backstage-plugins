@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.17.0
+
+### Minor Changes
+
+- [#642](https://github.com/secustor/backstage-plugins/pull/642) [`ad18693`](https://github.com/secustor/backstage-plugins/commit/ad18693e29639ae811bf765fd199795cb1948d6a) Thanks [@renovate](https://github.com/apps/renovate)! - Migrate mui-x components to new major
+
+### Patch Changes
+
+- [#642](https://github.com/secustor/backstage-plugins/pull/642) [`ad18693`](https://github.com/secustor/backstage-plugins/commit/ad18693e29639ae811bf765fd199795cb1948d6a) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update material-ui monorepo
+
 ## 0.16.0
 
 ### Minor Changes
