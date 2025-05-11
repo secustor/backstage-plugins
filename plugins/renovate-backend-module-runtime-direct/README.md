@@ -4,6 +4,9 @@ This plugin provides a runtime implementation for the Renovate backend plugin.
 
 It is a direct runtime implementation, meaning that Renovate will run directly on the backend node as a forked process.
 
+> ![NOTE]
+> Starting with version `1.0.0` this plugin is using Renovate v40 which requires Node.js v22.13.0 or higher.
+
 ## Getting started
 
 Install the plugin:
