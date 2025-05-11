@@ -104,6 +104,8 @@ export function DependencyTable(props: DependencyTableV2Props): ReactElement {
       <DataGrid
         // theming
         className={tableClasses.grid}
+        // toolbar
+        showToolbar
         // columns
         disableColumnMenu
         columns={filterAbleColumns}
