@@ -13,7 +13,7 @@ services:
       - '127.0.0.1:5432:5432'
 
   redis:
-    image: redis:7
+    image: redis:8
     volumes:
       - redis:/data
     ports:
