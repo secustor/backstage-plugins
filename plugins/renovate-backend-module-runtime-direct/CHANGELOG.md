@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-direct
 
+## 1.0.0
+
+### Major Changes
+
+- [#689](https://github.com/secustor/backstage-plugins/pull/689) [`9939c6f`](https://github.com/secustor/backstage-plugins/commit/9939c6fe8f57dcfeaa33ad9539f2b3332dfc0d14) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update renovate docker tag to v40. As this Renovate version requires Node.js v22.13.0 or higher, this is released as a major version.
+
 ## 0.6.7
 
 ### Patch Changes
