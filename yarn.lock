@@ -15662,19 +15662,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:4.17.21":
-  version: 4.17.21
-  resolution: "@types/express@npm:4.17.21"
-  dependencies:
-    "@types/body-parser": "npm:*"
-    "@types/express-serve-static-core": "npm:^4.17.33"
-    "@types/qs": "npm:*"
-    "@types/serve-static": "npm:*"
-  checksum: 10c0/12e562c4571da50c7d239e117e688dc434db1bac8be55613294762f84fd77fbd0658ccd553c7d3ab02408f385bc93980992369dd30e2ecd2c68c358e6af8fabf
-  languageName: node
-  linkType: hard
-
-"@types/express@npm:^4.17.21, @types/express@npm:^4.17.6":
+"@types/express@npm:4.17.22, @types/express@npm:^4.17.21, @types/express@npm:^4.17.6":
   version: 4.17.22
   resolution: "@types/express@npm:4.17.22"
   dependencies:
@@ -18252,7 +18240,7 @@ __metadata:
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities": "workspace:^"
     "@types/dockerode": "npm:3.3.38"
-    "@types/express": "npm:4.17.21"
+    "@types/express": "npm:4.17.22"
     "@types/express-serve-static-core": "npm:4.19.6"
     "@types/luxon": "npm:3.6.2"
     app: "link:../app"
