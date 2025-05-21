@@ -42,13 +42,13 @@
     "postpack": "backstage-cli package postpack"
   },
   "devDependencies": {
-    "@backstage/cli": "backstage:^"
+    "@backstage/cli": "^0.31.0"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@backstage/backend-plugin-api": "backstage:^",
+    "@backstage/backend-plugin-api": "^1.1.0",
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
   }
 }
