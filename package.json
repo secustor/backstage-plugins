@@ -45,9 +45,9 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "^0.32.1",
-    "@backstage/e2e-test-utils": "^0.1.1",
-    "@backstage/repo-tools": "^0.13.3",
+    "@backstage/cli": "0.32.1",
+    "@backstage/e2e-test-utils": "0.1.1",
+    "@backstage/repo-tools": "0.13.3",
     "@changesets/changelog-github": "0.5.1",
     "@changesets/cli": "2.29.4",
     "@playwright/test": "1.52.0",
