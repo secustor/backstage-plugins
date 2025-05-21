@@ -1,5 +1,16 @@
 # app
 
+## 0.6.8
+
+### Patch Changes
+
+- [#714](https://github.com/secustor/backstage-plugins/pull/714) [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d) Thanks [@secustor](https://github.com/secustor)! - Upgrade to Backstage 1.39.0
+
+- [#714](https://github.com/secustor/backstage-plugins/pull/714) [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d) Thanks [@secustor](https://github.com/secustor)! - Remove Backstage yarn plugin usage
+
+- Updated dependencies [[`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d), [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d)]:
+  - @secustor/backstage-plugin-renovate@0.17.1
+
 ## 0.6.7
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # backend
 
+## 0.5.10
+
+### Patch Changes
+
+- [#710](https://github.com/secustor/backstage-plugins/pull/710) [`c804fbd`](https://github.com/secustor/backstage-plugins/commit/c804fbdb3cb5d9de0aeedafb4c2c5a0c5501d5d8) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/express to v4.17.22
+
+- [#714](https://github.com/secustor/backstage-plugins/pull/714) [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d) Thanks [@secustor](https://github.com/secustor)! - Upgrade to Backstage 1.39.0
+
+- [#714](https://github.com/secustor/backstage-plugins/pull/714) [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d) Thanks [@secustor](https://github.com/secustor)! - Remove Backstage yarn plugin usage
+
+- Updated dependencies [[`d0473a9`](https://github.com/secustor/backstage-plugins/commit/d0473a91fbbdc1b554ec09091191a2ca8ba91334), [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d), [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d)]:
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@1.0.1
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@1.0.1
+  - @secustor/backstage-plugin-scaffolder-backend-module-filter-utilities@0.2.3
+  - @secustor/backstage-plugin-renovate-backend-module-queue-local@0.4.5
+  - @secustor/backstage-plugin-renovate-backend-module-queue-redis@0.4.6
+  - @secustor/backstage-plugin-renovate-backend@0.15.7
+
 ## 0.5.9
 
 ### Patch Changes
