@@ -1,7 +1,7 @@
 {
   "name": "@secustor/backstage-plugin-renovate-backend-module-runtime-direct",
   "description": "The runtime-direct backend module for the renovate plugin.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "node": ">=22.13.0"
   },

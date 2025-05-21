@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "private": true,
   "bundled": true,
   "backstage": {

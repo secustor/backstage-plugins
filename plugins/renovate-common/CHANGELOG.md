@@ -1,5 +1,13 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.9.1
+
+### Patch Changes
+
+- [#714](https://github.com/secustor/backstage-plugins/pull/714) [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d) Thanks [@secustor](https://github.com/secustor)! - Upgrade to Backstage 1.39.0
+
+- [#714](https://github.com/secustor/backstage-plugins/pull/714) [`d1a6a55`](https://github.com/secustor/backstage-plugins/commit/d1a6a554ee72a64c25a631996ee56b8f3781409d) Thanks [@secustor](https://github.com/secustor)! - Remove Backstage yarn plugin usage
+
 ## 0.9.0
 
 ### Minor Changes
