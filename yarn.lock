@@ -14759,14 +14759,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dockerode@npm:3.3.38, @types/dockerode@npm:^3.3.0, @types/dockerode@npm:^3.3.26, @types/dockerode@npm:^3.3.35":
-  version: 3.3.38
-  resolution: "@types/dockerode@npm:3.3.38"
+"@types/dockerode@npm:3.3.39, @types/dockerode@npm:^3.3.0, @types/dockerode@npm:^3.3.26, @types/dockerode@npm:^3.3.35":
+  version: 3.3.39
+  resolution: "@types/dockerode@npm:3.3.39"
   dependencies:
     "@types/docker-modem": "npm:*"
     "@types/node": "npm:*"
     "@types/ssh2": "npm:*"
-  checksum: 10c0/1086d5f2703dcb2357be5d050e1b813930737bb7a85f077ab96792a841e79e9a473d8d3965a32bc954d66dff606dee451545b8e9705859c529868894efcde42a
+  checksum: 10c0/86c730e000f7b9cc9fde1e46de4ab2edb6909ebe8d7ddfbe3db5496d5570e9147b7ef93d8f648ce415ca55067852abcfd28fd5639a820c71975801641d15eac9
   languageName: node
   linkType: hard
 
@@ -17362,7 +17362,7 @@ __metadata:
     "@secustor/backstage-plugin-renovate-backend-module-runtime-direct": "workspace:^"
     "@secustor/backstage-plugin-renovate-backend-module-runtime-docker": "workspace:^"
     "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities": "workspace:^"
-    "@types/dockerode": "npm:3.3.38"
+    "@types/dockerode": "npm:3.3.39"
     "@types/express": "npm:4.17.22"
     "@types/express-serve-static-core": "npm:4.19.6"
     "@types/luxon": "npm:3.6.2"
