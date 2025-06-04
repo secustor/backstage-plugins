@@ -5592,9 +5592,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/repo-tools@npm:0.13.3, @backstage/repo-tools@npm:^0.13.3":
-  version: 0.13.3
-  resolution: "@backstage/repo-tools@npm:0.13.3"
+"@backstage/repo-tools@npm:0.13.4, @backstage/repo-tools@npm:^0.13.3":
+  version: 0.13.4
+  resolution: "@backstage/repo-tools@npm:0.13.4"
   dependencies:
     "@apidevtools/swagger-parser": "npm:^10.1.0"
     "@apisyouwonthate/style-guide": "npm:^1.4.0"
@@ -5652,7 +5652,7 @@ __metadata:
       optional: true
   bin:
     backstage-repo-tools: bin/backstage-repo-tools
-  checksum: 10c0/124f9bb63e096d066c21406373d7282884d21fe1e2fcfda5442f9144639de73c988fa6afbf4592909f394cd32b094471295863546ba75381ce81361540f3084a
+  checksum: 10c0/58d611ee36659b14841f879d2c31267046a18a6dd6007d8e52a47986b2f08c1607ecfec2a5295f177a4f31ce4d18a5463448c335292e41e26c77e60924c562b3
   languageName: node
   linkType: hard
 
@@ -34695,7 +34695,7 @@ __metadata:
   dependencies:
     "@backstage/cli": "npm:0.32.1"
     "@backstage/e2e-test-utils": "npm:0.1.1"
-    "@backstage/repo-tools": "npm:0.13.3"
+    "@backstage/repo-tools": "npm:0.13.4"
     "@changesets/changelog-github": "npm:0.5.1"
     "@changesets/cli": "npm:2.29.4"
     "@playwright/test": "npm:1.52.0"
