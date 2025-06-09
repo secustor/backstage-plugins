@@ -7,13 +7,7 @@ import {
 import { LoggerService } from '@backstage/backend-plugin-api';
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
 import { Readable } from 'stream';
-
-interface S3Config {
-  bucket: string;
-  region: string;
-  key?: string;
-  endpoint?: string;
-}
+import { getS3Config, S3Config } from './config';
 
 class ReportReader {
   private readonly s3Client: S3Client;
@@ -121,13 +115,7 @@ export class S3 implements RenovateWrapper {
       throw new Error('S3 runtime configuration is required');
     }
 
-    const config: S3Config = {
-      bucket: runtimeConfig.getString('bucket'),
-      region: runtimeConfig.getString('region'),
-      key: runtimeConfig.getString('key'),
-      endpoint: runtimeConfig.getOptionalString('endpoint'),
-    };
-
+    const config = getS3Config(runtimeConfig, logger);
     const targetRepo = env.RENOVATE_REPOSITORIES;
     logger.debug(`Target repository: ${targetRepo}`);
 
