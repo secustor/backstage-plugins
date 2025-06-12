@@ -33,6 +33,9 @@ backend.add(
   import('@secustor/backstage-plugin-renovate-backend-module-runtime-docker'),
 );
 backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-runtime-s3'),
+);
+backend.add(
   import('@secustor/backstage-plugin-renovate-backend-module-queue-local'),
 );
 backend.add(
