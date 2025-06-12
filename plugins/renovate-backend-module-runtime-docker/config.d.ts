@@ -19,7 +19,7 @@ export interface Config {
 
         /**
          * The Docker image tag to use
-         * Default: '40.21.1'
+         * Default: '40.51.1'
          */
         tag: string;
       };
