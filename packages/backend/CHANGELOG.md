@@ -1,5 +1,16 @@
 # backend
 
+## 0.5.11
+
+### Patch Changes
+
+- [#721](https://github.com/secustor/backstage-plugins/pull/721) [`e6307d7`](https://github.com/secustor/backstage-plugins/commit/e6307d76c293c7c638c47e463fdfc9fecc4b9429) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @types/dockerode to v3.3.39
+
+- Updated dependencies [[`e055cc7`](https://github.com/secustor/backstage-plugins/commit/e055cc70626d7f295cf2ca11319e60e6f57df015), [`9b00753`](https://github.com/secustor/backstage-plugins/commit/9b00753473f21aa3b96f777b61a894ce1774af85)]:
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-s3@0.1.0
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@1.0.2
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@1.0.2
+
 ## 0.5.10
 
 ### Patch Changes
