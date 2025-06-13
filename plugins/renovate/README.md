@@ -17,14 +17,14 @@ Install the plugin:
 
 ```bash
 # Install packages from the root directory
-yarn --cwd packages/app add @backstage/backstage-plugin-renovate
+yarn --cwd packages/app add @secustor/backstage-plugin-renovate
 ```
 
 Add the plugin to your Backstage instance:
 
 ```tsx
 // Add the following to `packages/app/src/App.tsx`
-import { RenovatePage } from '@backstage/backstage-plugin-renovate';
+import { RenovatePage } from '@secustor/backstage-plugin-renovate';
 
 const routes = (
   <FlatRoutes>
