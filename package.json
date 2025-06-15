@@ -61,7 +61,7 @@
     "node-gyp": "11.2.0",
     "pinst": "3.0.0",
     "prettier": "3.5.3",
-    "ts-jest": "29.3.4",
+    "ts-jest": "29.4.0",
     "typescript": "5.8.3"
   },
   "resolutions": {
