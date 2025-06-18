@@ -25,6 +25,8 @@ backend.add(import('@backstage/plugin-search-backend-module-techdocs'));
 
 backend.add(import('@backstage/plugin-techdocs-backend'));
 
+backend.add(import('@backstage/plugin-mcp-actions-backend'));
+
 backend.add(import('@secustor/backstage-plugin-renovate-backend'));
 backend.add(
   import('@secustor/backstage-plugin-renovate-backend-module-runtime-direct'),
