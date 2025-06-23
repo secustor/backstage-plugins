@@ -16,7 +16,7 @@ export function getS3Config(config: Config, logger: LoggerService): S3Config {
       key: config.getString('key'),
       endpoint: config.getOptionalString('endpoint'),
     };
-    
+
     logger.debug('S3 configuration loaded successfully', {
       bucket: settings.bucket,
       region: settings.region,
@@ -30,4 +30,4 @@ export function getS3Config(config: Config, logger: LoggerService): S3Config {
     logger.error(message);
     throw new Error(message);
   }
-} 
+}
