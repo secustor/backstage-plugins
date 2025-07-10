@@ -1,6 +1,8 @@
-import 'dotenv/config';
+import * as dot from 'dotenv';
 
 import { createBackend } from '@backstage/backend-defaults';
+
+dot.config({ quiet: true });
 
 const backend = createBackend();
 backend.add(import('@backstage/plugin-app-backend'));
