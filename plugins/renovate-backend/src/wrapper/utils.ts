@@ -96,7 +96,7 @@ export function getCacheEnvs(
 
 export function getPassthroughEnvs(config: Config): Record<string, string> {
   const env: Record<string, string> = {};
-  const passthroughEnvs = getRuntimeConfigs(config).environment;
+  const passthroughEnvs = getPluginConfig(config).getOptionalConfigArray('runtime.environment') ?? [];
 
   passthroughEnvs.forEach(e => {
     const name = e.getString('name');
