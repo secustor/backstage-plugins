@@ -3,7 +3,7 @@ import { ExtractReportOptions } from './types';
 import { Config } from '@backstage/config';
 import is from '@sindresorhus/is';
 import { LoggerService } from '@backstage/backend-plugin-api';
-import { getPluginConfig } from '../config';
+import { getPluginConfig, getRuntimeConfigs } from '../config';
 import { JsonObject } from '@backstage/types';
 
 export async function extractReport(
@@ -92,4 +92,17 @@ export function getCacheEnvs(
     RENOVATE_REDIS_PREFIX: 'renovate_',
     RENOVATE_REDIS_URL: connection,
   };
+}
+
+export function getPassthroughEnvs(config: Config): Record<string, string> {
+  const env: Record<string, string> = {};
+  const passthroughEnvs = getRuntimeConfigs(config).environment;
+
+  passthroughEnvs.forEach(e => {
+    const name = e.getString('name');
+    const value = e.getOptionalString('value') ?? undefined;
+    env[name] = value ?? process.env[name] ?? '';
+  });
+
+  return env;
 }

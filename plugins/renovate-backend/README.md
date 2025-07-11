@@ -87,7 +87,13 @@ renovate:
   runtime:
     # ID of the runtime provided via extension point. This option is required as the backend comes with no runtime by default.
     type: docker
-
+    # add variables to the designated runner or pass through from existing instance.
+    environment:
+      # forward simply the NODE_EXTRA_CA_CERTS variable
+      - name: NODE_EXTRA_CA_CERTS
+      # set the variable to a specific value
+      - name: HTTPS_PROXY
+        value: http://proxy.my.com:8080
   queue:
     type: local-fastq
 
