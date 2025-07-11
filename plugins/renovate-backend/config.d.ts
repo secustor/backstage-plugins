@@ -47,6 +47,14 @@ export interface Config {
        * For module-specific configuration sees the relevant module
        */
       type: string;
+
+      /** Runtime environment variables */
+      environment?: Array<{
+        /** Name of the environment variable */
+        name: string;
+        /** Optional explicit value (falls back to `process.env[name]`) */
+        value?: string;
+      }>;
     };
 
     /**

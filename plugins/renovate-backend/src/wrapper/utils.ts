@@ -94,15 +94,25 @@ export function getCacheEnvs(
   };
 }
 
-export function getPassthroughEnvs(config: Config): Record<string, string> {
+export function getPassthroughEnvs(
+  config: Config,
+  logger: LoggerService,
+): Record<string, string> {
   const env: Record<string, string> = {};
-  const passthroughEnvs = getPluginConfig(config).getOptionalConfigArray('runtime.environment') ?? [];
+  const passthroughEnvs =
+    getPluginConfig(config).getOptionalConfigArray('runtime.environment') ?? [];
 
-  passthroughEnvs.forEach(e => {
+  for (const e of passthroughEnvs) {
     const name = e.getString('name');
-    const value = e.getOptionalString('value') ?? undefined;
-    env[name] = value ?? process.env[name] ?? '';
-  });
+    const value = e.getOptionalString('value') ?? process.env[name];
+    if (value) {
+      env[name] = value;
+    } else {
+      logger.debug(
+        `utils::getPassthroughEnvs - no value found for environment variable ${name}`,
+      );
+    }
+  }
 
   return env;
 }

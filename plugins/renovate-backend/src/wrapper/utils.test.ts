@@ -278,7 +278,7 @@ describe('renovate-backend/wrapper/utils', () => {
           renovate: {},
         },
       });
-      expect(getPassthroughEnvs(config)).toEqual({});
+      expect(getPassthroughEnvs(config, logger)).toEqual({});
     });
 
     it('returns config with expected result overrides', () => {
@@ -296,9 +296,8 @@ describe('renovate-backend/wrapper/utils', () => {
           },
         },
       });
-      expect(getPassthroughEnvs(config)).toEqual({
+      expect(getPassthroughEnvs(config, logger)).toEqual({
         KEY_ONE: 'TEST_ONE',
-        KEY_TWO: '',
         KEY_THREE: 'TEST_THREE',
         KEY_FOUR: 'OVERRIDE_TEST_FOUR',
       });

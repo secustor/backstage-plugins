@@ -127,7 +127,7 @@ export class RenovateRunner implements Runnable<RunOptions> {
         rootConfig: this.rootConfig,
       })),
       ...getCacheEnvs(this.rootConfig, logger),
-      ...getPassthroughEnvs(this.rootConfig),
+      ...getPassthroughEnvs(this.rootConfig, logger),
     };
 
     // read out renovate.config and write out to json file for consumption by Renovate
