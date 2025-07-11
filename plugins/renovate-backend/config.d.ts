@@ -48,11 +48,17 @@ export interface Config {
        */
       type: string;
 
-      /** Runtime environment variables */
+      /**
+       * Runtime environment variables
+       */
       environment?: Array<{
-        /** Name of the environment variable */
+        /**
+         * Name of the environment variable
+         */
         name: string;
-        /** Optional explicit value (falls back to `process.env[name]`) */
+        /**
+         *  Optional explicit value (falls back to `process.env[name]`)
+         */
         value?: string;
       }>;
     };
