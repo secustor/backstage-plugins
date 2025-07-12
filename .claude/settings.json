@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn test:*)",
+      "Bash(yarn fix)",
+      "Bash(yarn check)",
+      "Bash(yarn prettier:fix:*)",
+      "Bash(yarn test:jest:*)",
+      "Bash(yarn workspace:*)",
+      "Bash(grep:*)",
+      "Bash(yarn tsc:*)",
+      "Bash(find:*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "timeout": 300,
+            "command": "yarn check:agent"
+          }
+        ]
+      }
+    ]
+  }
+}
