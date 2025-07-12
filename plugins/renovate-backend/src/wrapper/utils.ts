@@ -3,7 +3,7 @@ import { ExtractReportOptions } from './types';
 import { Config } from '@backstage/config';
 import is from '@sindresorhus/is';
 import { LoggerService } from '@backstage/backend-plugin-api';
-import { getPluginConfig, getRuntimeConfigs } from '../config';
+import { getPluginConfig } from '../config';
 import { JsonObject } from '@backstage/types';
 
 export async function extractReport(
