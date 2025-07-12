@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.16.0
+
+### Minor Changes
+
+- [#785](https://github.com/secustor/backstage-plugins/pull/785) [`a046b09`](https://github.com/secustor/backstage-plugins/commit/a046b0910cecf2b0b98c410ba80b7df0fe3dc233) Thanks [@veenarm](https://github.com/veenarm)! - Implemented ability to pass host environment variables to the renovate runner. These can be auto passed or overwritten using renovate.runtime.environment array with name/value keys. This is to resolve an issue with directs inability to use fork node process of custom CAs.
+
 ## 0.15.8
 
 ### Patch Changes
