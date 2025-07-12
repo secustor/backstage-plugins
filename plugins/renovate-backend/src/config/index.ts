@@ -19,12 +19,15 @@ export function getRenovateConfig(rootConfig: Config): JsonValue {
 export function getRuntimeConfigs(rootConfig: Config): {
   runtime: string;
   config: Config | null;
+  environment: Config[];
 } {
   const runtimeConfig = getPluginConfig(rootConfig).getConfig('runtime');
   const runtime = runtimeConfig.getString('type');
+  const environment = runtimeConfig.getOptionalConfigArray('environment') ?? [];
   return {
     runtime,
     config: runtimeConfig.getConfig(runtime),
+    environment,
   };
 }
 
