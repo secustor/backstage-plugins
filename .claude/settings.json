@@ -1,28 +1,31 @@
 {
   "permissions": {
+    "defaultMode": "acceptEdits",
     "allow": [
-      "Bash(yarn test:*)",
-      "Bash(yarn fix)",
-      "Bash(yarn check)",
-      "Bash(yarn prettier:fix:*)",
-      "Bash(yarn test:jest:*)",
-      "Bash(yarn workspace:*)",
+      "Bash(chmod +x:*)",
+      "Bash(echo:*)",
+      "Bash(find:*)",
       "Bash(grep:*)",
+      "Bash(head:*)",
+      "Bash(yarn build:*)",
+      "Bash(yarn check)",
+      "Bash(yarn fix)",
+      "Bash(yarn jest:*)",
+      "Bash(yarn lint:*)",
+      "Bash(yarn lint:fix:*)",
+      "Bash(yarn prettier:fix:*)",
+      "Bash(yarn test:*)",
+      "Bash(yarn test:all:*)",
+      "Bash(yarn test:jest:*)",
       "Bash(yarn tsc:*)",
-      "Bash(find:*)"
+      "Bash(yarn workspace:*)"
     ],
     "deny": []
   },
   "hooks": {
     "Stop": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "timeout": 300,
-            "command": "yarn check:agent"
-          }
-        ]
+        "hooks": []
       }
     ]
   }

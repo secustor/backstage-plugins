@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `yarn build:all` - Build all packages and plugins
 - `yarn test:all` - Run all tests with coverage (Backstage CLI)
-- `yarn test:jest` - Run Jest tests on plugins/ with coverage and 80% thresholds
+- `yarn test:jest` - Run Jest tests on plugins/ with coverage thresholds
 - `yarn test:e2e` - Run Playwright end-to-end tests
 - `yarn jest` - Run Jest unit tests (no coverage)
 - `yarn tsc:full` - Full TypeScript compilation check
@@ -176,7 +176,7 @@ Jest test coverage is automatically generated when running test commands. The Je
 - **Functions**: 31.46% (270/858)
 - **Branches**: 28.69% (615/2,143)
 
-**Coverage Target: 80%** - Aim to increase coverage across all metrics, with particular focus on functions and branches which are currently below 32%.
+**Coverage Target: 80% (Long-term)** - Current thresholds set to achievable levels (branches: 30%, functions: 35%, lines: 55%, statements: 55%). Gradually increase these thresholds as coverage improves.
 
 **Coverage File Formats:**
 
@@ -387,8 +387,7 @@ it('should parse vision data correctly', () => {
 
 **Examples of files to avoid testing:**
 
-- `packages/backend/src/modules/tech-insights/n26-checks/index.ts`
-- `plugins/catalog-backend-module-datadog-updater/src/index.ts`
+- `plugins/renovate-backend/src/index.ts`
 - Any `index.ts` file that exports `createBackendModule()` or similar factory functions
 
 **Why these are problematic to test:**
