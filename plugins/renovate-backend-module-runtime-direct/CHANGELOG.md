@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-direct
 
+## 2.0.0
+
+### Major Changes
+
+- [#750](https://github.com/secustor/backstage-plugins/pull/750) [`a00b4b9`](https://github.com/secustor/backstage-plugins/commit/a00b4b919cdfad9069764d7a3ba1fcefaffea389) Thanks [@renovate](https://github.com/apps/renovate)! - Update Renovate to v41. Consult the changelog for breaking changes for its configuration https://github.com/renovatebot/renovate/releases/tag/41.0.0
+
 ## 1.0.3
 
 ### Patch Changes
