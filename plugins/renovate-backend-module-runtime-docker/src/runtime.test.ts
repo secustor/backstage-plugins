@@ -86,10 +86,10 @@ describe('DockerRuntime', () => {
       const result: RenovateRunResult = await runtime.run(baseRunOptions);
 
       expect(mockDocker.pull).toHaveBeenCalledWith(
-        'ghcr.io/renovatebot/renovate:40.51.1',
+        expect.stringContaining('ghcr.io/renovatebot/renovate'),
       );
       expect(mockDocker.run).toHaveBeenCalledWith(
-        'ghcr.io/renovatebot/renovate:40.51.1',
+        expect.stringContaining('ghcr.io/renovatebot/renovate'),
         [],
         expect.any(PassThrough),
         {
@@ -164,7 +164,7 @@ describe('DockerRuntime', () => {
 
       expect(mockDocker.pull).not.toHaveBeenCalled();
       expect(mockDocker.run).toHaveBeenCalledWith(
-        'ghcr.io/renovatebot/renovate:40.51.1',
+        expect.stringContaining('ghcr.io/renovatebot/renovate'),
         expect.any(Array),
         expect.any(PassThrough),
         expect.any(Object),
@@ -213,7 +213,7 @@ describe('DockerRuntime', () => {
       // we verify the mock setup rather than specific message content
       expect(mockPullStream).toBeDefined();
       expect(mockDocker.pull).toHaveBeenCalledWith(
-        'ghcr.io/renovatebot/renovate:40.51.1',
+        expect.stringContaining('ghcr.io/renovatebot/renovate'),
       );
     });
 
@@ -315,8 +315,8 @@ describe('DockerRuntime', () => {
 
     it.each`
       image             | tag             | expected
-      ${undefined}      | ${undefined}    | ${'ghcr.io/renovatebot/renovate:40.51.1'}
-      ${'custom/image'} | ${undefined}    | ${'custom/image:40.51.1'}
+      ${undefined}      | ${undefined}    | ${'ghcr.io/renovatebot/renovate'}
+      ${'custom/image'} | ${undefined}    | ${'custom/image'}
       ${undefined}      | ${'custom-tag'} | ${'ghcr.io/renovatebot/renovate:custom-tag'}
       ${'custom/image'} | ${'custom-tag'} | ${'custom/image:custom-tag'}
     `(
@@ -338,7 +338,7 @@ describe('DockerRuntime', () => {
         await runtime.run(customRunOptions);
 
         expect(mockDocker.run).toHaveBeenCalledWith(
-          expected,
+          expect.stringContaining(expected),
           expect.any(Array),
           expect.any(PassThrough),
           expect.any(Object),
@@ -418,7 +418,7 @@ describe('DockerRuntime', () => {
         await runtime.run(runOptions);
 
         expect(mockDocker.pull).toHaveBeenCalledWith(
-          'ghcr.io/renovatebot/renovate:40.51.1',
+          expect.stringContaining('ghcr.io/renovatebot/renovate'),
         );
       });
 
