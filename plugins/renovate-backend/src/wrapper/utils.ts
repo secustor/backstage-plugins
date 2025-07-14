@@ -93,3 +93,26 @@ export function getCacheEnvs(
     RENOVATE_REDIS_URL: connection,
   };
 }
+
+export function getPassthroughEnvs(
+  config: Config,
+  logger: LoggerService,
+): Record<string, string> {
+  const env: Record<string, string> = {};
+  const passthroughEnvs =
+    getPluginConfig(config).getOptionalConfigArray('runtime.environment') ?? [];
+
+  for (const e of passthroughEnvs) {
+    const name = e.getString('name');
+    const value = e.getOptionalString('value') ?? process.env[name];
+    if (value) {
+      env[name] = value;
+    } else {
+      logger.debug(
+        `utils::getPassthroughEnvs - no value found for environment variable ${name}`,
+      );
+    }
+  }
+
+  return env;
+}

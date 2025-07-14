@@ -1,6 +1,5 @@
-import { extractReport, getCacheEnvs } from './utils';
+import { extractReport, getCacheEnvs, getPassthroughEnvs } from './utils';
 import { mockServices } from '@backstage/backend-test-utils';
-import { mockApis } from '@backstage/test-utils';
 import { PassThrough } from 'stream';
 import { RenovateReport } from '@secustor/backstage-plugin-renovate-common';
 
@@ -153,7 +152,7 @@ describe('renovate-backend/wrapper/utils', () => {
 
   describe('getCacheEnvs', () => {
     it('returns empty for empty', () => {
-      const config = mockApis.config({
+      const config = mockServices.rootConfig({
         data: {
           renovate: {},
         },
@@ -162,7 +161,7 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('returns config for enabled cache', () => {
-      const config = mockApis.config({
+      const config = mockServices.rootConfig({
         data: {
           backend: {
             cache: {
@@ -184,7 +183,7 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('default to enabled cache', () => {
-      const config = mockApis.config({
+      const config = mockServices.rootConfig({
         data: {
           backend: {
             cache: {
@@ -202,7 +201,7 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('returns empty for disabled cache', () => {
-      const config = mockApis.config({
+      const config = mockServices.rootConfig({
         data: {
           backend: {
             cache: {
@@ -221,7 +220,7 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('returns empty for no cache', () => {
-      const config = mockApis.config({
+      const config = mockServices.rootConfig({
         data: {
           backend: {},
           renovate: {},
@@ -231,7 +230,7 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('returns empty for unsupported cache', () => {
-      const config = mockApis.config({
+      const config = mockServices.rootConfig({
         data: {
           backend: {
             cache: {
@@ -245,7 +244,7 @@ describe('renovate-backend/wrapper/utils', () => {
     });
 
     it('returns empty for missing connection', () => {
-      const config = mockApis.config({
+      const config = mockServices.rootConfig({
         data: {
           backend: {
             cache: {
@@ -256,6 +255,51 @@ describe('renovate-backend/wrapper/utils', () => {
         },
       });
       expect(getCacheEnvs(config, logger)).toEqual({});
+    });
+  });
+
+  describe('getPassthroughEvns', () => {
+    let originalEnv: NodeJS.ProcessEnv;
+
+    beforeEach(() => {
+      originalEnv = { ...process.env };
+      process.env.KEY_THREE = 'TEST_THREE';
+      process.env.KEY_FOUR = 'TEST_FOUR';
+    });
+
+    afterEach(() => {
+      process.env = originalEnv;
+    });
+
+    it('returns empty for empty', () => {
+      const config = mockServices.rootConfig({
+        data: {
+          renovate: {},
+        },
+      });
+      expect(getPassthroughEnvs(config, logger)).toEqual({});
+    });
+
+    it('returns config with expected result overrides', () => {
+      const config = mockServices.rootConfig({
+        data: {
+          renovate: {
+            runtime: {
+              environment: [
+                { name: 'KEY_ONE', value: 'TEST_ONE' },
+                { name: 'KEY_TWO' },
+                { name: 'KEY_THREE' },
+                { name: 'KEY_FOUR', value: 'OVERRIDE_TEST_FOUR' },
+              ],
+            },
+          },
+        },
+      });
+      expect(getPassthroughEnvs(config, logger)).toEqual({
+        KEY_ONE: 'TEST_ONE',
+        KEY_THREE: 'TEST_THREE',
+        KEY_FOUR: 'OVERRIDE_TEST_FOUR',
+      });
     });
   });
 });
