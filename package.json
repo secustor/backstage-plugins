@@ -13,6 +13,7 @@
   "scripts": {
     "fix": "yarn prettier:fix && backstage-cli repo fix --publish && backstage-cli repo lint --fix && yarn dedupe --strategy highest",
     "check": "yarn prettier:check && yarn tsc:full && yarn lint && yarn test:all && yarn dedupe --check",
+    "check:agent": "./scripts/check-agents.sh",
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
     "start-backend": "yarn workspace backend start",
@@ -29,6 +30,7 @@
     "jest": "jest",
     "test": "backstage-cli repo test",
     "test:all": "backstage-cli repo test --coverage",
+    "test:jest": "jest --coverage",
     "test:e2e": "playwright test",
     "lint": "backstage-cli repo lint --since origin/main",
     "lint:fix": "yarn prettier:fix && backstage-cli repo lint --fix && yarn tsc:full && yarn dedupe --strategy highest",
@@ -56,6 +58,7 @@
     "concurrently": "9.2.0",
     "husky": "9.1.7",
     "jest": "29.7.0",
+    "jest-environment-jsdom": "^30.0.4",
     "lerna": "8.2.3",
     "lint-staged": "16.1.2",
     "node-gyp": "11.2.0",
@@ -71,7 +74,7 @@
   "prettier": "@spotify/prettier-config",
   "lint-staged": {
     "package.json": [
-      "yarn fix"
+      "prettier --write"
     ],
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
       "eslint --fix",
@@ -91,5 +94,55 @@
         }
       }
     }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "plugins/**/*.{ts,tsx,js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/",
+      "/dist/",
+      "\\.d\\.ts$",
+      "/generated/"
+    ],
+    "coverageReporters": [
+      "json",
+      "json-summary",
+      "html",
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 26,
+        "functions": 30,
+        "lines": 40,
+        "statements": 40
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.(js|jsx|mjs|esm\\.js)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.(ts|tsx|js)",
+      "**/*.(test|spec).(ts|tsx|js)"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@backstage/.*))"
+    ],
+    "testPathIgnorePatterns": [
+      "packages/app/e2e-tests/",
+      "packages/app/src/"
+    ]
   }
 }
