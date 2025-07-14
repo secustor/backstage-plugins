@@ -32,13 +32,28 @@ export class DockerRuntime implements RenovateWrapper {
     if (pullImage) {
       const pullStream = await this.#runner.pull(imageName);
 
+      // Capture logger in closure
+      const loggerRef = logger;
+
       // Wait for pull to finish
-      await new Promise(res =>
-        this.#runner.modem.followProgress(pullStream, res, obj => {
-          const message = obj.status;
-          delete obj.status;
-          logger.debug(message);
-        }),
+      await new Promise((resolve, reject) =>
+        this.#runner.modem.followProgress(
+          pullStream,
+          (error: Error | null) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(undefined);
+            }
+          },
+          obj => {
+            const message = obj.status;
+            delete obj.status;
+            if (loggerRef && message) {
+              loggerRef.debug(message);
+            }
+          },
+        ),
       );
     }
 
@@ -47,7 +62,7 @@ export class DockerRuntime implements RenovateWrapper {
     );
 
     const stdout = new PassThrough();
-    this.#runner.run(
+    await this.#runner.run(
       imageName,
       [],
       stdout,

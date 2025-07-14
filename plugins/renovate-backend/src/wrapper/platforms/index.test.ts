@@ -2,7 +2,6 @@ import { getPlatformEnvs } from './index';
 import { mockDeep } from 'jest-mock-extended';
 import { DefaultGithubCredentialsProvider } from '@backstage/integration';
 import { mockServices } from '@backstage/backend-test-utils';
-import { mockApis } from '@backstage/test-utils';
 
 const githubCredentialProvider = mockDeep<DefaultGithubCredentialsProvider>();
 DefaultGithubCredentialsProvider.fromIntegrations = jest
@@ -15,7 +14,7 @@ describe('wrapper/platforms', () => {
   });
 
   it('throw if platform could not be identified', async () => {
-    const rootConfig = mockApis.config({ data: {} });
+    const rootConfig = mockServices.rootConfig({ data: {} });
     await expect(
       getPlatformEnvs(
         {
@@ -33,7 +32,7 @@ describe('wrapper/platforms', () => {
   });
 
   it('return env for github.com', async () => {
-    const rootConfig = mockApis.config({
+    const rootConfig = mockServices.rootConfig({
       data: {
         integrations: {
           github: [
@@ -69,7 +68,7 @@ describe('wrapper/platforms', () => {
   });
 
   it('return env for github.com app', async () => {
-    const rootConfig = mockApis.config({
+    const rootConfig = mockServices.rootConfig({
       data: {
         integrations: {
           github: [
@@ -113,7 +112,7 @@ describe('wrapper/platforms', () => {
   });
 
   it('return env for gitlab.com with github.com token', async () => {
-    const rootConfig = mockApis.config({
+    const rootConfig = mockServices.rootConfig({
       data: {
         integrations: {
           github: [
