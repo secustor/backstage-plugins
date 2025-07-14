@@ -133,6 +133,7 @@ describe('scheduleJobSync', () => {
 
       beforeEach(() => {
         mockAuth.getOwnServiceCredentials.mockResolvedValue({
+          $$type: '@backstage/BackstageCredentials',
           principal: { type: 'service', subject: 'test-service' },
         });
         mockAuth.getPluginRequestToken.mockResolvedValue({
@@ -148,11 +149,12 @@ describe('scheduleJobSync', () => {
         await scheduleJobSync(mockRenovateRunner, mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockAuth.getOwnServiceCredentials).toHaveBeenCalled();
         expect(mockAuth.getPluginRequestToken).toHaveBeenCalledWith({
           onBehalfOf: {
+            $$type: '@backstage/BackstageCredentials',
             principal: { type: 'service', subject: 'test-service' },
           },
           targetPluginId: 'catalog',
@@ -188,7 +190,7 @@ describe('scheduleJobSync', () => {
         await scheduleJobSync(mockRenovateRunner, mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockRenovateRunner.addToQueue).toHaveBeenCalledWith();
       });
@@ -202,7 +204,7 @@ describe('scheduleJobSync', () => {
         await scheduleJobSync(mockRenovateRunner, mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockRenovateRunner.addToQueue).toHaveBeenCalledWith(
           singleEntity,
@@ -220,7 +222,7 @@ describe('scheduleJobSync', () => {
         await scheduleJobSync(mockRenovateRunner, mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockCatalogClient.getEntities).toHaveBeenCalledWith(
           expect.objectContaining({
@@ -242,7 +244,7 @@ describe('scheduleJobSync', () => {
         await scheduleJobSync(mockRenovateRunner, mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockCatalogClient.getEntities).toHaveBeenCalledWith(
           expect.objectContaining({
@@ -256,6 +258,7 @@ describe('scheduleJobSync', () => {
     describe('error handling', () => {
       beforeEach(() => {
         mockAuth.getOwnServiceCredentials.mockResolvedValue({
+          $$type: '@backstage/BackstageCredentials',
           principal: { type: 'service', subject: 'test-service' },
         });
       });
@@ -268,7 +271,9 @@ describe('scheduleJobSync', () => {
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
 
-        await expect(scheduledFn()).rejects.toThrow('Authentication failed');
+        await expect(scheduledFn(new AbortController().signal)).rejects.toThrow(
+          'Authentication failed',
+        );
       });
 
       it('should propagate catalog client errors', async () => {
@@ -282,7 +287,7 @@ describe('scheduleJobSync', () => {
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
 
-        await expect(scheduledFn()).rejects.toThrow(
+        await expect(scheduledFn(new AbortController().signal)).rejects.toThrow(
           'Catalog service unavailable',
         );
       });
@@ -315,7 +320,9 @@ describe('scheduleJobSync', () => {
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
 
-        await expect(scheduledFn()).rejects.toThrow('Queue is full');
+        await expect(scheduledFn(new AbortController().signal)).rejects.toThrow(
+          'Queue is full',
+        );
       });
     });
   });

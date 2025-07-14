@@ -22,11 +22,13 @@ describe('DockerRuntime', () => {
 
     mockLogger = mockServices.logger.mock();
     mockRootConfig = mockServices.rootConfig.mock();
+
+    const mockFollowProgress = jest.fn();
     mockDocker = {
       pull: jest.fn(),
       run: jest.fn(),
       modem: {
-        followProgress: jest.fn(),
+        followProgress: mockFollowProgress,
       },
     } as any;
 
@@ -60,8 +62,14 @@ describe('DockerRuntime', () => {
       const mockPullStream = new PassThrough();
 
       mockDocker.pull.mockResolvedValue(mockPullStream as any);
-      mockDocker.modem.followProgress.mockImplementation(
-        (stream, onFinished, onProgress) => {
+      (
+        mockDocker.modem.followProgress as jest.MockedFunction<any>
+      ).mockImplementation(
+        (
+          _stream: any,
+          onFinished: (error: Error | null) => void,
+          onProgress?: (obj: any) => void,
+        ) => {
           // Simulate progress callback with proper logger access
           if (onProgress) {
             onProgress({ status: 'Pulling image' });
@@ -115,8 +123,10 @@ describe('DockerRuntime', () => {
 
       const mockPullStream = new PassThrough();
       mockDocker.pull.mockResolvedValue(mockPullStream as any);
-      mockDocker.modem.followProgress.mockImplementation(
-        (stream, onFinished) => {
+      (
+        mockDocker.modem.followProgress as jest.MockedFunction<any>
+      ).mockImplementation(
+        (_stream: any, onFinished: (error: Error | null) => void) => {
           if (onFinished) {
             onFinished(null);
           }
@@ -165,8 +175,14 @@ describe('DockerRuntime', () => {
     it('should handle pull progress messages', async () => {
       const mockPullStream = new PassThrough();
       mockDocker.pull.mockResolvedValue(mockPullStream as any);
-      mockDocker.modem.followProgress.mockImplementation(
-        (stream, onFinished, onProgress) => {
+      (
+        mockDocker.modem.followProgress as jest.MockedFunction<any>
+      ).mockImplementation(
+        (
+          _stream: any,
+          onFinished: (error: Error | null) => void,
+          onProgress?: (obj: any) => void,
+        ) => {
           // Simulate various progress messages
           if (onProgress) {
             onProgress({ status: 'Pulling fs layer', id: 'layer1' });
@@ -350,8 +366,10 @@ describe('DockerRuntime', () => {
       it('should handle pull progress errors', async () => {
         const mockPullStream = new PassThrough();
         mockDocker.pull.mockResolvedValue(mockPullStream as any);
-        mockDocker.modem.followProgress.mockImplementation(
-          (stream, onFinished, onProgress) => {
+        (
+          mockDocker.modem.followProgress as jest.MockedFunction<any>
+        ).mockImplementation(
+          (_stream: any, onFinished: (error: Error | null) => void) => {
             // Simulate error during progress
             const error = new Error('Pull progress failed');
             if (onFinished) {
@@ -375,8 +393,10 @@ describe('DockerRuntime', () => {
 
         const mockPullStream = new PassThrough();
         mockDocker.pull.mockResolvedValue(mockPullStream as any);
-        mockDocker.modem.followProgress.mockImplementation(
-          (stream, onFinished) => {
+        (
+          mockDocker.modem.followProgress as jest.MockedFunction<any>
+        ).mockImplementation(
+          (_stream: any, onFinished: (error: Error | null) => void) => {
             if (onFinished) {
               onFinished(null);
             }

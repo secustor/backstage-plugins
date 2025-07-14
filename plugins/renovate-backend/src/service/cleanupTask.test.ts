@@ -107,7 +107,7 @@ describe('scheduleCleanupTask', () => {
 
         // Get the scheduled function and execute it
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockDatabaseHandler.deleteReports).toHaveBeenCalledWith({
           keepLatest: 3,
@@ -129,7 +129,7 @@ describe('scheduleCleanupTask', () => {
         await scheduleCleanupTask(mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockDatabaseHandler.deleteDependencies).toHaveBeenCalledWith({
           keepLatest: 7,
@@ -154,7 +154,7 @@ describe('scheduleCleanupTask', () => {
         await scheduleCleanupTask(mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockDatabaseHandler.deleteReports).toHaveBeenCalledWith({
           keepLatest: 2,
@@ -182,7 +182,7 @@ describe('scheduleCleanupTask', () => {
         await scheduleCleanupTask(mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockDatabaseHandler.deleteReports).not.toHaveBeenCalled();
         expect(mockDatabaseHandler.deleteDependencies).not.toHaveBeenCalled();
@@ -206,7 +206,7 @@ describe('scheduleCleanupTask', () => {
           await scheduleCleanupTask(mockRouterOptions);
 
           const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-          await scheduledFn();
+          await scheduledFn(new AbortController().signal);
 
           expect(mockDatabaseHandler.deleteReports).toHaveBeenCalledWith({
             keepLatest: reportsToKeep,
@@ -228,7 +228,7 @@ describe('scheduleCleanupTask', () => {
         await scheduleCleanupTask(mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockDatabaseHandler.deleteReports).toHaveBeenCalledWith({
           keepLatest: 0,
@@ -247,7 +247,7 @@ describe('scheduleCleanupTask', () => {
         await scheduleCleanupTask(mockRouterOptions);
 
         const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
-        await scheduledFn();
+        await scheduledFn(new AbortController().signal);
 
         expect(mockDatabaseHandler.deleteReports).not.toHaveBeenCalled();
         expect(mockDatabaseHandler.deleteDependencies).toHaveBeenCalledWith({
@@ -295,7 +295,9 @@ describe('scheduleCleanupTask', () => {
 
       const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
 
-      await expect(scheduledFn()).rejects.toThrow('Database connection failed');
+      await expect(scheduledFn(new AbortController().signal)).rejects.toThrow(
+        'Database connection failed',
+      );
     });
 
     it('should propagate database errors during dependency cleanup', async () => {
@@ -310,7 +312,9 @@ describe('scheduleCleanupTask', () => {
 
       const scheduledFn = mockScheduler.scheduleTask.mock.calls[0][0].fn;
 
-      await expect(scheduledFn()).rejects.toThrow('Database cleanup failed');
+      await expect(scheduledFn(new AbortController().signal)).rejects.toThrow(
+        'Database cleanup failed',
+      );
     });
   });
 });

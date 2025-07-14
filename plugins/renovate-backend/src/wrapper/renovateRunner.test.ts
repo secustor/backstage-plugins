@@ -111,6 +111,7 @@ describe('RenovateRunner', () => {
       NODE_ENV: 'test',
     });
     mockUtilsModule.extractReport.mockResolvedValue({
+      problems: [],
       repositories: {},
     });
   });
@@ -225,7 +226,7 @@ describe('RenovateRunner', () => {
       const stringTarget = 'github.com/test/repo';
       const mockAddResult: AddResult = {
         status: 'queued',
-        jobId: 'string-task-id',
+        id: 'string-task-id',
       };
       mockGetTaskID.mockReturnValue('string-task-id');
       mockQueue.addBulk.mockResolvedValue([mockAddResult]);
@@ -515,7 +516,6 @@ describe('RenovateRunner', () => {
 
       mockRenovateWrapper.run.mockResolvedValue({
         stdout: Readable.from(['mock stdout']),
-        stderr: Readable.from(['mock stderr']),
       });
 
       await runner.renovate(runOptions, mockChildLogger);

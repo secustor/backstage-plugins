@@ -83,23 +83,20 @@ describe('S3 config', () => {
     if (key === 'key') throw new Error('Missing key');
     return 'test-value';
   })}
-    `(
-      'should throw error when $missingField is missing',
-      ({ missingField, mockSetup }) => {
-        // Override the specific field to throw
-        mockSetup();
-        mockConfig.getOptionalString.mockReturnValue(undefined);
+    `('should throw error when $missingField is missing', ({ mockSetup }) => {
+      // Override the specific field to throw
+      mockSetup();
+      mockConfig.getOptionalString.mockReturnValue(undefined);
 
-        expect(() => getS3Config(mockConfig, mockLogger)).toThrow(
+      expect(() => getS3Config(mockConfig, mockLogger)).toThrow(
+        /Invalid S3 configuration.*Required fields: bucket, region, key/,
+      );
+      expect(mockLogger.error).toHaveBeenCalledWith(
+        expect.stringMatching(
           /Invalid S3 configuration.*Required fields: bucket, region, key/,
-        );
-        expect(mockLogger.error).toHaveBeenCalledWith(
-          expect.stringMatching(
-            /Invalid S3 configuration.*Required fields: bucket, region, key/,
-          ),
-        );
-      },
-    );
+        ),
+      );
+    });
 
     it('should handle non-Error exceptions', () => {
       mockConfig.getString.mockImplementation(() => {
