@@ -1,25 +1,25 @@
-// Mock createExtensionPoint before importing the module
-jest.mock('@backstage/backend-plugin-api', () => ({
-  createExtensionPoint: jest.fn(),
-}));
-
-import { createExtensionPoint } from '@backstage/backend-plugin-api';
 import { mockDeep } from 'jest-mock-extended';
 import { RenovateWrapper } from '@secustor/backstage-plugin-renovate-common';
 import { QueueFactory } from './queue/types';
 import { RunOptions } from './types';
 
+// Mock the entire module and capture the createExtensionPoint calls
+jest.mock('@backstage/backend-plugin-api', () => ({
+  createExtensionPoint: jest
+    .fn()
+    .mockReturnValueOnce({ id: 'renovate.runtimes' })
+    .mockReturnValueOnce({ id: 'renovate.queues' }),
+}));
+
+import { createExtensionPoint } from '@backstage/backend-plugin-api';
+
 const mockCreateExtensionPoint = jest.mocked(createExtensionPoint);
 
-// Setup mock return values before importing the extension points
+// Mock return values for assertions
 const mockRuntimeExtensionPoint = { id: 'renovate.runtimes' };
 const mockQueueExtensionPoint = { id: 'renovate.queues' };
 
-mockCreateExtensionPoint
-  .mockReturnValueOnce(mockRuntimeExtensionPoint as any)
-  .mockReturnValueOnce(mockQueueExtensionPoint as any);
-
-// Now import the extension points after mocks are set up
+// Import after mocking
 import {
   renovateRuntimeExtensionPoint,
   renovateQueueExtensionPoint,
