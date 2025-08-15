@@ -5270,8 +5270,8 @@ __metadata:
   linkType: hard
 
 "@backstage/plugin-scaffolder-backend@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "@backstage/plugin-scaffolder-backend@npm:2.1.0"
+  version: 2.1.1
+  resolution: "@backstage/plugin-scaffolder-backend@npm:2.1.1"
   dependencies:
     "@backstage/backend-defaults": "npm:^0.11.1"
     "@backstage/backend-plugin-api": "npm:^1.4.1"
@@ -5324,7 +5324,7 @@ __metadata:
     zen-observable: "npm:^0.10.0"
     zod: "npm:^3.22.4"
     zod-to-json-schema: "npm:^3.20.4"
-  checksum: 10c0/85262aacdcfe4f568f17751598a19281562c3fc5a9bd449190bdbf1a3c049683b37513af3866b62604a7fe22d00439f78bae559b53d2d076c4ece1f51fd6ae68
+  checksum: 10c0/0f112b142c25da0baeb4c593a174af5805d092cc6f44f7965a30f04fadc89b31b5c1a1e2b925bec4882b3cbf8d5064d42801c714db0b0ededb0b53ba3af7b562
   languageName: node
   linkType: hard
 
