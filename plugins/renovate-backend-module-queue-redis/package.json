@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@backstage/backend-test-utils": "^1.5.0",
-    "@backstage/cli": "^0.33.0",
+    "@backstage/cli": "^0.34.0",
     "jest-mock-extended": "^4.0.0"
   },
   "files": [
