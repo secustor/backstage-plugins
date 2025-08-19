@@ -14,10 +14,4 @@ export interface Config {
         connection?: string;
       };
     };
-
-    /**
-     * Config for Renovate itself
-     */
-    config: JsonObject;
-  };
 }
