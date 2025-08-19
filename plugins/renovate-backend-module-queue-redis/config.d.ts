@@ -6,7 +6,6 @@ export interface Config {
      * Config for queue
      */
     queue: {
-
       redis?: {
         /**
          * Optional configuration for the Redis queue connection, overrides `backend.cache.redis.connection`
@@ -14,4 +13,5 @@ export interface Config {
         connection?: string;
       };
     };
+  };
 }
