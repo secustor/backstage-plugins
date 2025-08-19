@@ -12696,6 +12696,7 @@ __metadata:
     "@backstage/backend-test-utils": "npm:^1.5.0"
     "@backstage/cli": "npm:^0.33.0"
     "@backstage/config": "npm:^1.3.2"
+    "@backstage/types": "npm:^1.2.1"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
     bullmq: "npm:^5.41.0"
     ioredis: "npm:^5.4.1"

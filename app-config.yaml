@@ -26,6 +26,9 @@ renovate:
 
   queue:
     type: redis
+# Optional configuration for the Redis queue connection, overrides `backend.cache.redis.connection`
+#   redis:
+#     connection: redis://localhost:6379
 
   config:
     dryRun: full
