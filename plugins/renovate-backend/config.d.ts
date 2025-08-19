@@ -66,7 +66,7 @@ export interface Config {
     /**
      * Config for queues
      */
-    queues: {
+    queue: {
       /**
        * The queue to use. The value references id of a queue supplied by a module
        * For module-specific configuration sees the relevant module
