@@ -1,8 +1,4 @@
-import {
-  createApiFactory,
-  discoveryApiRef,
-  fetchApiRef,
-} from '@backstage/core-plugin-api';
+import { discoveryApiRef, fetchApiRef } from '@backstage/core-plugin-api';
 import {
   ApiBlueprint,
   createFrontendPlugin,
@@ -18,9 +14,9 @@ import {
 } from '@backstage/core-compat-api';
 import { EntityContentBlueprint } from '@backstage/plugin-catalog-react/alpha';
 
-export const RenovatePage = PageBlueprint.make({
+export const renovatePage = PageBlueprint.make({
   params: {
-    defaultPath: '/renovate',
+    path: '/renovate',
     // TODO remove converter when fully migrated to the new system
     routeRef: convertLegacyRouteRef(rootRouteRef),
     loader: () =>
@@ -32,8 +28,8 @@ export const RenovatePage = PageBlueprint.make({
 
 export const EntityRenovateContent = EntityContentBlueprint.make({
   params: {
-    defaultPath: '/renovate',
-    defaultTitle: 'Renovate',
+    path: '/renovate',
+    title: 'Renovate',
     loader: () =>
       import('./components/EntityRenovateContent').then(m =>
         compatWrapper(<m.EntityRenovateContent />),
@@ -41,9 +37,9 @@ export const EntityRenovateContent = EntityContentBlueprint.make({
   },
 });
 
-const renovateApiFactory = ApiBlueprint.make({
-  params: {
-    factory: createApiFactory({
+const renovateApi = ApiBlueprint.make({
+  params: defineParams =>
+    defineParams({
       api: renovateApiRef,
       deps: {
         discoveryApi: discoveryApiRef,
@@ -52,12 +48,11 @@ const renovateApiFactory = ApiBlueprint.make({
       factory: ({ discoveryApi, fetchApi }) =>
         new RenovateClient({ discoveryApi, fetchApi }),
     }),
-  },
 });
 
 export default createFrontendPlugin({
-  id: 'renovate',
-  extensions: [RenovatePage, renovateApiFactory, EntityRenovateContent],
+  pluginId: 'renovate',
+  extensions: [renovatePage, renovateApi, EntityRenovateContent],
   routes: convertLegacyRouteRefs({
     root: rootRouteRef,
   }),
