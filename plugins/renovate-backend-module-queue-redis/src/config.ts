@@ -1,7 +1,7 @@
 import { Config } from '@backstage/config';
 
 export function getCacheConfig(config: Config): string | null {
-  // Override the cache connection settings when the backstage backend is not using Redis as cache store but Redis queue is still desired
+const overrideCacheConnection = config.getOptionalString('renovate.queue.redis.connection')
   const overrideCacheConfig = config.getOptionalConfig('renovate.queue.redis');
   if (overrideCacheConfig) {
     const overrideCacheConnection =
