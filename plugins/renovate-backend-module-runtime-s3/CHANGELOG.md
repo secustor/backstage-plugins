@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-s3
 
+## 0.1.2
+
+### Patch Changes
+
+- [`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c) Thanks [@renovate[bot]](https://github.com/renovate%5Bbot%5D)! - Bump Backstage to 1.42.1
+
+- Updated dependencies [[`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c)]:
+  - @secustor/backstage-plugin-renovate-common@0.9.3
+  - @secustor/backstage-plugin-renovate-node@0.5.7
+
 ## 0.1.1
 
 ### Patch Changes
