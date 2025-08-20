@@ -1,16 +1,6 @@
 import { Config } from '@backstage/config';
 
 export function getCacheConfig(config: Config): string | null {
-const overrideCacheConnection = config.getOptionalString('renovate.queue.redis.connection')
-  const overrideCacheConfig = config.getOptionalConfig('renovate.queue.redis');
-  if (overrideCacheConfig) {
-    const overrideCacheConnection =
-      overrideCacheConfig.getOptionalString('connection');
-    if (overrideCacheConnection) {
-      return overrideCacheConnection;
-    }
-  }
-
   const cacheConfig = config.getOptionalConfig('backend.cache');
   if (!cacheConfig) {
     return null;
@@ -22,4 +12,8 @@ const overrideCacheConnection = config.getOptionalString('renovate.queue.redis.c
   }
 
   return cacheConfig.getOptionalString('connection') ?? null;
+}
+
+export function getOverrideConnection(config: Config): string | null {
+  return config.getOptionalString('renovate.queue.redis.connection') ?? null;
 }
