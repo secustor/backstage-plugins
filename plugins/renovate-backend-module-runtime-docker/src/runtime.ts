@@ -7,7 +7,7 @@ import Docker from 'dockerode';
 import { PassThrough } from 'stream';
 
 const imageRepository = 'ghcr.io/renovatebot/renovate';
-const imageTag = '41.34.1';
+const imageTag = '41.81.5';
 
 export class DockerRuntime implements RenovateWrapper {
   #runner: Docker;
