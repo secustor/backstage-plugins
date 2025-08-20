@@ -8,7 +8,7 @@ import {
   RunOptions,
 } from '@secustor/backstage-plugin-renovate-node';
 import { RedisQueue } from './queue';
-import { getCacheConfig } from './config';
+import { getCacheConfig, getOverrideConnection } from './config';
 
 export const renovateModuleQueueRedis = createBackendModule({
   pluginId: 'renovate',
@@ -21,7 +21,8 @@ export const renovateModuleQueueRedis = createBackendModule({
         queueEx: renovateQueueExtensionPoint,
       },
       async init({ logger, queueEx, config }) {
-        const cacheURL = getCacheConfig(config);
+        const cacheURL =
+          getOverrideConnection(config) ?? getCacheConfig(config);
         if (!cacheURL) {
           logger.warn(
             'Could not find Redis connection URL while Redis Queue module is loaded. Skipping Redis Queue init.',
