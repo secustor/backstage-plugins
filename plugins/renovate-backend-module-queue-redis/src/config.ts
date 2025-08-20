@@ -13,3 +13,7 @@ export function getCacheConfig(config: Config): string | null {
 
   return cacheConfig.getOptionalString('connection') ?? null;
 }
+
+export function getOverrideConnection(config: Config): string | null {
+  return config.getOptionalString('renovate.queue.redis.connection') ?? null;
+}
