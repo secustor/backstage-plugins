@@ -1,5 +1,19 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-direct
 
+## 2.1.0
+
+### Minor Changes
+
+- [#793](https://github.com/secustor/backstage-plugins/pull/793) [`a8b94c1`](https://github.com/secustor/backstage-plugins/commit/a8b94c1e925f08e6a9051086d423128e53c0ceb1) Thanks [@renovate](https://github.com/apps/renovate)! - Update Renovate to v41.81.5
+
+### Patch Changes
+
+- [`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c) Thanks [@renovate[bot]](https://github.com/renovate%5Bbot%5D)! - Bump Backstage to 1.42.1
+
+- Updated dependencies [[`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c)]:
+  - @secustor/backstage-plugin-renovate-common@0.9.3
+  - @secustor/backstage-plugin-renovate-node@0.5.7
+
 ## 2.0.0
 
 ### Major Changes

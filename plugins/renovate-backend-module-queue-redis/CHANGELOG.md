@@ -1,5 +1,16 @@
 # @secustor/backstage-plugin-renovate-backend-module-queue-redis
 
+## 0.4.8
+
+### Patch Changes
+
+- [#822](https://github.com/secustor/backstage-plugins/pull/822) [`948dca1`](https://github.com/secustor/backstage-plugins/commit/948dca170b5b11a43fc53c5925c64bdd0813bcb6) Thanks [@veenarm](https://github.com/veenarm)! - Add config override for redis-cache queue connection settings.
+
+- [`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c) Thanks [@renovate[bot]](https://github.com/renovate%5Bbot%5D)! - Bump Backstage to 1.42.1
+
+- Updated dependencies [[`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c)]:
+  - @secustor/backstage-plugin-renovate-node@0.5.7
+
 ## 0.4.7
 
 ### Patch Changes

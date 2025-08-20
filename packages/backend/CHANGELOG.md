@@ -1,5 +1,20 @@
 # backend
 
+## 0.5.14
+
+### Patch Changes
+
+- [`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c) Thanks [@renovate[bot]](https://github.com/renovate%5Bbot%5D)! - Bump Backstage to 1.42.1
+
+- Updated dependencies [[`948dca1`](https://github.com/secustor/backstage-plugins/commit/948dca170b5b11a43fc53c5925c64bdd0813bcb6), [`01a41bd`](https://github.com/secustor/backstage-plugins/commit/01a41bdbfb456fcbe6af1dfcf56143d6c59aef7c), [`a8b94c1`](https://github.com/secustor/backstage-plugins/commit/a8b94c1e925f08e6a9051086d423128e53c0ceb1)]:
+  - @secustor/backstage-plugin-renovate-backend-module-queue-redis@0.4.8
+  - @secustor/backstage-plugin-scaffolder-backend-module-filter-utilities@0.2.5
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-direct@2.1.0
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-docker@2.1.0
+  - @secustor/backstage-plugin-renovate-backend-module-queue-local@0.4.7
+  - @secustor/backstage-plugin-renovate-backend-module-runtime-s3@0.1.2
+  - @secustor/backstage-plugin-renovate-backend@0.16.1
+
 ## 0.5.13
 
 ### Patch Changes
