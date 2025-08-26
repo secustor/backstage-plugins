@@ -2513,9 +2513,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/cli@npm:0.34.0, @backstage/cli@npm:^0.34.0":
-  version: 0.34.0
-  resolution: "@backstage/cli@npm:0.34.0"
+"@backstage/cli@npm:0.34.1, @backstage/cli@npm:^0.34.0":
+  version: 0.34.1
+  resolution: "@backstage/cli@npm:0.34.1"
   dependencies:
     "@backstage/catalog-model": "npm:^1.7.5"
     "@backstage/cli-common": "npm:^0.1.15"
@@ -2653,7 +2653,7 @@ __metadata:
       optional: true
   bin:
     backstage-cli: bin/backstage-cli
-  checksum: 10c0/191276d28c206fc558d43049909852fc1a5c252901d6a3e9db95628474e60d4f6749b924907e6060b1ab53efd464db340d8c66a3e0ad778579f83477c90115a5
+  checksum: 10c0/cc30ce941c8c04a9ccf886730760f75941e8e9efc6ef94b38eac28cd22a8145f0f84bde4616e73c3e76f98fa17cf55eb12a688d4c73ac473621910fcd964d609
   languageName: node
   linkType: hard
 
@@ -16273,7 +16273,7 @@ __metadata:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/catalog-client": "npm:^1.11.0"
     "@backstage/catalog-model": "npm:^1.7.5"
-    "@backstage/cli": "npm:0.34.0"
+    "@backstage/cli": "npm:0.34.1"
     "@backstage/config": "npm:^1.3.3"
     "@backstage/plugin-app-backend": "npm:^0.5.5"
     "@backstage/plugin-auth-backend": "npm:^0.25.3"
@@ -34141,7 +34141,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@backstage/cli": "npm:0.34.0"
+    "@backstage/cli": "npm:0.34.1"
     "@backstage/e2e-test-utils": "npm:0.1.1"
     "@backstage/repo-tools": "npm:0.15.1"
     "@changesets/changelog-github": "npm:0.5.1"
