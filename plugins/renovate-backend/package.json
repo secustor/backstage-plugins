@@ -17,6 +17,7 @@
     "pluginPackages": [
       "@secustor/backstage-plugin-renovate",
       "@secustor/backstage-plugin-renovate-backend",
+      "@secustor/backstage-plugin-renovate-client",
       "@secustor/backstage-plugin-renovate-common",
       "@secustor/backstage-plugin-renovate-node"
     ]

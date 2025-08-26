@@ -11,7 +11,15 @@
     "types": "dist/index.d.ts"
   },
   "backstage": {
-    "role": "node-library"
+    "role": "common-library",
+    "pluginId": "renovate",
+    "pluginPackages": [
+      "@secustor/backstage-plugin-renovate",
+      "@secustor/backstage-plugin-renovate-backend",
+      "@secustor/backstage-plugin-renovate-client",
+      "@secustor/backstage-plugin-renovate-common",
+      "@secustor/backstage-plugin-renovate-node"
+    ]
   },
   "repository": {
     "type": "git",
@@ -26,6 +34,7 @@
     "renovate",
     "backstage"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "backstage-cli package build",
     "lint": "backstage-cli package lint",
