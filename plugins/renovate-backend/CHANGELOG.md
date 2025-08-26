@@ -1,5 +1,17 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.16.2
+
+### Patch Changes
+
+- [#838](https://github.com/secustor/backstage-plugins/pull/838) [`db57f5e`](https://github.com/secustor/backstage-plugins/commit/db57f5e3c94066417d9ac256ce50922aff05761b) Thanks [@secustor](https://github.com/secustor)! - Correctly mark renovate-client package as a common libary and part of the Renovate plugin
+
+- [#839](https://github.com/secustor/backstage-plugins/pull/839) [`ad8a17d`](https://github.com/secustor/backstage-plugins/commit/ad8a17db9f7b434fb661314d06c874f67bf2d231) Thanks [@secustor](https://github.com/secustor)! - Remove unused @backstage/backend-tasks package
+
+- Updated dependencies [[`db57f5e`](https://github.com/secustor/backstage-plugins/commit/db57f5e3c94066417d9ac256ce50922aff05761b)]:
+  - @secustor/backstage-plugin-renovate-common@0.9.4
+  - @secustor/backstage-plugin-renovate-node@0.5.8
+
 ## 0.16.1
 
 ### Patch Changes
