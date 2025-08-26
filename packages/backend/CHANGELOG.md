@@ -1,5 +1,14 @@
 # backend
 
+## 0.5.15
+
+### Patch Changes
+
+- [#839](https://github.com/secustor/backstage-plugins/pull/839) [`ad8a17d`](https://github.com/secustor/backstage-plugins/commit/ad8a17db9f7b434fb661314d06c874f67bf2d231) Thanks [@secustor](https://github.com/secustor)! - Remove unused @backstage/backend-tasks package
+
+- Updated dependencies [[`db57f5e`](https://github.com/secustor/backstage-plugins/commit/db57f5e3c94066417d9ac256ce50922aff05761b), [`ad8a17d`](https://github.com/secustor/backstage-plugins/commit/ad8a17db9f7b434fb661314d06c874f67bf2d231)]:
+  - @secustor/backstage-plugin-renovate-backend@0.16.2
+
 ## 0.5.14
 
 ### Patch Changes

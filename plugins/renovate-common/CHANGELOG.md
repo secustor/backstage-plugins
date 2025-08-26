@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.9.4
+
+### Patch Changes
+
+- [#838](https://github.com/secustor/backstage-plugins/pull/838) [`db57f5e`](https://github.com/secustor/backstage-plugins/commit/db57f5e3c94066417d9ac256ce50922aff05761b) Thanks [@secustor](https://github.com/secustor)! - Correctly mark renovate-client package as a common libary and part of the Renovate plugin
+
 ## 0.9.3
 
 ### Patch Changes
