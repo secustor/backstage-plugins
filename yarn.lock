@@ -2224,24 +2224,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage-community/plugin-tech-radar-common@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "@backstage-community/plugin-tech-radar-common@npm:1.8.0"
+"@backstage-community/plugin-tech-radar-common@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "@backstage-community/plugin-tech-radar-common@npm:1.9.0"
   dependencies:
     zod: "npm:^3.20.0"
-  checksum: 10c0/721bc70d226a5d1519ad2764fa48c5e02c05f2bfe7ffe3f59f936e0c610bb0dc922cb7cdea462ad5f3fffc43fd5d2619b0ca9ba62441fb44ddb7a841c925742f
+  checksum: 10c0/c3fcd4ec9325d71346eba639eac76dad81899541d27707cde4e3784c2ff0bc5a38e8d75f46dd2739877847ab3980783d4d702a18fe29afbf435edd4ceb1aff52
   languageName: node
   linkType: hard
 
 "@backstage-community/plugin-tech-radar@npm:^1.0.0":
-  version: 1.9.0
-  resolution: "@backstage-community/plugin-tech-radar@npm:1.9.0"
+  version: 1.10.0
+  resolution: "@backstage-community/plugin-tech-radar@npm:1.10.0"
   dependencies:
-    "@backstage-community/plugin-tech-radar-common": "npm:^1.8.0"
-    "@backstage/core-compat-api": "npm:^0.4.4"
-    "@backstage/core-components": "npm:^0.17.4"
+    "@backstage-community/plugin-tech-radar-common": "npm:^1.9.0"
+    "@backstage/core-compat-api": "npm:^0.5.1"
+    "@backstage/core-components": "npm:^0.17.5"
     "@backstage/core-plugin-api": "npm:^1.10.9"
-    "@backstage/frontend-plugin-api": "npm:^0.10.4"
+    "@backstage/frontend-plugin-api": "npm:^0.11.0"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
     "@types/react": "npm:^16.13.1 || ^17.0.0 || ^18.0.0"
@@ -2252,7 +2252,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/38939e8d9f4cf09860ec371e0d63845d769b6dd03d49db5670287ed3d5e4e709908a5b37b69628fc1bcd07ec15e309ada1ac281b034f25c1f3e5997f5b6a33b6
+  checksum: 10c0/f4321d49c7cb7c71a47d899e0366ac21a68fccbad49ee75fb0b9babea27eada91c568bd891533e3ace2796f629baf5dc6eabe0a920c1cda96b97e15b41c5afb2
   languageName: node
   linkType: hard
 
