@@ -29410,9 +29410,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp@npm:11.4.1, node-gyp@npm:^11.0.0, node-gyp@npm:^11.2.0":
-  version: 11.4.1
-  resolution: "node-gyp@npm:11.4.1"
+"node-gyp@npm:11.4.2, node-gyp@npm:^11.0.0, node-gyp@npm:^11.2.0":
+  version: 11.4.2
+  resolution: "node-gyp@npm:11.4.2"
   dependencies:
     env-paths: "npm:^2.2.0"
     exponential-backoff: "npm:^3.1.1"
@@ -29426,7 +29426,7 @@ __metadata:
     which: "npm:^5.0.0"
   bin:
     node-gyp: bin/node-gyp.js
-  checksum: 10c0/475d5c51ef44cee15668df4ad2946e92ad66397adaae4f695afc080ea7a8812c8d93341c1eabe42a46ee615bbde90123b548c7f61388be48c6b0bbc5ea9c53fe
+  checksum: 10c0/0bfd3e96770ed70f07798d881dd37b4267708966d868a0e585986baac487d9cf5831285579fd629a83dc4e434f53e6416ce301097f2ee464cb74d377e4d8bdbe
   languageName: node
   linkType: hard
 
@@ -34172,7 +34172,7 @@ __metadata:
     jest-environment-jsdom: "npm:30.0.5"
     lerna: "npm:8.2.3"
     lint-staged: "npm:16.1.5"
-    node-gyp: "npm:11.4.1"
+    node-gyp: "npm:11.4.2"
     pinst: "npm:3.0.0"
     prettier: "npm:3.6.2"
     ts-jest: "npm:29.4.1"
