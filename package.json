@@ -61,7 +61,7 @@
     "jest-environment-jsdom": "30.0.5",
     "lerna": "8.2.3",
     "lint-staged": "16.1.5",
-    "node-gyp": "11.4.1",
+    "node-gyp": "11.4.2",
     "pinst": "3.0.0",
     "prettier": "3.6.2",
     "ts-jest": "29.4.1",
