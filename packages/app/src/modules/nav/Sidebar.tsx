@@ -9,7 +9,6 @@ import { compatWrapper } from '@backstage/core-compat-api';
 import { Sidebar } from '@backstage/core-components';
 import { NavContentBlueprint } from '@backstage/frontend-plugin-api';
 import { SidebarLogo } from './SidebarLogo';
-import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
@@ -33,11 +32,6 @@ export const SidebarContent = NavContentBlueprint.make({
           <SidebarGroup label="Menu" icon={<MenuIcon />}>
             {/* Global nav, not org-specific */}
             <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
-            <SidebarItem
-              icon={CreateComponentIcon}
-              to="create"
-              text="Create..."
-            />
             {/* End global nav */}
             <SidebarDivider />
             <SidebarScrollWrapper>
