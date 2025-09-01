@@ -1,27 +1,12 @@
-/*
- * Hi!
- *
- * Note that this is an EXAMPLE Backstage backend. Please check the README.
- *
- * Happy hacking!
- */
+import * as dot from 'dotenv';
 
 import { createBackend } from '@backstage/backend-defaults';
+
+dot.config({ quiet: true });
 
 const backend = createBackend();
 
 backend.add(import('@backstage/plugin-app-backend'));
-backend.add(import('@backstage/plugin-proxy-backend'));
-
-// scaffolder plugin
-backend.add(import('@backstage/plugin-scaffolder-backend'));
-backend.add(import('@backstage/plugin-scaffolder-backend-module-github'));
-backend.add(
-  import('@backstage/plugin-scaffolder-backend-module-notifications'),
-);
-
-// techdocs plugin
-backend.add(import('@backstage/plugin-techdocs-backend'));
 
 // auth plugin
 backend.add(import('@backstage/plugin-auth-backend'));
@@ -54,7 +39,6 @@ backend.add(import('@backstage/plugin-search-backend-module-pg'));
 
 // search collators
 backend.add(import('@backstage/plugin-search-backend-module-catalog'));
-backend.add(import('@backstage/plugin-search-backend-module-techdocs'));
 
 // kubernetes plugin
 backend.add(import('@backstage/plugin-kubernetes-backend'));
@@ -62,5 +46,29 @@ backend.add(import('@backstage/plugin-kubernetes-backend'));
 // notifications and signals plugins
 backend.add(import('@backstage/plugin-notifications-backend'));
 backend.add(import('@backstage/plugin-signals-backend'));
+
+// renovate
+backend.add(import('@secustor/backstage-plugin-renovate-backend'));
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-runtime-direct'),
+);
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-runtime-docker'),
+);
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-runtime-s3'),
+);
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-queue-local'),
+);
+backend.add(
+  import('@secustor/backstage-plugin-renovate-backend-module-queue-redis'),
+);
+
+backend.add(
+  import(
+    '@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities'
+  ),
+);
 
 backend.start();

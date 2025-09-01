@@ -57,7 +57,6 @@ const renovateApi = ApiBlueprint.make({
     }),
 });
 
-// TODO compilation fails after adding the NAV point.
 export default createFrontendPlugin({
   pluginId: 'renovate',
   extensions: [

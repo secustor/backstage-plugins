@@ -1,3 +1,39 @@
+renovate:
+  cleanup:
+    minimumReports: 2
+    dependencyHistory: 2
+
+  schedules:
+    cleanup:
+      # enabled: true  # default value
+      frequency: { minutes: 5 }
+      timeout: { minutes: 1 }
+    renovation:
+      # enabled: false # disable schedule. This is useful e.g. for local development
+      frequency: { minutes: 60 }
+      timeout: { minutes: 60 }
+
+  runtime:
+    environment:
+      # forward simply the NODE_EXTRA_CA_CERTS variable
+      - name: NODE_EXTRA_CA_CERTS
+      # set the variable to a specific value
+      - name: HTTPS_PROXY
+        value: http://proxy.my.com:8080
+
+    type: direct
+    docker:
+
+  queue:
+    type: redis
+  # Optional configuration for the Redis queue connection, overrides `backend.cache.redis.connection`
+  # redis:
+  #   connection: redis://localhost:6379
+
+  config:
+    dryRun: full
+
+# General configuration for the app
 app:
   title: Scaffolded Backstage App
   baseUrl: http://localhost:3000
@@ -10,7 +46,6 @@ app:
     - nav-item:search: false
     - nav-item:user-settings: false
     - nav-item:catalog: false
-    - nav-item:scaffolder: false
 
     # Configure the catalog index page to be the root page, this is normally mounted on /catalog
     - page:catalog:
