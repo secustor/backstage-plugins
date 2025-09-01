@@ -14,7 +14,7 @@ import { EntityContentBlueprint } from '@backstage/plugin-catalog-react/alpha';
 
 const rootRouteRef = createRouteRef();
 
-export const appVisualizerNavItem = NavItemBlueprint.make({
+export const renovateNavItem = NavItemBlueprint.make({
   params: {
     title: 'Renovate',
     icon: FormatPaintIcon,
@@ -64,6 +64,6 @@ export default createFrontendPlugin({
     renovatePage,
     renovateApi,
     EntityRenovateContent,
-    appVisualizerNavItem,
+    renovateNavItem,
   ],
 });
