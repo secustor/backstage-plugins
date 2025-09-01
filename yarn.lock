@@ -2513,7 +2513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/cli@npm:0.34.1, @backstage/cli@npm:^0.34.0":
+"@backstage/cli@npm:^0.34.1":
   version: 0.34.1
   resolution: "@backstage/cli@npm:0.34.1"
   dependencies:
@@ -2863,7 +2863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/e2e-test-utils@npm:0.1.1":
+"@backstage/e2e-test-utils@npm:^0.1.1":
   version: 0.1.1
   resolution: "@backstage/e2e-test-utils@npm:0.1.1"
   dependencies:
@@ -3571,7 +3571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/plugin-org@npm:^0.6.42":
+"@backstage/plugin-org@npm:^0.6.43":
   version: 0.6.43
   resolution: "@backstage/plugin-org@npm:0.6.43"
   dependencies:
@@ -4365,7 +4365,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/plugin-techdocs@npm:^1.14.0":
+"@backstage/plugin-techdocs@npm:^1.14.1":
   version: 1.14.1
   resolution: "@backstage/plugin-techdocs@npm:1.14.1"
   dependencies:
@@ -4456,7 +4456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/repo-tools@npm:0.15.1, @backstage/repo-tools@npm:^0.15.1":
+"@backstage/repo-tools@npm:^0.15.1":
   version: 0.15.1
   resolution: "@backstage/repo-tools@npm:0.15.1"
   dependencies:
@@ -4522,7 +4522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/test-utils@npm:1.7.11, @backstage/test-utils@npm:^1.7.11":
+"@backstage/test-utils@npm:^1.7.11":
   version: 1.7.11
   resolution: "@backstage/test-utils@npm:1.7.11"
   dependencies:
@@ -11387,7 +11387,7 @@ __metadata:
   dependencies:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/backend-test-utils": "npm:^1.8.0"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
     fastq: "npm:^1.17.1"
     jest-mock-extended: "npm:^4.0.0"
@@ -11400,7 +11400,7 @@ __metadata:
   dependencies:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/backend-test-utils": "npm:^1.8.0"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/config": "npm:^1.3.3"
     "@backstage/types": "npm:^1.2.1"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
@@ -11416,7 +11416,7 @@ __metadata:
   dependencies:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/backend-test-utils": "npm:^1.8.0"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
     "@types/find-up": "npm:^4.0.0"
@@ -11432,7 +11432,7 @@ __metadata:
   dependencies:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/backend-test-utils": "npm:^1.8.0"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
     "@types/dockerode": "npm:^3.3.26"
@@ -11449,7 +11449,7 @@ __metadata:
     "@aws-sdk/credential-provider-node": "npm:^3.787.0"
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/backend-test-utils": "npm:^1.8.0"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/config": "npm:^1.3.3"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
@@ -11468,7 +11468,7 @@ __metadata:
     "@backstage/backend-test-utils": "npm:^1.8.0"
     "@backstage/catalog-client": "npm:^1.11.0"
     "@backstage/catalog-model": "npm:^1.7.5"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/config": "npm:^1.3.3"
     "@backstage/errors": "npm:^1.2.7"
     "@backstage/integration": "npm:^1.17.1"
@@ -11500,7 +11500,7 @@ __metadata:
   dependencies:
     "@backstage/backend-test-utils": "npm:^1.8.0"
     "@backstage/catalog-model": "npm:^1.7.5"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     cross-fetch: "npm:^4.0.0"
     msw: "npm:^2.0.0"
@@ -11514,7 +11514,7 @@ __metadata:
   dependencies:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/catalog-model": "npm:^1.7.5"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/config": "npm:^1.3.3"
     "@backstage/types": "npm:^1.2.1"
     "@sindresorhus/is": "npm:^4.6.0"
@@ -11529,7 +11529,7 @@ __metadata:
   resolution: "@secustor/backstage-plugin-renovate-node@workspace:plugins/renovate-node"
   dependencies:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
     jest-mock-extended: "npm:^4.0.0"
   languageName: unknown
@@ -11540,9 +11540,9 @@ __metadata:
   resolution: "@secustor/backstage-plugin-renovate@workspace:plugins/renovate"
   dependencies:
     "@backstage/catalog-model": "npm:^1.7.5"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/core-app-api": "npm:^1.18.0"
-    "@backstage/core-compat-api": "npm:^0.5.0"
+    "@backstage/core-compat-api": "npm:^0.5.1"
     "@backstage/core-components": "npm:^0.17.5"
     "@backstage/core-plugin-api": "npm:^1.10.9"
     "@backstage/dev-utils": "npm:^1.1.13"
@@ -11582,7 +11582,7 @@ __metadata:
   resolution: "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities@workspace:plugins/scaffolder-backend-module-filter-utilities"
   dependencies:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/plugin-scaffolder-node": "npm:^0.11.0"
     "@backstage/plugin-scaffolder-node-test-utils": "npm:^0.3.2"
     jsonata: "npm:^2.0.6"
@@ -15603,7 +15603,7 @@ __metadata:
     "@backstage-community/plugin-tech-radar": "npm:^1.0.0"
     "@backstage/app-defaults": "npm:^1.6.5"
     "@backstage/catalog-model": "npm:^1.7.5"
-    "@backstage/cli": "npm:^0.34.0"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/core-app-api": "npm:^1.18.0"
     "@backstage/core-components": "npm:^0.17.5"
     "@backstage/core-plugin-api": "npm:^1.10.9"
@@ -15614,16 +15614,16 @@ __metadata:
     "@backstage/plugin-catalog-graph": "npm:^0.4.22"
     "@backstage/plugin-catalog-import": "npm:^0.13.4"
     "@backstage/plugin-catalog-react": "npm:^1.20.1"
-    "@backstage/plugin-org": "npm:^0.6.42"
+    "@backstage/plugin-org": "npm:^0.6.43"
     "@backstage/plugin-permission-react": "npm:^0.4.36"
     "@backstage/plugin-scaffolder": "npm:^1.34.0"
     "@backstage/plugin-search": "npm:^1.4.29"
     "@backstage/plugin-search-react": "npm:^1.9.3"
-    "@backstage/plugin-techdocs": "npm:^1.14.0"
+    "@backstage/plugin-techdocs": "npm:^1.14.1"
     "@backstage/plugin-techdocs-module-addons-contrib": "npm:^1.1.27"
     "@backstage/plugin-techdocs-react": "npm:^1.3.2"
     "@backstage/plugin-user-settings": "npm:^0.8.25"
-    "@backstage/test-utils": "npm:1.7.11"
+    "@backstage/test-utils": "npm:^1.7.11"
     "@backstage/theme": "npm:^0.6.8"
     "@material-ui/core": "npm:^4.12.4"
     "@material-ui/icons": "npm:^4.11.3"
@@ -16273,7 +16273,7 @@ __metadata:
     "@backstage/backend-plugin-api": "npm:^1.4.2"
     "@backstage/catalog-client": "npm:^1.11.0"
     "@backstage/catalog-model": "npm:^1.7.5"
-    "@backstage/cli": "npm:0.34.1"
+    "@backstage/cli": "npm:^0.34.1"
     "@backstage/config": "npm:^1.3.3"
     "@backstage/plugin-app-backend": "npm:^0.5.5"
     "@backstage/plugin-auth-backend": "npm:^0.25.3"
@@ -34158,9 +34158,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@backstage/cli": "npm:0.34.1"
-    "@backstage/e2e-test-utils": "npm:0.1.1"
-    "@backstage/repo-tools": "npm:0.15.1"
+    "@backstage/cli": "npm:^0.34.1"
+    "@backstage/e2e-test-utils": "npm:^0.1.1"
+    "@backstage/repo-tools": "npm:^0.15.1"
     "@changesets/changelog-github": "npm:0.5.1"
     "@changesets/cli": "npm:2.29.6"
     "@playwright/test": "npm:1.55.0"
