@@ -5,8 +5,9 @@ volumes:
 services:
   db:
     image: postgres:17
-    env_file:
-      - packages/backend/.env
+    environment:
+      POSTGRES_USER: backstage
+      POSTGRES_PASSWORD: password
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:

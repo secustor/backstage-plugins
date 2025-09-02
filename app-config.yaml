@@ -34,10 +34,23 @@ renovate:
     dryRun: full
 
 # General configuration for the app
-
 app:
   title: Scaffolded Backstage App
   baseUrl: http://localhost:3000
+
+  # Enable all packages by default, this will discover packages from packages/app/package.json
+  packages: all
+
+  extensions:
+    # Disable the nav items that we're manually rendering in packages/app/src/modules/nav/Sidebar.tsx
+    - nav-item:search: false
+    - nav-item:user-settings: false
+    - nav-item:catalog: false
+
+    # Configure the catalog index page to be the root page, this is normally mounted on /catalog
+    - page:catalog:
+        config:
+          path: /
 
 organization:
   name: My Company
@@ -59,9 +72,7 @@ backend:
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin:
-      - http://localhost:3000
-      - http://localhost:7007
+    origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
     exposedHeaders:
@@ -81,7 +92,7 @@ integrations:
   github:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
-      # about setting up the GitHub integration here: https://backstage.io/docs/getting-started/configuration#setting-up-a-github-integration
+      # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
       token: ${GITHUB_TOKEN}
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
@@ -110,6 +121,7 @@ techdocs:
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
+    # See https://backstage.io/docs/auth/guest/provider
     guest: {}
 
 scaffolder:
@@ -125,6 +137,28 @@ catalog:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
       target: ../../examples/entities.yaml
+
+    # Local example template
+    - type: file
+      target: ../../examples/template/template.yaml
+      rules:
+        - allow: [Template]
+
+    # Local example organizational data
+    - type: file
+      target: ../../examples/org.yaml
+      rules:
+        - allow: [User, Group]
+
+    ## Uncomment these lines to add more example data
+    # - type: url
+    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+
+    ## Uncomment these lines to add an example org
+    # - type: url
+    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+    #   rules:
+    #     - allow: [User, Group]
 
   providers:
     github:
@@ -142,3 +176,11 @@ catalog:
         - catalog
         - search
         - renovate
+
+kubernetes:
+  # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
+
+# see https://backstage.io/docs/permissions/getting-started for more on the permission framework
+permission:
+  # setting this to `false` will disable permissions
+  enabled: true
