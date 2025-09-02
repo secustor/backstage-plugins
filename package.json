@@ -14,7 +14,7 @@
     "build-image": "yarn workspace backend build-image",
     "build:all": "backstage-cli repo build --all",
     "build:backend": "yarn workspace backend build",
-    "check": "yarn prettier:check && yarn tsc:full && yarn lint && yarn test:all && yarn dedupe --check",
+    "check": "yarn prettier:check && yarn tsc:full && yarn repo:lint && yarn test:all && yarn dedupe --check",
     "clean": "backstage-cli repo clean",
     "docker-deps": "docker compose up -d",
     "generate": "yarn workspace @secustor/backstage-plugin-renovate-backend generate",
