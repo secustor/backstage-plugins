@@ -1,24 +1,31 @@
-import { discoveryApiRef, fetchApiRef } from '@backstage/core-plugin-api';
+import { discoveryApiRef, fetchApiRef } from '@backstage/frontend-plugin-api';
 import {
   ApiBlueprint,
   createFrontendPlugin,
+  NavItemBlueprint,
+  createRouteRef,
 } from '@backstage/frontend-plugin-api';
-import { convertLegacyRouteRefs } from '@backstage/core-compat-api';
-import { rootRouteRef } from './routes';
 import { renovateApiRef } from './api';
 import { RenovateClient } from '@secustor/backstage-plugin-renovate-client';
 import { PageBlueprint } from '@backstage/frontend-plugin-api';
-import {
-  compatWrapper,
-  convertLegacyRouteRef,
-} from '@backstage/core-compat-api';
+import { compatWrapper } from '@backstage/core-compat-api';
+import FormatPaintIcon from '@mui/icons-material/FormatPaint';
 import { EntityContentBlueprint } from '@backstage/plugin-catalog-react/alpha';
+
+const rootRouteRef = createRouteRef();
+
+export const renovateNavItem = NavItemBlueprint.make({
+  params: {
+    title: 'Renovate',
+    icon: FormatPaintIcon,
+    routeRef: rootRouteRef,
+  },
+});
 
 export const renovatePage = PageBlueprint.make({
   params: {
     path: '/renovate',
-    // TODO remove converter when fully migrated to the new system
-    routeRef: convertLegacyRouteRef(rootRouteRef),
+    routeRef: rootRouteRef,
     loader: () =>
       import('./components/RenovateDefaultOverview').then(m =>
         compatWrapper(<m.RenovateDefaultOverview />),
@@ -52,8 +59,10 @@ const renovateApi = ApiBlueprint.make({
 
 export default createFrontendPlugin({
   pluginId: 'renovate',
-  extensions: [renovatePage, renovateApi, EntityRenovateContent],
-  routes: convertLegacyRouteRefs({
-    root: rootRouteRef,
-  }),
+  extensions: [
+    renovatePage,
+    renovateApi,
+    EntityRenovateContent,
+    renovateNavItem,
+  ],
 });
