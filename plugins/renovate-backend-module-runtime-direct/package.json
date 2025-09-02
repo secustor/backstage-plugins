@@ -51,7 +51,7 @@
     "@backstage/backend-test-utils": "^1.8.0",
     "@backstage/cli": "^0.34.1",
     "@types/find-up": "^4.0.0",
-    "@types/jest": "^29.5.12"
+    "@types/jest": "^30.0.0"
   },
   "files": [
     "dist"
