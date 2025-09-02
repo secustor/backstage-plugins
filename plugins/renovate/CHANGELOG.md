@@ -1,5 +1,17 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.18.0
+
+### Minor Changes
+
+- [#855](https://github.com/secustor/backstage-plugins/pull/855) [`a88a79a`](https://github.com/secustor/backstage-plugins/commit/a88a79a4a88b7f3dcf476e5b05b037108c756807) Thanks [@secustor](https://github.com/secustor)! - Add NavItem, which allows auto discovery the plugin
+
+### Patch Changes
+
+- [#857](https://github.com/secustor/backstage-plugins/pull/857) [`de632d6`](https://github.com/secustor/backstage-plugins/commit/de632d661519c83dcd0389d91e9a27b0f5a2a82c) Thanks [@secustor](https://github.com/secustor)! - Fix theme.alpha error when using material-ui 7.3.x
+
+- [#852](https://github.com/secustor/backstage-plugins/pull/852) [`5b200fd`](https://github.com/secustor/backstage-plugins/commit/5b200fdc148031dc25c16c6123d21d5955e27652) Thanks [@secustor](https://github.com/secustor)! - Bump Backstage to 1.42.5
+
 ## 0.17.4
 
 ### Patch Changes
