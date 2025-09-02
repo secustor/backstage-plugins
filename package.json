@@ -96,18 +96,6 @@
     }
   },
   "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "plugins/**/*.{ts,tsx,js,jsx}"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/lib/",
-      "/dist/",
-      "\\.d\\.ts$",
-      "/generated/"
-    ],
     "coverageReporters": [
       "json",
       "json-summary",
@@ -121,28 +109,6 @@
         "lines": 40,
         "statements": 40
       }
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest",
-      "^.+\\.(js|jsx|mjs|esm\\.js)$": "ts-jest"
-    },
-    "testMatch": [
-      "**/__tests__/**/*.(ts|tsx|js)",
-      "**/*.(test|spec).(ts|tsx|js)"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(@backstage/.*))"
-    ],
-    "testPathIgnorePatterns": [
-      "packages/app/e2e-tests/",
-      "packages/app/src/"
-    ]
+    }
   }
 }
