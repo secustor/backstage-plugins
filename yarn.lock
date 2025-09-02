@@ -7926,7 +7926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^7.0.0":
+"@mui/material@npm:^7.0.0, @mui/material@npm:~7.2.0":
   version: 7.2.0
   resolution: "@mui/material@npm:7.2.0"
   dependencies:
@@ -11557,7 +11557,7 @@ __metadata:
     "@emotion/styled": "npm:^11.13.0"
     "@mui/icons-material": "npm:^7.0.0"
     "@mui/lab": "npm:6.0.0-beta.31"
-    "@mui/material": "npm:^7.0.0"
+    "@mui/material": "npm:~7.2.0"
     "@mui/styles": "npm:^6.1.0"
     "@mui/x-data-grid": "npm:^8.0.0"
     "@secustor/backstage-plugin-renovate-client": "workspace:^"
