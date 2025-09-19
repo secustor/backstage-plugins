@@ -3149,8 +3149,8 @@ __metadata:
   linkType: hard
 
 "@backstage/core-components@npm:^0.18.0":
-  version: 0.18.0
-  resolution: "@backstage/core-components@npm:0.18.0"
+  version: 0.18.1
+  resolution: "@backstage/core-components@npm:0.18.1"
   dependencies:
     "@backstage/config": "npm:^1.3.3"
     "@backstage/core-plugin-api": "npm:^1.11.0"
@@ -3199,7 +3199,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/99ff6bfc13994631758dd3c1b765f49803293468c765e7ab1eeee6dffe52b114e24b2958dee4c45df8cd7061a92ed72ab624f1851f43a48d4bbc69a8e159b3ec
+  checksum: 10c0/ae688f88347cb8e8945deb4a5d0f7e3a6ecaa24ab741a629f4bcf681e1f96c8664d0b684bf0fc8549fd78d591716c7bae70a2696cb130a5e91ccb3c5b903f544
   languageName: node
   linkType: hard
 
