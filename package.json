@@ -7,9 +7,9 @@
   },
   "volta": {
     "node": "22.20.0",
-    "yarn": "4.10.2"
+    "yarn": "4.10.3"
   },
-  "packageManager": "yarn@4.10.2",
+  "packageManager": "yarn@4.10.3",
   "scripts": {
     "build-image": "yarn workspace backend build-image",
     "build:all": "backstage-cli repo build --all",
