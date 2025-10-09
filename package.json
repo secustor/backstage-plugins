@@ -43,7 +43,7 @@
     "@backstage/e2e-test-utils": "0.1.1",
     "@changesets/changelog-github": "0.5.1",
     "@changesets/cli": "2.29.7",
-    "@playwright/test": "1.55.1",
+    "@playwright/test": "1.56.0",
     "lint-staged": "16.2.3",
     "node-gyp": "11.4.2",
     "prettier": "3.6.2",
