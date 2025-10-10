@@ -1,5 +1,12 @@
 # backend
 
+## 0.5.16
+
+### Patch Changes
+
+- Updated dependencies [[`8504179`](https://github.com/secustor/backstage-plugins/commit/850417985c80c58ae14ffd39d0da58220f9b93e4), [`ab5399f`](https://github.com/secustor/backstage-plugins/commit/ab5399f6f6158266c553009c1280f0d5b0e27277)]:
+  - @secustor/backstage-plugin-renovate-backend@0.17.0
+
 ## 0.5.15
 
 ### Patch Changes
