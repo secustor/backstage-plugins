@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-scaffolder-backend-module-filter-utilities
 
+## 0.3.0
+
+### Minor Changes
+
+- [#891](https://github.com/secustor/backstage-plugins/pull/891) [`ce4812d`](https://github.com/secustor/backstage-plugins/commit/ce4812dfa3d7c180de0bc335c2d6fb5228e31a6c) Thanks [@renovate](https://github.com/apps/renovate)! - Bump Backstage to 1.44.0
+
 ## 0.2.5
 
 ### Patch Changes
