@@ -1,5 +1,17 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.17.0
+
+### Minor Changes
+
+- [#867](https://github.com/secustor/backstage-plugins/pull/867) [`8504179`](https://github.com/secustor/backstage-plugins/commit/850417985c80c58ae14ffd39d0da58220f9b93e4) Thanks [@renovate](https://github.com/apps/renovate)! - Bump Backstage to 1.43.1
+
+- [#891](https://github.com/secustor/backstage-plugins/pull/891) [`ce4812d`](https://github.com/secustor/backstage-plugins/commit/ce4812dfa3d7c180de0bc335c2d6fb5228e31a6c) Thanks [@renovate](https://github.com/apps/renovate)! - Bump Backstage to 1.44.0
+
+### Patch Changes
+
+- [#865](https://github.com/secustor/backstage-plugins/pull/865) [`ab5399f`](https://github.com/secustor/backstage-plugins/commit/ab5399f6f6158266c553009c1280f0d5b0e27277) Thanks [@secustor](https://github.com/secustor)! - Remove `commonjs` package type to fix new NodeJS versions
+
 ## 0.16.2
 
 ### Patch Changes
