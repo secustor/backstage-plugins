@@ -45,7 +45,7 @@
     "@changesets/cli": "2.29.7",
     "@playwright/test": "1.56.0",
     "lint-staged": "16.2.4",
-    "node-gyp": "11.4.2",
+    "node-gyp": "11.5.0",
     "prettier": "3.6.2",
     "typescript": "5.9.3"
   },
