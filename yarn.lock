@@ -10725,16 +10725,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redis/bloom@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@redis/bloom@npm:1.2.0"
+"@redis/bloom@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@redis/bloom@npm:5.8.3"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 10c0/7dde8e67188164e96226c8a5c78ebd2801f1662947371e78fb95fb180c1e9ddff8d237012eb5e9182775be61cb546f67f759927cdaee0d178d863ee290e1fb27
+    "@redis/client": ^5.8.3
+  checksum: 10c0/572c62adecc7736bb397a218a718e46d966f6a2b2a21569cc767fc18b30d2436af1173b26a0ba9c61420201dfedb49b1fa60cf60e4111892d0abd31935371186
   languageName: node
   linkType: hard
 
-"@redis/client@npm:1.6.1, @redis/client@npm:^1.6.0":
+"@redis/client@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@redis/client@npm:5.8.3"
+  dependencies:
+    cluster-key-slot: "npm:1.1.2"
+  checksum: 10c0/af34e1373fd853d6034ba69add08611c1fe19cf1e1e28f35d4eb1c570e4d11cae9a1b7869739f7593e5ba701f3f13edde64654691f075d74b04a131983347b35
+  languageName: node
+  linkType: hard
+
+"@redis/client@npm:^1.6.0":
   version: 1.6.1
   resolution: "@redis/client@npm:1.6.1"
   dependencies:
@@ -10745,39 +10754,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redis/graph@npm:1.1.1":
-  version: 1.1.1
-  resolution: "@redis/graph@npm:1.1.1"
+"@redis/json@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@redis/json@npm:5.8.3"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 10c0/64199db2cb3669c4911af8aba3b7116c4c2c1df37ca74b2a65555e62c863935a0cea74bc41bd92acf2e551074eb2a30c75f54a9f439b40e0f9bb67fc5fb66614
+    "@redis/client": ^5.8.3
+  checksum: 10c0/17f6a39132dfedac96b39ec0136a91a6d2525de4aaef06ee053192a3f483c44c9b8821d11c16594044aab863dfebfaa730ab1a56a26d882d690756814481b6c1
   languageName: node
   linkType: hard
 
-"@redis/json@npm:1.0.7":
-  version: 1.0.7
-  resolution: "@redis/json@npm:1.0.7"
+"@redis/search@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@redis/search@npm:5.8.3"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 10c0/cef473711d66f7568a16edbd728acca7d237cfeaa15e0326b5b628dfab4afc0c76c7354e7f8efad6ecc64a1cb774e4aa060ee46497b633e18ba0a2f0aace1cc4
+    "@redis/client": ^5.8.3
+  checksum: 10c0/cdc300efe4459d4ca8303341fd7719d0b5def43df745ebf2e88479ee09711818fdab5194d5d0d65586d777266f8f259d153be3600e1d60d0d7b5bc669d01b134
   languageName: node
   linkType: hard
 
-"@redis/search@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@redis/search@npm:1.2.0"
+"@redis/time-series@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@redis/time-series@npm:5.8.3"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 10c0/01d57ac10d2c5698e04e4a2f945440db3087e8834643ca950c099879dbcd77526604ca6f5c2ee883dfd4b337b0a24cb7d81ac56845aa83f89a4f161362a08dc6
-  languageName: node
-  linkType: hard
-
-"@redis/time-series@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@redis/time-series@npm:1.1.0"
-  peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 10c0/503d0d5cbc9113d26666bb7b4dea57619badbcdfeee0369abf647250f26c5482ed5827c83f88f9f0cf22e021e3e7cb562459669d733fac05652972e208d6ba0f
+    "@redis/client": ^5.8.3
+  checksum: 10c0/4cd8f29efb4c81971cbbdf2dfaa9daf8ca1089ee93d4847a3bc2ed87ba101ecbf2795a33ea4742fd0e7ee206f202992f94a95947b3525f4c4df368028cd44239
   languageName: node
   linkType: hard
 
@@ -10829,25 +10829,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/osv-offline-db@npm:1.7.8":
-  version: 1.7.8
-  resolution: "@renovatebot/osv-offline-db@npm:1.7.8"
+"@renovatebot/osv-offline-db@npm:1.7.9":
+  version: 1.7.9
+  resolution: "@renovatebot/osv-offline-db@npm:1.7.9"
   dependencies:
     "@seald-io/nedb": "npm:^4.1.2"
-  checksum: 10c0/3369063466d704c9a47338f312d824e01f6d6284e75eef405383193060db3aed7be3b6b2783724544b731cae87ccc55c1844b85aeecd945d855f2b8e022d6f2f
+  checksum: 10c0/12e01b58ae2e1301a5156ecc709a0d30639accd91f1af2e7e5bcb2a1d57d83540be84c5fc643d4ed625ce6a52901239594a1853755b5dc0a16c9d687d0e2ceda
   languageName: node
   linkType: hard
 
-"@renovatebot/osv-offline@npm:1.7.8":
-  version: 1.7.8
-  resolution: "@renovatebot/osv-offline@npm:1.7.8"
+"@renovatebot/osv-offline@npm:1.7.9":
+  version: 1.7.9
+  resolution: "@renovatebot/osv-offline@npm:1.7.9"
   dependencies:
-    "@renovatebot/osv-offline-db": "npm:1.7.8"
+    "@renovatebot/osv-offline-db": "npm:1.7.9"
     adm-zip: "npm:~0.5.16"
     fs-extra: "npm:^11.3.2"
     got: "npm:^11.8.6"
     luxon: "npm:^3.7.2"
-  checksum: 10c0/7301b6fe33881e5f5a00daa8b411daea194b398aaba75fa676936068207d37ebe02b60e1f93818ee46fc87029a6687cae0e6e823c8746368bb4f347d77a128da
+  checksum: 10c0/1fb54d554d1e9ea5c656316a22c62f6576138ee72bc5dc533d6ed7aeac08eca3fdb4250937dbf570a87917607bcc420e6c7ed22e68a588369521bf89d39c39a4
   languageName: node
   linkType: hard
 
@@ -11479,7 +11479,7 @@ __metadata:
     "@types/find-up": "npm:^4.0.0"
     "@types/jest": "npm:^29.5.12"
     find-up: "npm:^5.0.0"
-    renovate: "npm:41.149.2"
+    renovate: "npm:41.159.3"
   languageName: unknown
   linkType: soft
 
@@ -18604,14 +18604,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emoji-regex@npm:10.5.0":
-  version: 10.5.0
-  resolution: "emoji-regex@npm:10.5.0"
-  checksum: 10c0/17cf84335a461fc23bf90575122ace2902630dc760e53299474cd3b0b5e4cfbc6c0223a389a766817538e5d20bf0f36c67b753f27c9e705056af510b8777e312
-  languageName: node
-  linkType: hard
-
-"emoji-regex@npm:^10.3.0":
+"emoji-regex@npm:10.6.0, emoji-regex@npm:^10.3.0":
   version: 10.6.0
   resolution: "emoji-regex@npm:10.6.0"
   checksum: 10c0/1e4aa097bb007301c3b4b1913879ae27327fdc48e93eeefefe3b87e495eb33c5af155300be951b4349ff6ac084f4403dc9eff970acba7c1c572d89396a9a32d7
@@ -20544,14 +20537,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gcp-metadata@npm:^7.0.0":
-  version: 7.0.1
-  resolution: "gcp-metadata@npm:7.0.1"
+"gcp-metadata@npm:^8.0.0":
+  version: 8.1.1
+  resolution: "gcp-metadata@npm:8.1.1"
   dependencies:
     gaxios: "npm:^7.0.0"
     google-logging-utils: "npm:^1.0.0"
     json-bigint: "npm:^1.0.0"
-  checksum: 10c0/2f7eedef08992c13aa068001df4f64c9d62ec9cb031d1c47d6fb5e38e1444be88a951030710eb09a31a17a395b6c1b48f5ad4cbfdc89a0c354c8d7355d86b467
+  checksum: 10c0/6b05b0afa35d7fbdfdf22c96f03c1fe978f6c33deb59633990ac57e01cf946317ebbef967ef183c109a64886d08d4a9001ff731428245dc99b6b387b98598d89
   languageName: node
   linkType: hard
 
@@ -20992,18 +20985,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-auth-library@npm:10.4.0":
-  version: 10.4.0
-  resolution: "google-auth-library@npm:10.4.0"
+"google-auth-library@npm:10.4.1":
+  version: 10.4.1
+  resolution: "google-auth-library@npm:10.4.1"
   dependencies:
     base64-js: "npm:^1.3.0"
     ecdsa-sig-formatter: "npm:^1.0.11"
     gaxios: "npm:^7.0.0"
-    gcp-metadata: "npm:^7.0.0"
+    gcp-metadata: "npm:^8.0.0"
     google-logging-utils: "npm:^1.0.0"
     gtoken: "npm:^8.0.0"
     jws: "npm:^4.0.0"
-  checksum: 10c0/84e8deffbc3fa6a34ef82be87a00707c093ce056565bbe51612de198c0fbf1d1b57ee05e22cf448a2f8547dd4eeaf375b49bc8609a08dd4e07dd6047018f806e
+  checksum: 10c0/40513b987511710d16cd83dee80730f5395453691985285b30714657679c3194db5a3e0d7b5b249b7445d6fe1ee38c1d119fa8e05721729acacacf7c90304a96
   languageName: node
   linkType: hard
 
@@ -30173,17 +30166,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis@npm:4.7.1":
-  version: 4.7.1
-  resolution: "redis@npm:4.7.1"
+"redis@npm:5.8.3":
+  version: 5.8.3
+  resolution: "redis@npm:5.8.3"
   dependencies:
-    "@redis/bloom": "npm:1.2.0"
-    "@redis/client": "npm:1.6.1"
-    "@redis/graph": "npm:1.1.1"
-    "@redis/json": "npm:1.0.7"
-    "@redis/search": "npm:1.2.0"
-    "@redis/time-series": "npm:1.1.0"
-  checksum: 10c0/36fc11b7b305e73cafd0a32c5e7070aef72d3a33f2b34f609a1c295afb7d1a022d74eeda96e8d887ef596bbe8ce10811450d02b63175a338d2ff258ff34bd237
+    "@redis/bloom": "npm:5.8.3"
+    "@redis/client": "npm:5.8.3"
+    "@redis/json": "npm:5.8.3"
+    "@redis/search": "npm:5.8.3"
+    "@redis/time-series": "npm:5.8.3"
+  checksum: 10c0/6e66390eb268406a3738f63bc744a31546d0ca087db0fc8c4fd6d958335c59ef71c6f45ff11fec290eab01088c7609abbc1e448610816049ea11dcd931e056e1
   languageName: node
   linkType: hard
 
@@ -30362,9 +30354,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:41.149.2":
-  version: 41.149.2
-  resolution: "renovate@npm:41.149.2"
+"renovate@npm:41.159.3":
+  version: 41.159.3
+  resolution: "renovate@npm:41.159.3"
   dependencies:
     "@aws-sdk/client-codecommit": "npm:3.899.0"
     "@aws-sdk/client-ec2": "npm:3.899.0"
@@ -30394,7 +30386,7 @@ __metadata:
     "@qnighy/marshal": "npm:0.1.3"
     "@renovatebot/detect-tools": "npm:1.2.4"
     "@renovatebot/kbpgp": "npm:4.0.3"
-    "@renovatebot/osv-offline": "npm:1.7.8"
+    "@renovatebot/osv-offline": "npm:1.7.9"
     "@renovatebot/pep440": "npm:4.2.1"
     "@renovatebot/ruby-semver": "npm:4.1.2"
     "@sindresorhus/is": "npm:7.1.0"
@@ -30422,7 +30414,7 @@ __metadata:
     diff: "npm:8.0.2"
     editorconfig: "npm:3.0.1"
     email-addresses: "npm:5.0.0"
-    emoji-regex: "npm:10.5.0"
+    emoji-regex: "npm:10.6.0"
     emojibase: "npm:16.0.0"
     emojibase-regex: "npm:16.0.0"
     extract-zip: "npm:2.0.1"
@@ -30434,7 +30426,7 @@ __metadata:
     glob: "npm:11.0.3"
     global-agent: "npm:3.0.0"
     good-enough-parser: "npm:1.1.23"
-    google-auth-library: "npm:10.4.0"
+    google-auth-library: "npm:10.4.1"
     got: "npm:11.8.6"
     graph-data-structure: "npm:4.5.0"
     handlebars: "npm:4.7.8"
@@ -30465,7 +30457,7 @@ __metadata:
     protobufjs: "npm:7.5.4"
     punycode: "npm:2.3.1"
     re2: "npm:1.22.1"
-    redis: "npm:4.7.1"
+    redis: "npm:5.8.3"
     remark: "npm:15.0.1"
     remark-gfm: "npm:4.0.1"
     remark-github: "npm:12.0.0"
@@ -30497,7 +30489,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 10c0/436f7ede09197670a9fecff770b785e4bfe4bad59e1bf39d04a0f4b039350ef922a5d575123dba7313494beffe73eed0f9f138bf019e396087dbaf3dc6bea4c3
+  checksum: 10c0/ce75d5f88851945983523de3873e1f83bce56ff6d6185720aa46c00fb644d3a5bfb77e459683a918d03393caa8f608e3ad50c91642fa2018d448d133a086ef78
   languageName: node
   linkType: hard
 
