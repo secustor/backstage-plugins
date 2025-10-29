@@ -12,7 +12,7 @@
 # Alternatively, there is also a multi-stage Dockerfile documented here:
 # https://backstage.io/docs/deployment/docker#multi-stage-build
 
-FROM node:22.21.1-bookworm-slim@sha256:49ee6ce7fa474ea813a2b6dfbb6d469d45423fbbdcf535ec7fd161bf13c87dd7
+FROM node:24.11.0-bookworm-slim@sha256:0f2d677a7152ee7ac390837bd4fc36aca12f595411df5d4209f972660e34a7b6
 
 # Set Python interpreter for `node-gyp` to use
 ENV PYTHON=/usr/bin/python3
