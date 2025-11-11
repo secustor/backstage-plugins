@@ -1,6 +1,6 @@
 import { getPlatformEnvs } from './index';
 import { mockDeep } from 'jest-mock-extended';
-import { DefaultGithubCredentialsProvider } from '@backstage/integration';
+import { DefaultGithubCredentialsProvider, DefaultAzureDevOpsCredentialsProvider } from '@backstage/integration';
 import { mockServices } from '@backstage/backend-test-utils';
 
 const githubCredentialProvider = mockDeep<DefaultGithubCredentialsProvider>();
@@ -8,9 +8,15 @@ DefaultGithubCredentialsProvider.fromIntegrations = jest
   .fn()
   .mockReturnValue(githubCredentialProvider);
 
+const azureCredentialProvider = mockDeep<DefaultAzureDevOpsCredentialsProvider>();
+DefaultAzureDevOpsCredentialsProvider.fromIntegrations = jest
+  .fn()
+  .mockReturnValue(azureCredentialProvider);
+
 describe('wrapper/platforms', () => {
   beforeEach(() => {
     githubCredentialProvider.getCredentials.mockReset();
+    azureCredentialProvider.getCredentials.mockReset();
   });
 
   it('throw if platform could not be identified', async () => {
@@ -151,6 +157,53 @@ describe('wrapper/platforms', () => {
       RENOVATE_PLATFORM: 'gitlab',
       RENOVATE_REPOSITORIES: 'myOrg/myRepo',
       RENOVATE_TOKEN: 'bbbbbbbbbb',
+    });
+  });
+
+  it('return env for azure devops with token', async () => {
+    const rootConfig = mockServices.rootConfig({
+      data: {
+        integrations: {
+          github: [
+            {
+              host: 'github.com',
+              token: 'aaaaaa',
+            },
+          ],
+          azure: [
+            {
+              host: 'dev.azure.com',
+              token: 'cccccccc',
+            },
+          ],
+        },
+      },
+    });
+    githubCredentialProvider.getCredentials.mockResolvedValue({
+      token: 'aaaaaa',
+      type: 'token',
+    });
+    azureCredentialProvider.getCredentials.mockResolvedValue({
+      token: 'cccccccc',
+      type: 'token',
+    });
+    await expect(
+      getPlatformEnvs(
+        {
+          host: 'dev.azure.com',
+          repository: 'myOrg/myRepo',
+        },
+        {
+          rootConfig,
+          logger: mockServices.logger.mock(),
+        },
+      ),
+    ).resolves.toEqual({
+      RENOVATE_ENDPOINT: 'https://dev.azure.com',
+      GITHUB_COM_TOKEN: 'aaaaaa',
+      RENOVATE_PLATFORM: 'azure',
+      RENOVATE_REPOSITORIES: 'myOrg/myRepo',
+      RENOVATE_TOKEN: 'cccccccc',
     });
   });
 });
