@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "20 || 22"
+    "node": "20 || 22 || 24"
   },
   "volta": {
-    "node": "22.21.1",
+    "node": "24.11.1",
     "yarn": "4.11.0"
   },
   "packageManager": "yarn@4.11.0",
