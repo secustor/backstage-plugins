@@ -24,6 +24,11 @@ export interface Config {
          * endpoint to s3
          */
         endpoint?: string;
+
+        /**
+         * Force path style
+         */
+        forcePathStyle?: boolean;
       };
     };
   };

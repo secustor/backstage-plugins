@@ -28,6 +28,7 @@ describe('S3 config', () => {
         region: 'us-east-1',
         key: 'path/to/report.json',
         endpoint: undefined,
+        forcePathStyle: false,
       });
       expect(mockLogger.debug).toHaveBeenCalledWith(
         'S3 configuration loaded successfully',
@@ -35,6 +36,7 @@ describe('S3 config', () => {
           bucket: 'test-bucket',
           region: 'us-east-1',
           hasEndpoint: false,
+          forcePathStyle: false,
         },
       );
     });
@@ -55,6 +57,7 @@ describe('S3 config', () => {
         region: 'eu-west-1',
         key: 'reports/renovate.json',
         endpoint: 'https://minio.example.com',
+        forcePathStyle: false,
       });
       expect(mockLogger.debug).toHaveBeenCalledWith(
         'S3 configuration loaded successfully',
@@ -62,10 +65,43 @@ describe('S3 config', () => {
           bucket: 'custom-bucket',
           region: 'eu-west-1',
           hasEndpoint: true,
+          forcePathStyle: false,
         },
       );
     });
 
+    it('should set forcePathStyle if config is set', () => {
+      mockConfig.getString.mockImplementation((key: string) => {
+        if (key === 'bucket') return 'test-bucket';
+        if (key === 'region') return 'eu-west-1';
+        if (key === 'key') return 'reports/renovate.json';
+        throw new Error(`Unknown key: ${key}`);
+      });
+      mockConfig.getOptionalBoolean.mockImplementation((key: string) => {
+        if (key === 'forcePathStyle') return true;
+        throw new Error(`Unknown key: ${key}`);
+      });
+      mockConfig.getOptionalString.mockReturnValue('https://minio.example.com');
+
+      const result = getS3Config(mockConfig, mockLogger);
+
+      expect(result).toMatchObject({
+        bucket: 'test-bucket',
+        region: 'eu-west-1',
+        key: 'reports/renovate.json',
+        endpoint: 'https://minio.example.com',
+        forcePathStyle: true,
+      });
+      expect(mockLogger.debug).toHaveBeenCalledWith(
+        'S3 configuration loaded successfully',
+        {
+          bucket: 'test-bucket',
+          region: 'eu-west-1',
+          hasEndpoint: true,
+          forcePathStyle: true,
+        },
+      );
+    });
     it.each`
       missingField | mockSetup
       ${'bucket'} | ${() =>

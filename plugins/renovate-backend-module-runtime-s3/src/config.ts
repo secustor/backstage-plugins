@@ -6,6 +6,7 @@ export interface S3Config {
   region: string;
   key: string;
   endpoint?: string;
+  forcePathStyle: boolean;
 }
 
 export function getS3Config(config: Config, logger: LoggerService): S3Config {
@@ -15,12 +16,14 @@ export function getS3Config(config: Config, logger: LoggerService): S3Config {
       region: config.getString('region'),
       key: config.getString('key'),
       endpoint: config.getOptionalString('endpoint'),
+      forcePathStyle: config.getOptionalBoolean('forcePathStyle') ?? false,
     };
 
     logger.debug('S3 configuration loaded successfully', {
       bucket: settings.bucket,
       region: settings.region,
       hasEndpoint: !!settings.endpoint,
+      forcePathStyle: settings.forcePathStyle,
     });
 
     return settings;
