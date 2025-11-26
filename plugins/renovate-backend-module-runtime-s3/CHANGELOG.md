@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-s3
 
+## 0.2.0
+
+### Minor Changes
+
+- [#918](https://github.com/secustor/backstage-plugins/pull/918) [`99ebbbf`](https://github.com/secustor/backstage-plugins/commit/99ebbbfecd5a00d83a9f9a5fb5f0707c6f87fcf3) Thanks [@nupis-DanielS](https://github.com/nupis-DanielS)! - Add config option to force path style for s3 backend module
+
 ## 0.1.2
 
 ### Patch Changes
