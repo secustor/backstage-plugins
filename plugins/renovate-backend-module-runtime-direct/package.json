@@ -45,7 +45,7 @@
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@secustor/backstage-plugin-renovate-node": "workspace:^",
     "find-up": "^5.0.0",
-    "renovate": "41.149.2"
+    "renovate": "41.173.1"
   },
   "devDependencies": {
     "@backstage/backend-test-utils": "^1.8.0",
