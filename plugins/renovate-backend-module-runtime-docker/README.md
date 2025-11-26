@@ -32,5 +32,5 @@ renovate:
 
       # all values are option and can be used to overwrite the default values
       image: registry.example.com/renovate/renovate # default: 'ghcr.io/renovatebot/renovate'
-      tag: latest # default: 41.149.2
+      tag: latest # default: 41.173.1
 ```
