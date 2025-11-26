@@ -15572,7 +15572,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-sqlite3@npm:12.4.1, better-sqlite3@npm:^12.0.0":
+"better-sqlite3@npm:12.4.1":
   version: 12.4.1
   resolution: "better-sqlite3@npm:12.4.1"
   dependencies:
@@ -15580,6 +15580,17 @@ __metadata:
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
   checksum: 10c0/88773a75d996b4171e5690a38459b05dc814a792701b224bd9909ee084dc0b4c64aaffbdbcf4bbbc6d4e247faf19e91b2a56cf4175d746d3bd9ff14764eb05aa
+  languageName: node
+  linkType: hard
+
+"better-sqlite3@npm:^12.0.0":
+  version: 12.4.6
+  resolution: "better-sqlite3@npm:12.4.6"
+  dependencies:
+    bindings: "npm:^1.5.0"
+    node-gyp: "npm:latest"
+    prebuild-install: "npm:^7.1.1"
+  checksum: 10c0/35d7acdeffcd9382e281d9718959b352f06321475b644c72631402945cb5b44da3d1a7e93a719e95216bcf20b0d25ed8be227e2f13afae22bb8cc86eb853027f
   languageName: node
   linkType: hard
 
