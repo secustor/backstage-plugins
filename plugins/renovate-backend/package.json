@@ -73,7 +73,7 @@
   "devDependencies": {
     "@backstage/backend-test-utils": "^1.8.0",
     "@backstage/cli": "^0.34.1",
-    "@backstage/repo-tools": "^0.15.1",
+    "@backstage/repo-tools": "^0.16.0",
     "@backstage/test-utils": "^1.7.11",
     "@types/supertest": "^6.0.0",
     "jest-mock-extended": "^4.0.0",
