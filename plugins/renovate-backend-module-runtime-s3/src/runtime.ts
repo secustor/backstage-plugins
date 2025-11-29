@@ -18,6 +18,7 @@ class ReportReader {
   ) {
     const clientConfig = {
       region: config.region,
+      forcePathStyle: config.forcePathStyle,
       ...(config.endpoint && { endpoint: config.endpoint }),
     };
 
@@ -25,6 +26,7 @@ class ReportReader {
     this.logger.debug('Initialized S3 client', {
       bucket: config.bucket,
       region: config.region,
+      forcePathStyle: config.forcePathStyle,
       usingEndpoint: !!config.endpoint,
     });
   }
