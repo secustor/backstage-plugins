@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-s3
 
+## 0.2.1
+
+### Patch Changes
+
+- [#932](https://github.com/secustor/backstage-plugins/pull/932) [`f892ea7`](https://github.com/secustor/backstage-plugins/commit/f892ea70d1a29b8fed11129a696effa9504fe1fa) Thanks [@nupis-DanielS](https://github.com/nupis-DanielS)! - Fix hand over forcePathStyle from config to s3 client config
+
 ## 0.2.0
 
 ### Minor Changes
