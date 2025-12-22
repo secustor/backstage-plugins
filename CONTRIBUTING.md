@@ -9,12 +9,11 @@ Before you begin your dev work, ensure you have met the following requirements:
 - Node.js 22.13.0 or higher is installed on your machine
 - Yarn 4.0.0 or higher is installed on your machine
 
-### Recommended: Install Node.js and Yarn via Volta
+### Recommended: Install Node.js and Yarn via Mise
 
-The recommended way to manage Node.js and Yarn versions is to use [Volta](https://volta.sh). Volta is a tool that allows you to define and install Node.js and Yarn versions on a per-project basis.
-Volta will pick the correct versions for package managers and node version.
+The recommended way to manage the Node.js version is to use [Mise](https://mise.jdx.dev). Mise is a polyglot tool version manager that allows you to define tool versions on a per-project basis.
 
-This ensures that the correct versions are used when working on a project based on the [`package.json`](https://github.com/secustor/backstage-plugins/blob/main/package.json#L8-L11).
+Node.js version is defined in [`mise.toml`](https://github.com/secustor/backstage-plugins/blob/main/mise.toml). Yarn is managed via Corepack using the `packageManager` field in `package.json`.
 
 ### Alternative: Use Corepack
 
