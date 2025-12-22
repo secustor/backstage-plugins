@@ -1,8 +1,10 @@
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
+import {
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Button,
+} from '@backstage/ui';
 
 import { JsonViewer } from '@textea/json-viewer';
 
@@ -14,18 +16,20 @@ export interface InspectReportDialogProps {
 
 export function InspectReportDialog(props: InspectReportDialogProps) {
   return (
-    <Dialog open={props.open} onClose={props.onClose} fullWidth maxWidth="xl">
-      <DialogTitle id="report-inspector-dialog-title">
-        Report Inspector
-      </DialogTitle>
-      <DialogContent>
+    <Dialog
+      isOpen={props.open}
+      onOpenChange={isOpen => !isOpen && props.onClose()}
+      width="90vw"
+    >
+      <DialogHeader>Report Inspector</DialogHeader>
+      <DialogBody>
         <JsonViewer theme="auto" value={props.report} />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={props.onClose} color="primary">
+      </DialogBody>
+      <DialogFooter>
+        <Button slot="close" variant="primary">
           Close
         </Button>
-      </DialogActions>
+      </DialogFooter>
     </Dialog>
   );
 }

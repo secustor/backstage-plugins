@@ -4302,6 +4302,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/ui@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "@backstage/ui@npm:0.10.0"
+  dependencies:
+    "@remixicon/react": "npm:^4.6.0"
+    "@tanstack/react-table": "npm:^8.21.3"
+    clsx: "npm:^2.1.1"
+    react-aria-components: "npm:^1.13.0"
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+    react-router-dom: ^6.3.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/a3137a0005949019539b01c9c1b9ae06f2ccac76d384616cde73d8837010c9be093367f548f2b0c0e1484bdfcdb3b292afdc354d756ec8a439d1feb0b1430383
+  languageName: node
+  linkType: hard
+
 "@backstage/ui@npm:^0.8.1":
   version: 0.8.2
   resolution: "@backstage/ui@npm:0.8.2"
@@ -11337,6 +11357,7 @@ __metadata:
     "@backstage/plugin-catalog-react": "npm:^1.20.1"
     "@backstage/test-utils": "npm:^1.7.11"
     "@backstage/theme": "npm:^0.7.0"
+    "@backstage/ui": "npm:^0.10.0"
     "@emotion/react": "npm:^11.13.3"
     "@emotion/styled": "npm:^11.13.0"
     "@mui/icons-material": "npm:^7.0.0"

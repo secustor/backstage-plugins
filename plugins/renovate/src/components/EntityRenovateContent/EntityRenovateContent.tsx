@@ -3,8 +3,8 @@ import { getEntitySourceLocation } from '@backstage/catalog-model';
 import { useApi } from '@backstage/core-plugin-api';
 import useAsync from 'react-use/lib/useAsync';
 import { getTargetURL } from '@secustor/backstage-plugin-renovate-common';
+import { Link } from '@backstage/ui';
 import {
-  Link,
   Progress,
   ResponseErrorPanel,
   Table,
@@ -120,7 +120,7 @@ function useData({
           manager,
           packageFile: baseURL ? (
             <Link
-              to={scmIntegrationsApi.resolveUrl({ base: baseURL, url: file })}
+              href={scmIntegrationsApi.resolveUrl({ base: baseURL, url: file })}
             >
               {file}
             </Link>
