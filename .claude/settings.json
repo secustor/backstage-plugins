@@ -18,14 +18,26 @@
       "Bash(yarn test:all:*)",
       "Bash(yarn test:jest:*)",
       "Bash(yarn tsc:*)",
-      "Bash(yarn workspace:*)"
+      "Bash(yarn tsc:full:*)",
+      "Bash(yarn workspace:*)",
+      "WebFetch(domain:mise.jdx.dev)",
+      "WebFetch(domain:ui.backstage.io)"
     ],
     "deny": []
   },
   "hooks": {
     "Stop": [
       {
-        "hooks": []
+        "hooks": [
+          {
+            "type": "command",
+            "command": "yarn run check"
+          },
+          {
+            "type": "command",
+            "command": "yarn run dedupe --check"
+          }
+        ]
       }
     ]
   }
