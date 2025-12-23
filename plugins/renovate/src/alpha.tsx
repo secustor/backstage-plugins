@@ -26,9 +26,9 @@ export const renovatePage = PageBlueprint.make({
     path: '/renovate',
     routeRef: rootRouteRef,
     loader: () =>
-      import('./components/RenovateDefaultOverview').then(m =>
-        <m.RenovateDefaultOverview />,
-      ),
+      import('./components/RenovateDefaultOverview').then(m => (
+        <m.RenovateDefaultOverview />
+      )),
   },
 });
 
@@ -37,9 +37,9 @@ export const EntityRenovateContent = EntityContentBlueprint.make({
     path: '/renovate',
     title: 'Renovate',
     loader: () =>
-      import('./components/EntityRenovateContent').then(m =>
-        <m.EntityRenovateContent />,
-      ),
+      import('./components/EntityRenovateContent').then(m => (
+        <m.EntityRenovateContent />
+      )),
   },
 });
 
