@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
+import { Button, Flex } from '@backstage/ui';
 import CircularProgress from '@mui/material/CircularProgress';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import is from '@sindresorhus/is';
@@ -65,17 +64,17 @@ export function StartRenovateButton(props: StartRenovateButtonProps) {
   };
 
   return (
-    <CardActions>
+    <Flex direction="row" gap="2" style={{ padding: '8px' }}>
       {loading && <CircularProgress />}
       <Button
         id="run-renovate"
-        variant="contained"
-        endIcon={<PlayArrowIcon />}
-        onClick={triggerRenovateRun}
-        disabled={loading}
+        variant="primary"
+        iconEnd={<PlayArrowIcon />}
+        onPress={triggerRenovateRun}
+        isDisabled={loading}
       >
         {title ?? 'Run Renovate'}
       </Button>
-    </CardActions>
+    </Flex>
   );
 }
