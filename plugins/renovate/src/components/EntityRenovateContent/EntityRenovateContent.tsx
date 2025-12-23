@@ -13,7 +13,7 @@ import {
 import is from '@sindresorhus/is';
 import { scmIntegrationsApiRef } from '@backstage/integration-react';
 import { isError } from '@backstage/errors';
-import { getBiggestUpdate } from '../../tools';
+import { getBiggestUpdate, getDirectoryFromPath } from '../../tools';
 import { DependencyTableProps, DependencyTableRow } from './types';
 import { RenovateEmptyState } from '../RenovateReportEmptyState/RenovateEmptyState';
 import { renovateApiRef } from '../../api';
@@ -73,10 +73,13 @@ export const EntityRenovateContent = () => {
       base: target,
     });
 
+    // Extract directory from filepath for filtering
+    const pathFilter = getDirectoryFromPath(parsed.filepath);
+
     return (
       <DependencyTable
         packageFiles={value.report.packageFiles}
-        filter={{ path: parsed.filepath }}
+        filter={{ path: pathFilter }}
         baseURL={baseURL}
       />
     );
