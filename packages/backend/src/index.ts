@@ -66,9 +66,7 @@ backend.add(
 );
 
 backend.add(
-  import(
-    '@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities'
-  ),
+  import('@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities'),
 );
 
 backend.start();

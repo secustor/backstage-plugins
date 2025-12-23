@@ -16,9 +16,7 @@ Add the plugin to your Backstage instance:
 ```ts
 // Add the following to `packages/backend/src/index.ts`
 backend.add(
-  import(
-    '@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities'
-  ),
+  import('@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities'),
 );
 ```
 
