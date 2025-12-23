@@ -21,14 +21,21 @@ export const renovateNavItem = NavItemBlueprint.make({
   },
 });
 
-export const renovatePage = PageBlueprint.make({
-  params: {
-    path: '/renovate',
-    routeRef: rootRouteRef,
-    loader: () =>
-      import('./components/RenovateDefaultOverview').then(m => (
-        <m.RenovateDefaultOverview />
-      )),
+export const renovatePage = PageBlueprint.makeWithOverrides({
+  config: {
+    schema: {
+      showStarter: z => z.boolean().default(false),
+    },
+  },
+  factory(originalFactory, { config }) {
+    return originalFactory({
+      path: '/renovate',
+      routeRef: rootRouteRef,
+      loader: async () =>
+        import('./components/RenovateDefaultOverview').then(m => (
+          <m.RenovateDefaultOverview showStarter={config.showStarter} />
+        )),
+    });
   },
 });
 
