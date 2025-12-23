@@ -17,9 +17,6 @@ renovate:
     environment:
       # forward simply the NODE_EXTRA_CA_CERTS variable
       - name: NODE_EXTRA_CA_CERTS
-      # set the variable to a specific value
-      - name: HTTPS_PROXY
-        value: http://proxy.my.com:8080
 
     type: direct
     docker:
@@ -42,6 +39,10 @@ app:
   packages: all
 
   extensions:
+    - page:renovate:
+        config:
+          showStarter: true
+
     # Disable the nav items that we're manually rendering in packages/app/src/modules/nav/Sidebar.tsx
     - nav-item:search: false
     - nav-item:user-settings: false
