@@ -20,6 +20,34 @@ Install the plugin:
 yarn --cwd packages/app add @secustor/backstage-plugin-renovate
 ```
 
+### New Frontend System
+
+Add the plugin to your Backstage instance:
+
+```tsx
+// Add the following to `packages/app/src/App.tsx`
+import renovatePlugin from '@secustor/backstage-plugin-renovate/alpha';
+
+export default createApp({
+  features: [
+    // Your other features
+    renovatePlugin,
+  ],
+});
+```
+
+Configure the plugin in your `app-config.yaml`:
+
+```yaml
+app:
+  extensions:
+    - page:renovate:
+        config:
+          showStarter: true # Optional: Show the starter configuration helper
+```
+
+### Old Frontend System
+
 Add the plugin to your Backstage instance:
 
 ```tsx

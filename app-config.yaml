@@ -42,6 +42,10 @@ app:
   packages: all
 
   extensions:
+    - page:renovate:
+        config:
+          showStarter: true
+
     # Disable the nav items that we're manually rendering in packages/app/src/modules/nav/Sidebar.tsx
     - nav-item:search: false
     - nav-item:user-settings: false
