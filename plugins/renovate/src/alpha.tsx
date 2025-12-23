@@ -8,7 +8,6 @@ import {
 import { renovateApiRef } from './api';
 import { RenovateClient } from '@secustor/backstage-plugin-renovate-client';
 import { PageBlueprint } from '@backstage/frontend-plugin-api';
-import { compatWrapper } from '@backstage/core-compat-api';
 import FormatPaintIcon from '@mui/icons-material/FormatPaint';
 import { EntityContentBlueprint } from '@backstage/plugin-catalog-react/alpha';
 
@@ -27,9 +26,9 @@ export const renovatePage = PageBlueprint.make({
     path: '/renovate',
     routeRef: rootRouteRef,
     loader: () =>
-      import('./components/RenovateDefaultOverview').then(m =>
-        compatWrapper(<m.RenovateDefaultOverview />),
-      ),
+      import('./components/RenovateDefaultOverview').then(m => (
+        <m.RenovateDefaultOverview />
+      )),
   },
 });
 
@@ -38,9 +37,9 @@ export const EntityRenovateContent = EntityContentBlueprint.make({
     path: '/renovate',
     title: 'Renovate',
     loader: () =>
-      import('./components/EntityRenovateContent').then(m =>
-        compatWrapper(<m.EntityRenovateContent />),
-      ),
+      import('./components/EntityRenovateContent').then(m => (
+        <m.EntityRenovateContent />
+      )),
   },
 });
 
