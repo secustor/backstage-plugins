@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import Grid from '@mui/material/Grid';
+import { Flex } from '@backstage/ui';
 import {
   Header,
   Page,
@@ -29,13 +29,11 @@ export function RenovateDefaultOverview(
         <ContentHeader title="Dependencies">
           <SupportButton>Renovate support</SupportButton>
         </ContentHeader>
-        <Grid container spacing={3} direction="column">
+        <Flex direction="column" gap="3">
           <DependencyTable />
           {props?.showStarter && <RenovateStarter />}
-          <Grid>
-            <ReportFetchComponent />
-          </Grid>
-        </Grid>
+          <ReportFetchComponent />
+        </Flex>
       </Content>
     </Page>
   );

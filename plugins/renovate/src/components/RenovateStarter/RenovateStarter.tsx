@@ -1,5 +1,5 @@
 import { InfoCard } from '@backstage/core-components';
-import TextField from '@mui/material/TextField';
+import { TextField } from '@backstage/ui';
 import { useState } from 'react';
 import { StartRenovateButton } from '../StartRenovateButton/StartRenovateButton';
 
@@ -10,13 +10,12 @@ export const RenovateStarter = () => {
   return (
     <InfoCard title="Run Renovate">
       <TextField
-        fullWidth
-        error={inputError}
-        helperText={inputError ? 'Add a source url to run Renovate' : ''}
+        style={{ width: '100%', marginTop: '16px', marginBottom: '16px' }}
+        description={inputError ? 'Add a source url to run Renovate' : ''}
         id="repo-url"
         label="RepoURL"
-        onChange={e => setRepoURL(e.target.value)}
-        margin="normal"
+        onChange={value => setRepoURL(value)}
+        name="repo-url"
       />
       <StartRenovateButton
         target={repoURL}
