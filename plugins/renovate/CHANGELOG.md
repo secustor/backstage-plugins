@@ -1,5 +1,25 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.20.0
+
+### Minor Changes
+
+- [#947](https://github.com/secustor/backstage-plugins/pull/947) [`ae3b4f1`](https://github.com/secustor/backstage-plugins/commit/ae3b4f10a74b6a22d53a8e5d0add2966c8132497) Thanks [@secustor](https://github.com/secustor)! - Move some components to @backstage/ui
+
+- [#956](https://github.com/secustor/backstage-plugins/pull/956) [`5c2903d`](https://github.com/secustor/backstage-plugins/commit/5c2903d61b74d72bcf884e0e5129f4aafc813a05) Thanks [@secustor](https://github.com/secustor)! - Allow enabling RenovateStarter component on DefaultPage when using the new frontend system
+
+### Patch Changes
+
+- [#947](https://github.com/secustor/backstage-plugins/pull/947) [`ae3b4f1`](https://github.com/secustor/backstage-plugins/commit/ae3b4f10a74b6a22d53a8e5d0add2966c8132497) Thanks [@secustor](https://github.com/secustor)! - Fix path filter for root EntityRenovateContent if it is on the root
+
+- [#946](https://github.com/secustor/backstage-plugins/pull/946) [`bcbdf92`](https://github.com/secustor/backstage-plugins/commit/bcbdf92f8eefe66ed30cce94765247005ff529be) Thanks [@renovate](https://github.com/apps/renovate)! - Bump Backstage version to 1.46.1
+
+- [#953](https://github.com/secustor/backstage-plugins/pull/953) [`521378c`](https://github.com/secustor/backstage-plugins/commit/521378c4ef45643bf7e4053c7804756ccae532a5) Thanks [@secustor](https://github.com/secustor)! - Remove no longer needed compatWrapper calls
+
+- Updated dependencies [[`bcbdf92`](https://github.com/secustor/backstage-plugins/commit/bcbdf92f8eefe66ed30cce94765247005ff529be)]:
+  - @secustor/backstage-plugin-renovate-client@0.10.9
+  - @secustor/backstage-plugin-renovate-common@0.9.5
+
 ## 0.19.1
 
 ### Patch Changes

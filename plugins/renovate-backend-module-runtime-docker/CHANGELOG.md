@@ -1,5 +1,19 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-docker
 
+## 3.1.0
+
+### Minor Changes
+
+- [#954](https://github.com/secustor/backstage-plugins/pull/954) [`ba0598e`](https://github.com/secustor/backstage-plugins/commit/ba0598e55f010e5cd72890e237dfc3d726cc724f) Thanks [@renovate](https://github.com/apps/renovate)! - Bump Renovate version to 42.66.1
+
+### Patch Changes
+
+- [#946](https://github.com/secustor/backstage-plugins/pull/946) [`bcbdf92`](https://github.com/secustor/backstage-plugins/commit/bcbdf92f8eefe66ed30cce94765247005ff529be) Thanks [@renovate](https://github.com/apps/renovate)! - Bump Backstage version to 1.46.1
+
+- Updated dependencies [[`bcbdf92`](https://github.com/secustor/backstage-plugins/commit/bcbdf92f8eefe66ed30cce94765247005ff529be)]:
+  - @secustor/backstage-plugin-renovate-common@0.9.5
+  - @secustor/backstage-plugin-renovate-node@0.5.9
+
 ## 3.0.0
 
 ### Major Changes
