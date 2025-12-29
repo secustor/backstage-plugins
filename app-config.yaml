@@ -85,8 +85,15 @@ backend:
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
-    client: better-sqlite3
-    connection: ':memory:'
+    #    client: better-sqlite3
+    #    connection: ':memory:'
+    # Use postgres instead of sqlite3 for testing
+    client: pg
+    connection:
+      host: localhost
+      port: 5432
+      user: backstage
+      password: password
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
