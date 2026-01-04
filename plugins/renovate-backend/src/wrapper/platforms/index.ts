@@ -1,6 +1,7 @@
 import {
   DefaultGitlabCredentialsProvider,
   ScmIntegrations,
+  DefaultAzureDevOpsCredentialsProvider,
 } from '@backstage/integration';
 import is from '@sindresorhus/is';
 import { PlatformEnvsOptions } from './types';
@@ -49,6 +50,17 @@ export async function getPlatformEnvs(
         env.RENOVATE_ENDPOINT =
           gitLabIntegrationConfig.apiBaseUrl ?? `https://${target.host}/api/v4`;
         env.RENOVATE_TOKEN = requireConfigVariable(cred.token, errMsg);
+        env.RENOVATE_REPOSITORIES = target.repository;
+      }
+      break;
+    case 'azure':
+      {
+        const cred = await DefaultAzureDevOpsCredentialsProvider.fromIntegrations(
+          integrations,
+        ).getCredentials({ url });
+        env.RENOVATE_PLATFORM = 'azure';
+        env.RENOVATE_ENDPOINT = `https://${target.host}`;
+        env.RENOVATE_TOKEN = requireConfigVariable(cred?.token, errMsg);
         env.RENOVATE_REPOSITORIES = target.repository;
       }
       break;
