@@ -116,6 +116,7 @@ export class RenovateRunner implements Runnable<RunOptions> {
     }
 
     const env: Record<string, string> = {
+      ...process.env,
       // setup logging
       LOG_FORMAT: 'json',
       LOG_LEVEL: 'debug',
