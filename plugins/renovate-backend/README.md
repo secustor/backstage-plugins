@@ -45,6 +45,9 @@ integrations:
   github:
     - host: github.com
       token: ${GITHUB_TOKEN}
+  azure:
+    - host: dev.azure.com
+      token: ${AZURE_PAT_TOKEN}
 
 backend:
   cache:
@@ -97,6 +100,7 @@ renovate:
   queue:
     type: local-fastq
 
+  # Can pass any Renovate config through here.
   config:
     # only do a lookup and create reports with updates and do not open PRs
     dryRun: lookup
