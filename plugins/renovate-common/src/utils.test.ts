@@ -108,10 +108,10 @@ describe('utils', () => {
     });
 
     it('should extract ADO repo format', () => {
-      const result = getTargetRepo('org.azure.dev/project/_git/repo');
+      const result = getTargetRepo('dev.azure.com/project/_git/repo');
 
       expect(result).toMatchObject({
-        host: 'org.azure.dev',
+        host: 'dev.azure.com',
         repository: 'project/repo',
       });
     });
