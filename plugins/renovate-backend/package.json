@@ -48,7 +48,7 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/backend-defaults": "^0.14.0",
+    "@backstage/backend-defaults": "^0.15.0",
     "@backstage/backend-openapi-utils": "^0.6.4",
     "@backstage/backend-plugin-api": "^1.6.0",
     "@backstage/catalog-client": "^1.12.1",
