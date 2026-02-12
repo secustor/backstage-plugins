@@ -107,6 +107,15 @@ describe('utils', () => {
       });
     });
 
+    it('should extract ADO repo format', () => {
+      const result = getTargetRepo('dev.azure.com/project/_git/repo');
+
+      expect(result).toMatchObject({
+        host: 'dev.azure.com',
+        repository: 'project/repo',
+      });
+    });
+
     it('should extract repo from Entity with source location annotation', () => {
       const entity: Entity = {
         apiVersion: 'backstage.io/v1alpha1',

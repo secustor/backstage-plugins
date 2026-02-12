@@ -20,9 +20,21 @@ export function getTargetRepo(
     return target;
   }
   const url = getTargetURL(target);
+  
+  let repository = url.full_name;
+
+  if (repository.includes('/_git/')) {
+    const parts = repository.split('/_git/');
+    const leftSide = parts[0].split('/');
+    const repoName = parts[1];
+    const projectName = leftSide[leftSide.length - 1];
+    
+    repository = `${projectName}/${repoName}`;
+  }
+
   return {
     host: url.resource,
-    repository: url.full_name,
+    repository: repository,
   };
 }
 
