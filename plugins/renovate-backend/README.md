@@ -7,6 +7,7 @@ Supported platforms:
 
 - Github
 - Gitlab
+- BitBucker Server
 
 ## Getting started
 
