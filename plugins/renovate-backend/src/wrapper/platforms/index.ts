@@ -38,6 +38,11 @@ export async function getPlatformEnvs(
       env.RENOVATE_ENDPOINT = (
         bitbucketServerIntegrationConfig?.config.apiBaseUrl || ''
       ).replace(/([^\/\:]\/).*$/, '$1');
+
+      if (env.RENOVATE_TOKEN === '')
+        throw new Error(
+          `renovate on ${integration.type} requires token in configuration`,
+        );
       break;
     }
 
@@ -67,22 +72,27 @@ export async function getPlatformEnvs(
     default:
       throw new Error(`Unsupported platform type ${integration.type}`);
   }
-
-  const githubComURL = 'https://github.com';
-  const githubComIntegration = integrations.github.byUrl(githubComURL);
-  if (is.nullOrUndefined(githubComIntegration)) {
-    logger.warn(`No Github.com integration has been found`);
-  } else {
-    const githubComToken = await getGithubToken(integrations, githubComURL);
-    if (githubComToken) {
-      env.GITHUB_COM_TOKEN = githubComToken;
-    } else {
-      logger.warn(
-        `Could not get token for Github.com token in the defined integrations`,
-      );
+  switch (integration.type) {
+    case 'github':
+    case 'gitlab': {
+      const githubComURL = 'https://github.com';
+      const githubComIntegration = integrations.github.byUrl(githubComURL);
+      if (is.nullOrUndefined(githubComIntegration)) {
+        logger.warn(`No Github.com integration has been found`);
+      } else {
+        const githubComToken = await getGithubToken(integrations, githubComURL);
+        if (githubComToken) {
+          env.GITHUB_COM_TOKEN = githubComToken;
+        } else {
+          logger.warn(
+            `Could not get token for Github.com token in the defined integrations`,
+          );
+        }
+      }
+      break;
     }
+    default:
   }
-
   return env;
 }
 
