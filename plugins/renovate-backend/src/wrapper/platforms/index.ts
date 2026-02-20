@@ -32,17 +32,20 @@ export async function getPlatformEnvs(
     case 'bitbucket': {
       const bitbucketServerIntegrationConfig =
         integrations.bitbucketServer.byHost(target.host);
-      env.RENOVATE_PLATFORM = 'bitbucket-server';
-      env.RENOVATE_TOKEN = bitbucketServerIntegrationConfig?.config.token || '';
-      env.RENOVATE_REPOSITORIES = target.repository;
-      env.RENOVATE_ENDPOINT = (
-        bitbucketServerIntegrationConfig?.config.apiBaseUrl || ''
-      ).replace(/([^\/\:]\/).*$/, '$1');
 
-      if (env.RENOVATE_TOKEN === '')
+      if ((bitbucketServerIntegrationConfig?.config?.apiBaseUrl || '') === '')
         throw new Error(
           `renovate on ${integration.type} requires token in configuration`,
         );
+
+      env.RENOVATE_PLATFORM = 'bitbucket-server';
+      env.RENOVATE_REPOSITORIES = target.repository;
+      env.RENOVATE_ENDPOINT = (
+        bitbucketServerIntegrationConfig?.config?.apiBaseUrl || ''
+      ).replace(/([^\/\:]\/).*$/, '$1');
+      env.RENOVATE_TOKEN =
+        bitbucketServerIntegrationConfig?.config?.token || '';
+
       break;
     }
 
@@ -72,26 +75,19 @@ export async function getPlatformEnvs(
     default:
       throw new Error(`Unsupported platform type ${integration.type}`);
   }
-  switch (integration.type) {
-    case 'github':
-    case 'gitlab': {
-      const githubComURL = 'https://github.com';
-      const githubComIntegration = integrations.github.byUrl(githubComURL);
-      if (is.nullOrUndefined(githubComIntegration)) {
-        logger.warn(`No Github.com integration has been found`);
-      } else {
-        const githubComToken = await getGithubToken(integrations, githubComURL);
-        if (githubComToken) {
-          env.GITHUB_COM_TOKEN = githubComToken;
-        } else {
-          logger.warn(
-            `Could not get token for Github.com token in the defined integrations`,
-          );
-        }
-      }
-      break;
+  const githubComURL = 'https://github.com';
+  const githubComIntegration = integrations.github.byUrl(githubComURL);
+  if (is.nullOrUndefined(githubComIntegration)) {
+    logger.warn(`No Github.com integration has been found`);
+  } else {
+    const githubComToken = await getGithubToken(integrations, githubComURL);
+    if (githubComToken) {
+      env.GITHUB_COM_TOKEN = githubComToken;
+    } else {
+      logger.warn(
+        `Could not get token for Github.com token in the defined integrations`,
+      );
     }
-    default:
   }
   return env;
 }
