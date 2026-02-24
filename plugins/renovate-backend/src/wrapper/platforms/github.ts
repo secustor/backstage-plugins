@@ -7,8 +7,12 @@ export async function getGithubToken(
   integrations: ScmIntegrations,
   url: string,
 ): Promise<string | undefined> {
-  const cred = await DefaultGithubCredentialsProvider.fromIntegrations(
-    integrations,
-  ).getCredentials({ url });
-  return cred.token;
+  try {
+    const cred = await DefaultGithubCredentialsProvider.fromIntegrations(
+      integrations,
+    ).getCredentials({ url });
+    return cred.token;
+  } catch (e) {
+    return undefined;
+  }
 }
