@@ -10,5 +10,5 @@ export async function getGithubToken(
   const cred = await DefaultGithubCredentialsProvider.fromIntegrations(
     integrations,
   ).getCredentials({ url });
-  return cred?.token || '';
+  return cred.token;
 }

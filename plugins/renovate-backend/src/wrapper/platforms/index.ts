@@ -33,19 +33,17 @@ export async function getPlatformEnvs(
       const bitbucketServerIntegrationConfig =
         integrations.bitbucketServer.byHost(target.host);
 
-      if ((bitbucketServerIntegrationConfig?.config?.apiBaseUrl || '') === '')
+      const config = bitbucketServerIntegrationConfig?.config;
+      if (!config || !config.token) {
         throw new Error(
           `renovate on ${integration.type} requires token in configuration`,
         );
+      }
 
       env.RENOVATE_PLATFORM = 'bitbucket-server';
       env.RENOVATE_REPOSITORIES = target.repository;
-      env.RENOVATE_ENDPOINT = (
-        bitbucketServerIntegrationConfig?.config?.apiBaseUrl || ''
-      ).replace(/([^\/\:]\/).*$/, '$1');
-      env.RENOVATE_TOKEN =
-        bitbucketServerIntegrationConfig?.config?.token || '';
-
+      env.RENOVATE_ENDPOINT = config.apiBaseUrl.replace(/([^\/:]\/).*$/, '$1');
+      env.RENOVATE_TOKEN = config.token;
       break;
     }
 
