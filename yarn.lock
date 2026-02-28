@@ -15284,6 +15284,7 @@ __metadata:
     "@backstage/frontend-plugin-api": "npm:^0.14.0"
     "@backstage/frontend-test-utils": "npm:0.5.0"
     "@backstage/integration-react": "npm:^1.2.13"
+    "@backstage/plugin-app-react": "npm:^0.2.0"
     "@backstage/plugin-app-visualizer": "npm:^0.2.0"
     "@backstage/plugin-catalog": "npm:^1.32.1"
     "@backstage/plugin-notifications": "npm:^0.5.12"

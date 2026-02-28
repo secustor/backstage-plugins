@@ -21,6 +21,7 @@
     "@backstage/frontend-defaults": "^0.4.0",
     "@backstage/frontend-plugin-api": "^0.14.0",
     "@backstage/integration-react": "^1.2.13",
+    "@backstage/plugin-app-react": "^0.2.0",
     "@backstage/plugin-app-visualizer": "^0.2.0",
     "@backstage/plugin-catalog": "^1.32.1",
     "@backstage/plugin-notifications": "^0.5.12",
