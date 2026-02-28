@@ -29,6 +29,24 @@ export async function getPlatformEnvs(
   const errMsg = `No credentials could be found for url and '${integration.type}' type for host ${target.host}`;
   const url = `https://${target.host}/${target.repository}`;
   switch (integration.type) {
+    case 'bitbucket': {
+      const bitbucketServerIntegrationConfig =
+        integrations.bitbucketServer.byHost(target.host);
+
+      const config = bitbucketServerIntegrationConfig?.config;
+      if (!config || !config.token) {
+        throw new Error(
+          `renovate on ${integration.type} requires token in configuration`,
+        );
+      }
+
+      env.RENOVATE_PLATFORM = 'bitbucket-server';
+      env.RENOVATE_REPOSITORIES = target.repository;
+      env.RENOVATE_ENDPOINT = config.apiBaseUrl.replace(/([^\/:]\/).*$/, '$1');
+      env.RENOVATE_TOKEN = config.token;
+      break;
+    }
+
     case 'github': {
       env.RENOVATE_PLATFORM = integration.type;
       const token = await getGithubToken(integrations, url);
@@ -55,7 +73,6 @@ export async function getPlatformEnvs(
     default:
       throw new Error(`Unsupported platform type ${integration.type}`);
   }
-
   const githubComURL = 'https://github.com';
   const githubComIntegration = integrations.github.byUrl(githubComURL);
   if (is.nullOrUndefined(githubComIntegration)) {
@@ -70,7 +87,6 @@ export async function getPlatformEnvs(
       );
     }
   }
-
   return env;
 }
 

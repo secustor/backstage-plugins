@@ -153,4 +153,36 @@ describe('wrapper/platforms', () => {
       RENOVATE_TOKEN: 'bbbbbbbbbb',
     });
   });
+
+  it('return env for bitbucket-server token', async () => {
+    const rootConfig = mockServices.rootConfig({
+      data: {
+        integrations: {
+          bitbucketServer: [
+            {
+              host: 'bitbucket.com',
+              token: 'bbbbbbbbbb',
+            },
+          ],
+        },
+      },
+    });
+    await expect(
+      getPlatformEnvs(
+        {
+          host: 'bitbucket.com',
+          repository: 'myOrg/myRepo',
+        },
+        {
+          rootConfig,
+          logger: mockServices.logger.mock(),
+        },
+      ),
+    ).resolves.toEqual({
+      RENOVATE_ENDPOINT: 'https://bitbucket.com/',
+      RENOVATE_PLATFORM: 'bitbucket-server',
+      RENOVATE_REPOSITORIES: 'myOrg/myRepo',
+      RENOVATE_TOKEN: 'bbbbbbbbbb',
+    });
+  });
 });
