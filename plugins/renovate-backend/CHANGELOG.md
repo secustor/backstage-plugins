@@ -1,5 +1,15 @@
 # @secustor/backstage-plugin-renovate-backend
 
+## 0.18.0
+
+### Minor Changes
+
+- [#994](https://github.com/secustor/backstage-plugins/pull/994) [`3b8f87c`](https://github.com/secustor/backstage-plugins/commit/3b8f87cebdf312db85a2aae2e8ecfc3e3d7c2435) Thanks [@secustor](https://github.com/secustor)! - Add support for BitBucket Server
+
+### Patch Changes
+
+- [#992](https://github.com/secustor/backstage-plugins/pull/992) [`dc71260`](https://github.com/secustor/backstage-plugins/commit/dc71260c5bf0897c246157fc0a82ed20ff6e1286) Thanks [@secustor](https://github.com/secustor)! - Handles error if no GitHub Credentials Provider could be initialized
+
 ## 0.17.2
 
 ### Patch Changes

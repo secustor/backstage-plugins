@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.20.2
+
+### Patch Changes
+
+- [`ffdecc5`](https://github.com/secustor/backstage-plugins/commit/ffdecc59f62a39aa82da74249413c893d5c11120) Thanks [@secustor](https://github.com/secustor)! - Bump Backstage to 1.48.3
+
 ## 0.20.1
 
 ### Patch Changes
