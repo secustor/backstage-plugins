@@ -51,7 +51,7 @@
     {
       // updating renovate defaults
       customType: 'regex',
-      fileMatch: '^plugins/renovate-backend-module-runtime-docker/.*',
+      managerFilePatterns: '^plugins/renovate-backend-module-runtime-docker/.*',
       matchStrings: [
         // README defaults
         'tag:\\s+latest\\s+#\\s*default:\\s*(?<currentValue>\\S+)',
