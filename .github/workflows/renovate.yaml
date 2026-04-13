@@ -32,4 +32,3 @@ jobs:
         env:
           RENOVATE_PLATFORM_COMMIT: 'true' # Sign commits via the GitHub App
           LOG_LEVEL: 'debug'
-
