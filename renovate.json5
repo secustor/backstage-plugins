@@ -42,7 +42,7 @@
 
     {
       // do not try to pin Docker and regex references as they are not published or tested
-      matchManagers: ['regex', 'docker-compose', 'dockerfile'],
+      matchManagers: ['custom.regex', 'docker-compose', 'dockerfile'],
       pinDigests: false,
     },
   ],
