@@ -75,7 +75,7 @@
     "@backstage/cli": "^0.35.1",
     "@backstage/repo-tools": "^0.16.1",
     "@backstage/test-utils": "^1.7.14",
-    "@types/supertest": "^6.0.0",
+    "@types/supertest": "^7.0.0",
     "jest-mock-extended": "^4.0.0",
     "msw": "^2.0.0",
     "supertest": "^7.0.0"
