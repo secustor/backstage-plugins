@@ -1,7 +1,10 @@
-import { createTemplateFilter } from '@backstage/plugin-scaffolder-node/alpha';
+import {
+  createTemplateFilter,
+  type CreatedTemplateFilter,
+} from '@backstage/plugin-scaffolder-node/alpha';
 import jsonata from 'jsonata';
 
-export function createJSONATAFilter() {
+export function createJSONATAFilter(): CreatedTemplateFilter<any, any> {
   return createTemplateFilter({
     id: 'jsonata',
     description:

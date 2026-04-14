@@ -29,7 +29,8 @@ export async function getPlatformEnvs(
   const errMsg = `No credentials could be found for url and '${integration.type}' type for host ${target.host}`;
   const url = `https://${target.host}/${target.repository}`;
   switch (integration.type) {
-    case 'bitbucket': {
+    case 'bitbucket':
+    case 'bitbucketServer': {
       const bitbucketServerIntegrationConfig =
         integrations.bitbucketServer.byHost(target.host);
 
