@@ -3497,8 +3497,8 @@ __metadata:
   linkType: hard
 
 "@backstage/plugin-catalog-backend@npm:^3.3.0, @backstage/plugin-catalog-backend@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "@backstage/plugin-catalog-backend@npm:3.6.0"
+  version: 3.6.1
+  resolution: "@backstage/plugin-catalog-backend@npm:3.6.1"
   dependencies:
     "@backstage/backend-openapi-utils": "npm:^0.6.8"
     "@backstage/backend-plugin-api": "npm:^1.9.0"
@@ -3535,7 +3535,7 @@ __metadata:
     yn: "npm:^4.0.0"
     zod: "npm:^3.25.76 || ^4.0.0"
     zod-validation-error: "npm:^4.0.2"
-  checksum: 10c0/5f947ebb3b42e8b05184733148e726ee1d069391734ca559fc8d07acf8ff228f85adf5ad859f92c6ed2ed71372034ca1704dacc7b591df71463f449f6bc46f5c
+  checksum: 10c0/0ee96915aed380b7b086262cf3239a58b25a003bb1208ea089988c430743adfea3d116bd825f0e1600b0b879861033d0c76fe8703f496c0d88292110bc9f5f62
   languageName: node
   linkType: hard
 
@@ -4625,8 +4625,8 @@ __metadata:
   linkType: hard
 
 "@backstage/ui@npm:^0.14.0, @backstage/ui@npm:^0.14.2":
-  version: 0.14.2
-  resolution: "@backstage/ui@npm:0.14.2"
+  version: 0.14.3
+  resolution: "@backstage/ui@npm:0.14.3"
   dependencies:
     "@backstage/version-bridge": "npm:^1.0.12"
     "@remixicon/react": "npm:^4.6.0"
@@ -4644,7 +4644,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/2f2dc8a382b43e669ea0517044a1912acb12b33d639b07d736b2239a3e6e62f807e5cfac8e1e3852ff71cd375a2b19d0078318382fd2648a692416ddfe14e043
+  checksum: 10c0/1b1854db882f94d605ee270160cb95b72e8e8328b2fcc638d03590a27f3e4579da04272059168bbf152baf3bdf7b91e8d1ed55659bd80bde582fa5d8f20e7c72
   languageName: node
   linkType: hard
 
