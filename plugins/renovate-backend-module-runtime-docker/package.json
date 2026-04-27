@@ -42,7 +42,7 @@
     "@backstage/backend-plugin-api": "^1.6.0",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@secustor/backstage-plugin-renovate-node": "workspace:^",
-    "dockerode": "^4.0.2",
+    "dockerode": "^5.0.0",
     "scramjet": "^4.37.0"
   },
   "devDependencies": {
