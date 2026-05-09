@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-common
 
+## 0.9.6
+
+### Patch Changes
+
+- [#1076](https://github.com/secustor/backstage-plugins/pull/1076) [`fb2a999`](https://github.com/secustor/backstage-plugins/commit/fb2a999e6473c4dfe302f13b0973b96e4fe34fd8) Thanks [@secustor](https://github.com/secustor)! - Update report schema to new libyear and outdated dependencies format
+
 ## 0.9.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @secustor/backstage-plugin-renovate-backend-module-runtime-docker
 
+## 4.0.3
+
+### Patch Changes
+
+- [#1070](https://github.com/secustor/backstage-plugins/pull/1070) [`f952eb0`](https://github.com/secustor/backstage-plugins/commit/f952eb03ffff869f408d74cfc69c9e4a20770802) Thanks [@secustor](https://github.com/secustor)! - Bump dockerode to v5.
+
 ## 4.0.2
 
 ### Patch Changes
