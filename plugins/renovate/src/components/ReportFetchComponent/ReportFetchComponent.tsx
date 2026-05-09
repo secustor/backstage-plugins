@@ -50,7 +50,7 @@ export function ReportTable(options: DenseTableProps) {
       title: 'Total Libyears',
       field: 'libyears',
       render: rowData =>
-        rowData.report.report.libYears?.totalLibYears?.toFixed(2),
+        rowData.report.report.libYearsWithStatus?.libYears.total.toFixed(2),
       align: 'right',
     },
     { title: 'Number of dependencies', field: 'noDeps' },
@@ -61,24 +61,26 @@ export function ReportTable(options: DenseTableProps) {
   ];
 
   const data = reports.flatMap(
-    report => {
-      const packageFiles = Object.values(report.report.packageFiles).flat();
+    reportWithMeta => {
+      const report = reportWithMeta.report;
+      const packageFiles = Object.values(report.packageFiles).flat();
       const deps = packageFiles.flatMap(packageFile => packageFile.deps);
+
+      const libYearsWithStatus = report.libYearsWithStatus;
       return {
-        id: report.runID,
-        host: report.host,
-        repository: report.repository,
-        libyears: report.report.libYears?.totalLibYears,
-        timestamp: report.timestamp,
-        noPRs: report.report.branches.filter(
+        id: reportWithMeta.runID,
+        host: reportWithMeta.host,
+        repository: reportWithMeta.repository,
+        libYears: libYearsWithStatus?.libYears.total,
+        timestamp: reportWithMeta.timestamp,
+        noPRs: report.branches.filter(
           branch => !is.nullOrUndefined(branch.prNo),
         ).length,
-        noBranches: report.report.branches.length,
-        noUpdates: report.report.branches.flatMap(branch => branch.upgrades)
-          .length,
-        outdatedDeps: report.report.libYears?.outdatedDepsCount,
-        noDeps: report.report.libYears?.totalDepsCount ?? deps.length,
-        report,
+        noBranches: report.branches.length,
+        noUpdates: report.branches.flatMap(branch => branch.upgrades).length,
+        outdatedDeps: report.libYearsWithStatus?.dependencyStatus.outdated,
+        noDeps: libYearsWithStatus?.dependencyStatus.total ?? deps.length,
+        report: reportWithMeta,
       };
     },
     [reports],
