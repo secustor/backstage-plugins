@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: backstage
       POSTGRES_PASSWORD: password
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres:/var/lib/postgresql
     ports:
       - '127.0.0.1:5432:5432'
 
