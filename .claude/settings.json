@@ -35,7 +35,7 @@
           },
           {
             "type": "command",
-            "command": "yarn run dedupe --check"
+            "command": "yarn dedupe --check"
           }
         ]
       }
