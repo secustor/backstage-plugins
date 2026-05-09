@@ -60,8 +60,6 @@ export function ReportTable(options: DenseTableProps) {
     { title: 'Number of updates', field: 'noUpdates' },
   ];
 
-  console.log(reports);
-
   const data = reports.flatMap(
     reportWithMeta => {
       const report = reportWithMeta.report;

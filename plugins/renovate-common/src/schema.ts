@@ -71,7 +71,7 @@ export const libYears = z.object({
 export const dependencyStatus = z.object({
   outdated: z.number(),
   total: z.number(),
-})
+});
 
 export const libYearWithStatus = z.object({
   libYears: libYears,
