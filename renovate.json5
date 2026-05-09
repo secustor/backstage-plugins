@@ -24,7 +24,7 @@
     {
       matchDatasources: ['npm'],
       matchDepNames: ['renovate', '@backstage/*'],
-      minimumReleaseAge: null,
+      minimumReleaseAge: 0,
     },
 
     // auto merges
