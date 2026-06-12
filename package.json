@@ -47,7 +47,7 @@
     "jsdom": "29.1.1",
     "lint-staged": "17.0.7",
     "node-gyp": "12.4.0",
-    "prettier": "3.8.3",
+    "prettier": "3.8.4",
     "typescript": "6.0.3"
   },
   "resolutions": {
