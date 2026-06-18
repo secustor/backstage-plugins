@@ -41,7 +41,7 @@
     "@changesets/changelog-github": "0.7.0",
     "@changesets/cli": "2.31.0",
     "@jest/environment-jsdom-abstract": "30.4.1",
-    "@playwright/test": "1.60.0",
+    "@playwright/test": "1.61.0",
     "@types/jest": "30.0.0",
     "jest": "30.4.2",
     "jsdom": "29.1.1",
