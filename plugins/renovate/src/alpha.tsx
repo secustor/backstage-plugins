@@ -2,7 +2,6 @@ import { discoveryApiRef, fetchApiRef } from '@backstage/frontend-plugin-api';
 import {
   ApiBlueprint,
   createFrontendPlugin,
-  NavItemBlueprint,
   createRouteRef,
 } from '@backstage/frontend-plugin-api';
 import { renovateApiRef } from './api';
@@ -13,14 +12,6 @@ import { EntityContentBlueprint } from '@backstage/plugin-catalog-react/alpha';
 
 const rootRouteRef = createRouteRef();
 
-export const renovateNavItem = NavItemBlueprint.make({
-  params: {
-    title: 'Renovate',
-    icon: FormatPaintIcon,
-    routeRef: rootRouteRef,
-  },
-});
-
 export const renovatePage = PageBlueprint.makeWithOverrides({
   config: {
     schema: {
@@ -29,6 +20,8 @@ export const renovatePage = PageBlueprint.makeWithOverrides({
   },
   factory(originalFactory, { config }) {
     return originalFactory({
+      title: 'Renovate',
+      icon: <FormatPaintIcon fontSize="inherit" />,
       path: '/renovate',
       routeRef: rootRouteRef,
       loader: async () =>
@@ -65,10 +58,5 @@ const renovateApi = ApiBlueprint.make({
 
 export default createFrontendPlugin({
   pluginId: 'renovate',
-  extensions: [
-    renovatePage,
-    renovateApi,
-    EntityRenovateContent,
-    renovateNavItem,
-  ],
+  extensions: [renovatePage, renovateApi, EntityRenovateContent],
 });

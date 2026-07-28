@@ -39,15 +39,15 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/backend-plugin-api": "^1.6.0",
+    "@backstage/backend-plugin-api": "^1.9.3",
     "@secustor/backstage-plugin-renovate-common": "workspace:^",
     "@secustor/backstage-plugin-renovate-node": "workspace:^",
     "dockerode": "^5.0.0",
     "scramjet": "^4.37.0"
   },
   "devDependencies": {
-    "@backstage/backend-test-utils": "^1.10.2",
-    "@backstage/cli": "^0.36.0",
+    "@backstage/backend-test-utils": "^1.11.5",
+    "@backstage/cli": "^0.36.4",
     "@types/dockerode": "^4.0.0"
   },
   "files": [
