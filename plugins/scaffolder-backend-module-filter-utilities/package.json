@@ -34,14 +34,14 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/backend-plugin-api": "^1.6.0",
-    "@backstage/plugin-scaffolder-node": "^0.13.0",
+    "@backstage/backend-plugin-api": "^1.9.3",
+    "@backstage/plugin-scaffolder-node": "^0.13.5",
     "jsonata": "^2.0.6",
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.36.0",
-    "@backstage/plugin-scaffolder-node-test-utils": "^0.3.6"
+    "@backstage/cli": "^0.36.4",
+    "@backstage/plugin-scaffolder-node-test-utils": "^0.3.13"
   },
   "files": [
     "dist"

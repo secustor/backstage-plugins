@@ -1,5 +1,3 @@
-import { JsonObject } from '@backstage/types';
-
 export interface Config {
   renovate: {
     /**
