@@ -1,5 +1,19 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.21.0
+
+### Minor Changes
+
+- [#1127](https://github.com/secustor/backstage-plugins/pull/1127) [`1193eaf`](https://github.com/secustor/backstage-plugins/commit/1193eafbe585c1c3a49bf061ed6fd715d2d8e399) Thanks [@secustor](https://github.com/secustor)! - Remove NavItem as it is no longer exported from Backstage core
+
+- [#1127](https://github.com/secustor/backstage-plugins/pull/1127) [`1193eaf`](https://github.com/secustor/backstage-plugins/commit/1193eafbe585c1c3a49bf061ed6fd715d2d8e399) Thanks [@secustor](https://github.com/secustor)! - Bump Backstage version to 1.53.0
+
+### Patch Changes
+
+- Updated dependencies [[`1193eaf`](https://github.com/secustor/backstage-plugins/commit/1193eafbe585c1c3a49bf061ed6fd715d2d8e399)]:
+  - @secustor/backstage-plugin-renovate-client@0.11.0
+  - @secustor/backstage-plugin-renovate-common@0.10.0
+
 ## 0.20.5
 
 ### Patch Changes
