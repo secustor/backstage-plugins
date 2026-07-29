@@ -91,7 +91,7 @@
     "@backstage/dev-utils": "^1.1.25",
     "@backstage/frontend-defaults": "^0.5.4",
     "@backstage/test-utils": "^1.7.20",
-    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.0.0",
     "msw": "^2.0.0"
