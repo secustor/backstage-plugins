@@ -14003,7 +14003,7 @@ __metadata:
     "@secustor/backstage-plugin-renovate-backend-module-runtime-s3": "workspace:^"
     "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities": "workspace:^"
     app: "link:../app"
-    better-sqlite3: "npm:^12.0.0"
+    better-sqlite3: "npm:^13.0.0"
     dotenv: "npm:^17.0.0"
     node-gyp: "npm:^13.0.0"
     pg: "npm:^8.11.3"
@@ -14208,6 +14208,16 @@ __metadata:
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
   checksum: 10c0/162d3fa6c19a68191d09537bd113bd54a636c9fb38b0fc0796f4f270032770695ef35a1bca041a0a0fa9bfa47e20b9e17c94484a3899c31f38881af4d12b7fa5
+  languageName: node
+  linkType: hard
+
+"better-sqlite3@npm:^13.0.0":
+  version: 13.0.1
+  resolution: "better-sqlite3@npm:13.0.1"
+  dependencies:
+    node-addon-api: "npm:^8.0.0"
+    node-gyp: "npm:latest"
+  checksum: 10c0/dab0d720e7b215490d68733c657de75f6fcffe1ce61d737ace9d2f195d02e90be9f19ced28f407247237aad7a5a371e044e601df9caa9d5617cff6a7a756ede5
   languageName: node
   linkType: hard
 
@@ -25571,6 +25581,15 @@ __metadata:
   dependencies:
     node-gyp: "npm:latest"
   checksum: 10c0/5febe94d58cdef319bc96a357b43d7a13776c93ee3f2edb374000f16454e65cec06035497947d5fdaa50db1cc7ab8e3a30ca8669bb07a1b159f0307dc2c1ccdf
+  languageName: node
+  linkType: hard
+
+"node-addon-api@npm:^8.0.0":
+  version: 8.9.0
+  resolution: "node-addon-api@npm:8.9.0"
+  dependencies:
+    node-gyp: "npm:latest"
+  checksum: 10c0/6d687ffbc66e9735f4182e4c05d137d083be1fa5972b1762307e007804a85b70f810fed5b908f27f48caa4ed831517c95eec5137c8a02eaa08893bdef7fec05e
   languageName: node
   linkType: hard
 
