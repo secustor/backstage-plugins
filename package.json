@@ -48,7 +48,7 @@
     "lint-staged": "17.2.0",
     "node-gyp": "13.0.1",
     "prettier": "3.8.4",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "resolutions": {
     "@types/react": "^18",
