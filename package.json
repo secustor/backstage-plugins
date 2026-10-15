@@ -5,7 +5,7 @@
   "engines": {
     "node": "22 || 24"
   },
-  "packageManager": "yarn@4.17.1",
+  "packageManager": "yarn@4.18.1",
   "scripts": {
     "build-image": "yarn workspace backend build-image",
     "build:all": "backstage-cli repo build --all",
@@ -53,7 +53,7 @@
   "resolutions": {
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@yarnpkg/core": "npm:4.9.1"
+    "@yarnpkg/core": "npm:@yarnpkg/core@4.9.2"
   },
   "prettier": "@backstage/cli/config/prettier",
   "lint-staged": {
