@@ -53,7 +53,7 @@
   "resolutions": {
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@yarnpkg/core": "npm:@yarnpkg/core@4.9.2"
+    "@yarnpkg/core": "npm:4.9.1"
   },
   "prettier": "@backstage/cli/config/prettier",
   "lint-staged": {
