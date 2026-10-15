@@ -13,6 +13,14 @@
 
   packageRules: [
     {
+      // Hold TypeScript below 7: TS 7 (native Go port) ships no JS compiler API, so
+      // typescript-eslint and rollup-plugin-dts in @backstage/cli's build fail with it.
+      // Remove once typescript-eslint and Backstage support TS 7.
+      matchDatasources: ['npm'],
+      matchPackageNames: ['typescript'],
+      allowedVersions: '<7',
+    },
+    {
       // general configs for all plugins
       matchFileNames: ['plugins/**'],
       // only update if the new version falls outside the range.
