@@ -105,20 +105,20 @@ describe('S3 config', () => {
     it.each`
       missingField | mockSetup
       ${'bucket'} | ${() =>
-  mockConfig.getString.mockImplementation((key: string) => {
-    if (key === 'bucket') throw new Error('Missing bucket');
-    return 'test-value';
-  })}
+        mockConfig.getString.mockImplementation((key: string) => {
+          if (key === 'bucket') throw new Error('Missing bucket');
+          return 'test-value';
+        })}
       ${'region'} | ${() =>
-  mockConfig.getString.mockImplementation((key: string) => {
-    if (key === 'region') throw new Error('Missing region');
-    return 'test-value';
-  })}
+        mockConfig.getString.mockImplementation((key: string) => {
+          if (key === 'region') throw new Error('Missing region');
+          return 'test-value';
+        })}
       ${'key'} | ${() =>
-  mockConfig.getString.mockImplementation((key: string) => {
-    if (key === 'key') throw new Error('Missing key');
-    return 'test-value';
-  })}
+        mockConfig.getString.mockImplementation((key: string) => {
+          if (key === 'key') throw new Error('Missing key');
+          return 'test-value';
+        })}
     `('should throw error when $missingField is missing', ({ mockSetup }) => {
       // Override the specific field to throw
       mockSetup();
