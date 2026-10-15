@@ -43,14 +43,14 @@
     "postpack": "backstage-cli package postpack"
   },
   "devDependencies": {
-    "@backstage/cli": "^0.36.4",
+    "@backstage/cli": "^0.36.6",
     "jest-mock-extended": "^4.0.0"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@backstage/backend-plugin-api": "^1.9.3",
+    "@backstage/backend-plugin-api": "^1.10.1",
     "@secustor/backstage-plugin-renovate-common": "workspace:^"
   }
 }
