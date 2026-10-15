@@ -4,6 +4,7 @@ import {
   createFrontendPlugin,
   createRouteRef,
 } from '@backstage/frontend-plugin-api';
+import { z } from 'zod/v4';
 import { renovateApiRef } from './api';
 import { RenovateClient } from '@secustor/backstage-plugin-renovate-client';
 import { PageBlueprint } from '@backstage/frontend-plugin-api';
@@ -13,10 +14,8 @@ import { EntityContentBlueprint } from '@backstage/plugin-catalog-react/alpha';
 const rootRouteRef = createRouteRef();
 
 export const renovatePage = PageBlueprint.makeWithOverrides({
-  config: {
-    schema: {
-      showStarter: z => z.boolean().default(false),
-    },
+  configSchema: {
+    showStarter: z.boolean().default(false),
   },
   factory(originalFactory, { config }) {
     return originalFactory({
