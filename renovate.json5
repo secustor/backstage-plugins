@@ -13,6 +13,13 @@
 
   packageRules: [
     {
+      // @yarnpkg/core 4.9.2 was published with a `got` patch reference to a file
+      // that only exists in the Yarn repository, so it cannot be installed
+      matchDatasources: ['npm'],
+      matchPackageNames: ['@yarnpkg/core'],
+      allowedVersions: '!/^4\\.9\\.2$/',
+    },
+    {
       // general configs for all plugins
       matchFileNames: ['plugins/**'],
       // only update if the new version falls outside the range.
