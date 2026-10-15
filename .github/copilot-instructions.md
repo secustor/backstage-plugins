@@ -108,7 +108,7 @@ The Renovate backend uses OpenAPI code generation:
 ### Key Technologies
 
 - **Backstage**: see `backstage.json` for the current version
-- **Node.js**: 20 || 22 || 24 (`engines`); `mise.toml` pins the dev version
+- **Node.js**: 22 || 24 (`engines`); `mise.toml` pins the dev version
 - **Testing**: Jest + Playwright
 - **Database**: Knex.js with PostgreSQL
 - **Package Manager**: Yarn (version pinned by `packageManager` in `package.json`)
