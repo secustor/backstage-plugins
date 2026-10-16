@@ -47,14 +47,16 @@ jobs:
         id: changesets
         uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
         with:
-          title: Version Packages
-          version: yarn changeset version
+          github-token: ${{ secrets.PA_GITHUB_TOKEN }}
+          pr-title: Version Packages
+          version-script: yarn changeset version
           # https://github.com/changesets/action/pull/271/files#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5R162
-          publish: yarn changeset tag
+          publish-script: yarn changeset tag
         env:
+          # used by @changesets/changelog-github during `changeset version`
           GITHUB_TOKEN: ${{ secrets.PA_GITHUB_TOKEN }}
 
       - name: Publish
-        if: steps.changesets.outputs.hasChangesets == 'false'
+        if: steps.changesets.outputs.has-changesets == 'false'
         # --tolerate-republish do not attempt a republishing as it suggests but rather skips if the version already exists
         run: "yarn workspaces foreach --all --include 'plugins/*' npm publish --access public --tolerate-republish"
