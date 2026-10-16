@@ -14987,7 +14987,7 @@ __metadata:
     "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities": "workspace:^"
     app: "link:../app"
     better-sqlite3: "npm:^13.0.0"
-    dotenv: "npm:^17.0.0"
+    dotenv: "npm:^18.0.0"
     node-gyp: "npm:^13.0.0"
     pg: "npm:^8.11.3"
   languageName: unknown
@@ -18088,10 +18088,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^17.0.0":
-  version: 17.4.2
-  resolution: "dotenv@npm:17.4.2"
-  checksum: 10c0/164f8e77a646c8446867d5b588d26ea6005c8ea7c5eb41cf926f6113d23f2191355f6e0cfd95ea9bab98394a5b0a3f1e51a8399711b666fe55cc7b0bd745f942
+"dotenv@npm:^18.0.0":
+  version: 18.0.8
+  resolution: "dotenv@npm:18.0.8"
+  bin:
+    dotenv: dist/index.cjs
+  checksum: 10c0/88a6a81afe58aaad7f9ae5d97422731c6e7b9efa4db752ea5add7fb6035f5866ce6e10a76fb7ad2d7f606bdf0afc9507ffd7e04d86d9b347b38d4614a3a0c2ac
   languageName: node
   linkType: hard
 
