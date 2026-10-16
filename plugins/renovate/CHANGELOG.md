@@ -1,5 +1,19 @@
 # @secustor/backstage-plugin-renovate
 
+## 0.22.0
+
+### Minor Changes
+
+- [#1152](https://github.com/secustor/backstage-plugins/pull/1152) [`0e8cba0`](https://github.com/secustor/backstage-plugins/commit/0e8cba0f33fa0950c59459f905b1b470c76c1c57) Thanks [@secustor](https://github.com/secustor)! - Bump Backstage version to 1.55.3
+
+- [#1152](https://github.com/secustor/backstage-plugins/pull/1152) [`0e8cba0`](https://github.com/secustor/backstage-plugins/commit/0e8cba0f33fa0950c59459f905b1b470c76c1c57) Thanks [@secustor](https://github.com/secustor)! - Use `configSchema` with Zod v4 for the Renovate page extension, as `config.schema` was removed from `@backstage/frontend-plugin-api`
+
+### Patch Changes
+
+- Updated dependencies [[`0e8cba0`](https://github.com/secustor/backstage-plugins/commit/0e8cba0f33fa0950c59459f905b1b470c76c1c57)]:
+  - @secustor/backstage-plugin-renovate-client@0.12.0
+  - @secustor/backstage-plugin-renovate-common@0.11.0
+
 ## 0.21.0
 
 ### Minor Changes

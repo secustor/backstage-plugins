@@ -1,5 +1,24 @@
 # @secustor/backstage-plugin-renovate-backend-module-queue-redis
 
+## 0.6.0
+
+### Minor Changes
+
+- [#1152](https://github.com/secustor/backstage-plugins/pull/1152) [`0e8cba0`](https://github.com/secustor/backstage-plugins/commit/0e8cba0f33fa0950c59459f905b1b470c76c1c57) Thanks [@secustor](https://github.com/secustor)! - Bump Backstage version to 1.55.3
+
+- [#1175](https://github.com/secustor/backstage-plugins/pull/1175) [`78a96c7`](https://github.com/secustor/backstage-plugins/commit/78a96c776e43334d7d11a2845b2775f4f033ce0a) Thanks [@secustors-renovate](https://github.com/apps/secustors-renovate)! - **BREAKING**: Upgrade `ioredis` to v6.
+
+  `ioredis` now connects using the RESP3 protocol by default, which requires Redis 6 or newer.
+  Redis servers or Redis-compatible services without RESP3 support (e.g. Redis 5 and older) will fail to connect.
+  Upgrade your Redis instance before updating this module.
+
+  Additionally, the default reconnect strategy now uses exponential backoff (capped at 5s) instead of linear backoff (capped at 2s), and TCP keep-alive is enabled with a 30s initial delay.
+
+### Patch Changes
+
+- Updated dependencies [[`0e8cba0`](https://github.com/secustor/backstage-plugins/commit/0e8cba0f33fa0950c59459f905b1b470c76c1c57)]:
+  - @secustor/backstage-plugin-renovate-node@0.7.0
+
 ## 0.5.0
 
 ### Minor Changes
