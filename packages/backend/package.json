@@ -46,7 +46,7 @@
     "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities": "workspace:^",
     "app": "link:../app",
     "better-sqlite3": "^13.0.0",
-    "dotenv": "^17.0.0",
+    "dotenv": "^18.0.0",
     "node-gyp": "^13.0.0",
     "pg": "^8.11.3"
   },

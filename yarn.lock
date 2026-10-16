@@ -10269,7 +10269,7 @@ __metadata:
     "@backstage/config": "npm:^1.3.9"
     "@backstage/types": "npm:^1.2.2"
     "@secustor/backstage-plugin-renovate-node": "workspace:^"
-    bullmq: "npm:^5.41.0"
+    bullmq: "npm:^6.0.0"
     ioredis: "npm:^5.4.1"
     jest-mock-extended: "npm:^4.0.0"
   languageName: unknown
@@ -14978,7 +14978,7 @@ __metadata:
     "@secustor/backstage-plugin-scaffolder-backend-module-filter-utilities": "workspace:^"
     app: "link:../app"
     better-sqlite3: "npm:^13.0.0"
-    dotenv: "npm:^17.0.0"
+    dotenv: "npm:^18.0.0"
     node-gyp: "npm:^13.0.0"
     pg: "npm:^8.11.3"
   languageName: unknown
@@ -15578,22 +15578,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:^5.41.0":
-  version: 5.81.2
-  resolution: "bullmq@npm:5.81.2"
+"bullmq@npm:^6.0.0":
+  version: 6.3.15
+  resolution: "bullmq@npm:6.3.15"
   dependencies:
-    cron-parser: "npm:4.9.0"
-    ioredis: "npm:5.11.1"
-    msgpackr: "npm:2.0.4"
+    cron-parser: "npm:5.10.2"
+    msgpackr: "npm:2.1.0"
     node-abort-controller: "npm:3.1.1"
     semver: "npm:7.8.5"
     tslib: "npm:2.8.1"
   peerDependencies:
+    bullmq-otel: ">=2.0.0"
+    ioredis: ">=5.0.0"
+    pg: ">=8.0.0"
     redis: ">=5.0.0"
   peerDependenciesMeta:
+    bullmq-otel:
+      optional: true
+    ioredis:
+      optional: true
+    pg:
+      optional: true
     redis:
       optional: true
-  checksum: 10c0/9b8b3bea0873cd1228d0ab342e93d856ce52180c692d6cbe860509774fd415d4f031b953d41a07ca5dd80e6a5b7c1b5c360d266b8c8f4f24711792a9b9a20e05
+  checksum: 10c0/f10bbd4a8636c1a39f03dae6251bb3fdef0d6851d747c299c184ddd43ec6b1a1e4351231aa76005fafd8a46cdd31833cd303610bcb9b52e40b9b56f3ceecd979
   languageName: node
   linkType: hard
 
@@ -16945,12 +16953,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron-parser@npm:4.9.0":
-  version: 4.9.0
-  resolution: "cron-parser@npm:4.9.0"
+"cron-parser@npm:5.10.2":
+  version: 5.10.2
+  resolution: "cron-parser@npm:5.10.2"
   dependencies:
-    luxon: "npm:^3.2.1"
-  checksum: 10c0/348622bdcd1a15695b61fc33af8a60133e5913a85cf99f6344367579e7002896514ba3b0a9d6bb569b02667d6b06836722bf2295fcd101b3de378f71d37bed0b
+    luxon: "npm:^3.7.2"
+  checksum: 10c0/b1aefe64a0fcea39f36e1bcf06b8f4c97780fc982524a67389e4a6268163e863bebaca096e6c7b0536a5f14d1b977d820523170ddfa8c322455b786b5e5fe5cc
   languageName: node
   linkType: hard
 
@@ -18064,10 +18072,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^17.0.0":
-  version: 17.4.2
-  resolution: "dotenv@npm:17.4.2"
-  checksum: 10c0/164f8e77a646c8446867d5b588d26ea6005c8ea7c5eb41cf926f6113d23f2191355f6e0cfd95ea9bab98394a5b0a3f1e51a8399711b666fe55cc7b0bd745f942
+"dotenv@npm:^18.0.0":
+  version: 18.0.8
+  resolution: "dotenv@npm:18.0.8"
+  bin:
+    dotenv: dist/index.cjs
+  checksum: 10c0/88a6a81afe58aaad7f9ae5d97422731c6e7b9efa4db752ea5add7fb6035f5866ce6e10a76fb7ad2d7f606bdf0afc9507ffd7e04d86d9b347b38d4614a3a0c2ac
   languageName: node
   linkType: hard
 
@@ -21900,7 +21910,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:5.11.1, ioredis@npm:^5.4.1":
+"ioredis@npm:^5.4.1":
   version: 5.11.1
   resolution: "ioredis@npm:5.11.1"
   dependencies:
@@ -24504,7 +24514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:3.7.2, luxon@npm:^3.0.0, luxon@npm:^3.2.1, luxon@npm:^3.7.2":
+"luxon@npm:3.7.2, luxon@npm:^3.0.0, luxon@npm:^3.7.2":
   version: 3.7.2
   resolution: "luxon@npm:3.7.2"
   checksum: 10c0/ed8f0f637826c08c343a29dd478b00628be93bba6f068417b1d8896b61cb61c6deacbe1df1e057dbd9298334044afa150f9aaabbeb3181418ac8520acfdc2ae2
@@ -26307,15 +26317,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msgpackr@npm:2.0.4":
-  version: 2.0.4
-  resolution: "msgpackr@npm:2.0.4"
+"msgpackr@npm:2.1.0":
+  version: 2.1.0
+  resolution: "msgpackr@npm:2.1.0"
   dependencies:
     msgpackr-extract: "npm:^3.0.4"
   dependenciesMeta:
     msgpackr-extract:
       optional: true
-  checksum: 10c0/b72e8de59ce82a29cd5ca6d93ceec589367dd742a75fb04b6d26d6e0c5863f1000d0b27979469f18ca4554f3ccabe620524013268d5387415bcab495cca4ae73
+  checksum: 10c0/9fcfd08ab99e2499ccd3e7ae188737ed4f629e326ad89ff6f28f4c29e01d0625f679bebb28509ef8cb160ca0c317680c7153e7493c5b472ef3d6ff4b9eac5771
   languageName: node
   linkType: hard
 
