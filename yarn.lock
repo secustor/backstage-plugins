@@ -17197,11 +17197,11 @@ __metadata:
   linkType: hard
 
 "dotenv@npm:^18.0.0":
-  version: 18.0.8
-  resolution: "dotenv@npm:18.0.8"
+  version: 18.0.10
+  resolution: "dotenv@npm:18.0.10"
   bin:
-    dotenv: dist/index.cjs
-  checksum: 10c0/88a6a81afe58aaad7f9ae5d97422731c6e7b9efa4db752ea5add7fb6035f5866ce6e10a76fb7ad2d7f606bdf0afc9507ffd7e04d86d9b347b38d4614a3a0c2ac
+    dotenv: dist/cli.cjs
+  checksum: 10c0/f07945aeb35f78fe54495025fb10c155cbefa15bdd04a4063aba8519d2756c647ce43f3e0cacbab1e5a7200376f740cbe3e4e7432571ecf4d99eeade7c1dd3a7
   languageName: node
   linkType: hard
 
