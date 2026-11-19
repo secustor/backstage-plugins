@@ -10781,12 +10781,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:14.6.11, @testing-library/user-event@npm:^14.0.0":
-  version: 14.6.11
-  resolution: "@testing-library/user-event@npm:14.6.11"
+"@testing-library/user-event@npm:14.6.12, @testing-library/user-event@npm:^14.0.0":
+  version: 14.6.12
+  resolution: "@testing-library/user-event@npm:14.6.12"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 10c0/ab0330cfa7fbec9c2e893fb833e1f7d2f01e6614cf730cf92ec5d0234eca113866b4dfe6a072909529584edbcb646dcdf032760f0c2ba50fb6b84fa65cd1004d
+  checksum: 10c0/6b5b1c8219a17b00d6fcc968f9d257a62d3be3a5fa05b9373d26a965e272613f8a58c3d716b8ba226741fd1c77ecced6db23118020813ed2731e73ab944edbe3
   languageName: node
   linkType: hard
 
@@ -13522,7 +13522,7 @@ __metadata:
     "@testing-library/dom": "npm:10.4.2"
     "@testing-library/jest-dom": "npm:7.0.1"
     "@testing-library/react": "npm:16.3.3"
-    "@testing-library/user-event": "npm:14.6.11"
+    "@testing-library/user-event": "npm:14.6.12"
     "@types/react-dom": "npm:19.1.9"
     cross-env: "npm:10.1.0"
     react: "npm:^18.0.2"
