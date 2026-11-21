@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@backstage/backend-plugin-api": "^1.10.1",
-    "@backstage/plugin-scaffolder-node": "^0.13.7",
+    "@backstage/plugin-scaffolder-node": "^1.0.0",
     "jsonata": "^2.0.6",
     "zod": "^3.24.2"
   },
