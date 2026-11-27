@@ -185,7 +185,10 @@ export class DatabaseHandler {
         }
       }
     }
-    await this.client('dependencies').insert(dependencies);
+
+    // SQLite has a limit on variables per query (typically 999-32766)
+    // With 16 columns per row, batch size of 50 is safe for all SQLite versions
+    await this.client.batchInsert('dependencies', dependencies, 50);
   }
 
   async getDependencies(
@@ -194,15 +197,31 @@ export class DatabaseHandler {
   ): Promise<Pagination<DependencyRow[]>> {
     const page = pagination?.page ?? 0;
     const pageSize = pagination?.pageSize ?? 500;
-    const builder = this.client('dependencies').select<DependencyRow[]>();
-
-    this.applyDependencyFilters(builder, filters);
-
-    const total = await this.getDependenciesCount(filters);
-
     const offset = page * pageSize;
+
+    // Build subquery with filters
+    const filteredQuery = this.client('dependencies').select('*');
+    this.applyDependencyFilters(filteredQuery, filters);
+
+    // Use window function for total count in single query
+    const results = await this.client
+      .select('*')
+      .select(this.client.raw('COUNT(*) OVER() as total_count'))
+      .from<
+        DependencyRow & { total_count: string | number }
+      >(filteredQuery.as('filtered'))
+      .offset(offset)
+      .limit(pageSize);
+
+    const total = results.length > 0 ? Number(results[0].total_count) : 0;
+
+    // Remove total_count from results - properly typed
+    const cleanResults: DependencyRow[] = results.map(
+      ({ total_count, ...row }) => row,
+    );
+
     return {
-      result: await builder.offset(offset).limit(pageSize),
+      result: cleanResults,
       total,
       page,
       pageSize,
@@ -246,25 +265,22 @@ export class DatabaseHandler {
     }
 
     if (filters.latestOnly) {
-      const runIDs = this.client('dependencies')
-        .select('d.run_id')
-        .from('dependencies as d')
-        .join(
-          this.client('dependencies')
-            .select('host', 'repository')
-            .max('extractionTimestamp as max_timestamp')
-            .groupBy('host', 'repository')
-            .as('max_d'),
-          // eslint-disable-next-line func-names
-          function () {
-            this.on('d.host', '=', 'max_d.host')
-              .andOn('d.repository', '=', 'max_d.repository')
-              .andOn('d.extractionTimestamp', '=', 'max_d.max_timestamp');
-          },
+      const rankedSubquery = this.client
+        .select('run_id')
+        .select(
+          this.client.raw(
+            'ROW_NUMBER() OVER (PARTITION BY host, repository ORDER BY "extractionTimestamp" DESC) as rn',
+          ),
         )
-        .distinct();
+        .from('dependencies')
+        .as('ranked');
 
-      builder.whereIn('run_id', runIDs);
+      const latestRunIds = this.client
+        .select('run_id')
+        .from(rankedSubquery)
+        .where('rn', 1);
+
+      builder.whereIn('run_id', latestRunIds);
     }
   }
 
@@ -276,25 +292,44 @@ export class DatabaseHandler {
   async getDependenciesValues(
     filters?: DependencyValueFilters,
   ): Promise<DependencyValues> {
-    const baseBuilder = this.client<DependencyRow, DependencyValueFilters>(
-      'dependencies',
-    );
-    const limitedValuesBuilder = baseBuilder.clone();
+    // Build base builder with filters applied
+    const baseBuilder = this.client('dependencies');
 
-    const allValuesKeys: DependencyValueFiltersKey[] = [];
-    const limitedValuesKeys: DependencyValueFiltersKey[] = [];
-    for (const filterKey of DependencyValueFiltersKeys) {
-      const suppliedFilter = filters?.[filterKey];
-      // if no filter is supplied, return all values
-      if (suppliedFilter) {
-        limitedValuesBuilder.whereIn(filterKey, suppliedFilter);
-        limitedValuesKeys.push(filterKey);
-        continue;
+    // Apply filters to create the filtered dataset
+    const filteredKeys: DependencyValueFiltersKey[] = [];
+    if (filters) {
+      for (const [key, value] of Object.entries(filters)) {
+        if (
+          value &&
+          DependencyValueFiltersKeys.includes(key as DependencyValueFiltersKey)
+        ) {
+          baseBuilder.whereIn(key, value);
+          filteredKeys.push(key as DependencyValueFiltersKey);
+        }
       }
-
-      allValuesKeys.push(filterKey);
     }
 
+    // Use UNION ALL to get all distinct values in one roundtrip
+    // For each column, we need the values from either filtered or unfiltered dataset
+    const queries = DependencyValueFiltersKeys.map(key => {
+      const builder = filteredKeys.includes(key)
+        ? this.client('dependencies') // unfiltered for this column
+        : baseBuilder.clone(); // filtered for other columns
+
+      return builder
+        .select(this.client.raw('? as column_name', [key]))
+        .select(this.client.raw(`?? as value`, [key]))
+        .distinct();
+    });
+
+    // Combine all queries
+    const combinedQuery = queries.reduce((acc, q, i) =>
+      i === 0 ? q : acc.unionAll(q),
+    );
+
+    const rows = await combinedQuery;
+
+    // Group results by column name
     const result: DependencyValues = {
       datasource: [],
       manager: [],
@@ -305,27 +340,12 @@ export class DatabaseHandler {
       repository: [],
     };
 
-    const allValues = allValuesKeys.map(
-      async (filterKey: DependencyValueFiltersKey) => {
-        // get all unique values for the column and do not return as object but list
-        const values = await limitedValuesBuilder
-          .clone()
-          .select(filterKey)
-          .distinct()
-          .pluck(filterKey);
-        result[filterKey] = values.filter(is.string);
-      },
-    );
-    const limitedValues = limitedValuesKeys.map(async filterKey => {
-      const values = await baseBuilder
-        .clone()
-        .select(filterKey)
-        .distinct()
-        .pluck(filterKey);
+    for (const row of rows) {
+      if (row.value && is.string(row.value)) {
+        result[row.column_name as DependencyValueFiltersKey].push(row.value);
+      }
+    }
 
-      result[filterKey] = values.filter(is.string);
-    });
-    await Promise.all([...allValues, ...limitedValues]);
     return result;
   }
 
@@ -344,21 +364,21 @@ export class DatabaseHandler {
   ): Promise<number> {
     const offset = getOffset(options);
 
-    const dependencies = this.client('dependencies')
+    // Get ordered run_ids - must include extractionTimestamp for ORDER BY with DISTINCT
+    const orderedRuns = this.client('dependencies')
       .select('run_id', 'extractionTimestamp')
-      .distinct('host', 'repository')
       .where('host', host)
       .andWhere('repository', repository)
-      .as('runs');
-
-    const toBeDeletedIDs = this.client(dependencies)
-      .select('run_id')
       .orderBy('extractionTimestamp', 'DESC')
-      .offset(offset);
+      .offset(offset)
+      .distinct()
+      .as('ordered');
+
+    const toBeDeletedIDs = this.client.select('run_id').from(orderedRuns);
 
     return this.client('dependencies')
       .delete()
-      .whereIn('run_id', [toBeDeletedIDs]);
+      .whereIn('run_id', toBeDeletedIDs);
   }
 }
 
